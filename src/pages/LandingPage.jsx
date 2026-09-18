@@ -5,6 +5,7 @@ import Seo from '../components/Seo.jsx';
 import H1Wave from '../components/H1Wave.jsx';
 import { ImageHeroVisual } from '../components/HeroVisual.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
+import ProgrammeOrbit from '../components/ProgrammeOrbit.jsx';
 import cyberSecurity from '../data/cyberSecurity.js';
 import aiMl from '../data/aiMl.js';
 import dataScience from '../data/dataScience.js';
@@ -15,11 +16,11 @@ import dataAnalyst from '../data/dataAnalyst.js';
 // five need to be compared side by side, so a short, distinct blurb per course belongs with the
 // page that shows them together.
 const PROGRAMMES = [
-  { course: cyberSecurity, mono: 'CS', blurb: 'Ethical hacking, penetration testing and SOC-ready defensive skills.' },
-  { course: aiMl, mono: 'AI', blurb: 'Python, machine learning, Generative AI and production AI systems.' },
-  { course: dataScience, mono: 'DS', blurb: 'Statistics, Python, machine learning and model deployment.' },
-  { course: socAnalyst, mono: 'SOC', blurb: 'SIEM monitoring, incident response and live threat detection.' },
-  { course: dataAnalyst, mono: 'DA', blurb: 'Excel, SQL, BI dashboards and business reporting.' },
+  { course: cyberSecurity, blurb: 'Ethical hacking, penetration testing and SOC-ready defensive skills.' },
+  { course: aiMl, blurb: 'Python, machine learning, Generative AI and production AI systems.' },
+  { course: dataScience, blurb: 'Statistics, Python, machine learning and model deployment.' },
+  { course: socAnalyst, blurb: 'SIEM monitoring, incident response and live threat detection.' },
+  { course: dataAnalyst, blurb: 'Excel, SQL, BI dashboards and business reporting.' },
 ];
 
 const FIT_FINDER = [
@@ -108,23 +109,7 @@ export default function LandingPage() {
             <h2>Pick a programme, see the full curriculum</h2>
             <p>Every card links straight to that programme's modules, projects, career paths and fees.</p>
           </div>
-          <div className="roadmap">
-            {PROGRAMMES.map(({ course, mono, blurb }) => (
-              <Link className="roadmap-item" to={course.routeBase} key={course.routeBase}>
-                <div className="idx" style={mono.length > 2 ? { fontSize: 15 } : undefined}>
-                  {mono}
-                </div>
-                <div>
-                  <h4>{course.COPY.courseShortName}</h4>
-                  <p className="topics">{blurb}</p>
-                </div>
-                <div className="duration">
-                  <span className="hrs">{course.COPY.heroStats[0].value}</span>
-                  {course.COPY.heroStats[3].value}
-                </div>
-              </Link>
-            ))}
-          </div>
+          <ProgrammeOrbit programmes={PROGRAMMES} />
         </div>
       </section>
 
