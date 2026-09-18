@@ -767,8 +767,8 @@ const COPY = {
     },
     {
       "label": "Course Fees",
-      "value": "₹70,000 onwards",
-      "note": "Offline & Online"
+      "value": "₹55K / ₹65K",
+      "note": "Online / Offline"
     }
   ],
   "heroBadges": [
