@@ -418,3 +418,18 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 
 .landing-shell{min-height:60vh;display:grid;place-items:center;text-align:center;padding:0 24px;}
 .landing-shell p{color:var(--text-faint);font-size:15px;}
+
+/* ---------------------------------------------------------------- Our Programmes landing page */
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fit-item{
+  display:flex;align-items:center;gap:14px;
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 20px;transition:border-color .15s,transform .15s,box-shadow .15s;
+}
+.fit-item:hover{border-color:var(--accent-dim);transform:translateX(4px);box-shadow:0 10px 24px -12px rgba(16,21,31,.16);}
+.fit-item .fit-text{flex:1;font-size:15.5px;line-height:1.5;color:var(--text-dim);}
+.fit-item .fit-text strong{color:var(--text);}
+.fit-item .fit-cta{flex:none;font-weight:700;font-size:14.5px;color:var(--accent);white-space:nowrap;}
+@media (max-width: 880px){
+  .fit-grid{grid-template-columns:1fr;}
+}
