@@ -124,13 +124,18 @@ export default function ProgrammeOrbit({ programmes }) {
               </Link>
             </div>
             <div className="orbit-roles">
-              <span className="orbit-roles-label">You could become a:</span>
-              <div className="orbit-roles-list">
-                {roles.map((r) => (
-                  <span className="orbit-role-chip" key={r}>
-                    {r}
-                  </span>
-                ))}
+              <div className="orbit-bond" aria-hidden="true" />
+              <div className="orbit-roles-diamond">
+                <div className="orbit-roles-diamond-inner">
+                  <span className="orbit-roles-label">You could become a:</span>
+                  <div className="orbit-roles-list">
+                    {roles.map((r) => (
+                      <span className="orbit-role-chip" key={r}>
+                        {r}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

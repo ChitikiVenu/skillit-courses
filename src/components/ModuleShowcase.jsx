@@ -1,42 +1,62 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ImageHeroVisual, SocDashboardSvg } from './HeroVisual.jsx';
+import { SocDashboardSvg } from './HeroVisual.jsx';
 
-// The per-course "Module Roadmap" — a square grid of module cards with that course's own hero
-// visual as a sticky, continuously-floating center piece, instead of the connected-line list used
-// elsewhere. Only used on individual course pages (CourseHomePage), not the Our Programmes page.
+// The per-course "Module Roadmap" — same orbit language as the landing page's programme layout,
+// but with square-cornered cards placed clockwise starting from the left, and a continuously
+// floating center visual specific to this course (its clean centre emblem, no icon ring).
 export default function ModuleShowcase({ course }) {
   const { MODULES, COPY, routeBase } = course;
+  const wrapRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.2 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const centerImageFile = COPY.heroImageFile
+    ? COPY.heroImageFile.replace('-program-diagram.png', '-module-center.png')
+    : null;
+
+  const n = MODULES.length;
+  const startAngle = 270; // left, then clockwise
 
   return (
-    <div className="module-showcase">
-      <div className="module-center">
-        <div className="module-center-glow" />
-        <div className="module-center-inner">
-          {COPY.heroVisual === 'image' ? (
-            <ImageHeroVisual
-              src={`/img/${COPY.heroImageFile}`}
-              alt={COPY.heroImageAlt}
-              width={COPY.heroImageWidth}
-              height={COPY.heroImageHeight}
-            />
+    <div className={`module-orbit-wrap ${inView ? 'in-view' : ''}`} ref={wrapRef}>
+      <div className="module-orbit-center">
+        <div className="module-orbit-center-glow" />
+        <div className="module-orbit-center-inner">
+          {COPY.heroVisual === 'image' && centerImageFile ? (
+            <img src={`/img/${centerImageFile}`} alt={COPY.heroImageAlt} width={300} height={300} loading="lazy" />
           ) : (
             <SocDashboardSvg />
           )}
         </div>
       </div>
-      <div className="module-grid">
-        {MODULES.map((m) => (
-          <Link className="module-square-card" to={`${routeBase}/${m.slug}`} key={m.slug}>
-            <span className="module-square-idx">{String(m.number).padStart(2, '0')}</span>
-            <h4>{m.title}</h4>
-            <p>{m.learn.slice(0, 3).join(', ')}&hellip;</p>
-            <div className="module-square-meta">
-              <span className="module-square-hrs">{m.hours}</span>
-              <span>{m.duration}</span>
-            </div>
-          </Link>
-        ))}
-      </div>
+      {MODULES.map((m, i) => {
+        const angle = (startAngle + i * (360 / n)) % 360;
+        return (
+          <div className="module-orbit-item" key={m.slug} style={{ '--angle': `${angle}deg` }}>
+            <Link className="module-orbit-card" to={`${routeBase}/${m.slug}`}>
+              <span className="module-orbit-idx">{String(m.number).padStart(2, '0')}</span>
+              <h4>{m.title}</h4>
+              <span className="module-orbit-meta">
+                <span className="module-orbit-hrs">{m.hours}</span>
+                {m.duration}
+              </span>
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 }
