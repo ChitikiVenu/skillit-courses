@@ -90,29 +90,31 @@ export default function CourseHomePage({ course }) {
               </div>
             </div>
             <div className="hero-meta">
-              <div className="hero-visual">
-                <div className="hero-visual-glow" />
-                <div className="hero-mockup-card">
-                  {COPY.heroImageFile ? (
-                    <ImageHeroVisual
-                      src={`/img/${COPY.heroImageFile}`}
-                      alt={COPY.heroImageAlt}
-                      width={COPY.heroImageWidth}
-                      height={COPY.heroImageHeight}
-                    />
-                  ) : (
-                    <SocDashboardSvg />
-                  )}
+              {COPY.heroVisual !== 'none' && (
+                <div className="hero-visual">
+                  <div className="hero-visual-glow" />
+                  <div className="hero-mockup-card">
+                    {COPY.heroVisual === 'image' ? (
+                      <ImageHeroVisual
+                        src={`/img/${COPY.heroImageFile}`}
+                        alt={COPY.heroImageAlt}
+                        width={COPY.heroImageWidth}
+                        height={COPY.heroImageHeight}
+                      />
+                    ) : (
+                      <SocDashboardSvg />
+                    )}
+                  </div>
+                  <div className="floating-badge floating-badge-1">
+                    <span className="dot" />
+                    {COPY.heroBadges[0]}
+                  </div>
+                  <div className="floating-badge floating-badge-2">
+                    <span className="dot" />
+                    {COPY.heroBadges[1]}
+                  </div>
                 </div>
-                <div className="floating-badge floating-badge-1">
-                  <span className="dot" />
-                  {COPY.heroBadges[0]}
-                </div>
-                <div className="floating-badge floating-badge-2">
-                  <span className="dot" />
-                  {COPY.heroBadges[1]}
-                </div>
-              </div>
+              )}
               <div className="hero-quote">
                 <div className="hero-quote-mark">&ldquo;</div>
                 <blockquote>{COPY.heroQuote.text}</blockquote>

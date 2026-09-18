@@ -497,6 +497,7 @@ const COPY = {
   "breadcrumbProgramName": "SOC Analyst Program",
   "courseShortName": "SOC Analyst",
   "ogImageFile": "soc-analyst-og-card.png",
+  "heroVisual": "svg",
   "brochureFile": "Skill-IT-Education-SOC-Analyst-Brochure.pdf",
   "preselectedCourse": "SOC (Security Operations Center)",
   "durationChip": "INDUSTRY-ALIGNED SOC ANALYST TRAINING",
