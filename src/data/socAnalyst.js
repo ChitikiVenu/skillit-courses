@@ -493,7 +493,7 @@ const TOOL_LIBRARY = {
 // identical across every course.
 const COPY = {
   "metaTitle": "Best SOC Analyst Training Institute in Hyderabad | Skill IT Education",
-  "metaDesc": "The Best SOC Analyst Training Institute in Hyderabad — a 7-month SOC Analyst Program: networking, SOC operations, IBM QRadar/Splunk SIEM and incident response.",
+  "metaDesc": "The Best SOC Analyst Training Institute in Hyderabad — a 5-month SOC Analyst Program: networking, SOC operations, IBM QRadar/Splunk SIEM and incident response.",
   "breadcrumbProgramName": "SOC Analyst Program",
   "courseShortName": "SOC Analyst",
   "ogImageFile": "soc-analyst-og-card.png",
@@ -503,15 +503,15 @@ const COPY = {
   "durationChip": "INDUSTRY-ALIGNED SOC ANALYST TRAINING",
   "heroTitleHtml": "Advanced SOC Analyst<br>Certification Program",
   "heroKicker": "The Best SOC Analyst Training Institute in Hyderabad",
-  "heroLede": "A 7-month SOC Analyst Program that takes you step by step from IT and networking foundations to real Security Operations Center work — monitoring networks, operating SIEM platforms, investigating incidents and hunting threats in live, hands-on environments. Five structured modules and a two-month real-time industry internship — built to make you a SOC analyst, not just a certificate holder.",
+  "heroLede": "A 5-month SOC Analyst Program that takes you step by step from IT and networking foundations to real Security Operations Center work — monitoring networks, operating SIEM platforms, investigating incidents and hunting threats in live, hands-on environments. Five structured modules and a two-month real-time industry internship — built to make you a SOC analyst, not just a certificate holder.",
   "heroStats": [
     {
       "label": "Total Duration",
-      "value": "7 Months"
+      "value": "5 Months"
     },
     {
       "label": "Structured Learning",
-      "value": "5 Months"
+      "value": "3 Months"
     },
     {
       "label": "Industry Internship",
@@ -612,7 +612,7 @@ const COPY = {
   "certTitle": "Certifications This SOC Analyst Course Prepares You For",
   "certSubtitle": "The curriculum is structured to help prepare learners for the following external certifications, including CompTIA Security+ and EC-Council Certified SOC Analyst.",
   "finalCtaTitle": "Start your SOC analyst career with a structured, hands-on program",
-  "finalCtaSubtitle": "7 months total — 5 months of structured learning across five modules, plus 2 months of real-time industry internship."
+  "finalCtaSubtitle": "5 months total — 3 months of structured learning across five modules, plus 2 months of real-time industry internship."
 };
 
 // routeBase is this course's mount point inside the unified app's router (e.g. "/cyber-security"),

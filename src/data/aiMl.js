@@ -737,7 +737,7 @@ const TOOL_LIBRARY = {
 // identical across every course.
 const COPY = {
   "metaTitle": "Best AI & ML Training Institute in Hyderabad | Skill IT Education",
-  "metaDesc": "The Best AI & ML Training Institute in Hyderabad — an 8-month AI Engineering Certification Program: Python, ML, Generative AI, Agentic AI and MLOps.",
+  "metaDesc": "The Best AI & ML Training Institute in Hyderabad — a 7-month AI Engineering Certification Program: Python, ML, Generative AI, Agentic AI and MLOps.",
   "breadcrumbProgramName": "AI & ML Program",
   "courseShortName": "AI & ML",
   "ogImageFile": "ai-ml-program-diagram.png",
@@ -751,15 +751,15 @@ const COPY = {
   "durationChip": "INDUSTRY-ALIGNED AI & ML TRAINING",
   "heroTitleHtml": "Advanced AI &amp; ML<br>Certification Program",
   "heroKicker": "The Best AI & ML Training Institute in Hyderabad",
-  "heroLede": "An 8-month Advanced AI & ML Certification Program, prepared by an IITian & AI Architect, that takes you from Python and backend foundations through Machine Learning, Generative AI and Agentic AI to production-grade AI systems. Seven hands-on modules and a two-month real-time internship — built to get you job-ready as an AI engineer, not just an AI tool user.",
+  "heroLede": "A 7-month Advanced AI & ML Certification Program, prepared by an IITian & AI Architect, that takes you from Python and backend foundations through Machine Learning, Generative AI and Agentic AI to production-grade AI systems. Seven hands-on modules and a two-month real-time internship — built to get you job-ready as an AI engineer, not just an AI tool user.",
   "heroStats": [
     {
       "label": "Course Duration",
-      "value": "8 Months"
+      "value": "7 Months"
     },
     {
       "label": "Core Learning",
-      "value": "6 Months"
+      "value": "5 Months"
     },
     {
       "label": "Real-Time Internship",
@@ -862,7 +862,7 @@ const COPY = {
   "certTitle": "AI & ML Certifications This Course Prepares You For",
   "certSubtitle": "The curriculum is structured to help prepare learners for the following external certifications, including Microsoft Azure AI Engineer and AWS ML Engineer.",
   "finalCtaTitle": "Start your AI engineering career with a structured, hands-on program",
-  "finalCtaSubtitle": "8 months total — 6 months of core learning across seven modules, plus 2 months of real-time internship."
+  "finalCtaSubtitle": "7 months total — 5 months of core learning across seven modules, plus 2 months of real-time internship."
 };
 
 // routeBase is this course's mount point inside the unified app's router (e.g. "/cyber-security"),

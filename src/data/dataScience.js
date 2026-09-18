@@ -610,7 +610,7 @@ const TOOL_LIBRARY = {};
 // identical across every course.
 const COPY = {
   "metaTitle": "Data Science Certification Program in Hyderabad | Skill IT Education",
-  "metaDesc": "A 6-month Data Science Certification Program in Hyderabad — Python, SQL, machine learning, BI dashboards and model deployment, with a 2-month industry internship.",
+  "metaDesc": "A 7-month Data Science Certification Program in Hyderabad — Python, SQL, machine learning, BI dashboards and model deployment, with a 2-month industry internship.",
   "breadcrumbProgramName": "Data Science Program",
   "courseShortName": "Data Science",
   "ogImageFile": "data-science-program-diagram.png",
@@ -628,15 +628,15 @@ const COPY = {
   "durationChip": "INDUSTRY-ALIGNED DATA SCIENCE TRAINING",
   "heroTitleHtml": "Advanced Data Science<br>Certification Program",
   "heroKicker": "Data Science Training in Hyderabad",
-  "heroLede": "A 6-month Advanced Data Science Certification Program that takes you from mathematics, statistics and Python programming through machine learning, business intelligence and model deployment. Eight hands-on modules and a two-month real-time internship — built to get you job-ready as a data scientist, not just someone who can run a notebook.",
+  "heroLede": "A 7-month Advanced Data Science Certification Program that takes you from mathematics, statistics and Python programming through machine learning, business intelligence and model deployment. Eight hands-on modules and a two-month real-time internship — built to get you job-ready as a data scientist, not just someone who can run a notebook.",
   "heroStats": [
     {
       "label": "Course Duration",
-      "value": "6 Months"
+      "value": "7 Months"
     },
     {
       "label": "Structured Learning",
-      "value": "4 Months"
+      "value": "5 Months"
     },
     {
       "label": "Industry Internship",
@@ -733,7 +733,7 @@ const COPY = {
   "certTitle": "Certifications This Data Science Course Prepares You For",
   "certSubtitle": "The curriculum is structured to help prepare learners for the following external certifications, including Google Data Analytics and IBM Data Science.",
   "finalCtaTitle": "Start your data science career with a structured, hands-on program",
-  "finalCtaSubtitle": "6 months total — 4 months of structured learning across eight modules, plus 2 months of real-time industry internship."
+  "finalCtaSubtitle": "7 months total — 5 months of structured learning across eight modules, plus 2 months of real-time industry internship."
 };
 
 // routeBase is this course's mount point inside the unified app's router (e.g. "/cyber-security"),
