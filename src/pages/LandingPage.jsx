@@ -1,15 +1,15 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { DOMAIN, PHONE } from '../constants.js';
+import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import H1Wave from '../components/H1Wave.jsx';
 import { ImageHeroVisual } from '../components/HeroVisual.jsx';
+import AdvisorModal from '../components/AdvisorModal.jsx';
 import cyberSecurity from '../data/cyberSecurity.js';
 import aiMl from '../data/aiMl.js';
 import dataScience from '../data/dataScience.js';
 import socAnalyst from '../data/socAnalyst.js';
 import dataAnalyst from '../data/dataAnalyst.js';
-
-const COUNSEL_TEL = 'tel:' + PHONE.replace(/ /g, '');
 
 // Card copy kept here rather than in each course's own data file — this is the one place all
 // five need to be compared side by side, so a short, distinct blurb per course belongs with the
@@ -31,6 +31,8 @@ const FIT_FINDER = [
 ];
 
 export default function LandingPage() {
+  const [advisorOpen, setAdvisorOpen] = useState(false);
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -71,9 +73,9 @@ export default function LandingPage() {
                 <a className="btn btn-outline" href="#fit-finder">
                   Not Sure Which One?
                 </a>
-                <a className="btn btn-primary" href={COUNSEL_TEL}>
+                <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
                   Talk to an Advisor
-                </a>
+                </button>
               </div>
             </div>
             <div className="hero-meta">
@@ -155,12 +157,14 @@ export default function LandingPage() {
             <p>Talk to an advisor — they'll help you match your background and goals to the right programme.</p>
           </div>
           <div className="hero-ctas" style={{ margin: 0 }}>
-            <a className="btn btn-primary" href={COUNSEL_TEL}>
+            <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
               Talk to an Advisor
-            </a>
+            </button>
           </div>
         </div>
       </section>
+
+      <AdvisorModal open={advisorOpen} onClose={() => setAdvisorOpen(false)} />
     </main>
   );
 }
