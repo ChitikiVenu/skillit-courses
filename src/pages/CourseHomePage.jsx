@@ -5,6 +5,7 @@ import H1Wave from '../components/H1Wave.jsx';
 import ToolCard from '../components/ToolCard.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import { ImageHeroVisual, SocDashboardSvg } from '../components/HeroVisual.jsx';
+import ModuleShowcase from '../components/ModuleShowcase.jsx';
 
 const COUNSEL_TEL = 'tel:' + PHONE.replace(/ /g, '');
 
@@ -144,21 +145,7 @@ export default function CourseHomePage({ course }) {
             <h2>{COPY.roadmapTitle}</h2>
             <p>{COPY.roadmapSubtitle}</p>
           </div>
-          <div className="roadmap">
-            {MODULES.map((m) => (
-              <Link className="roadmap-item" to={`${routeBase}/${m.slug}`} key={m.slug}>
-                <div className="idx">{String(m.number).padStart(2, '0')}</div>
-                <div>
-                  <h4>{m.title}</h4>
-                  <p className="topics">{m.learn.slice(0, 3).join(', ')}&hellip;</p>
-                </div>
-                <div className="duration">
-                  <span className="hrs">{m.hours}</span>
-                  {m.duration}
-                </div>
-              </Link>
-            ))}
-          </div>
+          <ModuleShowcase course={course} />
         </div>
       </section>
 

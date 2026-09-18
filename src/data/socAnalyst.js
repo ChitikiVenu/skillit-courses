@@ -502,7 +502,7 @@ const COPY = {
   "preselectedCourse": "SOC (Security Operations Center)",
   "durationChip": "INDUSTRY-ALIGNED SOC ANALYST TRAINING",
   "heroTitleHtml": "Advanced SOC Analyst<br>Certification Program",
-  "heroKicker": "The Best SOC Analyst Training Institute in Hyderabad",
+  "heroKicker": "SOC Analyst Training in Hyderabad",
   "heroLede": "A 5-month SOC Analyst Program that takes you step by step from IT and networking foundations to real Security Operations Center work — monitoring networks, operating SIEM platforms, investigating incidents and hunting threats in live, hands-on environments. Five structured modules and a two-month real-time industry internship — built to make you a SOC analyst, not just a certificate holder.",
   "heroStats": [
     {

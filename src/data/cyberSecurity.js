@@ -631,7 +631,7 @@ const COPY = {
   "preselectedCourse": null,
   "durationChip": "INDUSTRY-ALIGNED CYBERSECURITY TRAINING",
   "heroTitleHtml": "Advanced Cyber Security<br>Certification Program",
-  "heroKicker": "The Best Cyber Security Academy in Hyderabad",
+  "heroKicker": "Cyber Security Training in Hyderabad",
   "heroLede": "A structured, five-month Advanced Cyber Security Certification Program that takes you from networking and ethical-hacking fundamentals to professional-grade penetration testing, cryptography and security operations. Six hands-on modules, a three-month project phase and a two-month real-time internship — built to get you job-ready for SOC, VAPT and offensive-security roles, not just certified.",
   "heroStats": [
     {

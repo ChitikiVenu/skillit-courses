@@ -750,7 +750,7 @@ const COPY = {
   "preselectedCourse": "AI/ML",
   "durationChip": "INDUSTRY-ALIGNED AI & ML TRAINING",
   "heroTitleHtml": "Advanced AI &amp; ML<br>Certification Program",
-  "heroKicker": "The Best AI & ML Training Institute in Hyderabad",
+  "heroKicker": "AI & ML Training in Hyderabad",
   "heroLede": "A 7-month Advanced AI & ML Certification Program, prepared by an IITian & AI Architect, that takes you from Python and backend foundations through Machine Learning, Generative AI and Agentic AI to production-grade AI systems. Seven hands-on modules and a two-month real-time internship — built to get you job-ready as an AI engineer, not just an AI tool user.",
   "heroStats": [
     {
