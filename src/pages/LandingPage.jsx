@@ -16,11 +16,31 @@ import dataAnalyst from '../data/dataAnalyst.js';
 // five need to be compared side by side, so a short, distinct blurb per course belongs with the
 // page that shows them together.
 const PROGRAMMES = [
-  { course: cyberSecurity, blurb: 'Ethical hacking, penetration testing and SOC-ready defensive skills.' },
-  { course: aiMl, blurb: 'Python, machine learning, Generative AI and production AI systems.' },
-  { course: dataScience, blurb: 'Statistics, Python, machine learning and model deployment.' },
-  { course: socAnalyst, blurb: 'SIEM monitoring, incident response and live threat detection.' },
-  { course: dataAnalyst, blurb: 'Excel, SQL, BI dashboards and business reporting.' },
+  {
+    course: cyberSecurity,
+    blurb: 'Ethical hacking, penetration testing and SOC-ready defensive skills.',
+    roles: ['SOC Analyst', 'Penetration Tester', 'Security Analyst', 'Ethical Hacker', 'Incident Response Analyst', 'Cloud Security Engineer'],
+  },
+  {
+    course: aiMl,
+    blurb: 'Python, machine learning, Generative AI and production AI systems.',
+    roles: ['AI Engineer', 'Machine Learning Engineer', 'Generative AI Engineer', 'MLOps Engineer', 'AI Solutions Engineer', 'Backend Developer'],
+  },
+  {
+    course: dataScience,
+    blurb: 'Statistics, Python, machine learning and model deployment.',
+    roles: ['Data Scientist', 'ML Engineer', 'Data Analyst', 'BI Analyst', 'Data Engineer', 'Analytics Consultant'],
+  },
+  {
+    course: socAnalyst,
+    blurb: 'SIEM monitoring, incident response and live threat detection.',
+    roles: ['SOC Analyst', 'Incident Response Analyst', 'Threat Hunter', 'SIEM Engineer', 'Security Monitoring Analyst', 'Threat Intelligence Analyst'],
+  },
+  {
+    course: dataAnalyst,
+    blurb: 'Excel, SQL, BI dashboards and business reporting.',
+    roles: ['Data Analyst', 'BI Analyst', 'Business Analyst', 'Reporting Analyst', 'Analytics Consultant', 'Dashboard Developer'],
+  },
 ];
 
 const FIT_FINDER = [
@@ -102,12 +122,15 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="programmes" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <section
+        id="programmes"
+        style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '40px 0' }}
+      >
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">Compare Programmes</span>
             <h2>Pick a programme, see the full curriculum</h2>
-            <p>Every card links straight to that programme's modules, projects, career paths and fees.</p>
+            <p>Every card links to that programme's modules, projects and full curriculum.</p>
           </div>
           <ProgrammeOrbit programmes={PROGRAMMES} />
         </div>
