@@ -20,18 +20,23 @@ export default function Header() {
     <header className="site-header">
       <div className="wrap site-header-inner">
         <div className="programmes-menu" ref={ref}>
-          <button
-            type="button"
-            className="programmes-menu-trigger"
-            aria-haspopup="true"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            Our Programmes
-            <span className={`programmes-menu-caret ${open ? 'open' : ''}`} aria-hidden="true">
-              &#9662;
-            </span>
-          </button>
+          <div className="programmes-menu-trigger">
+            <Link to="/" className="programmes-menu-label" onClick={() => setOpen(false)}>
+              Our Programmes
+            </Link>
+            <button
+              type="button"
+              className="programmes-menu-caret-btn"
+              aria-haspopup="true"
+              aria-expanded={open}
+              aria-label="Toggle programmes menu"
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span className={`programmes-menu-caret ${open ? 'open' : ''}`} aria-hidden="true">
+                &#9662;
+              </span>
+            </button>
+          </div>
           {open && (
             <div className="programmes-menu-panel" role="menu">
               {PROGRAMMES.map((p) => (

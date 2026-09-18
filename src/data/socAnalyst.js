@@ -3,7 +3,7 @@
 
 const SITE = {
   "brand": "SKILL IT EDUCATION",
-  "program": "SOC Analyst Program",
+  "program": "Advanced SOC Analyst Certification Program",
   "base_path": "/courses/SOC-Analyst",
   "phone": "+91 9177715978",
   "email": "info@skilliteducation.com",
@@ -501,7 +501,7 @@ const COPY = {
   "brochureFile": "Skill-IT-Education-SOC-Analyst-Brochure.pdf",
   "preselectedCourse": "SOC (Security Operations Center)",
   "durationChip": "INDUSTRY-ALIGNED SOC ANALYST TRAINING",
-  "heroTitleHtml": "SOC Analyst<br>Program",
+  "heroTitleHtml": "Advanced SOC Analyst<br>Certification Program",
   "heroKicker": "The Best SOC Analyst Training Institute in Hyderabad",
   "heroLede": "A 7-month SOC Analyst Program that takes you step by step from IT and networking foundations to real Security Operations Center work — monitoring networks, operating SIEM platforms, investigating incidents and hunting threats in live, hands-on environments. Five structured modules and a two-month real-time industry internship — built to make you a SOC analyst, not just a certificate holder.",
   "heroStats": [

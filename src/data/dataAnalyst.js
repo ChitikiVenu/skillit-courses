@@ -3,7 +3,7 @@
 
 const SITE = {
   "brand": "SKILL IT EDUCATION",
-  "program": "Data Analytics Certification Program",
+  "program": "Advanced Data Analytics Certification Program",
   "base_path": "/courses/Data-Analytics",
   "phone": "+91 9177715978",
   "email": "info@skilliteducation.com",
@@ -664,7 +664,7 @@ const COPY = {
   "brochureFile": "Skill-IT-Education-Data-Analytics-Brochure.pdf",
   "preselectedCourse": "Data Analyst",
   "durationChip": "INDUSTRY-ALIGNED DATA ANALYTICS TRAINING",
-  "heroTitleHtml": "Data Analytics<br>Certification Program",
+  "heroTitleHtml": "Advanced Data Analytics<br>Certification Program",
   "heroKicker": "Data Analytics Training in Hyderabad",
   "heroLede": "A 5-month Data Analytics Certification Program that takes you from Excel and SQL fundamentals through exploratory analysis, visualization and business intelligence to real-world reporting. Nine hands-on modules and a two-month real-time internship — built to get you job-ready as a data analyst, not just someone who can build a spreadsheet.",
   "heroStats": [

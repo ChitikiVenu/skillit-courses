@@ -390,11 +390,15 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 }
 .site-header-inner{display:flex;align-items:center;height:56px;}
 .programmes-menu{position:relative;}
-.programmes-menu-trigger{
-  display:flex;align-items:center;gap:6px;
-  background:none;border:none;cursor:pointer;
+.programmes-menu-trigger{display:flex;align-items:center;gap:2px;}
+.programmes-menu-label{
   font-family:var(--font);font-size:14px;font-weight:700;color:var(--text);
-  padding:8px 4px;
+  padding:8px 2px 8px 4px;
+}
+.programmes-menu-label:hover{color:var(--accent);}
+.programmes-menu-caret-btn{
+  background:none;border:none;cursor:pointer;padding:8px 6px;
+  display:flex;align-items:center;
 }
 .programmes-menu-caret{font-size:11px;color:var(--text-faint);transition:transform .15s ease;}
 .programmes-menu-caret.open{transform:rotate(180deg);}
