@@ -132,6 +132,8 @@ export default function LandingPage() {
             <h2>Pick a programme, see the full curriculum</h2>
             <p>Every card links to that programme's modules, projects and full curriculum.</p>
           </div>
+        </div>
+        <div className="orbit-outer">
           <ProgrammeOrbit programmes={PROGRAMMES} />
         </div>
       </section>
