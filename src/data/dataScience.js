@@ -613,7 +613,16 @@ const COPY = {
   "metaDesc": "A 6-month Data Science Certification Program in Hyderabad — Python, SQL, machine learning, BI dashboards and model deployment, with a 2-month industry internship.",
   "breadcrumbProgramName": "Data Science Program",
   "courseShortName": "Data Science",
-  "heroVisual": "none",
+  "ogImageFile": "data-science-program-diagram.png",
+  "heroVisual": "image",
+  "heroImageFile": "data-science-program-diagram.png",
+  "heroImageAlt": "Advanced Data Science Certification Program skill map — Python, SQL, Jupyter, Data Visualization, Machine Learning, Deep Learning, AWS Cloud, MLOps, Excel, Tableau, Power BI, Big Data",
+  "heroImageWidth": 1000,
+  "heroImageHeight": 1000,
+  "heroBadges": [
+    "Industry-Aligned",
+    "180+ Hrs Hands-On"
+  ],
   "brochureFile": "Skill-IT-Education-Data-Science-Brochure.pdf",
   "preselectedCourse": "Data Science",
   "durationChip": "INDUSTRY-ALIGNED DATA SCIENCE TRAINING",
