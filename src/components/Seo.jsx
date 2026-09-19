@@ -1,13 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import { BRAND, DOMAIN } from '../constants.js';
 
-export default function Seo({ title, description, path, ogImage, jsonLd }) {
+export default function Seo({ title, description, path, ogImage, jsonLd, noindex }) {
   const canonicalUrl = DOMAIN + path;
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonicalUrl} />
+      {noindex ? <meta name="robots" content="noindex, follow" /> : <link rel="canonical" href={canonicalUrl} />}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={BRAND} />
       <meta property="og:title" content={title} />
