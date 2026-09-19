@@ -60,7 +60,7 @@ const PhoneIcon = () => (
 // underlined) and a click-to-call button; phones swap them for a menu button that opens a
 // full-width sheet with every link in it.
 export default function Header() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -69,7 +69,27 @@ export default function Header() {
   const programmesActive = pathname === '/programmes' || PROGRAMMES.some((p) => pathname.startsWith(p.path));
   const insightsActive = pathname.startsWith('/blog');
 
+  const isCurrent = (path) => {
+    const [p, q] = path.split('?');
+    if (q) return pathname === p && search === `?${q}`;
+    return p === '/' ? pathname === '/' : pathname.startsWith(p);
+  };
+
   useEffect(() => setMenuOpen(false), [pathname]);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 961px)');
+    const onChange = (e) => e.matches && setMenuOpen(false);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
@@ -112,32 +132,39 @@ export default function Header() {
           aria-controls="mobile-menu"
           onClick={() => setMenuOpen((v) => !v)}
         >
-          <span />
-          <span />
-          <span />
+          <span className="header-burger-icon" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
+          <span className="header-burger-label">{menuOpen ? 'Close' : 'Menu'}</span>
         </button>
       </div>
 
       {menuOpen && (
         <div className="mobile-menu" id="mobile-menu">
+          <Link to="/" className="mobile-menu-home" aria-current={isCurrent('/') ? 'page' : undefined} onClick={close}>
+            Home
+          </Link>
           <div className="mobile-menu-group">
-            <Link to="/programmes" className="mobile-menu-head" onClick={close}>
+            <Link to="/programmes" className="mobile-menu-head" aria-current={pathname === '/programmes' ? 'page' : undefined} onClick={close}>
               Our Programmes
             </Link>
             {programmeItems.map((item) => (
-              <Link key={item.path} to={item.path} className="mobile-menu-link" onClick={close}>
-                {item.label}
-                {item.soon && <span className="programmes-menu-soon">Coming soon</span>}
+              <Link key={item.path} to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
+                <span>{item.label}</span>
+                {item.soon ? <span className="programmes-menu-soon">Coming soon</span> : <span className="mobile-menu-chevron" aria-hidden="true">&rsaquo;</span>}
               </Link>
             ))}
           </div>
           <div className="mobile-menu-group">
-            <Link to="/blog" className="mobile-menu-head" onClick={close}>
+            <Link to="/blog" className="mobile-menu-head" aria-current={pathname === '/blog' && !search ? 'page' : undefined} onClick={close}>
               Career Insights
             </Link>
             {insightItems.map((item) => (
-              <Link key={item.path} to={item.path} className="mobile-menu-link" onClick={close}>
-                {item.label}
+              <Link key={item.path} to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
+                <span>{item.label}</span>
+                <span className="mobile-menu-chevron" aria-hidden="true">&rsaquo;</span>
               </Link>
             ))}
           </div>
