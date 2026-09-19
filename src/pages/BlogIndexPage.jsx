@@ -3,23 +3,17 @@ import { Link, useSearchParams } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import { BLOG_POSTS } from '../data/blogPosts.js';
 
-function InsightAccordion({ post }) {
-  const [openIdx, setOpenIdx] = useState(null);
-
+// Each card is a full question, and clicking it goes straight to the relevant section of that
+// programme's long-form guide — real article content, not a two-line inline answer.
+function InsightGrid({ post }) {
   return (
-    <div className="insight-accordion">
-      {post.insights.map((item, i) => {
-        const open = openIdx === i;
-        return (
-          <div className={`insight-item ${open ? 'open' : ''}`} key={item.q}>
-            <button type="button" className="insight-question" onClick={() => setOpenIdx(open ? null : i)} aria-expanded={open}>
-              {item.q}
-              <span className="insight-toggle" aria-hidden="true">{open ? '−' : '+'}</span>
-            </button>
-            {open && <p className="insight-answer">{item.a}</p>}
-          </div>
-        );
-      })}
+    <div className="insight-grid">
+      {post.insights.map((item) => (
+        <Link className="insight-card" to={`/blog/${post.slug}#${item.anchor}`} key={item.q}>
+          <span className="insight-card-headline">{item.q}</span>
+          <span className="insight-card-cta">Read the answer &rarr;</span>
+        </Link>
+      ))}
     </div>
   );
 }
@@ -32,7 +26,7 @@ function ProgrammeInsights({ post }) {
         <h2>{post.course.COPY.courseShortName} Insights</h2>
         <p>{post.insights.length} questions students search before choosing {post.course.COPY.courseShortName}.</p>
       </div>
-      <InsightAccordion post={post} />
+      <InsightGrid post={post} />
       <Link className="programme-insights-link" to={`/blog/${post.slug}`}>
         Read the full {post.course.COPY.courseShortName} career guide &rarr;
       </Link>
