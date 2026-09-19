@@ -5,7 +5,7 @@ import Seo from '../components/Seo.jsx';
 import H1Wave from '../components/H1Wave.jsx';
 import { ImageHeroVisual } from '../components/HeroVisual.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
-import ProgrammeOrbit from '../components/ProgrammeOrbit.jsx';
+import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
 import cyberSecurity from '../data/cyberSecurity.js';
 import aiMl from '../data/aiMl.js';
 import dataScience from '../data/dataScience.js';
@@ -124,17 +124,16 @@ export default function LandingPage() {
 
       <section
         id="programmes"
-        style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '40px 0' }}
+        style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '32px 0' }}
       >
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head flow-section-head">
             <span className="eyebrow">Compare Programmes</span>
             <h2>Pick a programme, see the full curriculum</h2>
-            <p>Every card links to that programme's modules, projects and full curriculum.</p>
           </div>
         </div>
-        <div className="orbit-outer">
-          <ProgrammeOrbit programmes={PROGRAMMES} />
+        <div className="flow-outer">
+          <ProgrammeFlow programmes={PROGRAMMES} />
         </div>
       </section>
 

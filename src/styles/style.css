@@ -485,108 +485,90 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .modal-field input:focus, .modal-field select:focus, .modal-field textarea:focus{outline:2px solid var(--accent-dim);outline-offset:1px;}
 .modal-form .form-submit{width:100%;justify-content:center;}
 
-/* ---------------------------------------------------------------- Programme orbit (solar system) */
-.orbit-outer{width:100%;padding:0 24px;box-sizing:border-box;}
-.orbit-wrap{
-  position:relative;width:100%;max-width:1500px;aspect-ratio:1/1;
-  margin:20px auto 10px;
+/* ---------------------------------------------------------------- Programme flow (laptop -> funnel) */
+.flow-section-head{margin-bottom:8px;}
+.flow-outer{width:100%;padding:0 24px;box-sizing:border-box;}
+.flow-wrap{
+  position:relative;width:100%;max-width:1400px;height:min(72vh,600px);min-height:460px;
+  margin:8px auto 0;
 }
-.orbit-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
-.orbit-connector line{
-  stroke:var(--accent-2);stroke-width:2;stroke-dasharray:5 5;
-  opacity:0;transition:opacity .6s ease .5s;
+.flow-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+.flow-connector line{
+  stroke:var(--accent-2);stroke-width:1.5;stroke-dasharray:4 4;
+  opacity:0;transition:opacity .5s ease;
+  vector-effect:non-scaling-stroke;
 }
-.orbit-wrap.in-view .orbit-connector line{opacity:.55;}
-.orbit-connector circle{fill:var(--accent-2);opacity:0;transition:opacity .6s ease .5s;}
-.orbit-wrap.in-view .orbit-connector circle{opacity:1;}
-.orbit-center{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:280px;z-index:2;pointer-events:none;
-  filter:drop-shadow(0 20px 36px rgba(16,21,31,.18));
+.flow-wrap.in-view .flow-connector line{opacity:.5;}
+
+.flow-laptop{
+  position:absolute;top:50%;transform:translate(-50%,-50%);width:12%;min-width:130px;
+  z-index:2;pointer-events:none;filter:drop-shadow(0 16px 28px rgba(16,21,31,.16));
 }
-.orbit-center-inner{position:relative;}
-.orbit-center-inner img{width:100%;height:auto;display:block;}
-.orbit-screen{
+.flow-laptop-inner{position:relative;}
+.flow-laptop-inner img{width:100%;height:auto;display:block;}
+.flow-screen{
   position:absolute;left:17.4%;top:10.6%;width:64.8%;height:66%;
   overflow:hidden;padding:4% 5% 0;
   display:flex;flex-direction:column;
 }
-.orbit-code-line{
+.flow-code-line{
   font-family:var(--mono);white-space:pre;
-  font-size:9px;line-height:1.55;color:var(--text-dim);
+  font-size:7.5px;line-height:1.5;color:var(--text-dim);
 }
-.orbit-code-line:nth-child(odd){color:var(--accent-2);}
-.orbit-cursor{
+.flow-code-line:nth-child(odd){color:var(--accent-2);}
+.flow-cursor{
   display:inline-block;width:2px;height:0.9em;margin-left:1px;
   background:var(--accent);vertical-align:-0.1em;
-  animation:orbitBlink 1s step-end infinite;
+  animation:flowBlink 1s step-end infinite;
 }
-@keyframes orbitBlink{50%{opacity:0;}}
+@keyframes flowBlink{50%{opacity:0;}}
 
-.orbit-card{
-  position:absolute;top:50%;left:50%;width:172px;
-  transform:translate(-50%,-50%) rotate(var(--angle)) translateY(0) rotate(calc(-1 * var(--angle)));
-  opacity:0;
-  transition:transform 1s cubic-bezier(.22,1,.36,1), opacity .6s ease, box-shadow .2s, border-color .2s;
-  text-align:center;color:inherit;
-  background:var(--surface);border:1px solid var(--border);border-radius:16px;
-  padding:13px 12px;box-shadow:0 10px 24px -12px rgba(16,21,31,.16);
+.flow-program{
+  position:absolute;transform:translate(-40px,-50%);opacity:0;
+  display:block;text-align:left;color:inherit;
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  padding:10px 14px;box-shadow:0 8px 18px -10px rgba(16,21,31,.16);
+  transition:transform .6s cubic-bezier(.22,1,.36,1), opacity .5s ease, box-shadow .2s, border-color .2s;
 }
-.orbit-wrap.in-view .orbit-card{
-  transform:translate(-50%,-50%) rotate(var(--angle)) translateY(calc(-1 * var(--card-r))) rotate(calc(-1 * var(--angle)));
-  opacity:1;
-}
-.orbit-card:hover{box-shadow:0 18px 34px -14px rgba(16,21,31,.26);border-color:var(--accent-dim);}
-.orbit-card h4{margin:0 0 6px;font-size:15.5px;}
-.orbit-card p{
-  margin:0 0 8px;font-size:12.5px;line-height:1.4;color:var(--text-faint);
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-}
-.orbit-duration{
-  display:inline-block;margin-bottom:8px;
-  font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);
-}
-.orbit-explore-btn{
-  display:inline-block;width:100%;
-  font-family:var(--mono);font-size:12px;font-weight:700;color:var(--accent-2);
-  background:var(--bg-alt);border:1px dashed var(--border);border-radius:8px;
-  padding:8px 6px;transition:background .2s,border-color .2s,color .2s;
-}
-.orbit-explore-btn:hover{background:var(--accent-2);border-color:var(--accent-2);border-style:solid;color:#fff;}
+.flow-wrap.in-view .flow-program{transform:translate(0,-50%);opacity:1;}
+.flow-program:hover{box-shadow:0 14px 26px -12px rgba(16,21,31,.24);border-color:var(--accent-dim);}
+.flow-program h4{margin:0 0 2px;font-size:14.5px;}
+.flow-program p{margin:0 0 4px;font-size:11px;line-height:1.3;color:var(--text-faint);}
+.flow-duration{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--accent);}
 
-.orbit-roles-box{
-  position:absolute;top:50%;left:50%;width:206px;
-  transform:translate(-50%,-50%) rotate(var(--angle)) translateY(0) rotate(calc(-1 * var(--angle)));
-  opacity:0;
-  transition:transform 1.1s cubic-bezier(.22,1,.36,1) .1s, opacity .6s ease .5s, box-shadow .2s, border-color .2s;
-  text-align:center;
+.flow-roles{
+  position:absolute;transform:translate(-40px,-50%);opacity:0;
+  text-align:left;
   background:var(--surface);border:1.5px solid var(--accent-2);border-radius:12px;
-  padding:12px 10px;box-shadow:0 12px 22px -14px rgba(37,99,235,.35);
+  padding:9px 12px;box-shadow:0 10px 20px -12px rgba(37,99,235,.3);
+  transition:transform .6s cubic-bezier(.22,1,.36,1), opacity .5s ease, box-shadow .2s, border-color .2s;
 }
-.orbit-wrap.in-view .orbit-roles-box{
-  transform:translate(-50%,-50%) rotate(var(--angle)) translateY(calc(-1 * var(--roles-r))) rotate(calc(-1 * var(--angle)));
-  opacity:1;
-}
-.orbit-roles-box:hover{box-shadow:0 18px 30px -16px rgba(37,99,235,.45);border-color:var(--accent-dim);}
-.orbit-roles-label{display:block;font-size:11px;font-weight:800;color:var(--accent-dim);margin-bottom:6px;}
-.orbit-roles-list{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;}
-.orbit-role-chip{
-  font-size:9.5px;font-weight:600;color:var(--text-dim);
-  background:var(--surface-2);border-radius:100px;padding:2px 7px;
+.flow-wrap.in-view .flow-roles{transform:translate(0,-50%);opacity:1;}
+.flow-roles:hover{box-shadow:0 14px 24px -12px rgba(37,99,235,.4);border-color:var(--accent-dim);}
+.flow-roles-label{display:block;font-size:9.5px;font-weight:800;color:var(--accent-dim);margin-bottom:4px;}
+.flow-roles-list{display:flex;flex-wrap:wrap;gap:3px;}
+.flow-role-chip{
+  font-size:8.5px;font-weight:600;color:var(--text-dim);
+  background:var(--surface-2);border-radius:100px;padding:2px 6px;
 }
 
 @media (max-width: 1150px){
-  .orbit-outer{padding:0 16px;}
-  .orbit-wrap{aspect-ratio:auto;max-width:440px;margin:24px auto;}
-  .orbit-lines{display:none;}
-  .orbit-center{position:static;transform:none;width:220px;filter:none;margin:0 auto 24px;}
-  .orbit-item{
-    position:static;display:flex;flex-direction:column;align-items:center;gap:14px;
-    margin-bottom:28px;
+  .flow-outer{padding:0 16px;}
+  .flow-wrap{height:auto;min-height:0;max-width:480px;margin:16px auto 0;}
+  .flow-lines{display:none;}
+  .flow-laptop{position:static;transform:none;width:150px;margin:0 auto 16px;filter:none;}
+  .flow-program,.flow-roles{
+    position:static !important;width:100% !important;top:auto !important;
+    transform:none !important;opacity:1 !important;
   }
-  .orbit-item:last-child{margin-bottom:0;}
-  .orbit-card,.orbit-roles-box{
-    position:static;width:100%;max-width:320px;transform:none;opacity:1;
+  .flow-program{
+    border-radius:12px 12px 0 0;border-bottom:none;padding:12px 14px 8px;
+    display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
   }
-  .orbit-code-line{font-size:7.5px;}
+  .flow-program h4{margin:0;}
+  .flow-program p{display:none;}
+  .flow-roles{
+    border-radius:0 0 12px 12px;margin-bottom:16px;padding:8px 14px 12px;
+  }
+  .flow-roles-label{margin-bottom:6px;}
 }
