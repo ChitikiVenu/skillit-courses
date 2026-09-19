@@ -286,12 +286,43 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .stat .lbl{font-size:14px;color:var(--text-faint);margin-top:4px;}
 
 .module-flow-wrap{position:relative;width:100%;margin:20px auto 10px;}
-.module-flow-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
-.module-flow-lines line{
-  stroke:var(--accent-2);stroke-width:1.5;stroke-dasharray:4 4;
-  opacity:0;transition:opacity .5s ease;
+.module-flow-lines,.module-flow-pulses{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+
+/* Cables: a solid conduit from the laptop hub to every module, with a faint stream of dots flowing along it. */
+.mf-cable,.mf-cable-stub{fill:none;stroke-width:2.2;stroke-linecap:round;opacity:0;transition:opacity .6s ease;}
+.module-flow-wrap.in-view .mf-cable,.module-flow-wrap.in-view .mf-cable-stub{opacity:.4;}
+.mf-flow{
+  fill:none;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:.1 22;
+  opacity:0;transition:opacity .6s ease;
 }
-.module-flow-wrap.in-view .module-flow-lines line{opacity:.5;}
+.module-flow-wrap.in-view .mf-flow{opacity:.75;}
+.mf-socket{fill:#fff;stroke:var(--accent-2);stroke-width:2;opacity:0;transition:opacity .6s ease;}
+.module-flow-wrap.in-view .mf-socket{opacity:1;}
+.mf-hub{fill:var(--accent);stroke:#fff;stroke-width:2;opacity:0;transition:opacity .6s ease;}
+.mf-hub-glow{fill:var(--accent);opacity:0;transition:opacity .6s ease;}
+.module-flow-wrap.in-view .mf-hub{opacity:1;}
+.module-flow-wrap.in-view .mf-hub-glow{opacity:.16;}
+
+/* Packets: the head of each pulse, its soft halo, and the ripple where it lands. */
+.mf-halo{fill:var(--accent-2);opacity:.2;}
+.mf-packet-dot .mf-halo{fill:var(--accent);}
+.mf-head{fill:var(--accent-2);stroke:#fff;stroke-width:1.2;}
+.mf-packet-dot .mf-head{fill:var(--accent);}
+.mf-ripple{fill:none;stroke:var(--accent-2);stroke-width:2;}
+
+@media (prefers-reduced-motion: no-preference){
+  .module-flow-wrap.is-flowing .mf-flow{animation:mf-dash 1.2s linear infinite;}
+  .module-flow-wrap.is-flowing .module-flow-card{animation:mf-card-beat 3.6s ease-out var(--beat-delay) infinite;}
+  .module-flow-wrap.is-offscreen .mf-flow,
+  .module-flow-wrap.is-offscreen .module-flow-card{animation-play-state:paused;}
+}
+@keyframes mf-dash{to{stroke-dashoffset:-22.1;}}
+@keyframes mf-card-beat{
+  0%{border-color:var(--accent-2);box-shadow:0 0 0 4px rgba(37,99,235,.22),0 8px 18px -10px rgba(16,21,31,.16);}
+  7%{border-color:var(--border);box-shadow:0 8px 18px -10px rgba(16,21,31,.16);}
+  9%{border-color:var(--accent);box-shadow:0 0 0 3px rgba(12,154,131,.18),0 8px 18px -10px rgba(16,21,31,.16);}
+  17%,100%{border-color:var(--border);box-shadow:0 8px 18px -10px rgba(16,21,31,.16);}
+}
 
 .module-flow-laptop{
   position:absolute;top:50%;transform:translate(-50%,-50%);width:21%;min-width:220px;
@@ -315,10 +346,10 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   position:absolute;display:block;text-align:left;color:inherit;
   background:var(--surface);border:1px solid var(--border);border-radius:12px;
   padding:14px 16px;box-shadow:0 8px 18px -10px rgba(16,21,31,.16);
-  opacity:0;transform:translateX(-30px);
+  opacity:0;transform:translate(-30px,-50%);
   transition:transform .6s cubic-bezier(.22,1,.36,1), opacity .5s ease, box-shadow .2s, border-color .2s;
 }
-.module-flow-wrap.in-view .module-flow-card{opacity:1;transform:translateX(0);}
+.module-flow-wrap.in-view .module-flow-card{opacity:1;transform:translate(0,-50%);}
 .module-flow-card:hover{box-shadow:0 14px 26px -12px rgba(16,21,31,.24);border-color:var(--accent-dim);}
 .module-flow-idx{display:block;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--accent);margin-bottom:3px;}
 .module-flow-card h4{margin:0 0 6px;font-size:16px;line-height:1.3;}
@@ -385,7 +416,8 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   .stat-bar{grid-template-columns:1fr 1fr;}
   .navlinks{display:none;}
   .module-flow-wrap{height:auto !important;max-width:480px;margin:24px auto;}
-  .module-flow-lines{display:none;}
+  .module-flow-lines,.module-flow-pulses{display:none;}
+  .module-flow-wrap.is-flowing .module-flow-card{animation:none;}
   .module-flow-laptop{position:static;transform:none;width:220px;margin:0 auto 20px;filter:none;}
   .module-flow-question{font-size:12px;}
   .module-flow-answer-btn{font-size:10px;}
