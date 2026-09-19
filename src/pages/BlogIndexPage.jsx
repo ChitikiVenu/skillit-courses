@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import { BLOG_POSTS } from '../data/blogPosts.js';
 
@@ -7,8 +7,21 @@ const STARTS_WITH_VOWEL = /^[aeiou]/i;
 const postTitle = (p) => `How Can I Become ${STARTS_WITH_VOWEL.test(p.role) ? 'an' : 'a'} ${p.role}?`;
 
 export default function BlogIndexPage() {
-  const navigate = useNavigate();
-  const [selected, setSelected] = useState('');
+  const tableRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = tableRef.current;
+    if (!el) return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.3 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -24,36 +37,24 @@ export default function BlogIndexPage() {
   return (
     <main>
       <Seo
-        title="Career Guides | Skill IT Education Blog"
-        description="How do I become a Cyber Security Professional, AI/ML Engineer, Data Scientist, SOC Analyst or Data Analyst? Five practical career guides — skills, salary, timeline and next steps."
+        title="Career Insights | Skill IT Education Blog"
+        description="How do I become a Cyber Security Professional, AI/ML Engineer, Data Scientist, SOC Analyst or Data Analyst? Five practical career insights — skills, salary, timeline and next steps."
         path="/blog"
         jsonLd={jsonLd}
       />
 
       <section className="hero">
         <div className="wrap">
-          <h1>Career Guides</h1>
-          <p className="hero-lede">
-            Five straight answers to "how do I actually become one of these?" — pick a role below.
-          </p>
-          <div className="blog-picker">
-            <label htmlFor="blog-picker-select">Jump to a guide</label>
-            <select
-              id="blog-picker-select"
-              value={selected}
-              onChange={(e) => {
-                const slug = e.target.value;
-                setSelected(slug);
-                if (slug) navigate(`/blog/${slug}`);
-              }}
-            >
-              <option value="">Choose a career path&hellip;</option>
-              {BLOG_POSTS.map((p) => (
-                <option key={p.slug} value={p.slug}>
-                  {postTitle(p)}
-                </option>
-              ))}
-            </select>
+          <h1>Career Insights</h1>
+          <p className="hero-lede">All 5 programmes, one straight answer each: how do I actually become one of these?</p>
+          <div className={`insights-table ${inView ? 'in-view' : ''}`} ref={tableRef}>
+            {BLOG_POSTS.map((p, i) => (
+              <Link className="insights-cell" to={`/blog/${p.slug}`} key={p.slug} style={{ transitionDelay: `${i * 0.08}s` }}>
+                <span className="insights-cell-name">{p.course.COPY.courseShortName}</span>
+                <span className="insights-cell-label">Insights</span>
+                <span className="insights-cell-arrow">&rarr;</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
