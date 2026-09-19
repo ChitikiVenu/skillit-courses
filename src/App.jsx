@@ -27,7 +27,7 @@ export default function App() {
           <Route path="/blog" element={<BlogIndexPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           {COURSES.map((course) => (
-            <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage course={course} />} />
+            <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage key={course.routeBase} course={course} />} />
           ))}
           {COURSES.map((course) => (
             <Route key={`${course.routeBase}/:slug`} path={`${course.routeBase}/:slug`} element={<CourseModulePage course={course} />} />

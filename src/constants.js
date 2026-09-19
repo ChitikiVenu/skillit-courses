@@ -15,3 +15,7 @@ export const PROGRAMMES = [
 export const EMAIL = 'info@skilliteducation.com';
 export const ADDRESS =
   'LR Towers, No. 3-535, 3rd Floor A Section, 100 Feet Road, Ayappa Society, Madhapur, Hyderabad, Telangana, India';
+
+// WhatsApp chat link for the same number as the phone above (wa.me wants digits only, with the country code).
+export const WHATSAPP_URL =
+  'https://wa.me/' + PHONE.replace(/\D/g, '') + '?text=' + encodeURIComponent('Hi Skill IT Education, I would like to know more about your courses.');

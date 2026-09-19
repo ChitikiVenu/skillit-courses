@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const COURSE_OPTIONS = ['Cyber Security', 'AI & ML', 'Data Science', 'SOC (Security Operations Center)', 'Data Analyst'];
 
-export default function AdvisorModal({ open, onClose }) {
+export default function AdvisorModal({ open, onClose, title = 'Talk to an Advisor' }) {
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -32,14 +32,14 @@ export default function AdvisorModal({ open, onClose }) {
 
   return (
     <div className="modal-overlay" onClick={handleClose}>
-      <div className="modal-card" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label="Talk to an advisor">
+      <div className="modal-card" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={title}>
         <button type="button" className="modal-close" onClick={handleClose} aria-label="Close">
           &times;
         </button>
 
         {!submitted ? (
           <>
-            <h3>Talk to an Advisor</h3>
+            <h3>{title}</h3>
             <p>Share a few details and our admissions team will call you back within 24 hours.</p>
             <form className="modal-form" onSubmit={handleSubmit} noValidate>
               <div className="modal-field">

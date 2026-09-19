@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { PHONE, PROGRAMMES } from '../constants.js';
+import { PROGRAMMES, WHATSAPP_URL } from '../constants.js';
+import WhatsAppIcon from './WhatsAppIcon.jsx';
 import { BLOG_COURSES } from '../data/blogPosts.js';
-
-const TEL_HREF = 'tel:' + PHONE.replace(/[^\d+]/g, '');
 
 function NavMenu({ label, to, items, active }) {
   const [open, setOpen] = useState(false);
@@ -50,19 +49,15 @@ function NavMenu({ label, to, items, active }) {
   );
 }
 
-const PhoneIcon = () => (
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.34 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.36 1.85.58 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
-
-// The logo is the Home link. Wide screens show the two menus (with the current section
-// underlined) and a click-to-call button; phones swap them for a menu button that opens a
-// full-width sheet with every link in it.
-export default function Header() {
+// The logo is the Home link. Wide screens show the two menus, a WhatsApp chat button and the
+// orange "Book a free session" button. Phones show only the logo and a Menu button, which opens a
+// compact dropdown (Home, two collapsible groups and the booking button), not a full-screen sheet.
+export default function Header({ onBook }) {
   const { pathname, search } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [group, setGroup] = useState(null);
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef(null);
 
   const programmeItems = PROGRAMMES.map((p) => ({ path: p.path, label: p.label, soon: !p.available }));
   const insightItems = BLOG_COURSES.map((c) => ({ path: `/blog?course=${c.key}`, label: `${c.name} Insights` }));
@@ -75,7 +70,10 @@ export default function Header() {
     return p === '/' ? pathname === '/' : pathname.startsWith(p);
   };
 
-  useEffect(() => setMenuOpen(false), [pathname]);
+  // Close the menu whenever the page changes.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 961px)');
@@ -85,30 +83,64 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [menuOpen]);
-
-  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Escape or a tap outside the header closes the dropdown.
   useEffect(() => {
     if (!menuOpen) return undefined;
     const onKey = (e) => e.key === 'Escape' && setMenuOpen(false);
+    const onOutside = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) setMenuOpen(false);
+    };
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onOutside);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('pointerdown', onOutside);
+    };
   }, [menuOpen]);
 
   const close = () => setMenuOpen(false);
+  const book = () => {
+    setMenuOpen(false);
+    onBook?.();
+  };
+
+  const renderGroup = ({ id, label, allTo, allLabel, items }) => (
+    <div className="mobile-menu-group">
+      <button
+        type="button"
+        className="mobile-menu-row"
+        aria-expanded={group === id}
+        onClick={() => setGroup((g) => (g === id ? null : id))}
+      >
+        <span>{label}</span>
+        <span className={`mobile-menu-caret${group === id ? ' open' : ''}`} aria-hidden="true">
+          &#9662;
+        </span>
+      </button>
+      {group === id && (
+        <div className="mobile-menu-sub">
+          <Link to={allTo} className="mobile-menu-link" aria-current={pathname === allTo && !search ? 'page' : undefined} onClick={close}>
+            {allLabel}
+          </Link>
+          {items.map((item) => (
+            <Link key={item.path} to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
+              <span>{item.label}</span>
+              {item.soon && <span className="programmes-menu-soon">Coming soon</span>}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
+    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} ref={headerRef}>
       <div className="wrap site-header-inner">
         <Link to="/" className="header-logo" aria-label="Skill IT Education, home" onClick={close}>
           <img src="/img/skill-it-logo.png" alt="Skill IT Education" width="520" height="206" />
@@ -119,10 +151,15 @@ export default function Header() {
           <NavMenu label="Career Insights" to="/blog" items={insightItems} active={insightsActive} />
         </nav>
 
-        <a className="header-call" href={TEL_HREF}>
-          <PhoneIcon />
-          <span>{PHONE}</span>
-        </a>
+        <div className="header-actions">
+          <a className="header-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+            <WhatsAppIcon />
+            <span>WhatsApp</span>
+          </a>
+          <button type="button" className="btn btn-book" onClick={onBook}>
+            Book a free session
+          </button>
+        </div>
 
         <button
           type="button"
@@ -130,7 +167,10 @@ export default function Header() {
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"
-          onClick={() => setMenuOpen((v) => !v)}
+          onClick={() => {
+            setGroup(null);
+            setMenuOpen((v) => !v);
+          }}
         >
           <span className="header-burger-icon" aria-hidden="true">
             <span />
@@ -143,35 +183,14 @@ export default function Header() {
 
       {menuOpen && (
         <div className="mobile-menu" id="mobile-menu">
-          <Link to="/" className="mobile-menu-home" aria-current={isCurrent('/') ? 'page' : undefined} onClick={close}>
+          <Link to="/" className="mobile-menu-row" aria-current={pathname === '/' ? 'page' : undefined} onClick={close}>
             Home
           </Link>
-          <div className="mobile-menu-group">
-            <Link to="/programmes" className="mobile-menu-head" aria-current={pathname === '/programmes' ? 'page' : undefined} onClick={close}>
-              Our Programmes
-            </Link>
-            {programmeItems.map((item) => (
-              <Link key={item.path} to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
-                <span>{item.label}</span>
-                {item.soon ? <span className="programmes-menu-soon">Coming soon</span> : <span className="mobile-menu-chevron" aria-hidden="true">&rsaquo;</span>}
-              </Link>
-            ))}
-          </div>
-          <div className="mobile-menu-group">
-            <Link to="/blog" className="mobile-menu-head" aria-current={pathname === '/blog' && !search ? 'page' : undefined} onClick={close}>
-              Career Insights
-            </Link>
-            {insightItems.map((item) => (
-              <Link key={item.path} to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
-                <span>{item.label}</span>
-                <span className="mobile-menu-chevron" aria-hidden="true">&rsaquo;</span>
-              </Link>
-            ))}
-          </div>
-          <a className="mobile-menu-call" href={TEL_HREF}>
-            <PhoneIcon />
-            <span>Call {PHONE}</span>
-          </a>
+          {renderGroup({ id: 'programmes', label: 'Our Programmes', allTo: '/programmes', allLabel: 'All programmes', items: programmeItems })}
+          {renderGroup({ id: 'insights', label: 'Career Insights', allTo: '/blog', allLabel: 'All insights', items: insightItems })}
+          <button type="button" className="btn btn-book mobile-menu-book" onClick={book}>
+            Book a free session
+          </button>
         </div>
       )}
     </header>

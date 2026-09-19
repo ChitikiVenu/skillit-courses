@@ -16,6 +16,7 @@
   --warn: #b06a08;
   --danger: #c0392b;
   --cta: #2563eb;       /* buttons: the one blue */
+  --orange: #ea580c;    /* the Book a free session button only */
   --cta-dark: #1d4ed8;
   --dot: rgba(16,21,31,.07);
   --radius: 10px;
@@ -394,11 +395,11 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .module-flow-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
 .module-flow-hrs{font-family:var(--mono);font-size:11.5px;color:var(--text-faint);}
 .module-flow-explore-btn{
-  font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent-2);
-  background:var(--bg-alt);border:1px dashed var(--border);border-radius:6px;
+  font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;
+  background:var(--accent-2);border:1px solid var(--accent-2);border-radius:6px;
   padding:3px 9px;white-space:nowrap;transition:background .2s,border-color .2s,color .2s;
 }
-.module-flow-card:hover .module-flow-explore-btn{background:var(--accent-2);border-color:var(--accent-2);border-style:solid;color:#fff;}
+.module-flow-card:hover .module-flow-explore-btn{background:#fff;border-color:var(--accent-2);color:var(--accent-2);}
 
 .journey{position:relative;max-width:760px;}
 .journey::before{
@@ -491,14 +492,18 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .header-logo{display:flex;align-items:center;flex:none;height:100%;}
 .header-logo img{height:68px;width:auto;display:block;}
 .header-nav{display:flex;align-items:center;gap:26px;margin-left:auto;}
-.header-call{
-  display:inline-flex;align-items:center;gap:8px;flex:none;white-space:nowrap;
-  padding:9px 16px;border:1px solid var(--border);border-radius:100px;
-  font-size:13.5px;font-weight:700;color:var(--text);
+.header-actions{display:flex;align-items:center;gap:12px;flex:none;}
+.header-whatsapp{
+  display:inline-flex;align-items:center;gap:9px;flex:none;white-space:nowrap;
+  padding:8px 16px 8px 12px;border:1px solid var(--border);border-radius:100px;
+  font-size:13.5px;font-weight:700;color:var(--text);background:#fff;
   transition:border-color .15s,color .15s,box-shadow .15s;
 }
-.header-call:hover{border-color:var(--accent-2);color:var(--accent-2);box-shadow:0 6px 16px -10px rgba(37,99,235,.5);}
-.header-call svg{width:15px;height:15px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.header-whatsapp:hover{border-color:var(--accent-2);color:var(--accent-2);box-shadow:0 6px 16px -10px rgba(37,99,235,.5);}
+.header-whatsapp svg{width:22px;height:22px;flex:none;}
+/* Orange "Book a free session" button; blue on hover */
+.btn-book{background:var(--orange);color:#fff;white-space:nowrap;transition:background .15s,box-shadow .15s;}
+.btn-book:hover{background:var(--accent-2);box-shadow:0 8px 18px -10px rgba(37,99,235,.7);}
 .header-burger{display:none;}
 .programmes-menu{position:relative;}
 .programmes-menu-trigger{display:flex;align-items:center;gap:2px;}
@@ -533,6 +538,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   padding:2px 7px;
 }
 .site-footer{height:48px;border-top:1px solid var(--border);}
+.footer-whatsapp{display:none;}
 
 .landing-shell{min-height:60vh;display:grid;place-items:center;text-align:center;padding:0 24px;}
 .landing-shell p{color:var(--text-faint);font-size:15px;}
@@ -647,11 +653,11 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .flow-program-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:2px;}
 .flow-duration{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--text);}
 .flow-explore-btn{
-  font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent-2);
-  background:var(--bg-alt);border:1px dashed var(--border);border-radius:6px;
+  font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;
+  background:var(--accent-2);border:1px solid var(--accent-2);border-radius:6px;
   padding:3px 9px;white-space:nowrap;transition:background .2s,border-color .2s,color .2s;
 }
-.flow-program:hover .flow-explore-btn{background:var(--accent-2);border-color:var(--accent-2);border-style:solid;color:#fff;}
+.flow-program:hover .flow-explore-btn{background:#fff;border-color:var(--accent-2);color:var(--accent-2);}
 
 .flow-roles{
   --base-shadow:0 10px 20px -12px rgba(37,99,235,.3);--base-border:var(--accent-2);
@@ -889,9 +895,6 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 }
 
 /* ---------------------------------------------------------------- Header: tablet and phone */
-@media (max-width: 1000px){
-  .header-call{display:none;}
-}
 @media (max-width: 960px){
   html{scroll-padding-top:84px;}
   .post-block{scroll-margin-top:84px;}
@@ -919,29 +922,137 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   .header-burger.is-open .header-burger-icon span:nth-child(2){opacity:0;}
   .header-burger.is-open .header-burger-icon span:nth-child(3){top:5px;transform:rotate(-45deg);}
 
+  .header-actions{display:none;}
   .mobile-menu{
-    position:fixed;top:var(--header-h);left:0;right:0;bottom:0;z-index:39;
-    background:#fff;border-top:1px solid var(--border);overflow-y:auto;overscroll-behavior:contain;
-    padding:6px 18px 32px;animation:sheetIn .2s ease both;
+    position:absolute;top:calc(100% + 6px);left:12px;right:12px;z-index:39;
+    max-height:calc(100vh - var(--header-h) - 20px);overflow-y:auto;overscroll-behavior:contain;
+    background:#fff;border:1px solid var(--border);border-radius:14px;padding:6px;
+    box-shadow:0 24px 48px -20px rgba(0,0,0,.35),0 4px 12px rgba(0,0,0,.08);
+    animation:sheetIn .18s ease both;
   }
-  .mobile-menu-home{display:block;padding:16px 0 14px;font-size:18px;font-weight:800;color:var(--text);border-bottom:1px solid var(--border);}
-  .mobile-menu-group{padding:14px 0;border-bottom:1px solid var(--border);}
-  .mobile-menu-head{display:block;padding:6px 0 8px;font-size:18px;font-weight:800;color:var(--text);}
+  .mobile-menu-row{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
+    min-height:44px;padding:0 12px;border:none;border-radius:10px;background:none;cursor:pointer;
+    font-family:var(--font);font-size:15px;font-weight:700;color:var(--text);text-align:left;
+  }
+  .mobile-menu-row:hover{background:var(--bg-alt);color:var(--accent-2);}
+  .mobile-menu-row[aria-current="page"]{background:var(--bg-alt);}
+  .mobile-menu-caret{font-size:16px;line-height:1;color:var(--text-faint);transition:transform .15s ease;}
+  .mobile-menu-caret.open{transform:rotate(180deg);}
+  .mobile-menu-sub{display:grid;padding:0 0 6px 10px;margin:0 0 2px 12px;border-left:2px solid var(--border);}
   .mobile-menu-link{
     display:flex;align-items:center;justify-content:space-between;gap:10px;
-    min-height:48px;padding:0 12px;margin:0 -12px;font-size:16px;font-weight:600;color:var(--text-dim);border-radius:10px;
+    min-height:40px;padding:0 12px;border-radius:8px;font-size:14px;font-weight:600;color:var(--text-dim);
   }
-  .mobile-menu-chevron{font-size:24px;line-height:1;color:var(--text-faint);}
-  .mobile-menu-link:hover,.mobile-menu-head:hover,.mobile-menu-home:hover{color:var(--accent-2);}
+  .mobile-menu-link:hover{color:var(--accent-2);background:var(--bg-alt);}
   .mobile-menu-link[aria-current="page"]{background:var(--bg-alt);color:var(--text);font-weight:700;}
-  .mobile-menu-call{
-    display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;min-height:50px;
-    border-radius:8px;background:var(--cta);color:#fff;font-size:16px;font-weight:700;
-  }
-  .mobile-menu-call:hover{background:var(--cta-dark);}
-  .mobile-menu-call svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .mobile-menu-book{width:calc(100% - 12px);margin:8px 6px 6px;min-height:44px;font-size:14.5px;}
 }
 @keyframes sheetIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
 @media (min-width: 961px){
   .mobile-menu,.header-burger{display:none;}
+}
+
+/* ---------------------------------------------------------------- Footer WhatsApp (phones and small tablets) */
+@media (max-width: 960px){
+  .site-footer{height:auto;padding:18px 18px 22px;display:flex;justify-content:center;}
+  .footer-whatsapp{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;max-width:420px;min-height:46px;
+    border:1px solid var(--border);border-radius:100px;background:#fff;
+    font-size:14.5px;font-weight:700;color:var(--text);
+    transition:border-color .15s,color .15s;
+  }
+  .footer-whatsapp:hover{border-color:var(--accent-2);color:var(--accent-2);}
+  .footer-whatsapp svg{width:22px;height:22px;flex:none;}
+}
+
+/* ---------------------------------------------------------------- Phones: smaller type and tighter spacing
+   Phone screens only (640px and narrower). Sizes come from the desktop values, scaled down, so no
+   section is left at desktop size; spacing is trimmed where it used the most room. */
+@media (max-width: 640px){
+  body{font-size:14.5px;}
+  h3{font-size:17px;}
+  p{font-size:14.5px;}
+  .hero-kicker{font-size:14.5px;}
+  .hero-quote blockquote{font-size:14.5px;}
+  .meta-card .value{font-size:14.5px;}
+  .check-list li{font-size:15px;}
+  .tool-card h4{font-size:14.5px;}
+  .lab-num{font-size:18px;}
+  .lab-item p{font-size:15px;}
+  .assessment-card p{font-size:15px;}
+  .project-card h4{font-size:15px;}
+  .project-card p{font-size:14.5px;}
+  .stat .num{font-size:24px;}
+  .module-flow-card h4{font-size:14.5px;}
+  .journey-node{font-size:14px;}
+  .journey-body h5{font-size:15px;}
+  .journey-item.phase .journey-node{font-size:14.5px;}
+  .track-card h4{font-size:16.5px;}
+  .track-card ul{font-size:14.5px;}
+  .cert-item{font-size:14.5px;}
+  .salary-card .range{font-size:20.5px;}
+  .why-item p{font-size:14.5px;}
+  .fit-item .fit-text{font-size:14.5px;}
+  .flow-program h4{font-size:14.5px;}
+  .insights-cell-arrow{font-size:14.5px;}
+  .insight-card-headline{font-size:15px;}
+  .post-block p{font-size:14.5px;}
+  .post-block h3{font-size:14.5px;}
+  .post-steps li::before{font-size:14px;}
+  .post-steps p{font-size:15px;}
+  .post-whom-card p,.post-card p{font-size:14.5px;}
+  h1{font-size:28px;}
+  h2{font-size:22px;}
+  .hero-kicker{font-size:14.5px;}
+  .hero-lede{font-size:15px;line-height:1.55;}
+  .lead-form-head h3{font-size:16px;}
+  .post-hero h1{font-size:26px;margin-bottom:12px;}
+  .post-block h2{font-size:20px;margin-bottom:10px;}
+  .post-block p{line-height:1.65;}
+  .post-block h3{font-size:15.5px;}
+
+  section{padding:34px 0;}
+  .hero{padding-top:22px;padding-bottom:14px;}
+  .hero-ctas{margin-top:16px;gap:10px;}
+  .hero-stats-row{margin-top:16px;}
+  .hero-quote{margin-top:18px;padding:16px 18px 14px;}
+  .section-head{margin-bottom:18px;}
+  .lead-form-section{padding:14px 0;}
+  .post-hero{padding-bottom:26px;}
+  .post-body{padding:26px 0 12px;}
+  .post-block{margin-bottom:30px;}
+  .post-closing{padding:16px 18px;}
+  .insight-section{padding-top:18px;}
+  .insight-grid{gap:12px;}
+  .insight-card{padding:14px 16px;gap:10px;}
+
+  .tool-card,.lab-item,.project-card,.track-card,.salary-card,.assessment-card,.stat{padding:16px;}
+  .outcome-block{padding:18px 18px;}
+  .cert-item{padding:12px 14px;}
+  .post-whom-card,.post-card{padding:14px 16px;}
+  .module-flow-card{padding:12px 14px;}
+  .hero-visual{max-width:250px;}
+  .module-flow-tablet{width:250px;margin-bottom:16px;}
+  .flow-tablet{width:230px;margin-bottom:14px;}
+
+  /* the biggest space users: 22 tool cards one per row, four stacked form fields, three stacked buttons */
+  .tool-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .tool-card{flex-direction:column;gap:8px;padding:12px;}
+  .tool-logo{width:36px;height:36px;font-size:12.5px;}
+  .tool-card h4{font-size:14px;margin-bottom:2px;}
+  .tool-card p{font-size:12.5px;line-height:1.4;}
+  .lead-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end;}
+  .lead-form .form-field{min-width:0;}
+  .lead-form .form-submit{grid-column:1 / -1;}
+  .hero-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .hero-ctas .btn-primary,.hero-ctas .btn-book{grid-column:1 / -1;}
+  .hero-ctas .btn{padding-left:10px;padding-right:10px;}
+  .journey-item{padding:7px 0;gap:14px;}
+  .track-card h4{margin-bottom:8px;}
+  .track-card li{margin-bottom:4px;}
+  .why-item{padding:2px 0;}
+  .check-list{gap:10px;}
+  .cta-banner .wrap{gap:14px;}
+  .module-flow-card{margin-bottom:10px;}
 }
