@@ -52,7 +52,7 @@ function NavMenu({ label, to, items }) {
 // nothing else (no logo, no other nav links, no CTAs).
 export default function Header() {
   const programmeItems = PROGRAMMES.map((p) => ({ path: p.path, label: p.label, soon: !p.available }));
-  const insightItems = BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, label: `${p.course.COPY.courseShortName} Insights` }));
+  const insightItems = BLOG_POSTS.map((p) => ({ path: `/blog?course=${p.slug}`, label: `${p.course.COPY.courseShortName} Insights` }));
 
   return (
     <header className="site-header">

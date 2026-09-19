@@ -1,12 +1,48 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Seo from '../components/Seo.jsx';
 import { BLOG_POSTS } from '../data/blogPosts.js';
 
-const STARTS_WITH_VOWEL = /^[aeiou]/i;
-const postTitle = (p) => `How Can I Become ${STARTS_WITH_VOWEL.test(p.role) ? 'an' : 'a'} ${p.role}?`;
+function InsightAccordion({ post }) {
+  const [openIdx, setOpenIdx] = useState(null);
+
+  return (
+    <div className="insight-accordion">
+      {post.insights.map((item, i) => {
+        const open = openIdx === i;
+        return (
+          <div className={`insight-item ${open ? 'open' : ''}`} key={item.q}>
+            <button type="button" className="insight-question" onClick={() => setOpenIdx(open ? null : i)} aria-expanded={open}>
+              {item.q}
+              <span className="insight-toggle" aria-hidden="true">{open ? '−' : '+'}</span>
+            </button>
+            {open && <p className="insight-answer">{item.a}</p>}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function ProgrammeInsights({ post }) {
+  return (
+    <div className="programme-insights" id={post.slug}>
+      <div className="programme-insights-head">
+        <span className="eyebrow">{post.course.COPY.courseShortName}</span>
+        <h2>{post.course.COPY.courseShortName} Insights</h2>
+        <p>{post.insights.length} questions students search before choosing {post.course.COPY.courseShortName}.</p>
+      </div>
+      <InsightAccordion post={post} />
+      <Link className="programme-insights-link" to={`/blog/${post.slug}`}>
+        Read the full {post.course.COPY.courseShortName} career guide &rarr;
+      </Link>
+    </div>
+  );
+}
 
 export default function BlogIndexPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeSlug = searchParams.get('course');
   const tableRef = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -23,22 +59,30 @@ export default function BlogIndexPage() {
     return () => observer.disconnect();
   }, []);
 
+  const visiblePosts = activeSlug ? BLOG_POSTS.filter((p) => p.slug === activeSlug) : BLOG_POSTS;
+
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    itemListElement: BLOG_POSTS.map((p, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: postTitle(p),
-      url: `/blog/${p.slug}`,
-    })),
+    '@type': 'FAQPage',
+    mainEntity: BLOG_POSTS.flatMap((p) =>
+      p.insights.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a },
+      })),
+    ),
   };
+
+  function selectCourse(slug) {
+    if (slug) setSearchParams({ course: slug });
+    else setSearchParams({});
+  }
 
   return (
     <main>
       <Seo
         title="Career Insights | Skill IT Education Blog"
-        description="How do I become a Cyber Security Professional, AI/ML Engineer, Data Scientist, SOC Analyst or Data Analyst? Five practical career insights — skills, salary, timeline and next steps."
+        description="How do I become a Cyber Security Professional, AI/ML Engineer, Data Scientist, SOC Analyst or Data Analyst? Real student questions, answered — skills, salary, timeline and the best academy for training."
         path="/blog"
         jsonLd={jsonLd}
       />
@@ -46,14 +90,30 @@ export default function BlogIndexPage() {
       <section className="hero">
         <div className="wrap">
           <h1>Career Insights</h1>
-          <p className="hero-lede">All 5 programmes, one straight answer each: how do I actually become one of these?</p>
+          <p className="hero-lede">All 5 programmes, the questions students actually search before choosing one.</p>
           <div className={`insights-table ${inView ? 'in-view' : ''}`} ref={tableRef}>
+            <button
+              type="button"
+              className={`insights-cell ${!activeSlug ? 'active' : ''}`}
+              style={{ transitionDelay: '0s' }}
+              onClick={() => selectCourse(null)}
+            >
+              <span className="insights-cell-name">All Insights</span>
+              <span className="insights-cell-label">{BLOG_POSTS.length} Programmes</span>
+              <span className="insights-cell-arrow">&rarr;</span>
+            </button>
             {BLOG_POSTS.map((p, i) => (
-              <Link className="insights-cell" to={`/blog/${p.slug}`} key={p.slug} style={{ transitionDelay: `${i * 0.08}s` }}>
+              <button
+                type="button"
+                className={`insights-cell ${activeSlug === p.slug ? 'active' : ''}`}
+                key={p.slug}
+                style={{ transitionDelay: `${(i + 1) * 0.08}s` }}
+                onClick={() => selectCourse(p.slug)}
+              >
                 <span className="insights-cell-name">{p.course.COPY.courseShortName}</span>
                 <span className="insights-cell-label">Insights</span>
                 <span className="insights-cell-arrow">&rarr;</span>
-              </Link>
+              </button>
             ))}
           </div>
         </div>
@@ -61,16 +121,9 @@ export default function BlogIndexPage() {
 
       <section>
         <div className="wrap">
-          <div className="blog-grid">
-            {BLOG_POSTS.map((p) => (
-              <Link className="blog-card" to={`/blog/${p.slug}`} key={p.slug}>
-                <span className="eyebrow">{p.course.COPY.courseShortName}</span>
-                <h3>{postTitle(p)}</h3>
-                <p>{p.course.COPY.heroLede}</p>
-                <span className="blog-card-cta">Read the guide &rarr;</span>
-              </Link>
-            ))}
-          </div>
+          {visiblePosts.map((p) => (
+            <ProgrammeInsights post={p} key={p.slug} />
+          ))}
         </div>
       </section>
     </main>
