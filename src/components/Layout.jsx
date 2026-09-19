@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import AdvisorModal from './AdvisorModal.jsx';
+import FloatingActions from './FloatingActions.jsx';
 
 export default function Layout() {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -11,6 +12,7 @@ export default function Layout() {
       <Header onBook={() => setBookingOpen(true)} />
       <Outlet />
       <Footer />
+      <FloatingActions onBook={() => setBookingOpen(true)} />
       <AdvisorModal open={bookingOpen} onClose={() => setBookingOpen(false)} title="Book a free session" />
     </>
   );

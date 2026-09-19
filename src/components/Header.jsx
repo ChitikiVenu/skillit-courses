@@ -51,7 +51,8 @@ function NavMenu({ label, to, items, active }) {
 
 // The logo is the Home link. Wide screens show the two menus, a WhatsApp chat button and the
 // orange "Book a free session" button. Phones show only the logo and a Menu button, which opens a
-// compact dropdown (Home, two collapsible groups and the booking button), not a full-screen sheet.
+// compact dropdown (Home and two collapsible groups), not a full-screen sheet; the booking and WhatsApp
+// buttons float on screen instead (FloatingActions).
 export default function Header({ onBook }) {
   const { pathname, search } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -105,10 +106,6 @@ export default function Header({ onBook }) {
   }, [menuOpen]);
 
   const close = () => setMenuOpen(false);
-  const book = () => {
-    setMenuOpen(false);
-    onBook?.();
-  };
 
   const renderGroup = ({ id, label, allTo, allLabel, items }) => (
     <div className="mobile-menu-group">
@@ -188,9 +185,6 @@ export default function Header({ onBook }) {
           </Link>
           {renderGroup({ id: 'programmes', label: 'Our Programmes', allTo: '/programmes', allLabel: 'All programmes', items: programmeItems })}
           {renderGroup({ id: 'insights', label: 'Career Insights', allTo: '/blog', allLabel: 'All insights', items: insightItems })}
-          <button type="button" className="btn btn-book mobile-menu-book" onClick={book}>
-            Book a free session
-          </button>
         </div>
       )}
     </header>
