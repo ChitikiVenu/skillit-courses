@@ -666,7 +666,7 @@ const COPY = {
   "durationChip": "INDUSTRY-ALIGNED DATA ANALYTICS TRAINING",
   "heroTitleHtml": "Advanced Data Analytics<br>Certification Program",
   "heroKicker": "Data Analytics Training in Hyderabad",
-  "heroLede": "A 5-month Data Analytics Certification Program that takes you from Excel and SQL fundamentals through exploratory analysis, visualization and business intelligence to real-world reporting. Nine hands-on modules and a two-month real-time internship — built to get you job-ready as a data analyst, not just someone who can build a spreadsheet.",
+  "heroLede": "A five-month program that starts with Excel and SQL, then covers exploratory analysis, visualization, business intelligence and reporting. It has nine hands-on modules and a two-month real-time internship, and it is aimed at data analyst roles.",
   "heroStats": [
     {
       "label": "Total Duration",
@@ -771,7 +771,7 @@ const COPY = {
   "certTitle": "Certifications This Data Analytics Course Prepares You For",
   "certSubtitle": "The curriculum is structured to help prepare learners for the following external certifications, including Google Data Analytics and Power BI Data Analyst Associate.",
   "finalCtaTitle": "Start your data analytics career with a structured, hands-on program",
-  "finalCtaSubtitle": "5 months total — 3 months of structured learning across nine modules, plus 2 months of real-time industry internship."
+  "finalCtaSubtitle": "5 months in total: 3 months of learning across nine modules, then a 2-month internship."
 };
 
 // routeBase is this course's mount point inside the unified app's router (e.g. "/cyber-security"),

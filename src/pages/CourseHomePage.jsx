@@ -67,10 +67,9 @@ export default function CourseHomePage({ course }) {
         <div className="wrap">
           <div className="hero-grid">
             <div>
-              <div className="duration-chip">{COPY.durationChip}</div>
+              <div className="duration-chip">{COPY.heroKicker}</div>
               <FitHeading html={COPY.heroTitleHtml} />
               <H1Wave />
-              <h2 className="hero-kicker">{COPY.heroKicker}</h2>
               <p className="hero-lede">{COPY.heroLede}</p>
               <div className="hero-ctas">
                 <a className="btn btn-outline" href="#roadmap">
@@ -131,8 +130,8 @@ export default function CourseHomePage({ course }) {
         <div className="wrap">
           <LeadForm
             formId="hero-form"
-            heading={`Get the ${COPY.courseShortName} Course Fee Structure & Syllabus`}
-            subheading="Share your details and our admissions team will call you back with the full syllabus, batch timings and fee breakdown."
+            heading="Get the fee structure and syllabus"
+            subheading="Leave your details and we will call you back with the syllabus, batch timings and fees."
             brochureFile={COPY.brochureFile}
             preselectedCourse={COPY.preselectedCourse}
           />
@@ -142,9 +141,7 @@ export default function CourseHomePage({ course }) {
       <section id="roadmap" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.roadmapEyebrow}</span>
-            <h2>{COPY.roadmapTitle}</h2>
-            <p>{COPY.roadmapSubtitle}</p>
+            <h2>Curriculum</h2>
           </div>
           <ModuleFlow course={course} />
         </div>
@@ -153,8 +150,7 @@ export default function CourseHomePage({ course }) {
       <section id="why">
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.whyEyebrow}</span>
-            <h2>{COPY.whyTitle}</h2>
+            <h2>Why this course</h2>
           </div>
           <div className="why-grid">
             {WHY_COURSE.map((w) => (
@@ -170,8 +166,7 @@ export default function CourseHomePage({ course }) {
       <section id="timeline" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.timelineEyebrow}</span>
-            <h2>{COPY.timelineTitle}</h2>
+            <h2>Timeline</h2>
             <p>{COPY.timelineSubtitle}</p>
           </div>
           <div className="journey">
@@ -203,9 +198,7 @@ export default function CourseHomePage({ course }) {
       <section id="tools">
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.toolsEyebrow}</span>
-            <h2>{COPY.toolsTitle}</h2>
-            <p>{COPY.toolsSubtitle}</p>
+            <h2>Tools</h2>
           </div>
           <div className="tool-grid">
             {Array.from(allTools.values()).map((t) => (
@@ -218,9 +211,8 @@ export default function CourseHomePage({ course }) {
       <section id="projects" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.projectsEyebrow}</span>
-            <h2>{COPY.projectsTitle}</h2>
-            <p>{COPY.projectsSubtitle}</p>
+            <h2>Projects</h2>
+            <p>At least five projects across the course. Each one goes into your portfolio and resume.</p>
           </div>
           <div className="project-grid">
             {COPY.featuredProjects.map((p) => (
@@ -237,8 +229,7 @@ export default function CourseHomePage({ course }) {
       <section id="outcomes">
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.outcomesEyebrow}</span>
-            <h2>{COPY.outcomesTitle}</h2>
+            <h2>What you will be able to do</h2>
           </div>
           <ul className="check-list grid-2">
             {COPY.outcomesList.map((o) => (
@@ -251,8 +242,7 @@ export default function CourseHomePage({ course }) {
       <section id="careers" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.careersEyebrow}</span>
-            <h2>{COPY.careersTitle}</h2>
+            <h2>Job roles</h2>
           </div>
           <div className="track-grid">
             {CAREER_TRACKS.map((t) => (
@@ -272,9 +262,8 @@ export default function CourseHomePage({ course }) {
       <section id="salary">
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.salaryEyebrow}</span>
-            <h2>{COPY.salaryTitle}</h2>
-            <p>{COPY.salarySubtitle}</p>
+            <h2>Salary</h2>
+            <p>Broad ranges for entry to mid-level roles. Actual pay depends on the company, city and your experience, and is not guaranteed.</p>
           </div>
           <div className="salary-grid">
             <div className="salary-card">
@@ -294,8 +283,7 @@ export default function CourseHomePage({ course }) {
       <section id="certifications" style={{ borderTop: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
-            <span className="eyebrow">{COPY.certEyebrow}</span>
-            <h2>{COPY.certTitle}</h2>
+            <h2>Certifications</h2>
             <p>{COPY.certSubtitle}</p>
           </div>
           <div className="cert-grid">
@@ -316,8 +304,7 @@ export default function CourseHomePage({ course }) {
       <section className="cta-banner">
         <div className="wrap">
           <div>
-            <h3>{COPY.finalCtaTitle}</h3>
-            <p>{COPY.finalCtaSubtitle}</p>
+            <h3>{COPY.finalCtaSubtitle}</h3>
           </div>
           <div className="hero-ctas" style={{ margin: 0 }}>
             <Link className="btn btn-outline" to={`${routeBase}/${MODULES[0].slug}`}>
@@ -335,8 +322,8 @@ export default function CourseHomePage({ course }) {
         <div className="wrap">
           <LeadForm
             formId="footer-form"
-            heading={`Enquire About the ${COPY.courseShortName} Course`}
-            subheading="Ready to get started? Fill in your details and our admissions team will get in touch with the full syllabus, fee structure and next batch dates."
+            heading="Enquire about this course"
+            subheading="Leave your details and our admissions team will get back to you with the syllabus, fees and next batch dates."
             brochureFile={COPY.brochureFile}
             preselectedCourse={COPY.preselectedCourse}
           />

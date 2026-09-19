@@ -503,7 +503,7 @@ const COPY = {
   "durationChip": "INDUSTRY-ALIGNED SOC ANALYST TRAINING",
   "heroTitleHtml": "Advanced SOC Analyst<br>Certification Program",
   "heroKicker": "SOC Analyst Training in Hyderabad",
-  "heroLede": "A 5-month SOC Analyst Program that takes you step by step from IT and networking foundations to real Security Operations Center work — monitoring networks, operating SIEM platforms, investigating incidents and hunting threats in live, hands-on environments. Five structured modules and a two-month real-time industry internship — built to make you a SOC analyst, not just a certificate holder.",
+  "heroLede": "A five-month program that takes you from IT and networking basics to day-to-day Security Operations Center work: monitoring networks, running SIEM platforms, investigating incidents and hunting threats in live labs. It has five modules and a two-month real-time internship.",
   "heroStats": [
     {
       "label": "Total Duration",
@@ -612,7 +612,7 @@ const COPY = {
   "certTitle": "Certifications This SOC Analyst Course Prepares You For",
   "certSubtitle": "The curriculum is structured to help prepare learners for the following external certifications, including CompTIA Security+ and EC-Council Certified SOC Analyst.",
   "finalCtaTitle": "Start your SOC analyst career with a structured, hands-on program",
-  "finalCtaSubtitle": "5 months total — 3 months of structured learning across five modules, plus 2 months of real-time industry internship."
+  "finalCtaSubtitle": "5 months in total: 3 months of learning across five modules, then a 2-month internship."
 };
 
 // routeBase is this course's mount point inside the unified app's router (e.g. "/cyber-security"),

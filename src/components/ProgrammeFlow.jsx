@@ -161,7 +161,7 @@ export default function ProgrammeFlow({ programmes }) {
       )}
 
       <div className="flow-tablet" style={{ left: `${TABLET_X}%` }} ref={tabletRef}>
-        <Tablet dark>
+        <Tablet>
           <CodeScreen active={typing} animate={!reducedMotion} />
         </Tablet>
       </div>

@@ -628,7 +628,7 @@ const COPY = {
   "durationChip": "INDUSTRY-ALIGNED DATA SCIENCE TRAINING",
   "heroTitleHtml": "Advanced Data Science<br>Certification Program",
   "heroKicker": "Data Science Training in Hyderabad",
-  "heroLede": "A 7-month Advanced Data Science Certification Program that takes you from mathematics, statistics and Python programming through machine learning, business intelligence and model deployment. Eight hands-on modules and a two-month real-time internship — built to get you job-ready as a data scientist, not just someone who can run a notebook.",
+  "heroLede": "A seven-month program that starts with mathematics, statistics and Python, then covers machine learning, business intelligence and model deployment. It has eight hands-on modules and a two-month real-time internship, and it is aimed at data scientist roles.",
   "heroStats": [
     {
       "label": "Course Duration",
@@ -733,7 +733,7 @@ const COPY = {
   "certTitle": "Certifications This Data Science Course Prepares You For",
   "certSubtitle": "The curriculum is structured to help prepare learners for the following external certifications, including Google Data Analytics and IBM Data Science.",
   "finalCtaTitle": "Start your data science career with a structured, hands-on program",
-  "finalCtaSubtitle": "7 months total — 5 months of structured learning across eight modules, plus 2 months of real-time industry internship."
+  "finalCtaSubtitle": "7 months in total: 5 months of learning across eight modules, then a 2-month internship."
 };
 
 // routeBase is this course's mount point inside the unified app's router (e.g. "/cyber-security"),

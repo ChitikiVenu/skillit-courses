@@ -57,8 +57,7 @@ export default function BlogIndexPage() {
         <div className="wrap">
           <h1>Career Insights</h1>
           <p className="hero-lede">
-            {BLOG_POSTS.length} real student questions across {BLOG_COURSES.length} programmes, each answered in its own
-            step-by-step guide.
+            Answers to the questions students ask before they pick a programme.
           </p>
           <div className={`insights-table ${inView ? 'in-view' : ''}`} ref={tableRef}>
             <button
@@ -108,8 +107,8 @@ export default function BlogIndexPage() {
         <div className="wrap">
           <LeadForm
             formId="blog-index-form"
-            heading="Not sure which programme fits you? Talk to our admissions team"
-            subheading="Share your details and we will call you back with the syllabus, batch timings and fee breakdown for the programme you are considering."
+            heading="Talk to our admissions team"
+            subheading="Leave your details and we will call you back about the programme you are considering."
             brochureFile={activeCourse?.course.COPY.brochureFile}
             preselectedCourse={activeCourse && (activeCourse.course.COPY.preselectedCourse ?? activeCourse.name)}
             key={activeCourse?.key ?? 'all'}

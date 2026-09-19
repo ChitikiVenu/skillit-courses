@@ -6,7 +6,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'Becoming a SOC analyst is a skills path, not a degree path',
+        heading: 'Skills you need to become a SOC analyst',
         paras: [
           `A Security Operations Center, or SOC, is the team that watches a company's systems around the clock and reacts when something looks wrong. A SOC analyst is the person sitting in front of the alerts: deciding which ones are noise, which ones are real, and what happens next. That is the whole job in one sentence, and it tells you what you need to learn.`,
           `You do not need to be a coding genius or a hacker to start. You need to understand how a network moves data, how Windows and Linux machines behave, what an attack looks like when it leaves traces in logs, and how to use a SIEM platform to search those logs. Each of those is learnable in a few months if the practice is hands-on.`,
@@ -14,7 +14,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'Why so many students in Hyderabad are asking about SOC roles',
+        heading: 'Why SOC roles are in demand in Hyderabad',
         paras: [
           `Every company that runs applications, stores customer data or accepts online payments needs someone watching for intrusions, and most of them cannot build a full security team from scratch. That is why SOC roles exist both inside large organisations and inside service providers that monitor many clients at once. The result is a steady flow of entry-level openings compared with some other security specialisations.`,
           `It is also one of the few security careers where a fresher can start on the ground floor. Entry roles such as SOC Analyst L1 or Security Monitoring Analyst are designed for people who are still learning, and the path from there to incident response, threat hunting or SIEM engineering is well marked.`,
@@ -22,32 +22,32 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who should aim for a SOC analyst career, and who should pause',
+        heading: 'Who should aim for a SOC analyst career',
         intro: `SOC work rewards a certain temperament more than a certain degree. Here is how different starting points usually look.`,
         people: [
-          { who: 'A final-year student drawn to security monitoring', text: `You have time to build fundamentals before placements. Start with networking and Linux now, so that you walk into interviews with lab work instead of only theory.` },
-          { who: 'An IT support or helpdesk engineer', text: `You already know how users and machines behave, which is a real advantage. Adding SIEM and incident response skills lets you move from fixing tickets to investigating alerts.` },
-          { who: 'A career switcher from a non-IT background', text: `It is possible, but plan for a slower first month while networking and operating systems settle in. Patience matters more than prior experience here.` },
-          { who: 'Someone who dislikes shift work or repetitive review', text: `Think twice. Many SOC roles run in shifts, and a good part of the day is checking alerts carefully. If that sounds draining rather than interesting, look at other security paths first.` },
+          { who: 'Final-year student interested in SOC monitoring', text: `You have time to build fundamentals before placements. Start with networking and Linux now, so that you walk into interviews with lab work instead of only theory.` },
+          { who: 'IT support or helpdesk engineer moving to SOC', text: `You already know how users and machines behave, which is a real advantage. Adding SIEM and incident response skills lets you move from fixing tickets to investigating alerts.` },
+          { who: 'Career switcher from a non-IT background into SOC', text: `It is possible, but plan for a slower first month while networking and operating systems settle in. Patience matters more than prior experience here.` },
+          { who: 'Someone who dislikes shifts or alert review', text: `Think twice. Many SOC roles run in shifts, and a good part of the day is checking alerts carefully. If that sounds draining rather than interesting, look at other security paths first.` },
         ],
       },
       {
         kind: 'steps',
-        heading: 'Seven steps to go from zero to your first SOC analyst role',
+        heading: 'Seven steps to your first SOC analyst role',
         intro: `Treat this as a sequence. Skipping the early steps is the most common reason people struggle in SIEM labs later.`,
         steps: [
-          { title: 'Understand how networks behave before alerts arrive', text: `Study the OSI and TCP/IP models, IP addressing and subnetting, and what routers, switches, firewalls and IDS/IPS devices do. Then capture traffic yourself in Wireshark so the theory becomes something you have seen.` },
-          { title: 'Get comfortable in Windows and Linux', text: `Install both in a virtual lab, administer them, and practise the command line until you stop hesitating. Investigations happen at the CLI more often than you would expect.` },
-          { title: 'Study the attacker\'s side', text: `Learn how phishing, malware, password attacks, DoS and web application attacks work, and the five phases of hacking. You cannot recognise an attack in a log if you have never understood its mechanics.` },
-          { title: 'Understand how a SOC is organised', text: `Learn the tier structure, escalation paths, and the difference between a SOC and a NOC. This is the first thing interviewers probe, and it shows you understand where you will sit in the team.` },
-          { title: 'Operate a real SIEM end to end', text: `Onboard log sources, build dashboards, tune correlation rules and investigate offenses. Spend the most hours here, because SIEM fluency is the most tested hands-on skill in interviews.` },
-          { title: 'Practise incident response and threat hunting', text: `Run a simulated incident from identification through recovery, map it to the MITRE ATT&CK framework and write it up like a report. This separates people who only watch alerts from people who can act on them.` },
-          { title: 'Package your proof and apply', text: `Turn your lab work into documented projects, tidy your resume, GitHub and LinkedIn, rehearse mock interviews and then apply steadily. A short internship in a live monitoring setting makes this final step far easier.` },
+          { title: 'Learn networking basics for SOC work', text: `Study the OSI and TCP/IP models, IP addressing and subnetting, and what routers, switches, firewalls and IDS/IPS devices do. Then capture traffic yourself in Wireshark so the theory becomes something you have seen.` },
+          { title: 'Practise Windows and Linux for SOC labs', text: `Install both in a virtual lab, administer them, and practise the command line until you stop hesitating. Investigations happen at the CLI more often than you would expect.` },
+          { title: 'Learn how common attacks work', text: `Learn how phishing, malware, password attacks, DoS and web application attacks work, and the five phases of hacking. You cannot recognise an attack in a log if you have never understood its mechanics.` },
+          { title: 'Learn how a SOC team is organised', text: `Learn the tier structure, escalation paths, and the difference between a SOC and a NOC. This is the first thing interviewers probe, and it shows you understand where you will sit in the team.` },
+          { title: 'Use a SIEM platform from start to finish', text: `Onboard log sources, build dashboards, tune correlation rules and investigate offenses. Spend the most hours here, because SIEM fluency is the most tested hands-on skill in interviews.` },
+          { title: 'Practise SOC incident response and threat hunting', text: `Run a simulated incident from identification through recovery, map it to the MITRE ATT&CK framework and write it up like a report. This separates people who only watch alerts from people who can act on them.` },
+          { title: 'Build your SOC portfolio and apply', text: `Turn your lab work into documented projects, tidy your resume, GitHub and LinkedIn, rehearse mock interviews and then apply steadily. A short internship in a live monitoring setting makes this final step far easier.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'SOC analyst skills you should be able to demonstrate',
+        heading: 'Skills a SOC analyst should be able to show',
         intro: `By the end of your preparation, you should be able to do these things without looking them up every time.`,
         items: [
           `Configure and troubleshoot a small enterprise network and explain your subnetting choices`,
@@ -62,19 +62,19 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How the SOC Analyst Program at Skill IT Education maps to this path',
+        heading: 'SOC Analyst Program at Skill IT Education',
         intro: `The programme at our Madhapur institute is built in the same order as the steps above, over five months in total.`,
         cards: [
-          { title: 'Five modules in a logical order', text: `Three months of structured learning across 190 hours moves from IT and networking foundations to threat landscape, SOC operations, SIEM monitoring, and incident response with threat hunting.` },
-          { title: 'Hands-on labs instead of recorded slides', text: `Every module closes with a lab or a project, including time on IBM QRadar and Splunk, so you practise the tools analysts use rather than only reading about them.` },
-          { title: 'Real projects for your portfolio', text: `A minimum of five projects, such as the SIEM Monitoring Lab and the Incident Response Simulation, are documented to reporting standards and added to your portfolio and resume.` },
-          { title: 'Two months inside real security operations work', text: `The final phase gives exposure to live SOC monitoring, triage and incident response, which is the experience that first-round interviewers ask about most.` },
-          { title: 'Profile and placement support', text: `Help with your resume, GitHub and LinkedIn, mock interviews, and access to a hiring-partner network are part of the support, designed to prepare you rather than promise a result.` },
+          { title: 'Five SOC analyst modules in sequence', text: `Three months of structured learning across 190 hours moves from IT and networking foundations to threat landscape, SOC operations, SIEM monitoring, and incident response with threat hunting.` },
+          { title: 'SOC labs on IBM QRadar and Splunk', text: `Every module closes with a lab or a project, including time on IBM QRadar and Splunk, so you practise the tools analysts use rather than only reading about them.` },
+          { title: 'Five SOC projects for your portfolio', text: `A minimum of five projects, such as the SIEM Monitoring Lab and the Incident Response Simulation, are documented to reporting standards and added to your portfolio and resume.` },
+          { title: 'Two-month SOC internship phase', text: `The final phase gives exposure to live SOC monitoring, triage and incident response, which is the experience that first-round interviewers ask about most.` },
+          { title: 'Profile and placement help for SOC roles', text: `Help with your resume, GitHub and LinkedIn, mock interviews, and access to a hiring-partner network are part of the support, designed to prepare you rather than promise a result.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'What a SOC analyst career can open up for you',
+        heading: 'Roles and salary for SOC analysts in India',
         intro: `Outcomes depend on your effort, your interviews and the market, but the direction is clear.`,
         items: [
           `Entry roles such as SOC Analyst (L1), Security Monitoring Analyst and Alert Triage Specialist`,
@@ -87,10 +87,10 @@ export default [
       },
     ],
     closing: {
-      heading: 'Your first alert is closer than it looks',
+      heading: 'Start with one SOC lab this week',
       text: `Nobody starts as a senior analyst. Everyone starts by learning how packets travel, opening a log file and asking what looks odd. If you are willing to practise steadily for a few months, a SOC analyst career is a realistic goal, and it starts with one lab this week.`,
     },
-    formHeading: 'Get a roadmap for your SOC analyst journey',
+    formHeading: 'Ask about the SOC analyst course',
     formSubheading: `Share a few details and our admissions team in Madhapur will call you back to map out the right starting point for your background.`,
   },
   {
@@ -100,7 +100,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'A night shift in the SOC, told hour by hour',
+        heading: 'A sample night shift for a SOC analyst',
         paras: [
           `Imagine a Tuesday night. You log in, read the handover notes from the evening team and see that a suspicious login pattern on a finance server is still open. Before you have finished your tea, the SIEM dashboard shows a burst of failed logins from an unfamiliar IP address. That is your first decision of the shift.`,
           `You check the IP against reputation sources, look at which account was targeted, see whether any attempt succeeded, and note that three attempts came from a country the company has no staff in. You raise a ticket, block nothing yet because that is not your call, and escalate with the evidence attached. It took twenty minutes and nobody outside the SOC will ever know.`,
@@ -109,7 +109,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'The tasks that fill a typical SOC analyst shift',
+        heading: 'Tasks in a typical SOC analyst shift',
         intro: `Exact duties vary by company, but most shifts are built from the same building blocks.`,
         items: [
           `Reading the handover notes and open tickets left by the previous shift`,
@@ -124,20 +124,20 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'How one SOC alert travels from first ping to closed ticket',
+        heading: 'How a SOC alert is handled from start to close',
         intro: `Whatever the alert, a disciplined analyst follows nearly the same route. This is the loop you will repeat hundreds of times.`,
         steps: [
-          { title: 'Read the alert properly', text: `Note the rule that fired, the time, the source and destination, the user and the asset. Half of bad triage comes from acting on the alert title alone.` },
-          { title: 'Enrich it with context', text: `Look up the IP or URL, check who owns the machine, and see whether the same activity appeared earlier. Context is what turns a raw event into a story.` },
-          { title: 'Decide: false positive or real', text: `Compare what you found against what normal looks like. If it is a false positive, record why, and flag the rule for tuning so it stops wasting your time.` },
-          { title: 'Investigate in the logs', text: `Pivot through Windows event logs, firewall logs and proxy logs in the SIEM to see what happened before and after the alert. Build a short timeline as you go.` },
-          { title: 'Escalate with evidence', text: `If it is a genuine threat, pass it to the next tier with your timeline, indicators and what you have already checked. A clean escalation saves the L2 analyst thirty minutes.` },
-          { title: 'Document and hand over', text: `Close or update the ticket with the reasoning, and write any open items in the shift handover. Good notes are one of the most valued habits in a SOC.` },
+          { title: 'Read the SOC alert in full', text: `Note the rule that fired, the time, the source and destination, the user and the asset. Half of bad triage comes from acting on the alert title alone.` },
+          { title: 'Add context to the alert', text: `Look up the IP or URL, check who owns the machine, and see whether the same activity appeared earlier. Context is what turns a raw event into a story.` },
+          { title: 'Decide if the alert is a false positive', text: `Compare what you found against what normal looks like. If it is a false positive, record why, and flag the rule for tuning so it stops wasting your time.` },
+          { title: 'Investigate the alert in SIEM logs', text: `Pivot through Windows event logs, firewall logs and proxy logs in the SIEM to see what happened before and after the alert. Build a short timeline as you go.` },
+          { title: 'Escalate the alert with evidence', text: `If it is a genuine threat, pass it to the next tier with your timeline, indicators and what you have already checked. A clean escalation saves the L2 analyst thirty minutes.` },
+          { title: 'Document the alert and hand over', text: `Close or update the ticket with the reasoning, and write any open items in the shift handover. Good notes are one of the most valued habits in a SOC.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'Why the handover between SOC shifts matters so much',
+        heading: 'Why SOC shift handover notes matter',
         paras: [
           `A SOC never sleeps, so no single analyst owns an incident from start to end. The handover is where context survives or gets lost. An alert that was half investigated at 5 am and left without notes is how real intrusions slip through.`,
           `This is why interviewers care about how you write, not only what you know. Being able to summarise a situation in four clear lines, with evidence, is a core part of the job and one of the easiest ways to stand out as a fresher.`,
@@ -145,30 +145,30 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who enjoys shift-based SOC monitoring, and who may struggle',
+        heading: 'Who suits SOC shift monitoring work',
         intro: `The daily rhythm suits some people naturally. Be honest about which group you fall in.`,
         people: [
-          { who: 'A curious problem-solver who likes puzzles', text: `Tracing a strange login through five log sources will feel like a good puzzle rather than a chore. You will likely enjoy the investigative half of the job.` },
-          { who: 'A detail-focused fresher with patience', text: `Careful reading and consistent documentation matter more than speed. If you double-check facts naturally, you will settle in well.` },
-          { who: 'A working professional coming from IT operations', text: `Shifts, tickets and escalation paths will feel familiar. Your challenge will be learning to read security logs rather than infrastructure logs.` },
-          { who: 'Someone who needs a fixed nine-to-five routine', text: `Rotating or night shifts are common in SOCs, particularly in service providers covering clients in other time zones. Ask about shift patterns during interviews and decide with open eyes.` },
+          { who: 'A curious problem-solver who likes SOC puzzles', text: `Tracing a strange login through five log sources will feel like a good puzzle rather than a chore. You will likely enjoy the investigative half of the job.` },
+          { who: 'A detail-focused fresher joining a SOC', text: `Careful reading and consistent documentation matter more than speed. If you double-check facts naturally, you will settle in well.` },
+          { who: 'A professional from IT operations moving to SOC', text: `Shifts, tickets and escalation paths will feel familiar. Your challenge will be learning to read security logs rather than infrastructure logs.` },
+          { who: 'A SOC candidate who wants fixed office hours', text: `Rotating or night shifts are common in SOCs, particularly in service providers covering clients in other time zones. Ask about shift patterns during interviews and decide with open eyes.` },
         ],
       },
       {
         kind: 'cards',
-        heading: 'How Skill IT Education lets you rehearse a real SOC shift',
+        heading: 'SOC shift practice at Skill IT Education',
         intro: `We try to make the classroom look like the job, so the first shift feels less like a first day.`,
         cards: [
-          { title: 'SIEM lab work every week', text: `In the SIEM module you onboard log sources into IBM QRadar, build dashboards and investigate offenses, which is the same loop described above, repeated on live-style data.` },
-          { title: 'Tier escalation exercises', text: `In the SOC module you walk a sample alert through the Tier 1, Tier 2 and Tier 3 path, and compare NOC and SOC duties in a shared scenario.` },
-          { title: 'Alert triage and false positive tuning', text: `Labs on correlation rules, reference sets and false positives teach you why noise happens and how a SOC reduces it.` },
-          { title: 'Internship practice with real shift-style work', text: `The internship phase exposes you to live monitoring, triage and incident response, so you see handovers and ticket notes in a working setting.` },
-          { title: 'Mock interviews on shift scenarios', text: `Mock interviews and resume reviews help you describe your triage process clearly, since scenario questions are common in SOC hiring.` },
+          { title: 'Weekly SIEM labs on QRadar', text: `In the SIEM module you onboard log sources into IBM QRadar, build dashboards and investigate offenses, which is the same loop described above, repeated on live-style data.` },
+          { title: 'SOC tier escalation exercises', text: `In the SOC module you walk a sample alert through the Tier 1, Tier 2 and Tier 3 path, and compare NOC and SOC duties in a shared scenario.` },
+          { title: 'SOC alert triage and false positive labs', text: `Labs on correlation rules, reference sets and false positives teach you why noise happens and how a SOC reduces it.` },
+          { title: 'SOC internship with live shift-style work', text: `The internship phase exposes you to live monitoring, triage and incident response, so you see handovers and ticket notes in a working setting.` },
+          { title: 'Mock interviews on SOC shift scenarios', text: `Mock interviews and resume reviews help you describe your triage process clearly, since scenario questions are common in SOC hiring.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'What SOC shift experience can lead to over time',
+        heading: 'Where SOC shift experience can lead',
         intro: `A year or two of solid shift work builds the judgement that many other security roles depend on.`,
         items: [
           `Progression from SOC Analyst (L1) to SOC Analyst (L2) with deeper investigation duties`,
@@ -180,10 +180,10 @@ export default [
       },
     ],
     closing: {
-      heading: 'The quiet satisfaction of a shift done well',
+      heading: 'Most SOC analyst work goes unseen',
       text: `Most of what a SOC analyst does goes unseen, and that is exactly the point. When an attack is caught at the alert stage, nothing happens to the business, and the analyst has done the job. If that kind of quiet responsibility appeals to you, it is worth practising now.`,
     },
-    formHeading: 'Talk to us about SOC analyst shift training',
+    formHeading: 'Ask about SOC monitoring shift training',
     formSubheading: `Tell us a little about yourself and the admissions team will call you back to explain how the programme prepares you for real monitoring work.`,
   },
   {
@@ -201,7 +201,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'What each SOC analyst tier is usually responsible for',
+        heading: 'What each SOC analyst tier is responsible for',
         intro: `Here is a practical comparison of the three levels, in the order the work flows.`,
         items: [
           `L1 analyst: watches the SIEM queue, checks alerts against context, closes false positives and escalates suspicious activity with notes`,
@@ -214,21 +214,21 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'How to climb from L1 to L3 without stalling',
+        heading: 'How to move from SOC L1 to L3',
         intro: `Promotions rarely come from waiting. They come from doing visible, useful work slightly above your current tier.`,
         steps: [
-          { title: 'Master L1 duties properly first', text: `Get your triage fast and accurate, keep your ticket notes clean and learn why your false positives happen. A reliable L1 who understands the rules is far more promotable than a fast but sloppy one.` },
-          { title: 'Ask for the reason behind every escalation', text: `When L2 closes a case you escalated, read their notes and ask what clues you missed. That feedback loop is the fastest free training available inside a SOC.` },
-          { title: 'Learn the SIEM beyond the dashboard', text: `Move from viewing offenses to writing searches, building reference sets and tuning correlation rules. Being the person who can reduce false positives makes you useful very quickly.` },
-          { title: 'Add incident handling skills for L2', text: `Study the incident response lifecycle, playbooks and runbooks, and practise containment decisions in simulations. L2 is where response begins, so your judgement here is being watched.` },
-          { title: 'Learn to hunt using ATT&CK', text: `Start forming hypotheses such as "if an attacker used this technique, what would it leave in our logs?" and test them. This is the bridge from reactive work to L3 thinking.` },
-          { title: 'Back it with certifications', text: `Certifications like CompTIA CySA+, EC-Council Certified SOC Analyst, Microsoft SC-200, IBM QRadar SIEM and GIAC Certified Incident Handler each map to a stage in the ladder. They are proof, not a shortcut.` },
-          { title: 'Start mentoring and documenting', text: `Write playbooks, train new joiners and present findings. Leaders are promoted for making the team better, not only for their own tickets.` },
+          { title: 'Get good at SOC L1 duties first', text: `Get your triage fast and accurate, keep your ticket notes clean and learn why your false positives happen. A reliable L1 who understands the rules is far more promotable than a fast but sloppy one.` },
+          { title: 'Ask L2 for feedback on your escalations', text: `When L2 closes a case you escalated, read their notes and ask what clues you missed. That feedback loop is the fastest free training available inside a SOC.` },
+          { title: 'Learn SIEM searches and rule tuning', text: `Move from viewing offenses to writing searches, building reference sets and tuning correlation rules. Being the person who can reduce false positives makes you useful very quickly.` },
+          { title: 'Add incident handling skills for SOC L2', text: `Study the incident response lifecycle, playbooks and runbooks, and practise containment decisions in simulations. L2 is where response begins, so your judgement here is being watched.` },
+          { title: 'Learn threat hunting with MITRE ATT&CK', text: `Start forming hypotheses such as "if an attacker used this technique, what would it leave in our logs?" and test them. This is the bridge from reactive work to L3 thinking.` },
+          { title: 'Add SOC analyst certifications', text: `Certifications like CompTIA CySA+, EC-Council Certified SOC Analyst, Microsoft SC-200, IBM QRadar SIEM and GIAC Certified Incident Handler each map to a stage in the ladder. They are proof, not a shortcut.` },
+          { title: 'Mentor new SOC joiners and write playbooks', text: `Write playbooks, train new joiners and present findings. Leaders are promoted for making the team better, not only for their own tickets.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'Why some SOC analysts stay stuck at L1 for years',
+        heading: 'Why some SOC analysts stay at L1 for years',
         paras: [
           `The usual reason is not lack of talent. It is comfort. An L1 queue can keep you busy indefinitely, and if you never look beyond it you can repeat the same year several times. People who move up tend to treat every closed alert as a small case study.`,
           `Another reason is tool shallowness. Someone who only knows the dashboard and not the underlying log sources hits a ceiling fast. Investing time in how logs from Windows, Linux, firewalls, proxies and IPS or WAF devices actually look pays off more than most people expect.`,
@@ -236,30 +236,30 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Which SOC tier suits which kind of learner',
+        heading: 'Which SOC tier fits which background',
         intro: `You do not have to want L3 on day one, but it helps to know where different backgrounds naturally slot in.`,
         people: [
-          { who: 'A fresher with strong fundamentals and labs', text: `Aim at L1 and Security Monitoring Analyst openings. Show that you can triage, document and escalate cleanly, and that you are already learning the SIEM in depth.` },
-          { who: 'A network or systems administrator with two or three years of experience', text: `You may be able to interview for L1 with a faster path to L2, since you already understand infrastructure and troubleshooting.` },
-          { who: 'A current L1 analyst who wants to level up', text: `Focus on SIEM tuning, incident response and threat hunting. That combination is the usual bridge into L2 and toward incident response and hunting tracks.` },
-          { who: 'Someone who wants to lead people eventually', text: `Technical depth comes first, but start building reporting and communication skills early. SOC Team Lead roles reward analysts who can explain clearly and organise others.` },
+          { who: 'A fresher with strong fundamentals aiming at L1', text: `Aim at L1 and Security Monitoring Analyst openings. Show that you can triage, document and escalate cleanly, and that you are already learning the SIEM in depth.` },
+          { who: 'An IT admin with two or three years of experience', text: `You may be able to interview for L1 with a faster path to L2, since you already understand infrastructure and troubleshooting.` },
+          { who: 'A current L1 analyst aiming for L2', text: `Focus on SIEM tuning, incident response and threat hunting. That combination is the usual bridge into L2 and toward incident response and hunting tracks.` },
+          { who: 'Someone who wants to lead a SOC team eventually', text: `Technical depth comes first, but start building reporting and communication skills early. SOC Team Lead roles reward analysts who can explain clearly and organise others.` },
         ],
       },
       {
         kind: 'cards',
-        heading: 'How our SOC training builds every tier, not only L1',
+        heading: 'How our SOC training covers every tier',
         intro: `The five modules were sequenced so that a learner sees the whole ladder, even though most freshers will start at L1.`,
         cards: [
-          { title: 'Tier-by-tier understanding', text: `The Inside a Security Operations Center module teaches SOC structure, roles and the escalation path from Tier 1 to Tier 3, so you know what each level expects of you.` },
-          { title: 'SIEM depth for L1 and L2', text: `Five weeks on IBM QRadar and Splunk cover correlation rules, false positives, reference sets and tuning, the skills that make an L1 valuable and prepare an L2.` },
-          { title: 'Response and hunting for L2 and L3', text: `The final module covers the incident response lifecycle, playbooks and runbooks, MITRE ATT&CK, threat intelligence and a Threat Hunting Project.` },
-          { title: 'Internship and profile support', text: `A two-month real-time internship, together with resume, GitHub and LinkedIn help, gives you evidence of the work you have done so far.` },
-          { title: 'Mock interviews for tier questions', text: `Mock interviews cover the "what would you do at L1 versus L2" style of question, and placement support includes resume reviews and a hiring-partner network.` },
+          { title: 'SOC tier structure module', text: `The Inside a Security Operations Center module teaches SOC structure, roles and the escalation path from Tier 1 to Tier 3, so you know what each level expects of you.` },
+          { title: 'SIEM skills for SOC L1 and L2', text: `Five weeks on IBM QRadar and Splunk cover correlation rules, false positives, reference sets and tuning, the skills that make an L1 valuable and prepare an L2.` },
+          { title: 'Response and hunting skills for SOC L2 to L3', text: `The final module covers the incident response lifecycle, playbooks and runbooks, MITRE ATT&CK, threat intelligence and a Threat Hunting Project.` },
+          { title: 'Internship and profile help for SOC tiers', text: `A two-month real-time internship, together with resume, GitHub and LinkedIn help, gives you evidence of the work you have done so far.` },
+          { title: 'Mock interviews on SOC tier questions', text: `Mock interviews cover the "what would you do at L1 versus L2" style of question, and placement support includes resume reviews and a hiring-partner network.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'Roles and pay signals you may meet along the SOC ladder',
+        heading: 'SOC analyst roles and pay by tier',
         intro: `Numbers are indicative only and depend on the employer, city and your skills. They are not a promise.`,
         items: [
           `L1 stage: SOC Analyst (L1), Security Monitoring Analyst, Alert Triage Specialist`,
@@ -272,10 +272,10 @@ export default [
       },
     ],
     closing: {
-      heading: 'Every SOC ladder starts with a single triaged alert',
+      heading: 'Begin the SOC ladder with careful triage',
       text: `You do not need to know your L3 destination today. You need to learn the tier you are aiming at and start practising one level above it. Do that consistently and the titles tend to follow.`,
     },
-    formHeading: 'Plan your SOC analyst growth from L1 upwards',
+    formHeading: 'Ask about SOC analyst L1 to L3 training',
     formSubheading: `Leave your details and the admissions team will call you back to discuss which tier you should aim for first and how to prepare.`,
   },
   {
@@ -285,7 +285,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'A SIEM explained without the jargon',
+        heading: 'What a SIEM is in simple words',
         paras: [
           `Every device in a company keeps a diary. Servers, laptops, firewalls, proxies and applications all write down what they did and who asked them to do it. Those diaries are called logs, and a large company produces millions of entries in a day. No human can read them.`,
           `A SIEM collects all those diaries in one place, converts them into a common format, and watches for combinations that look wrong. Ten failed logins followed by one success from a new country is a classic example. The platform raises an alert, or in QRadar terminology an offense, and the analyst takes it from there.`,
@@ -293,7 +293,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'Why every SOC analyst interview circles back to the SIEM',
+        heading: 'Why SIEM questions come up in SOC interviews',
         paras: [
           `In a SOC, the SIEM is the place where you begin nearly every task. You triage alerts in it, search logs in it, build dashboards in it and often write the tickets from it. Interviewers know this, so they use SIEM questions to find out whether you have actually done the job or only read about it.`,
           `That is why hands-on time matters more than certificates here. Saying you know correlation rules is different from describing how you changed one to remove a noisy false positive. A candidate who can tell that small story usually gets a warmer second question.`,
@@ -301,7 +301,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'What a SIEM does with logs, step by step inside the platform',
+        heading: 'What a SIEM does with your logs',
         intro: `These are the core functions you should be able to explain and demonstrate.`,
         items: [
           `Collects logs and network flow data through event and flow collectors and agents`,
@@ -315,21 +315,21 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'A practical way to learn your first SIEM tool',
+        heading: 'Steps to learn your first SIEM tool',
         intro: `Most people fail at SIEM by watching videos passively. Use this sequence and keep your hands on the keyboard.`,
         steps: [
-          { title: 'Understand the architecture first', text: `Learn how event collectors, flow collectors, processors and the console fit together. Without this map, every screen in the tool feels random.` },
-          { title: 'Learn the log types', text: `Look at real samples of Windows event logs, Linux logs, firewall logs, proxy logs and IPS or WAF logs. You will spend your career interpreting these, so get used to their shape early.` },
-          { title: 'Onboard a log source yourself', text: `Connect a lab machine or forwarder to your SIEM and confirm events arrive. Doing this once teaches more about troubleshooting than reading five guides.` },
-          { title: 'Build a dashboard with a purpose', text: `Create a view for something specific, like failed logins by source or blocked traffic by port. A dashboard that answers a question is far more valuable than one full of default widgets.` },
-          { title: 'Investigate an offense end to end', text: `Take an alert, follow the evidence through the logs, decide whether it is real and document it. Repeat until it becomes routine.` },
-          { title: 'Tune a rule to cut false positives', text: `Change a correlation rule or reference set and observe the effect. Tuning is the skill that makes SOC teams trust an analyst.` },
-          { title: 'Repeat it in a second tool', text: `Once you understand one platform, spend a week in another. You will notice that the concepts stay the same and only the buttons change.` },
+          { title: 'Learn the SIEM architecture first', text: `Learn how event collectors, flow collectors, processors and the console fit together. Without this map, every screen in the tool feels random.` },
+          { title: 'Learn the common SIEM log types', text: `Look at real samples of Windows event logs, Linux logs, firewall logs, proxy logs and IPS or WAF logs. You will spend your career interpreting these, so get used to their shape early.` },
+          { title: 'Onboard a SIEM log source yourself', text: `Connect a lab machine or forwarder to your SIEM and confirm events arrive. Doing this once teaches more about troubleshooting than reading five guides.` },
+          { title: 'Build a SIEM dashboard for one question', text: `Create a view for something specific, like failed logins by source or blocked traffic by port. A dashboard that answers a question is far more valuable than one full of default widgets.` },
+          { title: 'Investigate one SIEM offense fully', text: `Take an alert, follow the evidence through the logs, decide whether it is real and document it. Repeat until it becomes routine.` },
+          { title: 'Tune a SIEM rule to cut false positives', text: `Change a correlation rule or reference set and observe the effect. Tuning is the skill that makes SOC teams trust an analyst.` },
+          { title: 'Repeat the SIEM steps in a second tool', text: `Once you understand one platform, spend a week in another. You will notice that the concepts stay the same and only the buttons change.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'SIEM tools in the market and which to start with',
+        heading: 'Popular SIEM tools and where to start',
         intro: `You do not need to learn every platform. Here is a sensible way to think about the choices.`,
         items: [
           `IBM QRadar: a widely used enterprise SIEM, known for offense-based investigation, and one of the two platforms used in our programme`,
@@ -341,29 +341,29 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who should invest serious time in SIEM skills',
+        heading: 'Who should spend time on SIEM skills',
         intro: `SIEM knowledge is central to SOC work, but it is also useful in several neighbouring roles.`,
         people: [
-          { who: 'A fresher targeting SOC Analyst L1 roles', text: `SIEM fluency is your strongest differentiator. Spend the largest share of your practice time here.` },
-          { who: 'A network or systems administrator', text: `You already understand logs from an operations viewpoint. Learning correlation and detection turns that knowledge into a security skill.` },
-          { who: 'A developer or data-minded learner', text: `If you enjoy searching and querying large datasets, SIEM search languages and log analysis will feel natural.` },
-          { who: 'Someone who does not enjoy staring at data', text: `Be honest with yourself. A SIEM role involves long stretches of reviewing events, and if that sounds tiring, consider whether another security path fits better.` },
+          { who: 'A fresher who wants SIEM skills for SOC L1', text: `SIEM fluency is your strongest differentiator. Spend the largest share of your practice time here.` },
+          { who: 'A network administrator learning a SIEM', text: `You already understand logs from an operations viewpoint. Learning correlation and detection turns that knowledge into a security skill.` },
+          { who: 'A developer or data-minded learner drawn to SIEM', text: `If you enjoy searching and querying large datasets, SIEM search languages and log analysis will feel natural.` },
+          { who: 'Someone who dislikes staring at SIEM data', text: `Be honest with yourself. A SIEM role involves long stretches of reviewing events, and if that sounds tiring, consider whether another security path fits better.` },
         ],
       },
       {
         kind: 'cards',
-        heading: 'How SIEM training works at our Madhapur institute',
+        heading: 'SIEM training at our Madhapur institute',
         intro: `SIEM gets the largest block of time in the programme because it is the most tested hands-on skill.`,
         cards: [
-          { title: 'A dedicated five-week SIEM module', text: `The SIEM Platforms and Security Monitoring module runs 50 hours, covering architecture, collectors, QRadar dashboards, offense analysis and correlation rules.` },
-          { title: 'Live labs on real log types', text: `You onboard sources, analyse malicious IP and phishing activity from offense data, and work with Windows, Linux, firewall, proxy and IPS or WAF logs.` },
-          { title: 'SIEM Monitoring Lab project', text: `You onboard log sources into IBM QRadar, create reference sets and build real-time dashboards, a project that goes into your portfolio and resume.` },
-          { title: 'Internship and interview practice', text: `The real-time internship exposes you to live monitoring, and mock interviews rehearse how to explain your SIEM work clearly.` },
+          { title: 'Five-week SIEM module of 50 hours', text: `The SIEM Platforms and Security Monitoring module runs 50 hours, covering architecture, collectors, QRadar dashboards, offense analysis and correlation rules.` },
+          { title: 'SIEM labs on different log types', text: `You onboard sources, analyse malicious IP and phishing activity from offense data, and work with Windows, Linux, firewall, proxy and IPS or WAF logs.` },
+          { title: 'SIEM Monitoring Lab project for your portfolio', text: `You onboard log sources into IBM QRadar, create reference sets and build real-time dashboards, a project that goes into your portfolio and resume.` },
+          { title: 'SIEM internship and interview practice', text: `The real-time internship exposes you to live monitoring, and mock interviews rehearse how to explain your SIEM work clearly.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'What strong SIEM skills can help you achieve',
+        heading: 'Career outcomes of strong SIEM skills',
         intro: `These are typical outcomes, not promises, and they depend on your preparation and the hiring market.`,
         items: [
           `Entry into SOC Analyst (L1 and L2), Security Monitoring Analyst and Log Analysis Engineer roles`,
@@ -376,10 +376,10 @@ export default [
       },
     ],
     closing: {
-      heading: 'Pick one SIEM, go deep, then widen',
+      heading: 'Learn one SIEM well first',
       text: `The best SIEM to learn is the one you will actually open every day and push until it breaks. Understand one platform properly and the second one takes days, not months. Begin with the concepts, keep practising, and let the logs teach you.`,
     },
-    formHeading: 'Start your SIEM learning path with expert guidance',
+    formHeading: 'Ask about SOC SIEM training',
     formSubheading: `Share your details and our admissions team will call you back to explain how the SIEM module and labs are structured.`,
   },
   {
@@ -389,7 +389,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'The fresher problem in SOC hiring, and how to get around it',
+        heading: 'Why SOC hiring is hard for freshers',
         paras: [
           `You have seen the job posts asking for one to two years of experience for an entry role. It feels unfair, and it is a common frustration for freshers. The way around it is not to argue with the posting. It is to give the hiring manager a reason to believe you can already do the work.`,
           `In a SOC, that belief comes from evidence. A hiring manager wants to see that you have opened a SIEM, investigated an offense, read firewall logs, and written down what you did. You cannot fake this in an interview, but you can build it in a few months if you practise on real-style labs.`,
@@ -397,22 +397,22 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'Eight steps from fresher to first SOC analyst offer',
+        heading: 'Eight steps to your first SOC analyst offer',
         intro: `Follow these in order. The early steps take the longest, and they are the ones that make the later ones easy.`,
         steps: [
-          { title: 'Pick the target role clearly', text: `Aim for SOC Analyst L1, Security Monitoring Analyst or Alert Triage Specialist. A specific target lets you tailor your resume and preparation instead of applying to everything.` },
-          { title: 'Finish your fundamentals honestly', text: `Networking, Windows and Linux, and the basics of attacks are non-negotiable. Fresher candidates often lose interviews on subnetting or log reading, not on advanced topics.` },
-          { title: 'Get real SIEM hours', text: `Work in IBM QRadar or Splunk until you can onboard a source, build a dashboard and investigate an offense without help. This single skill changes the tone of your interviews.` },
-          { title: 'Document projects like a professional', text: `Write up each project with the goal, steps, evidence and outcome. Clear documentation shows how you think, which is what a hiring manager is actually trying to judge.` },
-          { title: 'Seek live exposure through an internship', text: `Exposure to live monitoring, triage and incident response turns your story from "I studied this" to "I have seen this in a working setting".` },
-          { title: 'Tidy your resume, GitHub and LinkedIn before applying', text: `Make sure all three tell the same story, with keywords such as SIEM, log analysis, incident response and MITRE ATT&CK where they truthfully apply. Keep GitHub tidy and readable.` },
-          { title: 'Rehearse with repeated mock interviews', text: `Rehearse scenario questions aloud, ideally with someone who can push back. Fluent, structured answers come from repetition, not from memorising definitions.` },
-          { title: 'Apply widely and follow up', text: `Apply to security service providers, enterprise SOCs and hiring partners, and keep a simple tracker. Expect rejections, learn from each interview, and keep refining.` },
+          { title: 'Pick one SOC target role', text: `Aim for SOC Analyst L1, Security Monitoring Analyst or Alert Triage Specialist. A specific target lets you tailor your resume and preparation instead of applying to everything.` },
+          { title: 'Finish the SOC fundamentals first', text: `Networking, Windows and Linux, and the basics of attacks are non-negotiable. Fresher candidates often lose interviews on subnetting or log reading, not on advanced topics.` },
+          { title: 'Log hands-on hours on a SIEM tool', text: `Work in IBM QRadar or Splunk until you can onboard a source, build a dashboard and investigate an offense without help. This single skill changes the tone of your interviews.` },
+          { title: 'Document your SOC projects properly', text: `Write up each project with the goal, steps, evidence and outcome. Clear documentation shows how you think, which is what a hiring manager is actually trying to judge.` },
+          { title: 'Get live SOC exposure through an internship', text: `Exposure to live monitoring, triage and incident response turns your story from "I studied this" to "I have seen this in a working setting".` },
+          { title: 'Tidy your profiles before applying to SOCs', text: `Make sure all three tell the same story, with keywords such as SIEM, log analysis, incident response and MITRE ATT&CK where they truthfully apply. Keep GitHub tidy and readable.` },
+          { title: 'Rehearse SOC scenario questions aloud', text: `Rehearse scenario questions aloud, ideally with someone who can push back. Fluent, structured answers come from repetition, not from memorising definitions.` },
+          { title: 'Apply to SOC roles and follow up', text: `Apply to security service providers, enterprise SOCs and hiring partners, and keep a simple tracker. Expect rejections, learn from each interview, and keep refining.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'SOC portfolio pieces that make a fresher stand out',
+        heading: 'SOC portfolio projects worth building',
         intro: `Five or six well-documented projects beat a long list of tool names. These are the kinds of pieces worth building.`,
         items: [
           `A Network and Lab Environment Setup showing correct subnetting and both Windows and Linux hosts`,
@@ -426,7 +426,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'What to put on your fresher SOC resume, GitHub and LinkedIn',
+        heading: 'SOC resume, GitHub and LinkedIn tips for freshers',
         paras: [
           `On your resume, lead with a short summary and a skills line that names your SIEM tools, log sources and frameworks, followed by projects, then education. Under each project write two lines: what you built, and what you found or achieved. Avoid claiming experience you do not have. Interviewers will test it.`,
           `On GitHub, keep a repository or two with clean write-ups of your labs, screenshots where appropriate, and your incident notes. On LinkedIn, use a headline that states your target, such as aspiring SOC analyst with SIEM and incident response lab experience, and post short notes about what you practise. Small, steady visibility helps recruiters find you.`,
@@ -434,30 +434,30 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Different fresher backgrounds and how each can approach SOC hiring',
+        heading: 'How different fresher backgrounds approach SOC hiring',
         intro: `Your starting point changes the story you tell, not the destination.`,
         people: [
-          { who: 'A recent B.Tech graduate in CSE or IT', text: `Lean on your technical basics, then prove you have moved beyond theory with SIEM labs and documented projects. Campus scores matter less than what you can demonstrate.` },
-          { who: 'A graduate from B.Sc, BCA or another stream', text: `Focus on the fundamentals early and build lab evidence. Many SOC teams care more about your reasoning and log skills than the letters on your degree.` },
-          { who: 'A career switcher from a non-security job', text: `Connect your earlier experience to the role, such as customer support, operations or auditing. Carefulness, documentation and communication all transfer well.` },
-          { who: 'Someone with gaps or low marks', text: `Do not hide it, and do not dwell on it either. A strong project portfolio, an internship and a clear explanation can carry a lot of weight in security hiring.` },
+          { who: 'A B.Tech CSE or IT graduate applying to SOCs', text: `Lean on your technical basics, then prove you have moved beyond theory with SIEM labs and documented projects. Campus scores matter less than what you can demonstrate.` },
+          { who: 'A B.Sc or BCA graduate applying to SOCs', text: `Focus on the fundamentals early and build lab evidence. Many SOC teams care more about your reasoning and log skills than the letters on your degree.` },
+          { who: 'A switcher from support or audit roles into SOC', text: `Connect your earlier experience to the role, such as customer support, operations or auditing. Carefulness, documentation and communication all transfer well.` },
+          { who: 'A SOC applicant with gaps or low marks', text: `Do not hide it, and do not dwell on it either. A strong project portfolio, an internship and a clear explanation can carry a lot of weight in security hiring.` },
         ],
       },
       {
         kind: 'cards',
-        heading: 'How our SOC training is designed around first-job outcomes',
+        heading: 'How our SOC training targets first jobs',
         intro: `The programme in Madhapur is built so that freshers leave with evidence, practice and support, not just notes.`,
         cards: [
-          { title: 'Modules that end in projects', text: `Each of the five modules closes with a lab or project, and a minimum of five documented projects across the programme go into your portfolio.` },
-          { title: 'Use your internship as proof of on-the-job skill', text: `Two months of exposure to live SOC monitoring, triage and incident response gives you concrete experience to discuss in interviews.` },
-          { title: 'Resume, GitHub and LinkedIn building', text: `We help you shape your profiles around your actual project work so that recruiters see a coherent story.` },
-          { title: 'Mock interviews and interview preparation', text: `Repeated mock interviews cover SIEM, tier structure and incident response scenarios, so your answers become structured and confident.` },
-          { title: 'Placement support for first-job applicants', text: `Support includes resume reviews, mock interviews and a hiring-partner network. It prepares and connects you, but the interview outcome depends on you.` },
+          { title: 'SOC modules that end in projects', text: `Each of the five modules closes with a lab or project, and a minimum of five documented projects across the programme go into your portfolio.` },
+          { title: 'SOC internship as proof of job skills', text: `Two months of exposure to live SOC monitoring, triage and incident response gives you concrete experience to discuss in interviews.` },
+          { title: 'Resume, GitHub and LinkedIn help for SOC freshers', text: `We help you shape your profiles around your actual project work so that recruiters see a coherent story.` },
+          { title: 'Mock interviews for fresher SOC hiring', text: `Repeated mock interviews cover SIEM, tier structure and incident response scenarios, so your answers become structured and confident.` },
+          { title: 'Placement help for first SOC job seekers', text: `Support includes resume reviews, mock interviews and a hiring-partner network. It prepares and connects you, but the interview outcome depends on you.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'Realistic expectations for your first SOC analyst role',
+        heading: 'What to expect in your first SOC analyst role',
         intro: `It is better to walk in with realistic expectations than with a glossy picture.`,
         items: [
           `Titles such as SOC Analyst (L1), Security Monitoring Analyst or Alert Triage Specialist are typical first roles`,
@@ -470,10 +470,10 @@ export default [
       },
     ],
     closing: {
-      heading: 'Your first SOC offer is built on small, repeated wins',
+      heading: 'Keep building toward your first SOC offer',
       text: `Nobody lands the first job in one big leap. It happens through one more lab finished, one more mock interview survived and one more application sent. Keep the routine going for a few months and the pattern usually starts working in your favour.`,
     },
-    formHeading: 'Get placement-ready for your first SOC analyst job',
+    formHeading: 'Ask about SOC analyst job preparation',
     formSubheading: `Share your background and our admissions team will call you back to discuss how to prepare for fresher SOC hiring.`,
   },
   {
@@ -483,7 +483,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'Incident response in plain language, with one example',
+        heading: 'What incident response means, with an example',
         paras: [
           `A security incident is any event that threatens the confidentiality, integrity or availability of a company's data or systems. A phishing email that steals a password is an incident. So is malware spreading on a file server. Incident response is the planned way the team handles it so that damage stays small and the same mistake is not repeated.`,
           `Take a simple example. An employee clicks a link in a fake invoice email and enters their password. Twenty minutes later the SIEM shows a login to that account from an unusual location. Without a process, people argue about what to do. With incident response, everybody knows the first move, who decides, and what to record.`,
@@ -491,7 +491,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'Why SOC teams insist on a process during security incidents',
+        heading: 'Why SOC teams follow an incident response process',
         paras: [
           `In a real incident, pressure is high and information is incomplete. People make hasty choices such as wiping a machine before saving evidence, or telling too many people too early. A written lifecycle takes those choices out of the moment and puts them into a checklist prepared calmly in advance.`,
           `It also matters commercially. Regulators, clients and management often ask what happened, when you found it and what you did about it. A documented response answers those questions and protects the organisation and the analyst.`,
@@ -499,20 +499,20 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'The incident response lifecycle, from preparation to lessons learned',
+        heading: 'Stages of the incident response lifecycle',
         intro: `Frameworks name the phases slightly differently, but the flow below is the widely accepted core.`,
         steps: [
-          { title: 'Preparation', text: `Build the team, tools and playbooks before anything happens. This includes logging, access to the SIEM, contact lists, and rehearsed procedures. Most incidents go better or worse depending on this phase.` },
-          { title: 'Identification', text: `Detect that something is wrong and decide whether it is really an incident. Analysts use alerts, log evidence and threat intelligence indicators to confirm scope, severity and the affected systems.` },
-          { title: 'Containment', text: `Stop the spread without destroying evidence. Short-term actions may include isolating a host or disabling an account, followed by longer-term measures that keep the business running safely.` },
-          { title: 'Eradication', text: `Remove the root cause, such as malware, unauthorised accounts or the exploited weakness. If you skip finding the root cause, the attacker often returns through the same door.` },
-          { title: 'Recovery', text: `Restore systems to normal operation from clean sources and monitor closely for signs of reinfection. Recovery is done carefully, with the business owner agreeing when it is safe.` },
-          { title: 'Lessons learned', text: `Hold a review after the incident to record what happened, what worked and what to change. Update playbooks, detection rules and training so the next incident is easier.` },
+          { title: 'Incident response preparation', text: `Build the team, tools and playbooks before anything happens. This includes logging, access to the SIEM, contact lists, and rehearsed procedures. Most incidents go better or worse depending on this phase.` },
+          { title: 'Identifying the incident', text: `Detect that something is wrong and decide whether it is really an incident. Analysts use alerts, log evidence and threat intelligence indicators to confirm scope, severity and the affected systems.` },
+          { title: 'Containing the incident', text: `Stop the spread without destroying evidence. Short-term actions may include isolating a host or disabling an account, followed by longer-term measures that keep the business running safely.` },
+          { title: 'Eradicating the root cause', text: `Remove the root cause, such as malware, unauthorised accounts or the exploited weakness. If you skip finding the root cause, the attacker often returns through the same door.` },
+          { title: 'Recovering affected systems', text: `Restore systems to normal operation from clean sources and monitor closely for signs of reinfection. Recovery is done carefully, with the business owner agreeing when it is safe.` },
+          { title: 'Lessons learned after an incident', text: `Hold a review after the incident to record what happened, what worked and what to change. Update playbooks, detection rules and training so the next incident is easier.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'Playbooks, runbooks and frameworks that guide incident response',
+        heading: 'Playbooks, runbooks and frameworks for incident response',
         intro: `Good teams do not improvise from a blank page. These are the supporting tools you will hear about.`,
         items: [
           `Incident playbooks describing the response for a specific scenario, such as phishing or ransomware`,
@@ -526,18 +526,18 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who should study incident response and who might find it heavy',
+        heading: 'Who should study incident response',
         intro: `Incident response is an exciting part of security, but it asks for a specific kind of steadiness.`,
         people: [
-          { who: 'An L1 or L2 SOC analyst aiming higher', text: `Incident response is the natural next skill after triage. It opens the path to Incident Response Analyst and L2 roles.` },
-          { who: 'A fresher who enjoys structure and logic', text: `If you like following a defined method and writing clear notes, this area will suit you, even without prior experience.` },
-          { who: 'A systems or network administrator', text: `You already know how to restore services. Adding security investigation and evidence handling makes your skills far more valuable in a response team.` },
-          { who: 'Someone who freezes under pressure', text: `Incident work can be stressful, especially in a live event. Practising simulations helps a lot, but be honest about how you handle urgency before choosing this track.` },
+          { who: 'An L1 or L2 analyst learning incident response', text: `Incident response is the natural next skill after triage. It opens the path to Incident Response Analyst and L2 roles.` },
+          { who: 'A fresher who likes structured incident response work', text: `If you like following a defined method and writing clear notes, this area will suit you, even without prior experience.` },
+          { who: 'A sysadmin moving into incident response', text: `You already know how to restore services. Adding security investigation and evidence handling makes your skills far more valuable in a response team.` },
+          { who: 'Someone who struggles with incident response pressure', text: `Incident work can be stressful, especially in a live event. Practising simulations helps a lot, but be honest about how you handle urgency before choosing this track.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'What the incident response and threat hunting module teaches',
+        heading: 'What the SOC incident response module covers',
         intro: `The fifth module in our SOC Analyst Program runs five weeks and 50 hours, and covers the following.`,
         items: [
           `The incident handling process and response lifecycle, including containment, eradication and recovery`,
@@ -550,18 +550,18 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How we help you practise incident response, not only read about it',
+        heading: 'How we teach incident response through practice',
         intro: `Incident response is a skill you build by doing it repeatedly in safe conditions.`,
         cards: [
-          { title: 'A full lifecycle lab', text: `You run an incident from identification through recovery and document it, including a simulated multi-stage incident with a proactive threat-hunting exercise.` },
+          { title: 'Incident response lifecycle lab', text: `You run an incident from identification through recovery and document it, including a simulated multi-stage incident with a proactive threat-hunting exercise.` },
           { title: 'Incident Response Simulation project', text: `This project takes you through the full lifecycle, from identification to containment and recovery, and becomes part of your portfolio.` },
-          { title: 'Threat Hunting Project', text: `You use MITRE ATT&CK and threat intelligence feeds to hunt for hidden threats, showing initiative beyond reacting to alerts.` },
-          { title: 'Internship and mock interviews', text: `The two-month real-time internship gives exposure to live incident response, and mock interviews rehearse how to talk through an incident calmly.` },
+          { title: 'Threat Hunting Project with ATT&CK', text: `You use MITRE ATT&CK and threat intelligence feeds to hunt for hidden threats, showing initiative beyond reacting to alerts.` },
+          { title: 'Incident response internship and mock interviews', text: `The two-month real-time internship gives exposure to live incident response, and mock interviews rehearse how to talk through an incident calmly.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'Where incident response skills can take a SOC analyst',
+        heading: 'Career options after incident response training',
         intro: `Outcomes vary with experience and the market, but these are the typical directions.`,
         items: [
           `Incident Response Analyst (Trainee), Junior Threat Hunter and Threat Intelligence Analyst (Junior) roles`,
@@ -573,10 +573,10 @@ export default [
       },
     ],
     closing: {
-      heading: 'Stay calm, follow the lifecycle, write it down',
+      heading: 'Practise incident response before you need it',
       text: `The best incident responders are rarely the loudest people in the room. They follow the process, keep evidence safe and communicate clearly. Those habits can be trained, and practising simulated incidents before you meet a real one is the smartest place to begin.`,
     },
-    formHeading: 'Learn incident response with hands-on SOC labs',
+    formHeading: 'Ask about SOC incident response training',
     formSubheading: `Tell us a bit about yourself and the admissions team will call you back to explain how the incident response module is taught.`,
   },
   {
@@ -586,7 +586,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'Defender or attacker: the real difference between SOC and pentesting',
+        heading: 'What separates a SOC analyst from a pentester',
         paras: [
           `Both careers sit inside cyber security, but they ask for different mindsets. A penetration tester is hired to think like an intruder: find a way in, prove it works, and write a report so the company can fix it. The work usually comes in projects, with a defined scope and a start and end date.`,
           `A SOC analyst is the opposite side of the table. You are the person watching, day after day, for the signs of an intrusion. Your success is measured by how quickly and accurately you detect and handle threats, and it is continuous work rather than a project.`,
@@ -595,7 +595,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'Day-to-day differences between a SOC analyst and a penetration tester',
+        heading: 'Duties of a SOC analyst and a penetration tester',
         intro: `Here is how the two roles usually differ in practice. Companies vary, so treat this as a general picture.`,
         items: [
           `SOC analyst: works from a SIEM queue; penetration tester: works from a scoped test plan`,
@@ -608,7 +608,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'Hiring, entry routes and shifts compared for freshers',
+        heading: 'Entry routes for freshers in SOC and pentesting',
         paras: [
           `For freshers, SOC roles tend to have a clearer front door. Titles like SOC Analyst L1, Security Monitoring Analyst and Alert Triage Specialist exist precisely for people who are still learning, and the tier system provides a visible ladder to L2 and beyond.`,
           `Pentesting can be rewarding, but employers commonly look for demonstrated offensive skill, such as strong lab practice and relevant certifications, before handing over client work. Many pentesters also start in networking, development or SOC roles first. The trade-off on the SOC side is shift work, which some people dislike, while pentest work can involve travel, tight deadlines and long reporting sessions.`,
@@ -616,42 +616,42 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Which personality leans SOC analyst and which leans penetration tester',
+        heading: 'Which personality suits SOC or pentesting',
         intro: `There is no correct answer, only a better fit. See which description sounds more like you.`,
         people: [
-          { who: 'A patient investigator who likes patterns', text: `You enjoy tracing a story through logs and are happy to spend time confirming facts. SOC analyst work is likely to suit you.` },
-          { who: 'A tinkerer who loves breaking things to see how they work', text: `You would happily spend a weekend on one puzzle. Penetration testing may be more rewarding, though you can still learn a lot in a SOC first.` },
-          { who: 'A team-oriented person who likes structure', text: `SOC teams run on process, handovers and shared tickets. If you value routine and collaboration, this is a comfortable environment.` },
-          { who: 'A fresher unsure about either', text: `Start where the entry door is widest, learn the fundamentals, and stay open. The attacker-side skills you pick up in a SOC programme are useful for either path.` },
+          { who: 'A patient investigator drawn to SOC analyst work', text: `You enjoy tracing a story through logs and are happy to spend time confirming facts. SOC analyst work is likely to suit you.` },
+          { who: 'A tinkerer who may prefer penetration testing', text: `You would happily spend a weekend on one puzzle. Penetration testing may be more rewarding, though you can still learn a lot in a SOC first.` },
+          { who: 'A team-oriented person who likes SOC structure', text: `SOC teams run on process, handovers and shared tickets. If you value routine and collaboration, this is a comfortable environment.` },
+          { who: 'A fresher unsure between SOC and pentesting', text: `Start where the entry door is widest, learn the fundamentals, and stay open. The attacker-side skills you pick up in a SOC programme are useful for either path.` },
         ],
       },
       {
         kind: 'steps',
-        heading: 'A one-month experiment to choose between SOC and pentesting',
+        heading: 'A one-month trial of SOC and pentesting',
         intro: `Instead of guessing, run a small trial. Thirty days is enough to see which side keeps you curious.`,
         steps: [
-          { title: 'Week one: learn the shared base', text: `Study networking, Windows, Linux and the CLI. Both careers depend on these, so nothing is wasted whichever way you decide.` },
-          { title: 'Try an attack-side exercise', text: `Scan a lab machine with Nmap and walk through the five phases of hacking against a simulated target. Notice whether you enjoy the hunt for weaknesses.` },
-          { title: 'Try a defence-side exercise', text: `Capture traffic in Wireshark, then read log samples and try to spot suspicious activity. Notice whether the detective work holds your interest.` },
-          { title: 'Investigate a phishing email', text: `Analyse a sample phishing email, check the headers and identify the red flags. This sits on both sides of the fence and shows which angle you prefer.` },
-          { title: 'Reflect on energy, not ego', text: `Ask which tasks you would happily continue for an extra hour. Your energy is a better guide than what sounds more glamorous.` },
-          { title: 'Talk to people in both jobs', text: `Speak to a SOC analyst and to a penetration tester about their real weeks, including shifts, deadlines and frustrations. Real details beat internet opinions.` },
+          { title: 'Learn the base skills both paths share', text: `Study networking, Windows, Linux and the CLI. Both careers depend on these, so nothing is wasted whichever way you decide.` },
+          { title: 'Try a pentesting exercise with Nmap', text: `Scan a lab machine with Nmap and walk through the five phases of hacking against a simulated target. Notice whether you enjoy the hunt for weaknesses.` },
+          { title: 'Try a SOC log-reading exercise', text: `Capture traffic in Wireshark, then read log samples and try to spot suspicious activity. Notice whether the detective work holds your interest.` },
+          { title: 'Investigate a sample phishing email', text: `Analyse a sample phishing email, check the headers and identify the red flags. This sits on both sides of the fence and shows which angle you prefer.` },
+          { title: 'Notice which tasks hold your energy', text: `Ask which tasks you would happily continue for an extra hour. Your energy is a better guide than what sounds more glamorous.` },
+          { title: 'Talk to a SOC analyst and a pentester', text: `Speak to a SOC analyst and to a penetration tester about their real weeks, including shifts, deadlines and frustrations. Real details beat internet opinions.` },
         ],
       },
       {
         kind: 'cards',
-        heading: 'Why a SOC analyst programme also builds attacker thinking',
+        heading: 'How our SOC programme teaches attacker thinking',
         intro: `A good SOC course does not only teach defence. It gives you the attacker's-eye view too.`,
         cards: [
-          { title: 'A full threat landscape module', text: `The Cyber Threat Landscape module covers the five phases of hacking, malware, phishing, password attacks, MITM, DoS and web application attacks such as injection and XSS.` },
-          { title: 'Hands-on with Nmap and Wireshark', text: `Labs use Nmap for scanning and Wireshark for traffic capture, tools used by both defenders and offensive testers.` },
-          { title: 'Real projects and portfolio', text: `Projects such as the Threat Detection Exercise and Threat Hunting Project show analytical thinking that employers in either field value.` },
-          { title: 'Guidance and mock interviews', text: `Our team in Madhapur can talk through your options, and mock interviews plus resume support prepare you for the path you pick.` },
+          { title: 'A cyber threat landscape module', text: `The Cyber Threat Landscape module covers the five phases of hacking, malware, phishing, password attacks, MITM, DoS and web application attacks such as injection and XSS.` },
+          { title: 'Nmap and Wireshark labs in the SOC programme', text: `Labs use Nmap for scanning and Wireshark for traffic capture, tools used by both defenders and offensive testers.` },
+          { title: 'SOC projects for either career path', text: `Projects such as the Threat Detection Exercise and Threat Hunting Project show analytical thinking that employers in either field value.` },
+          { title: 'SOC career guidance and mock interviews', text: `Our team in Madhapur can talk through your options, and mock interviews plus resume support prepare you for the path you pick.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'What you can build on the SOC analyst side of security',
+        heading: 'Career path on the SOC analyst side',
         intro: `If you lean towards defence, this is what the path can look like. All figures are indicative and not a promise.`,
         items: [
           `Entry roles such as SOC Analyst (L1), Security Monitoring Analyst and Alert Triage Specialist`,
@@ -664,10 +664,10 @@ export default [
       },
     ],
     closing: {
-      heading: 'Choose the side that keeps you curious after a long day',
+      heading: 'Choose the path that keeps you curious',
       text: `Security is large enough for both careers, and moving between them later is common. Pick the one that matches your energy now, build strong fundamentals, and revisit the decision after a year of real experience. You will choose better then than you can today.`,
     },
-    formHeading: 'Get advice on choosing SOC analyst as your security career',
+    formHeading: 'Ask for SOC analyst career advice',
     formSubheading: `Share a few details and our admissions team will call you back to talk through whether a SOC analyst path suits your goals.`,
   },
   {
@@ -677,7 +677,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'What SOC analyst interviewers are really trying to find out',
+        heading: 'What SOC analyst interviewers look for',
         paras: [
           `Behind every question, an interviewer is asking three things. Do you understand the fundamentals, can you stay methodical with an unclear alert, and will you communicate clearly with a team at 3 am. Technical facts matter, but the method and the tone matter just as much.`,
           `For freshers, interviewers expect limited experience. What they respond well to is evidence of practice: a described lab, a specific tool you used, a mistake you made and fixed. Honest depth beats a long list of buzzwords every time.`,
@@ -685,7 +685,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'Question areas to cover before your SOC analyst interview',
+        heading: 'Question areas for a SOC analyst interview',
         intro: `Use this as a checklist. If you cannot explain an item in two or three sentences, revisit it.`,
         items: [
           `Networking: OSI and TCP/IP models, subnetting, common ports, and where firewalls and IDS or IPS sit`,
@@ -700,21 +700,21 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'A two-week SOC interview preparation plan you can follow',
+        heading: 'A two-week SOC interview preparation plan',
         intro: `This plan assumes you already have some lab practice. Adjust the days based on your gaps.`,
         steps: [
-          { title: 'Days one and two: refresh networking', text: `Redo subnetting problems, explain the OSI model in your own words and review common ports. Fundamentals are where freshers most often lose marks.` },
-          { title: 'Days three and four: revisit operating systems and logs', text: `Practise Linux commands and review Windows event log basics. Then look at firewall and proxy log samples and describe what each line tells you.` },
-          { title: 'Days five to seven: SIEM practice', text: `Rework a full offense investigation in QRadar or Splunk, then explain it aloud as if to an interviewer. If you stumble, repeat it the next day.` },
-          { title: 'Days eight and nine: SOC structure and frameworks', text: `Rehearse tier responsibilities, escalation paths, the Kill Chain and MITRE ATT&CK with short examples. Prepare a plain answer to the question of why you want a SOC role.` },
-          { title: 'Days ten and eleven: incident response scenarios', text: `Walk through phishing, ransomware and suspicious login scenarios using the lifecycle phases. Keep each answer structured: identify, contain, eradicate, recover, document.` },
-          { title: 'Days twelve and thirteen: mock interviews', text: `Do at least two full mock interviews with someone who can interrupt and challenge you. Review the recording or notes and fix the weak answers.` },
-          { title: 'Day fourteen: prepare your story', text: `Finalise your project explanations, resume and questions to ask the interviewer. Sleep well and stop cramming, since clarity beats extra facts.` },
+          { title: 'Days 1 to 2 on networking for SOC interviews', text: `Redo subnetting problems, explain the OSI model in your own words and review common ports. Fundamentals are where freshers most often lose marks.` },
+          { title: 'Days 3 to 4 on operating systems and SOC logs', text: `Practise Linux commands and review Windows event log basics. Then look at firewall and proxy log samples and describe what each line tells you.` },
+          { title: 'Days 5 to 7 on SIEM offense practice', text: `Rework a full offense investigation in QRadar or Splunk, then explain it aloud as if to an interviewer. If you stumble, repeat it the next day.` },
+          { title: 'Days 8 to 9 on SOC tiers and frameworks', text: `Rehearse tier responsibilities, escalation paths, the Kill Chain and MITRE ATT&CK with short examples. Prepare a plain answer to the question of why you want a SOC role.` },
+          { title: 'Days 10 to 11 on incident response scenarios', text: `Walk through phishing, ransomware and suspicious login scenarios using the lifecycle phases. Keep each answer structured: identify, contain, eradicate, recover, document.` },
+          { title: 'Days 12 to 13 on SOC mock interviews', text: `Do at least two full mock interviews with someone who can interrupt and challenge you. Review the recording or notes and fix the weak answers.` },
+          { title: 'Day 14 on your SOC project story', text: `Finalise your project explanations, resume and questions to ask the interviewer. Sleep well and stop cramming, since clarity beats extra facts.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'How to answer the classic walk me through an alert question',
+        heading: 'How to answer the alert walkthrough question',
         paras: [
           `This scenario appears in almost every SOC interview. You are told that the SIEM shows several failed logins followed by a successful one from a foreign IP, and you are asked what you would do. Do not jump to conclusions. Start with a structure and say it aloud.`,
           `A strong answer sounds like this: I would first read the alert details, note the account, source IP and time. I would check the IP reputation and whether the user normally logs in from there. Then I would search logs for what the account did after the login. If it looks malicious, I would escalate with a timeline and evidence, and recommend containment such as resetting credentials. Finally I would document everything. Method plus reasoning beats guessing the right answer.`,
@@ -722,25 +722,25 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who needs extra SOC interview practice and where to focus',
+        heading: 'Who needs extra SOC interview practice',
         intro: `Different candidates tend to slip in different places. Match your practice to your profile.`,
         people: [
-          { who: 'A fresher with theory but limited lab time', text: `Focus on hands-on stories. Do a couple of SIEM investigations and be ready to describe them step by step.` },
-          { who: 'A candidate from a non-IT background', text: `Strengthen networking and operating system basics first, and practise explaining them simply. Clear basics build confidence quickly.` },
-          { who: 'An experienced IT professional switching to security', text: `Show how your infrastructure background helps, but prepare for SOC-specific topics like tiers, correlation rules and MITRE ATT&CK, which may be new to you.` },
-          { who: 'Someone who gets nervous when speaking', text: `Mock interviews are your best friend. Repetition turns a shaky answer into a steady one long before the real day.` },
+          { who: 'A fresher with theory but few SOC labs', text: `Focus on hands-on stories. Do a couple of SIEM investigations and be ready to describe them step by step.` },
+          { who: 'A non-IT candidate preparing for a SOC interview', text: `Strengthen networking and operating system basics first, and practise explaining them simply. Clear basics build confidence quickly.` },
+          { who: 'An IT professional switching to a SOC role', text: `Show how your infrastructure background helps, but prepare for SOC-specific topics like tiers, correlation rules and MITRE ATT&CK, which may be new to you.` },
+          { who: 'Someone nervous about SOC interview questions', text: `Mock interviews are your best friend. Repetition turns a shaky answer into a steady one long before the real day.` },
         ],
       },
       {
         kind: 'cards',
-        heading: 'How Skill IT Education prepares you for SOC analyst interviews',
+        heading: 'SOC interview preparation at Skill IT Education',
         intro: `Interview preparation is not a separate event at the end. It runs alongside the technical work.`,
         cards: [
-          { title: 'Modules aligned to interview topics', text: `Networking, threat landscape, SOC structure, SIEM monitoring and incident response modules map closely to what interviewers test, with a strong hands-on focus on IBM QRadar and Splunk.` },
+          { title: 'SOC modules that match interview topics', text: `Networking, threat landscape, SOC structure, SIEM monitoring and incident response modules map closely to what interviewers test, with a strong hands-on focus on IBM QRadar and Splunk.` },
           { title: 'Mock interview rounds for SOC roles', text: `Repeated mock interviews let you rehearse scenario questions, tier discussions and project explanations before you face a real panel.` },
-          { title: 'Project explanations you can defend', text: `A minimum of five documented projects, including the SIEM Monitoring Lab and Incident Response Simulation, give you concrete material to talk about.` },
-          { title: 'Resume, GitHub and LinkedIn review', text: `We help align your profiles with your real work so that your resume and your answers tell the same story.` },
-          { title: 'Placement support that follows you into interview week', text: `Support includes resume reviews, mock interviews and a hiring-partner network, and a two-month real-time internship gives you live monitoring experience to discuss.` },
+          { title: 'SOC project explanations you can defend', text: `A minimum of five documented projects, including the SIEM Monitoring Lab and Incident Response Simulation, give you concrete material to talk about.` },
+          { title: 'Resume and profile review before SOC interviews', text: `We help align your profiles with your real work so that your resume and your answers tell the same story.` },
+          { title: 'Placement help through SOC interview week', text: `Support includes resume reviews, mock interviews and a hiring-partner network, and a two-month real-time internship gives you live monitoring experience to discuss.` },
         ],
       },
       {
@@ -758,10 +758,10 @@ export default [
       },
     ],
     closing: {
-      heading: 'Go in ready to think aloud, not to recite',
+      heading: 'Think aloud in your SOC interview',
       text: `A SOC interview is a conversation about how you handle uncertainty. Practise your labs, rehearse your reasoning until it feels natural, and walk in prepared to show your process. Preparation will not remove nerves, but it gives them somewhere useful to go.`,
     },
-    formHeading: 'Start your SOC analyst interview preparation today',
+    formHeading: 'Ask about SOC analyst interview coaching',
     formSubheading: `Leave your details and the admissions team will call you back to explain how mock interviews and placement support work.`,
   },
 ];

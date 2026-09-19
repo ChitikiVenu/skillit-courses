@@ -6,7 +6,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'What a cyber security professional actually does day to day',
+        heading: 'What a cyber security professional does',
         paras: [
           `Ask ten people what a cyber security professional does and you will hear ten different answers, because the field is wide. Some sit in a Security Operations Centre and decide which alerts are real attacks. Others are penetration testers, paid to break into a company's own systems before a criminal does. Others review web applications, harden networks, respond to incidents or write the reports that management actually reads.`,
           `What connects all of them is a habit: think like an attacker, work like a careful engineer. You learn how a system can fail, prove it safely, and then explain the fix in plain language. Freshers are often surprised that reporting and communication are half of the job.`,
@@ -15,7 +15,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'Why a cyber security career keeps attracting Indian graduates',
+        heading: 'Why cyber security attracts Indian graduates',
         paras: [
           `Every banking app, hospital record system, online store and startup dashboard is a target, and companies around Madhapur and the wider Hyderabad IT belt handle client data from across the world. Someone has to defend it, and that need does not depend on which programming language is fashionable this year.`,
           `The entry doors are also varied: SOC Analyst, Security Analyst, Vulnerability Assessor, Junior Penetration Tester. You can start on the defensive side and move to offensive work later, or the other way round. Indicative entry-to-mid salaries for roles like SOC Analyst, Security Analyst and Junior Penetration Tester run from roughly ₹3.5L to ₹9L a year in India, rising with certifications and project experience. These are broad ranges that change with company, city and skills, not promises.`,
@@ -23,32 +23,32 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who can become a cyber security professional, and who should think twice',
+        heading: 'Who suits a cyber security career',
         intro: `Most people who are curious and patient can make this move. The people who struggle are usually the ones who came in with the wrong picture of the job.`,
         people: [
-          { who: 'A final-year B.Tech or B.Sc student', text: `You have time to build a lab and a project portfolio before graduation. Start with networking and Linux now, and you will walk into interviews with real work to show.` },
-          { who: 'A network or IT support engineer', text: `You already understand ports, servers and tickets. Security is a natural next step, and the Network Support to Security track is one of the most common switches.` },
-          { who: 'A working professional from a non-IT background', text: `It is possible, but expect a steeper first month. Give yourself a fixed weekly study slot and treat the fundamentals seriously before touching attack tools.` },
-          { who: 'Someone drawn by hacking movies and quick money', text: `Think twice. Real work involves scoping documents, rules of engagement, long scans and a lot of report writing. If that sounds tedious rather than interesting, this may not be your field.` },
+          { who: 'Final-year student aiming for cyber security', text: `You have time to build a lab and a project portfolio before graduation. Start with networking and Linux now, and you will walk into interviews with real work to show.` },
+          { who: 'IT support engineer moving into cyber security', text: `You already understand ports, servers and tickets. Security is a natural next step, and the Network Support to Security track is one of the most common switches.` },
+          { who: 'Non-IT professional switching to cyber security', text: `It is possible, but expect a steeper first month. Give yourself a fixed weekly study slot and treat the fundamentals seriously before touching attack tools.` },
+          { who: 'Someone expecting movie-style hacking', text: `Think twice. Real work involves scoping documents, rules of engagement, long scans and a lot of report writing. If that sounds tedious rather than interesting, this may not be your field.` },
         ],
       },
       {
         kind: 'steps',
-        heading: 'Seven steps from curious beginner to working cyber security professional',
+        heading: 'Seven steps to start a cyber security career',
         intro: `Follow these in order. Skipping the early steps is the most common reason learners get stuck at the exploitation stage later.`,
         steps: [
-          { title: 'Learn how networks really work', text: `Understand the OSI model, the TCP/IP stack, ports, protocols and the TCP handshake. Every attack and every defence you meet later sits on top of this.` },
-          { title: 'Get comfortable in Linux and Windows command lines', text: `Security work happens in terminals. Practise navigation, permissions, processes and basic administration on both operating systems until they stop feeling foreign.` },
-          { title: 'Build a safe home lab', text: `Set up VirtualBox with Kali Linux, Parrot Security and an intentionally vulnerable target. A lab you can break freely is where all real learning happens, and it keeps your practice legal.` },
-          { title: 'Learn the assessment methodology', text: `Reconnaissance, scanning, enumeration and vulnerability scoring come before exploitation. Use Nmap, OpenVAS and OSINT techniques, and learn to read CVE and CVSS records properly.` },
-          { title: 'Choose an attack path and a defence path', text: `Go deep on web and network penetration testing with Burp Suite and SQLmap, but also learn how a SOC uses SIEM alerts and incident response playbooks. Knowing both makes you far more employable.` },
-          { title: 'Document everything as projects', text: `Write up each lab as a proper report: scope, method, findings, fixes. Aim for at least five polished projects that a recruiter can open and read in a few minutes.` },
-          { title: 'Test yourself in the real world', text: `Do an internship, attempt a foundation certification such as CompTIA Security+, and practise mock interviews. This step turns knowledge into confidence.` },
+          { title: 'Learn networking basics', text: `Understand the OSI model, the TCP/IP stack, ports, protocols and the TCP handshake. Every attack and every defence you meet later sits on top of this.` },
+          { title: 'Practise Linux and Windows commands', text: `Security work happens in terminals. Practise navigation, permissions, processes and basic administration on both operating systems until they stop feeling foreign.` },
+          { title: 'Set up a safe home lab', text: `Set up VirtualBox with Kali Linux, Parrot Security and an intentionally vulnerable target. A lab you can break freely is where all real learning happens, and it keeps your practice legal.` },
+          { title: 'Learn how a security assessment runs', text: `Reconnaissance, scanning, enumeration and vulnerability scoring come before exploitation. Use Nmap, OpenVAS and OSINT techniques, and learn to read CVE and CVSS records properly.` },
+          { title: 'Choose an offensive and a defensive path', text: `Go deep on web and network penetration testing with Burp Suite and SQLmap, but also learn how a SOC uses SIEM alerts and incident response playbooks. Knowing both makes you far more employable.` },
+          { title: 'Write up every lab as a project', text: `Write up each lab as a proper report: scope, method, findings, fixes. Aim for at least five polished projects that a recruiter can open and read in a few minutes.` },
+          { title: 'Try an internship and a foundation certification', text: `Do an internship, attempt a foundation certification such as CompTIA Security+, and practise mock interviews. This step turns knowledge into confidence.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'Skills a cyber security professional builds across six modules',
+        heading: 'Skills covered in the six cyber security modules',
         intro: `A structured curriculum stacks these skills in a sensible order. Here is what the Skill IT Education programme covers, module by module.`,
         items: [
           `Foundations: ethical hacking methodology, threat actors, the CIA Triad, the Cyber Kill Chain, and building a penetration-testing lab`,
@@ -62,22 +62,22 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How a structured Hyderabad programme shortens the road to a security role',
+        heading: 'What the Hyderabad cyber security programme offers',
         intro: `You can learn all of this alone, but a guided path saves months of confusion. This is where Skill IT Education fits in at our Madhapur centre.`,
         cards: [
-          { title: 'Six hands-on modules in a sensible order', text: `The 180 hours of core curriculum move from networking basics to full security operations, so every module builds directly on the last.` },
-          { title: 'Live labs, not slides', text: `Each module closes with lab exercises inside the isolated penetration-testing environment you build in Module 1 and keep using throughout.` },
-          { title: 'Projects and a three-month project phase', text: `You produce a minimum of five portfolio projects, and the three-month project-based learning phase gives you time to go deeper.` },
-          { title: 'A two-month real-time internship', text: `The internship gives exposure across penetration testing, SOC operations and cloud security, so you see how the work runs on a real team.` },
-          { title: 'Resume, profile and interview preparation', text: `We help you shape your resume, GitHub and LinkedIn profile, run mock interviews, and support you through the placement process with our hiring-partner network.` },
+          { title: 'Six cyber security modules in sequence', text: `The 180 hours of core curriculum move from networking basics to full security operations, so every module builds directly on the last.` },
+          { title: 'Lab exercises in every module', text: `Each module closes with lab exercises inside the isolated penetration-testing environment you build in Module 1 and keep using throughout.` },
+          { title: 'Cyber security projects and a three-month project phase', text: `You produce a minimum of five portfolio projects, and the three-month project-based learning phase gives you time to go deeper.` },
+          { title: 'Two-month internship on a security team', text: `The internship gives exposure across penetration testing, SOC operations and cloud security, so you see how the work runs on a real team.` },
+          { title: 'Resume and profile help for security roles', text: `We help you shape your resume, GitHub and LinkedIn profile, run mock interviews, and support you through the placement process with our hiring-partner network.` },
         ],
       },
     ],
     closing: {
-      heading: 'Your first lab session is closer than you think',
+      heading: 'Start your first cyber security lab this week',
       text: `Nobody starts as an expert; every security professional began by building a small lab and breaking something on purpose. Pick your first step this week, stay consistent, and let the work you document speak for you when interviews arrive.`,
     },
-    formHeading: 'Get a personal roadmap to your cyber security career',
+    formHeading: 'Ask about the cyber security career course',
     formSubheading: 'Share your background and goals, and our admissions team will call you back with a clear plan for your first three months.',
   },
   {
@@ -87,7 +87,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'Why no single institute is the best for every fresher',
+        heading: 'Why no single cyber security course suits everyone',
         paras: [
           `Search for cyber security courses in Hyderabad and you will find dozens of options, each claiming to be number one. The truth is that "best" depends on you: your background, your budget, whether you can attend in Madhapur or need online sessions, and which role you want first.`,
           `What you can judge fairly is the quality of the training itself. A good fresher course does not begin with exploitation; it begins with networking and Linux, and it lets you practise every day. It should also leave you with something to show a recruiter, not only a certificate.`,
@@ -95,7 +95,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'A checklist to judge any cyber security course in Hyderabad',
+        heading: 'Checklist for judging cyber security courses in Hyderabad',
         intro: `Take this list to every demo class and counselling session. A course that cannot answer most of these clearly deserves more questions.`,
         items: [
           `Does the syllabus start from networking, operating systems and ethical hacking methodology, or does it jump straight into tools?`,
@@ -111,31 +111,31 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Which freshers benefit most from a classroom-style cyber security course',
+        heading: 'Freshers who gain most from a classroom cyber security course',
         intro: `A guided, instructor-led programme helps some learners more than others. See where you sit.`,
         people: [
-          { who: 'A fresh graduate with no security experience', text: `Structure is your biggest advantage. A programme that begins with fundamentals and adds one skill layer at a time keeps you from feeling lost.` },
-          { who: 'A student who has watched videos but never built anything', text: `Guided labs and reviewed projects turn scattered knowledge into skills you can demonstrate in interviews.` },
-          { who: 'A career switcher from support or testing', text: `A defined timeline and an internship give you a credible way to show a recruiter that your switch is real.` },
-          { who: 'A learner who prefers to self-study on a tight budget', text: `You can start free with Linux and networking basics first. Consider a course only when you are ready to commit time to labs and projects.` },
+          { who: 'Fresh graduate new to cyber security', text: `Structure is your biggest advantage. A programme that begins with fundamentals and adds one skill layer at a time keeps you from feeling lost.` },
+          { who: 'Cyber security learner who only watches videos', text: `Guided labs and reviewed projects turn scattered knowledge into skills you can demonstrate in interviews.` },
+          { who: 'Support or testing professional switching to security', text: `A defined timeline and an internship give you a credible way to show a recruiter that your switch is real.` },
+          { who: 'Self-study learner on a tight budget', text: `You can start free with Linux and networking basics first. Consider a course only when you are ready to commit time to labs and projects.` },
         ],
       },
       {
         kind: 'steps',
-        heading: 'Six steps to compare cyber security institutes in Hyderabad fairly',
+        heading: 'Six steps to compare cyber security institutes in Hyderabad',
         intro: `Do this before paying any registration fee. It takes an hour or two and can save you months.`,
         steps: [
-          { title: 'Write down your target role', text: `Decide whether you lean toward SOC Analyst, Penetration Tester or Vulnerability Assessor. A good course should cover the core of more than one path.` },
-          { title: 'Ask for the full module-wise syllabus', text: `Check for named modules, durations and hours. Vague promises like "all hacking tools" are a warning sign.` },
-          { title: 'Attend a demo and watch the practical ratio', text: `Notice how much time is spent on hands-on practice versus talking. Ask to see the lab environment students use.` },
-          { title: 'Ask to see student projects', text: `Request sample reports or project briefs. Real project work has scope, findings and remediation advice.` },
-          { title: 'Ask about the internship and placement support honestly', text: `Ask what the internship covers and what placement support means in practice. Be cautious of anyone promising a job or a fixed salary.` },
-          { title: 'Talk to current learners', text: `Ask what a typical week looks like and how quickly doubts get resolved. Their answers tell you more than a brochure.` },
+          { title: 'Write down your target security role', text: `Decide whether you lean toward SOC Analyst, Penetration Tester or Vulnerability Assessor. A good course should cover the core of more than one path.` },
+          { title: 'Ask for the module-wise syllabus', text: `Check for named modules, durations and hours. Vague promises like "all hacking tools" are a warning sign.` },
+          { title: 'Attend a demo class and check the practical share', text: `Notice how much time is spent on hands-on practice versus talking. Ask to see the lab environment students use.` },
+          { title: 'Ask to see student security projects', text: `Request sample reports or project briefs. Real project work has scope, findings and remediation advice.` },
+          { title: 'Ask what the internship and placement help cover', text: `Ask what the internship covers and what placement support means in practice. Be cautious of anyone promising a job or a fixed salary.` },
+          { title: 'Talk to current cyber security learners', text: `Ask what a typical week looks like and how quickly doubts get resolved. Their answers tell you more than a brochure.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'What the Skill IT Education cyber security programme looks like on paper',
+        heading: 'The Skill IT Education cyber security programme outline',
         paras: [
           `Our Advanced Cyber Security Certification Program runs for five months: six hands-on modules with 180 hours of core curriculum, followed by a three-month project phase and a two-month real-time internship. It is taught at our Madhapur centre, with online options as well.`,
           `The modules run from Cybersecurity and Ethical Hacking Foundations through Reconnaissance and Scanning, System Hacking and Social Engineering, Penetration Testing and Web Exploitation, Advanced Exploitation and Cryptography, and AI-Powered Security Operations. Tools include Kali Linux, Nmap, Burp Suite, Wireshark, OpenVAS, SQLmap and Nessus. We suggest you compare this against the checklist above, and against every other option you are considering.`,
@@ -143,22 +143,22 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'What a fresher gets from the Madhapur programme beyond the syllabus',
+        heading: 'What freshers get from the Madhapur cyber security programme',
         intro: `Freshers usually worry about two things: not knowing enough and not being noticed. Here is how the programme addresses both.`,
         cards: [
-          { title: 'A lab that stays with you', text: `You build a penetration-testing lab in Module 1 and use it for the rest of the programme, so practice never stops at the classroom door.` },
-          { title: 'Projects that look like real work', text: `A minimum of five projects, including a Reconnaissance and Vulnerability Assessment Report and an Internal Network Penetration Test Report, go straight into your portfolio.` },
-          { title: 'Internship exposure', text: `Two months of real-time internship across penetration testing, SOC operations and cloud security help you handle interview questions with real examples.` },
-          { title: 'Interview readiness', text: `Mock interviews, resume reviews and profile building on GitHub and LinkedIn prepare you for the hiring process.` },
-          { title: 'Placement support', text: `Our placement team supports you with a hiring-partner network. We prepare you and open doors, but no one can promise a specific job.` },
+          { title: 'A lab you keep for the whole programme', text: `You build a penetration-testing lab in Module 1 and use it for the rest of the programme, so practice never stops at the classroom door.` },
+          { title: 'Projects that resemble client reports', text: `A minimum of five projects, including a Reconnaissance and Vulnerability Assessment Report and an Internal Network Penetration Test Report, go straight into your portfolio.` },
+          { title: 'Internship experience for cyber security freshers', text: `Two months of real-time internship across penetration testing, SOC operations and cloud security help you handle interview questions with real examples.` },
+          { title: 'Interview preparation for security roles', text: `Mock interviews, resume reviews and profile building on GitHub and LinkedIn prepare you for the hiring process.` },
+          { title: 'Placement help after the cyber security course', text: `Our placement team supports you with a hiring-partner network. We prepare you and open doors, but no one can promise a specific job.` },
         ],
       },
     ],
     closing: {
-      heading: 'Choose the course that makes you practise every week',
+      heading: 'Pick the cyber security course that makes you practise',
       text: `A fresher's best course is the one that turns you from a viewer into a doer. Visit, ask hard questions, look at the lab, and choose the programme that puts real tools in your hands from the first fortnight.`,
     },
-    formHeading: 'Book a counselling call about cyber security courses',
+    formHeading: 'Book a counselling call on cyber security',
     formSubheading: 'Tell us where you are starting from, and our admissions team will call you back to walk through the syllabus and your options.',
   },
   {
@@ -168,7 +168,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'The honest answer about coding in a cyber security career',
+        heading: 'Coding in a cyber security career',
         paras: [
           `Let us settle this straight away: no, you do not need to be a programmer to enter cyber security. Security is a large field, and only some parts of it involve writing code every day. Exploit development and security automation are heavy on programming. SOC analysis, vulnerability assessment, compliance work and much of penetration testing rely on understanding systems, using tools and reading results carefully.`,
           `That said, it would be misleading to say code never matters. Over time, small scripts save hours, and reading a snippet of vulnerable code makes you a better tester. Think of programming as something you grow into, not something you must finish before you begin.`,
@@ -176,7 +176,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'What you need instead of programming for entry-level security work',
+        heading: 'Non-coding skills for entry-level cyber security work',
         intro: `These are the abilities that matter most in the first year of a security career, and every one of them can be learned from scratch.`,
         items: [
           `Networking fundamentals: the OSI model, TCP/IP, ports, protocols and how a handshake works`,
@@ -190,31 +190,31 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who can enter cyber security without a coding background, and who needs a plan',
+        heading: 'Who can enter cyber security without coding',
         intro: `Your starting point changes your route, not your right to be here.`,
         people: [
-          { who: 'A commerce or arts graduate curious about tech', text: `You can begin with foundations, Linux and networking. Roles in compliance and security analysis reward clear thinking and writing, which you may already have.` },
-          { who: 'A manual tester or support engineer', text: `You already read logs and think in edge cases. Security builds on those habits, and you will pick up scripting naturally as you go.` },
-          { who: 'An engineering graduate who avoided coding papers', text: `You are in good company. Focus on networks and tools first, and add scripting slowly once you feel confident.` },
-          { who: 'Someone who wants to build exploits from scratch', text: `Then coding is central. Plan for a serious programming study alongside your security work.` },
+          { who: 'Commerce or arts graduate curious about cyber security', text: `You can begin with foundations, Linux and networking. Roles in compliance and security analysis reward clear thinking and writing, which you may already have.` },
+          { who: 'Manual tester or support engineer without coding', text: `You already read logs and think in edge cases. Security builds on those habits, and you will pick up scripting naturally as you go.` },
+          { who: 'Engineering graduate who avoided coding but likes security', text: `You are in good company. Focus on networks and tools first, and add scripting slowly once you feel confident.` },
+          { who: 'Learner who wants to write security exploits', text: `Then coding is central. Plan for a serious programming study alongside your security work.` },
         ],
       },
       {
         kind: 'steps',
-        heading: 'A gentle six-step path into cyber security without programming',
+        heading: 'Six steps into cyber security without programming',
         intro: `This route builds confidence first and adds technical depth gradually.`,
         steps: [
-          { title: 'Start with how networks work', text: `Learn what happens when you open a website: DNS, TCP handshakes, ports and protocols. Draw the flow on paper until you can explain it to a friend.` },
-          { title: 'Make the terminal your friend', text: `Spend a week on basic Linux and Windows commands. You are typing instructions, not writing programs, and it feels easier than most people expect.` },
-          { title: 'Build a lab and break it safely', text: `Install VirtualBox, Kali Linux and a vulnerable target. Running Nmap against your own machine teaches more than any theory chapter.` },
-          { title: 'Use tools before writing tools', text: `Tools such as Nmap, Wireshark, OpenVAS and Burp Suite do the heavy lifting. Your job is to choose the right one, interpret its output and explain the risk.` },
-          { title: 'Practise reporting early', text: `Write a short report after every lab: what you tested, what you found, how to fix it. This habit separates good analysts from tool operators.` },
-          { title: 'Add small scripting later', text: `Once you are comfortable, learn simple scripting to automate repetitive tasks. Treat it as a bonus that raises your ceiling, not an entry fee.` },
+          { title: 'Learn what happens when a website loads', text: `Learn what happens when you open a website: DNS, TCP handshakes, ports and protocols. Draw the flow on paper until you can explain it to a friend.` },
+          { title: 'Get used to the terminal', text: `Spend a week on basic Linux and Windows commands. You are typing instructions, not writing programs, and it feels easier than most people expect.` },
+          { title: 'Build a lab and test it safely', text: `Install VirtualBox, Kali Linux and a vulnerable target. Running Nmap against your own machine teaches more than any theory chapter.` },
+          { title: 'Use security tools before writing any', text: `Tools such as Nmap, Wireshark, OpenVAS and Burp Suite do the heavy lifting. Your job is to choose the right one, interpret its output and explain the risk.` },
+          { title: 'Write short lab reports early', text: `Write a short report after every lab: what you tested, what you found, how to fix it. This habit separates good analysts from tool operators.` },
+          { title: 'Add basic scripting later', text: `Once you are comfortable, learn simple scripting to automate repetitive tasks. Treat it as a bonus that raises your ceiling, not an entry fee.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'Which cyber security roles rely less on heavy coding',
+        heading: 'Cyber security roles that need little coding',
         paras: [
           `In the career tracks we teach towards, several roles are approachable without deep programming: SOC Analyst, Security Analyst, Vulnerability Assessor, Incident Response Analyst, Threat Intelligence Analyst and Security Compliance Analyst. They demand analysis, tool skill and communication.`,
           `Indicative salary bands for entry-to-mid roles such as SOC Analyst, Security Analyst and Junior Penetration Tester run from about ₹3.5L to ₹9L a year in India, varying by company, city and skills. Certifications and documented project work tend to help you move up that range.`,
@@ -222,22 +222,22 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How Skill IT Education supports learners who do not come from a coding background',
+        heading: 'How Skill IT Education helps learners without coding experience',
         intro: `We design the programme so that a non-programmer can follow along, practise and grow.`,
         cards: [
-          { title: 'Tool-first, lab-first teaching', text: `Modules focus on tools like Kali Linux, Nmap, Burp Suite and Wireshark, with guided lab exercises, so you learn by doing rather than by writing code.` },
-          { title: 'A foundations module that levels the field', text: `Module 1 covers networking, Linux and Windows command lines and lab building in two weeks, so everyone starts from the same base.` },
-          { title: 'Projects with structure', text: `Reconnaissance reports, policy mapping and risk assessments show you how to produce professional work without heavy programming.` },
-          { title: 'Internship and interview preparation', text: `A two-month real-time internship, mock interviews and resume reviews help you show recruiters what you can do.` },
-          { title: 'Patient doubt clearing', text: `Trainers work with your pace in live labs, so questions get answered while you are still stuck on them.` },
+          { title: 'Tool-based, lab-first teaching', text: `Modules focus on tools like Kali Linux, Nmap, Burp Suite and Wireshark, with guided lab exercises, so you learn by doing rather than by writing code.` },
+          { title: 'A foundations module for non-coders', text: `Module 1 covers networking, Linux and Windows command lines and lab building in two weeks, so everyone starts from the same base.` },
+          { title: 'Structured security projects without heavy code', text: `Reconnaissance reports, policy mapping and risk assessments show you how to produce professional work without heavy programming.` },
+          { title: 'Internship and mock interviews for non-coders', text: `A two-month real-time internship, mock interviews and resume reviews help you show recruiters what you can do.` },
+          { title: 'Doubt clearing at your own pace', text: `Trainers work with your pace in live labs, so questions get answered while you are still stuck on them.` },
         ],
       },
     ],
     closing: {
-      heading: 'Start with curiosity, add code when you are ready',
+      heading: 'Start cyber security now and add coding later',
       text: `The learners who succeed are rarely the ones who arrived with the most code experience. They are the ones who kept practising, kept writing things down and kept asking why. Begin with networks and a lab, and let programming follow.`,
     },
-    formHeading: 'Ask how a non-coder can start in cyber security',
+    formHeading: 'Ask about cyber security without coding',
     formSubheading: 'Tell us about your background and comfort level, and our admissions team will call you back with an honest starting plan.',
   },
   {
@@ -247,7 +247,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'What ethical hacking really means, in plain language',
+        heading: 'What ethical hacking means',
         paras: [
           `Ethical hacking sounds contradictory until you think of a locksmith hired by a homeowner to test their doors. The skills are similar to those of a burglar, but the permission, the intent and the outcome are completely different. An ethical hacker has written authorisation, agreed limits and a duty to report what they find.`,
           `In practice this means scanning a client's network, probing a web application for SQL injection, testing whether staff would click a phishing email, and then delivering a report that explains each weakness and how to fix it. The white hat, grey hat and black hat labels you will hear early on describe exactly this difference in permission and intent.`,
@@ -255,7 +255,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'The legal and ethical lines every ethical hacker respects',
+        heading: 'Legal limits for ethical hackers',
         paras: [
           `The word "ethical" is not decoration. Testing any system you do not own or have permission for can be a criminal offence under cyber laws, even if your intentions were good. Professionals work inside a written scope and rules of engagement that state what may be tested, when, and by whom.`,
           `This is why serious training teaches cyber law, compliance and policy basics alongside tools, and why practice happens in an isolated lab against systems built to be attacked. Learn this habit from the first day and you will avoid the mistakes that ruin careers.`,
@@ -263,22 +263,22 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'How to learn ethical hacking step by step, in the right order',
+        heading: 'How to learn ethical hacking step by step',
         intro: `Ethical hacking has phases, and learning them in the same order a real engagement runs is the most reliable way to keep everything connected.`,
         steps: [
-          { title: 'Understand security principles and attackers', text: `Learn the CIA Triad, the types of threat actors and the Cyber Kill Chain. These ideas explain why every control exists and what attackers want.` },
-          { title: 'Master networking and operating system basics', text: `Study the OSI model, TCP/IP, ports and protocols, then practise Linux and Windows command lines. Without this, tool output will look like noise.` },
-          { title: 'Build a safe lab', text: `Set up VirtualBox with Kali Linux, Parrot Security and a deliberately vulnerable target. Never practise on systems you do not own.` },
+          { title: 'Learn security principles and attacker types', text: `Learn the CIA Triad, the types of threat actors and the Cyber Kill Chain. These ideas explain why every control exists and what attackers want.` },
+          { title: 'Study networking and operating systems', text: `Study the OSI model, TCP/IP, ports and protocols, then practise Linux and Windows command lines. Without this, tool output will look like noise.` },
+          { title: 'Build a safe hacking lab', text: `Set up VirtualBox with Kali Linux, Parrot Security and a deliberately vulnerable target. Never practise on systems you do not own.` },
           { title: 'Practise reconnaissance and scanning', text: `Use OSINT, WHOIS and DNS enumeration, then Nmap for port scanning and service fingerprinting. You are learning to map a target before touching it.` },
           { title: 'Find and score vulnerabilities', text: `Run OpenVAS and read the results with CVE, CVSS and CWE. Deciding what matters most is a core professional skill.` },
-          { title: 'Exploit in a controlled way', text: `Practise system hacking, password attacks, SQL injection and XSS against lab targets with tools like Burp Suite, SQLmap and Hydra. Focus on understanding why each attack works.` },
-          { title: 'Learn to defend and to report', text: `Study malware behaviour, endpoint hardening and incident response so you know how defenders think. Then practise writing a clear report with fixes.` },
-          { title: 'Build proof of skill', text: `Package your labs into portfolio projects, and consider a certification such as CEH or CompTIA Security+ once your fundamentals are steady.` },
+          { title: 'Exploit lab targets under control', text: `Practise system hacking, password attacks, SQL injection and XSS against lab targets with tools like Burp Suite, SQLmap and Hydra. Focus on understanding why each attack works.` },
+          { title: 'Learn defence and report writing', text: `Study malware behaviour, endpoint hardening and incident response so you know how defenders think. Then practise writing a clear report with fixes.` },
+          { title: 'Build proof of your ethical hacking skills', text: `Package your labs into portfolio projects, and consider a certification such as CEH or CompTIA Security+ once your fundamentals are steady.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'Ethical hacking tools and techniques you will actually practise',
+        heading: 'Ethical hacking tools you will practise',
         intro: `These are the items from our programme that map most directly to ethical hacking skills.`,
         items: [
           `Kali Linux and Parrot Security as your attacking platforms inside VirtualBox`,
@@ -293,18 +293,18 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who should learn ethical hacking, and who might prefer another route',
+        heading: 'Who should learn ethical hacking',
         intro: `Ethical hacking rewards a certain temperament. Check yourself against these profiles.`,
         people: [
-          { who: 'A curious student who enjoys puzzles', text: `If you like working out how things fail, ethical hacking will feel like an ongoing puzzle with lots of visible progress.` },
-          { who: 'A developer who wants to write safer applications', text: `Learning web exploitation makes you a better builder, because you see your code from an attacker's side.` },
-          { who: 'An IT administrator moving into security', text: `Your system knowledge is a real head start. Add methodology and tools, and you can move towards vulnerability assessment or VAPT roles.` },
-          { who: 'Someone who prefers structured, predictable work', text: `You might enjoy the defensive side more, such as SOC operations. Ethical hacking involves long stretches of trial, error and documentation.` },
+          { who: 'Student who enjoys ethical hacking puzzles', text: `If you like working out how things fail, ethical hacking will feel like an ongoing puzzle with lots of visible progress.` },
+          { who: 'Developer learning ethical hacking for safer code', text: `Learning web exploitation makes you a better builder, because you see your code from an attacker's side.` },
+          { who: 'IT administrator moving into ethical hacking', text: `Your system knowledge is a real head start. Add methodology and tools, and you can move towards vulnerability assessment or VAPT roles.` },
+          { who: 'Learner who prefers predictable work over hacking', text: `You might enjoy the defensive side more, such as SOC operations. Ethical hacking involves long stretches of trial, error and documentation.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'What ethical hacking skills can lead to in the job market',
+        heading: 'Job roles after learning ethical hacking',
         paras: [
           `Ethical hacking sits on the offensive security track, with roles such as Ethical Hacker, Penetration Tester, Vulnerability Assessor and Red Team Associate, as well as VAPT Engineer and Web Application Security Analyst. Indicative entry-to-mid salary ranges for roles like Junior Penetration Tester and Security Analyst run from about ₹3.5L to ₹9L a year in India, and roughly $55K to $95K in mature international markets. These vary widely by company, location and skills.`,
           `Many Hyderabad employers value candidates who can also work on the defence side, so combining offensive skills with SOC knowledge gives you more doors to knock on.`,
@@ -312,21 +312,21 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How Skill IT Education teaches ethical hacking from the first day',
+        heading: 'How Skill IT Education teaches ethical hacking',
         intro: `Our five-month programme follows the same order as the steps above, with practice at every stage.`,
         cards: [
-          { title: 'Foundations built around ethical practice', text: `Module 1 covers hacker types, cyber laws, rules of engagement and lab building before any offensive technique is introduced.` },
+          { title: 'Foundations built on ethical practice', text: `Module 1 covers hacker types, cyber laws, rules of engagement and lab building before any offensive technique is introduced.` },
           { title: 'Live labs against vulnerable targets', text: `You run OSINT, scans, SQL injection, XSS and Active Directory attack paths in an isolated lab, safely and legally.` },
-          { title: 'Reports and portfolio building', text: `Every major skill ends in a documented project, from a Reconnaissance and Vulnerability Assessment Report to a Web Application Security Audit.` },
-          { title: 'Live internship work and mock interview practice', text: `A two-month real-time internship, mock interviews and resume reviews help you present your skills confidently to employers.` },
+          { title: 'Reports and portfolio for ethical hackers', text: `Every major skill ends in a documented project, from a Reconnaissance and Vulnerability Assessment Report to a Web Application Security Audit.` },
+          { title: 'Internship and mock interviews for ethical hackers', text: `A two-month real-time internship, mock interviews and resume reviews help you present your skills confidently to employers.` },
         ],
       },
     ],
     closing: {
-      heading: 'Break things in the lab so you can protect them outside it',
+      heading: 'Practise ethical hacking in a lab first',
       text: `Ethical hacking is learned by patient practice, one phase at a time. Set up your lab, respect the rules, document what you find, and keep building. The skill compounds faster than most beginners expect.`,
     },
-    formHeading: 'Get a step-by-step plan for your ethical hacking journey',
+    formHeading: 'Enquire about ethical hacking training',
     formSubheading: 'Share your background and interests, and our admissions team will call you back to explain how we structure ethical hacking training.',
   },
   {
@@ -336,7 +336,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'Picture a bank app that is about to launch',
+        heading: 'A penetration test of a new banking app',
         paras: [
           `Imagine a Hyderabad fintech team about to release a mobile banking app. Before customers put money into it, the company hires a penetration tester. The tester reads the agreed scope, maps the servers and APIs, tries to bypass the login, attempts SQL injection on a search box and checks whether a stolen session cookie can be reused.`,
           `When the work is done, the tester does not just say "we got in". They write a report: what was found, how serious it is, how to reproduce it, and how to fix it. That report, more than the hacking itself, is what the client pays for.`,
@@ -344,7 +344,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'What penetration testing is and how it differs from a vulnerability scan',
+        heading: 'Penetration testing compared with a vulnerability scan',
         paras: [
           `A vulnerability scan is largely automated: a tool such as OpenVAS or Nessus lists known weaknesses. Penetration testing goes further. A human chooses targets, chains weaknesses together, tries to exploit them and judges the real business impact. In industry this work often appears under the label VAPT, meaning vulnerability assessment and penetration testing.`,
           `Because it requires judgement, methodology and clear communication, penetration testing is one of the most sought-after offensive security skills, and it is the core deliverable behind most red-team engagements too.`,
@@ -352,7 +352,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'Types of penetration testing a pentester learns to handle',
+        heading: 'Types of penetration testing to learn',
         intro: `Different targets need different techniques. A well-rounded junior pentester should be familiar with each of these.`,
         items: [
           `Network penetration testing: scanning, enumeration and exploiting misconfigured services on internal and external networks`,
@@ -366,32 +366,32 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'Seven steps to become a pentester from where you are today',
+        heading: 'Seven steps to become a pentester',
         intro: `Pentesting is a craft learned in layers. Here is a sequence that respects that.`,
         steps: [
-          { title: 'Learn networking until it feels natural', text: `You cannot attack what you do not understand. Get confident with the OSI model, TCP/IP, ports and how services talk to each other.` },
-          { title: 'Master Linux, Windows and the command line', text: `Most penetration testing runs from a Kali Linux terminal, and many targets are Windows. Fluency with both saves hours.` },
-          { title: 'Build the lab and learn reconnaissance', text: `Create an isolated lab, then use OSINT, Nmap and Netcat to map targets. Good recon makes exploitation faster and more accurate.` },
-          { title: 'Go deep on web and network exploitation', text: `Practise SQL injection, XSS, session hijacking, password attacks and firewall evasion in a controlled environment until you can explain each step.` },
+          { title: 'Get confident with networking for pentesting', text: `You cannot attack what you do not understand. Get confident with the OSI model, TCP/IP, ports and how services talk to each other.` },
+          { title: 'Learn Linux, Windows and the command line', text: `Most penetration testing runs from a Kali Linux terminal, and many targets are Windows. Fluency with both saves hours.` },
+          { title: 'Build a pentest lab and learn reconnaissance', text: `Create an isolated lab, then use OSINT, Nmap and Netcat to map targets. Good recon makes exploitation faster and more accurate.` },
+          { title: 'Learn web and network exploitation', text: `Practise SQL injection, XSS, session hijacking, password attacks and firewall evasion in a controlled environment until you can explain each step.` },
           { title: 'Add Active Directory, wireless and cloud basics', text: `Real engagements go beyond web apps. Study AD attack paths, WiFi assessment and cloud service models so you are ready for varied scopes.` },
-          { title: 'Learn to write professional reports', text: `Practise writing findings with severity scored by CVSS, evidence, remediation and retesting notes. Clients read the report, not your terminal history.` },
-          { title: 'Prove it with projects and an internship', text: `Complete a full network and web application pentest in a lab, build a portfolio, gain internship exposure and then attempt certifications such as CompTIA PenTest+ or OSCP.` },
+          { title: 'Learn to write pentest reports', text: `Practise writing findings with severity scored by CVSS, evidence, remediation and retesting notes. Clients read the report, not your terminal history.` },
+          { title: 'Show your skill with projects and an internship', text: `Complete a full network and web application pentest in a lab, build a portfolio, gain internship exposure and then attempt certifications such as CompTIA PenTest+ or OSCP.` },
         ],
       },
       {
         kind: 'whom',
-        heading: 'Who becomes a good pentester, and who may find it frustrating',
+        heading: 'Who makes a good pentester',
         intro: `This role suits particular strengths.`,
         people: [
-          { who: 'A persistent problem-solver', text: `Most attempts fail before one works. If you enjoy trying another angle after a dead end, you will do well.` },
-          { who: 'A networking or system administration professional', text: `You already understand how systems are configured, which is where many weaknesses hide.` },
-          { who: 'A student who loves writing and explaining', text: `Strong report writing is rare, and it can set you apart from candidates who only run tools.` },
-          { who: 'Someone who wants instant results', text: `Pentesting can involve slow scanning, careful scoping and detailed documentation. If you need constant excitement, consider the SOC side first.` },
+          { who: 'Persistent problem-solver who enjoys pentesting', text: `Most attempts fail before one works. If you enjoy trying another angle after a dead end, you will do well.` },
+          { who: 'Network administrator moving into pentesting', text: `You already understand how systems are configured, which is where many weaknesses hide.` },
+          { who: 'Student who likes writing pentest reports', text: `Strong report writing is rare, and it can set you apart from candidates who only run tools.` },
+          { who: 'Pentesting candidate who wants instant results', text: `Pentesting can involve slow scanning, careful scoping and detailed documentation. If you need constant excitement, consider the SOC side first.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'What a pentester can achieve in terms of roles and pay',
+        heading: 'Pentester roles and salary ranges',
         paras: [
           `From this path you can aim for Penetration Tester, VAPT Engineer, Red Team Associate or Web Application Security Analyst, and with added mobile and IoT skills, Mobile Security Analyst and IoT Security Analyst roles. Indicative entry-to-mid salary ranges for roles like Junior Penetration Tester run from about ₹3.5L to ₹9L a year in India, and roughly $55K to $95K in mature international markets.`,
           `These ranges vary significantly with company, city, specialisation and experience, and they are not a promise. Certifications and documented project work tend to help you climb within them.`,
@@ -399,22 +399,22 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How Skill IT Education helps you train as a pentester',
+        heading: 'How Skill IT Education trains pentesters',
         intro: `The core of our programme, a six-week Penetration Testing and Web Exploitation module, is built around this exact career.`,
         cards: [
           { title: 'A full-scope penetration testing module', text: `Sixty hours cover SQL injection, XSS, the OWASP Top 10, Active Directory, wireless testing and professional reporting standards.` },
-          { title: 'Tools professionals use', text: `You practise with Burp Suite, OWASP ZAP, SQLmap, Nikto, Hydra, Wireshark and Kali Linux in live lab exercises.` },
-          { title: 'Portfolio-grade projects', text: `Build a Web Application Security Audit, an Internal Network Penetration Test Report and an Active Directory and Wireless Security Assessment.` },
-          { title: 'Capstone and internship', text: `An End-to-End Security Assessment capstone and a two-month real-time internship give you experience from planning to retesting.` },
-          { title: 'Interview and placement support', text: `Resume reviews, mock interviews and our hiring-partner network help you take the next step. We support you, but we cannot promise a job.` },
+          { title: 'Tools pentesters use', text: `You practise with Burp Suite, OWASP ZAP, SQLmap, Nikto, Hydra, Wireshark and Kali Linux in live lab exercises.` },
+          { title: 'Portfolio-grade pentest projects', text: `Build a Web Application Security Audit, an Internal Network Penetration Test Report and an Active Directory and Wireless Security Assessment.` },
+          { title: 'Pentest capstone and two-month internship', text: `An End-to-End Security Assessment capstone and a two-month real-time internship give you experience from planning to retesting.` },
+          { title: 'Pentester interview and placement help', text: `Resume reviews, mock interviews and our hiring-partner network help you take the next step. We support you, but we cannot promise a job.` },
         ],
       },
     ],
     closing: {
-      heading: 'Your first pentest report starts with one lab target',
+      heading: 'Write your first pentest report on one lab target',
       text: `Every pentester began with a single vulnerable machine and a blank report. Choose your target, take notes as you work, and write it up as if a client will read it. That habit alone will set you apart.`,
     },
-    formHeading: 'Plan your path to becoming a pentester',
+    formHeading: 'Ask about the penetration testing track',
     formSubheading: 'Tell us where you are now and where you want to reach, and our admissions team will call you back to discuss the penetration testing track.',
   },
   {
@@ -424,7 +424,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'Why a certificate alone will not get you a cyber security job',
+        heading: 'Why one certificate is not enough for cyber security jobs',
         paras: [
           `Freshers often ask about certifications before they have opened a terminal. It is a natural instinct, because a certificate feels like a clear finish line. But recruiters usually want evidence that you can do the work, and a certificate is only one piece of that evidence.`,
           `The best approach is to treat certifications as a way to organise your learning and confirm it, alongside labs and projects. Choose them deliberately, in an order that matches the roles you want.`,
@@ -432,7 +432,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'CEH, Security+ and OSCP compared in simple terms',
+        heading: 'CEH, Security+ and OSCP compared',
         intro: `Here is the quick view of what each one is meant to show. Check the official body for current exam formats and fees before you plan.`,
         items: [
           `CompTIA Security+: a vendor-neutral, entry-level certification covering core security concepts, threats, risk and operations, useful for SOC and analyst tracks`,
@@ -445,7 +445,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'How the exam styles of Security+, CEH and OSCP differ',
+        heading: 'How the CEH, Security+ and OSCP exams differ',
         paras: [
           `The three certifications test different things, and knowing that saves you from frustration. Security+ and CEH are mainly knowledge-based: you need to understand concepts, terminology, attack types and defensive controls, and answer questions about them. Careful revision and practical familiarity with tools are usually enough to prepare for that style.`,
           `OSCP is different. It is a practical exam in which you must compromise machines and document how you did it within a fixed time. Memorising facts will not carry you; only repeated hands-on practice will. That is why we advise learners to treat OSCP as a later goal, after months of labs, reconnaissance practice and full penetration-testing reports.`,
@@ -453,31 +453,31 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Which certification suits which kind of learner',
+        heading: 'Which security certification suits which learner',
         intro: `The right certificate depends on your starting point and your target role.`,
         people: [
-          { who: 'A complete fresher aiming for a SOC or analyst job', text: `Security+ is a sensible first target. It gives you a broad vocabulary and is easy to explain to recruiters.` },
-          { who: 'A student who wants offensive security roles', text: `CEH gives structure to ethical hacking concepts, and PenTest+ adds a practical planning and reporting focus.` },
-          { who: 'A hands-on learner with a solid pentest foundation', text: `OSCP is worth considering after months of lab practice. It rewards persistence, and it is not a first certificate for most people.` },
-          { who: 'A professional targeting cloud or SOC specialisation', text: `Look at the AWS Security Specialty or Microsoft Security Operations Analyst path once your fundamentals are in place.` },
+          { who: 'Fresher targeting a SOC analyst job', text: `Security+ is a sensible first target. It gives you a broad vocabulary and is easy to explain to recruiters.` },
+          { who: 'Student aiming at offensive security roles', text: `CEH gives structure to ethical hacking concepts, and PenTest+ adds a practical planning and reporting focus.` },
+          { who: 'Learner with a solid pentest foundation', text: `OSCP is worth considering after months of lab practice. It rewards persistence, and it is not a first certificate for most people.` },
+          { who: 'Professional targeting cloud security or SOC specialisation', text: `Look at the AWS Security Specialty or Microsoft Security Operations Analyst path once your fundamentals are in place.` },
         ],
       },
       {
         kind: 'steps',
-        heading: 'A sensible six-step plan for choosing and earning security certifications',
+        heading: 'Six steps to choose and earn security certifications',
         intro: `Sequence matters more than quantity. This plan avoids expensive detours.`,
         steps: [
-          { title: 'Decide your first role', text: `Pick SOC Analyst, Penetration Tester or Vulnerability Assessor as your first target. Your role decides which certification helps most.` },
-          { title: 'Build the fundamentals before any exam', text: `Study networking, Linux, security principles and lab practice. Exams become far easier when you have already done the work.` },
-          { title: 'Start with a foundation credential', text: `For most beginners, Security+ or ISC2 CC gives a broad base and a first line on the resume.` },
-          { title: 'Move to an ethical hacking or pentest certification', text: `Once you are comfortable with tools and methodology, CEH or PenTest+ can validate your offensive skills.` },
-          { title: 'Attempt OSCP only after serious practice', text: `OSCP expects you to work out attacks independently under time pressure. Come to it after many lab hours and complete pentest projects.` },
-          { title: 'Keep projects and certificates together', text: `Pair every certification with documented work. A certificate plus a portfolio tells a much stronger story than either alone.` },
+          { title: 'Decide your first security role', text: `Pick SOC Analyst, Penetration Tester or Vulnerability Assessor as your first target. Your role decides which certification helps most.` },
+          { title: 'Build fundamentals before any certification exam', text: `Study networking, Linux, security principles and lab practice. Exams become far easier when you have already done the work.` },
+          { title: 'Start with Security+ or ISC2 CC', text: `For most beginners, Security+ or ISC2 CC gives a broad base and a first line on the resume.` },
+          { title: 'Move on to CEH or PenTest+', text: `Once you are comfortable with tools and methodology, CEH or PenTest+ can validate your offensive skills.` },
+          { title: 'Attempt OSCP after serious practice', text: `OSCP expects you to work out attacks independently under time pressure. Come to it after many lab hours and complete pentest projects.` },
+          { title: 'Keep projects alongside certificates', text: `Pair every certification with documented work. A certificate plus a portfolio tells a much stronger story than either alone.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'What certifications can and cannot do for your cyber security career',
+        heading: 'What security certifications can and cannot do',
         paras: [
           `Certifications can help your resume pass a screening filter, give you confidence and provide a structured syllabus. In the salary picture we work with, entry-to-mid roles such as SOC Analyst, Security Analyst and Junior Penetration Tester run from about ₹3.5L to ₹9L a year in India, rising with certifications and project experience, and those figures vary widely with company and skills.`,
           `What a certificate cannot do is replace practical ability. Interviewers will ask you to explain a scan result or describe how you would test a login page, and only real practice prepares you for that.`,
@@ -485,21 +485,21 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How Skill IT Education prepares you for CEH, Security+ and OSCP pathways',
+        heading: 'How Skill IT Education prepares you for CEH, Security+ and OSCP',
         intro: `Our curriculum is structured to help prepare learners for these external certifications, with the hands-on foundation that exams and interviews both reward.`,
         cards: [
-          { title: 'Curriculum mapped toward recognised pathways', text: `The six modules are designed with CEH, Security+, PenTest+ and OSCP-style skills in mind, from networking and enumeration to exploitation and reporting.` },
-          { title: 'Practical labs that mirror exam skills', text: `Lab work on Nmap, Burp Suite, SQLmap, Hydra and Active Directory attack paths builds the practical confidence hands-on exams reward.` },
-          { title: 'Projects that back up your certificate', text: `A minimum of five documented projects give you evidence to show alongside any credential.` },
-          { title: 'Mock interviews and guidance', text: `Mock interviews and resume reviews help you explain both your certification plan and your practical work clearly.` },
+          { title: 'Curriculum mapped to certification pathways', text: `The six modules are designed with CEH, Security+, PenTest+ and OSCP-style skills in mind, from networking and enumeration to exploitation and reporting.` },
+          { title: 'Labs that build hands-on exam skills', text: `Lab work on Nmap, Burp Suite, SQLmap, Hydra and Active Directory attack paths builds the practical confidence hands-on exams reward.` },
+          { title: 'Projects to back up your certificate', text: `A minimum of five documented projects give you evidence to show alongside any credential.` },
+          { title: 'Mock interviews for certification holders', text: `Mock interviews and resume reviews help you explain both your certification plan and your practical work clearly.` },
         ],
       },
     ],
     closing: {
-      heading: 'Choose the certificate that fits your next job, not the trend',
+      heading: 'Pick the certification that fits your next role',
       text: `Start with the fundamentals, pick one credential that matches your target role, and back it with real project work. Certifications open the door; the skills you can demonstrate keep you in the room.`,
     },
-    formHeading: 'Get advice on your cyber security certification path',
+    formHeading: 'Ask about cyber security certification paths',
     formSubheading: 'Share your background and target role, and our admissions team will call you back to help you plan which certifications to attempt first.',
   },
   {
@@ -509,7 +509,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'What a recruiter looks for in a cyber security portfolio',
+        heading: 'What recruiters look for in a security portfolio',
         paras: [
           `Picture a hiring manager with twenty resumes and ten minutes. Every resume lists Kali Linux and Nmap. The ones that stand out link to a short, well-written report showing what the candidate tested, what they found and how it should be fixed.`,
           `That is the point of a portfolio: proof that you can carry a task from start to finish. It does not need to be flashy. Clear scoping, honest findings, tidy evidence and practical remediation advice matter far more than dramatic screenshots.`,
@@ -517,7 +517,7 @@ export default [
       },
       {
         kind: 'list',
-        heading: 'Cyber security portfolio projects that impress hiring managers',
+        heading: 'Cyber security portfolio project ideas',
         intro: `Here are project ideas that mirror real assignments, many of which are built into our programme. Build these in a lab you own.`,
         items: [
           `Penetration Testing Lab Build and Network Baseline Report: document your VirtualBox, Kali, Parrot and vulnerable-target setup with topology and IP allocation`,
@@ -532,32 +532,32 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'How to build one cyber security portfolio project properly, step by step',
+        heading: 'Steps to build a cyber security portfolio project',
         intro: `Use the same routine for every project so your portfolio reads like work from one consistent professional.`,
         steps: [
           { title: 'Define scope and rules of engagement', text: `Write down what you will test, what is out of bounds and the objective. Even in a lab, this habit shows professional discipline.` },
-          { title: 'Set up an isolated environment', text: `Use VirtualBox with your attacking machine and a vulnerable target on a separate network. Never point tools at systems you do not own.` },
-          { title: 'Gather information and scan systematically', text: `Start with reconnaissance and enumeration before exploitation, and keep notes of every command and result as you work.` },
-          { title: 'Exploit and record evidence carefully', text: `Capture screenshots or output that prove each finding, and explain why the weakness exists. Evidence turns a claim into a finding.` },
-          { title: 'Score and prioritise your findings', text: `Rate each issue using CVSS and explain business impact in plain language. Prioritisation shows that you understand risk, not only tools.` },
-          { title: 'Write the report and remediation advice', text: `Structure it with an executive summary, technical details and fixes. A short, clear report beats a long, messy one.` },
-          { title: 'Publish it neatly', text: `Add a sanitised write-up to GitHub with a readable README, and mention the project on your resume and LinkedIn profile.` },
+          { title: 'Set up an isolated test environment', text: `Use VirtualBox with your attacking machine and a vulnerable target on a separate network. Never point tools at systems you do not own.` },
+          { title: 'Gather information and scan the target', text: `Start with reconnaissance and enumeration before exploitation, and keep notes of every command and result as you work.` },
+          { title: 'Exploit the target and record evidence', text: `Capture screenshots or output that prove each finding, and explain why the weakness exists. Evidence turns a claim into a finding.` },
+          { title: 'Score and rank your findings', text: `Rate each issue using CVSS and explain business impact in plain language. Prioritisation shows that you understand risk, not only tools.` },
+          { title: 'Write the report with fixes', text: `Structure it with an executive summary, technical details and fixes. A short, clear report beats a long, messy one.` },
+          { title: 'Publish the project on GitHub', text: `Add a sanitised write-up to GitHub with a readable README, and mention the project on your resume and LinkedIn profile.` },
         ],
       },
       {
         kind: 'whom',
-        heading: 'Who needs a cyber security portfolio most, and how much is enough',
+        heading: 'Who needs a cyber security portfolio',
         intro: `Almost every candidate benefits, but the reason differs.`,
         people: [
-          { who: 'A fresher with no work experience', text: `Your portfolio is your experience. Five well-documented projects can carry an interview conversation.` },
-          { who: 'A career switcher from another IT field', text: `Projects show that your switch is deliberate and practical, not just a course completion.` },
-          { who: 'A working professional targeting a specialist role', text: `Choose two or three projects aligned with the role, such as web audits for AppSec or an incident report for SOC.` },
-          { who: 'A learner tempted to fill the portfolio with tutorials', text: `Avoid copying walkthroughs. Reviewers can tell, and they prefer fewer original projects over many repeated ones.` },
+          { who: 'Cyber security fresher with no work experience', text: `Your portfolio is your experience. Five well-documented projects can carry an interview conversation.` },
+          { who: 'IT career switcher building a security portfolio', text: `Projects show that your switch is deliberate and practical, not just a course completion.` },
+          { who: 'Working professional aiming at a specialist security role', text: `Choose two or three projects aligned with the role, such as web audits for AppSec or an incident report for SOC.` },
+          { who: 'Learner copying tutorials into a portfolio', text: `Avoid copying walkthroughs. Reviewers can tell, and they prefer fewer original projects over many repeated ones.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'What to avoid when publishing cyber security projects online',
+        heading: 'What to avoid when publishing security projects',
         paras: [
           `Publish only work from systems you own or from deliberately vulnerable lab targets. Never include real company data, live credentials or details of vulnerabilities from real targets you tested without written permission. Redact anything sensitive before sharing.`,
           `Keep your tone professional. A report that reads like a client deliverable is more impressive than a post celebrating that you hacked something. Show the fix, not just the flaw.`,
@@ -565,7 +565,7 @@ export default [
       },
       {
         kind: 'text',
-        heading: 'How a strong project portfolio supports your job search and pay',
+        heading: 'How a security portfolio helps your job search and pay',
         paras: [
           `Documented work gives you material for interviews, because you can walk through what you scanned, what you found and what you recommended. It also supports movement within the indicative entry-to-mid salary range of about ₹3.5L to ₹9L a year in India for roles such as SOC Analyst, Security Analyst and Junior Penetration Tester, which varies with company, city and skills. That range is broad and is not a promise.`,
           `Projects tied to a specialty, such as a mobile security review or an IoT exposure assessment, can also point you towards more specialised roles.`,
@@ -573,22 +573,22 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How Skill IT Education helps you build a portfolio worth showing',
+        heading: 'How Skill IT Education helps you build a security portfolio',
         intro: `Portfolio building is not an afterthought in our programme; it is woven through the curriculum.`,
         cards: [
-          { title: 'Projects built into every module', text: `Each of the six modules ends with projects such as Attack Surface Mapping, Mobile Application Security Report and SOC Incident Analysis Simulation.` },
-          { title: 'A capstone end-to-end assessment', text: `The End-to-End Security Assessment covers reconnaissance, exploitation, proof-of-concept documentation, remediation and retesting.` },
-          { title: 'A three-month project phase', text: `Dedicated project-based learning time lets you refine your work and go deeper than classroom hours allow.` },
-          { title: 'Profile and resume building', text: `We help you present projects on your resume, GitHub and LinkedIn profile, so recruiters can find and understand your work.` },
-          { title: 'Internship experience to add to it', text: `The two-month real-time internship adds practical exposure that gives your portfolio additional depth.` },
+          { title: 'A security project at the end of each module', text: `Each of the six modules ends with projects such as Attack Surface Mapping, Mobile Application Security Report and SOC Incident Analysis Simulation.` },
+          { title: 'End-to-end security assessment capstone', text: `The End-to-End Security Assessment covers reconnaissance, exploitation, proof-of-concept documentation, remediation and retesting.` },
+          { title: 'Three months for portfolio project work', text: `Dedicated project-based learning time lets you refine your work and go deeper than classroom hours allow.` },
+          { title: 'Resume and GitHub help for your portfolio', text: `We help you present projects on your resume, GitHub and LinkedIn profile, so recruiters can find and understand your work.` },
+          { title: 'Internship to add to your security portfolio', text: `The two-month real-time internship adds practical exposure that gives your portfolio additional depth.` },
         ],
       },
     ],
     closing: {
-      heading: 'One finished report is worth ten unfinished labs',
+      heading: 'Finish one security project report first',
       text: `Start with the smallest project you can complete, write it up properly and publish it. Then repeat. A handful of clear, honest, well-documented projects can do more for your career than any long list of tools on a resume.`,
     },
-    formHeading: 'Get project ideas for your cyber security portfolio',
+    formHeading: 'Ask for cyber security portfolio project ideas',
     formSubheading: 'Tell us your current level and target role, and our admissions team will call you back with portfolio guidance.',
   },
   {
@@ -598,7 +598,7 @@ export default [
     blocks: [
       {
         kind: 'text',
-        heading: 'The honest truth about placement after a cyber security course',
+        heading: 'What placement after a cyber security course means',
         paras: [
           `Let us start with what most brochures avoid saying. No institute can promise you a job, and any course that does should raise questions. Placement in cyber security depends on your skills, your preparation, market timing and how well you present yourself.`,
           `What a good programme can do is prepare you thoroughly, give you real work to show, and support you through applications and interviews. Most cyber security hiring in India still flows through Security Operations Centres, so SOC readiness is a valuable target for freshers, alongside VAPT and analyst roles.`,
@@ -606,21 +606,21 @@ export default [
       },
       {
         kind: 'steps',
-        heading: 'Seven steps to prepare for placement while you are still studying',
+        heading: 'Seven steps to prepare for cyber security placement',
         intro: `Placement is not something that starts after the last class. Begin these steps early and you will be ready when interviews arrive.`,
         steps: [
-          { title: 'Pick a target role and stay flexible', text: `Choose a primary role, such as SOC Analyst or Junior Penetration Tester, and a backup. Apply broadly to related roles like Security Analyst and Vulnerability Assessor.` },
-          { title: 'Build proof through projects', text: `Complete portfolio projects such as a vulnerability assessment report, a web audit and an incident analysis. Concrete work gives you stories to tell in interviews.` },
-          { title: 'Use the internship to learn how teams work', text: `Treat the real-time internship as a working interview. Learn how alerts are triaged, how reports are reviewed and how teams communicate.` },
+          { title: 'Pick a target role and a backup', text: `Choose a primary role, such as SOC Analyst or Junior Penetration Tester, and a backup. Apply broadly to related roles like Security Analyst and Vulnerability Assessor.` },
+          { title: 'Build proof through security projects', text: `Complete portfolio projects such as a vulnerability assessment report, a web audit and an incident analysis. Concrete work gives you stories to tell in interviews.` },
+          { title: 'Use the internship to see how teams work', text: `Treat the real-time internship as a working interview. Learn how alerts are triaged, how reports are reviewed and how teams communicate.` },
           { title: 'Polish your resume, GitHub and LinkedIn', text: `List tools, labs and projects with clear outcomes. Keep your GitHub tidy and your LinkedIn profile consistent with your resume.` },
-          { title: 'Practise mock interviews repeatedly', text: `Rehearse explaining a scan, describing how you would test a login page and walking through an incident response process aloud.` },
-          { title: 'Apply consistently and track everything', text: `Set a weekly application target, use a simple tracker and follow up politely. Volume with quality tends to beat waiting for the perfect opening.` },
-          { title: 'Keep learning after the course ends', text: `Continue lab practice, attempt a certification and read about new attacks. Employers notice candidates who keep improving.` },
+          { title: 'Practise security mock interviews often', text: `Rehearse explaining a scan, describing how you would test a login page and walking through an incident response process aloud.` },
+          { title: 'Apply every week and track each application', text: `Set a weekly application target, use a simple tracker and follow up politely. Volume with quality tends to beat waiting for the perfect opening.` },
+          { title: 'Keep practising after the course ends', text: `Continue lab practice, attempt a certification and read about new attacks. Employers notice candidates who keep improving.` },
         ],
       },
       {
         kind: 'list',
-        heading: 'A resume and profile checklist for cyber security job applications',
+        heading: 'Resume checklist for cyber security applications',
         intro: `Recruiters skim quickly, so make every line count. Use this checklist before you apply.`,
         items: [
           `A short summary naming your target role and your strongest skills, such as network scanning, web testing or SOC alert triage`,
@@ -634,18 +634,18 @@ export default [
       },
       {
         kind: 'whom',
-        heading: 'Who tends to struggle with cyber security placement, and what helps',
+        heading: 'Who struggles with cyber security placement',
         intro: `A few common patterns show up among learners who find the job hunt hard.`,
         people: [
-          { who: 'A learner with certificates but no projects', text: `Build and publish two or three documented projects. Evidence of practical work is what turns a screening call into an interview.` },
-          { who: 'A fresher who applies only to dream companies', text: `Widen your search to SOC, vulnerability assessment, analyst and consulting roles. Many careers start in a less glamorous first seat.` },
-          { who: 'A career switcher unsure how to explain the change', text: `Prepare a short story linking your previous work to security, and support it with projects and your internship.` },
-          { who: 'A learner who stops practising after the course', text: `Keep the lab running weekly. Interview questions are practical, and skills fade quickly without use.` },
+          { who: 'Learner with security certificates but no projects', text: `Build and publish two or three documented projects. Evidence of practical work is what turns a screening call into an interview.` },
+          { who: 'Fresher applying only to dream security companies', text: `Widen your search to SOC, vulnerability assessment, analyst and consulting roles. Many careers start in a less glamorous first seat.` },
+          { who: 'Career switcher explaining the move to security', text: `Prepare a short story linking your previous work to security, and support it with projects and your internship.` },
+          { who: 'Learner who stops lab practice after the course', text: `Keep the lab running weekly. Interview questions are practical, and skills fade quickly without use.` },
         ],
       },
       {
         kind: 'text',
-        heading: 'What to expect in cyber security interviews and early roles',
+        heading: 'What to expect in security interviews and first roles',
         paras: [
           `Expect a mix of concept questions and practical scenarios: the CIA Triad, the OSI model, how a TCP handshake works, the difference between vulnerability assessment and penetration testing, what SQL injection and XSS are, and how you would respond to a phishing alert. SOC interviews often focus on alert triage, SIEM concepts and incident response steps.`,
           `Entry-to-mid roles such as SOC Analyst, Security Analyst and Junior Penetration Tester typically fall within an indicative range of about ₹3.5L to ₹9L a year in India, depending on company, location, specialisation and experience. It is a broad range, not a promise, and certifications and project experience tend to help you move within it.`,
@@ -653,22 +653,22 @@ export default [
       },
       {
         kind: 'cards',
-        heading: 'How Skill IT Education supports your placement journey in Hyderabad',
+        heading: 'How Skill IT Education supports placement in Hyderabad',
         intro: `Placement support at our Madhapur centre focuses on making you genuinely ready rather than making promises.`,
         cards: [
-          { title: 'Placement support and a hiring-partner network', text: `Our team supports you with resume reviews, mock interviews and connections through a hiring-partner network. We open doors; you walk through them.` },
-          { title: 'Internship projects you can put on a placement CV', text: `Exposure across penetration testing, SOC operations and cloud security gives you real examples to discuss in interviews.` },
-          { title: 'Projects and portfolio building', text: `A minimum of five documented projects, plus a three-month project phase, give you evidence beyond marks and certificates.` },
-          { title: 'Mock interviews that mirror hiring rounds', text: `Practice sessions on technical concepts and scenario questions help you become comfortable explaining your work under pressure.` },
-          { title: 'Resume, GitHub and LinkedIn profile guidance', text: `We help you present your skills and projects clearly, so recruiters can understand your work in minutes.` },
+          { title: 'Hiring-partner network for cyber security placement', text: `Our team supports you with resume reviews, mock interviews and connections through a hiring-partner network. We open doors; you walk through them.` },
+          { title: 'Internship work to show at cyber security interviews', text: `Exposure across penetration testing, SOC operations and cloud security gives you real examples to discuss in interviews.` },
+          { title: 'Documented projects beyond marks and certificates', text: `A minimum of five documented projects, plus a three-month project phase, give you evidence beyond marks and certificates.` },
+          { title: 'Mock interviews modelled on security hiring rounds', text: `Practice sessions on technical concepts and scenario questions help you become comfortable explaining your work under pressure.` },
+          { title: 'Resume and LinkedIn guidance for security roles', text: `We help you present your skills and projects clearly, so recruiters can understand your work in minutes.` },
         ],
       },
     ],
     closing: {
-      heading: 'Prepare like a professional and the interviews will follow',
+      heading: 'Prepare well and the interviews will follow',
       text: `Placement rewards steady preparation: practical skills, documented projects, a clear profile and plenty of interview practice. Start now, keep going after the course ends, and treat every application as a chance to learn.`,
     },
-    formHeading: 'Talk to us about cyber security placement support',
+    formHeading: 'Ask about cyber security placement support',
     formSubheading: 'Share your goals and background, and our admissions team will call you back to explain how placement preparation works.',
   },
 ];
