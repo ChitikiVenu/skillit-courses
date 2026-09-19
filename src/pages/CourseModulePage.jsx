@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { DOMAIN, PHONE } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import H1Wave from '../components/H1Wave.jsx';
+import FitHeading from '../components/FitHeading.jsx';
 import ToolCard from '../components/ToolCard.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 
@@ -75,11 +76,9 @@ export default function CourseModulePage({ course }) {
           <div className="hero-grid">
             <div>
               <div className="duration-chip" style={{ marginTop: 22 }}>
-                MODULE {m.number} OF {MODULES.length} &nbsp;&middot;&nbsp; {m.hours}
+                MODULE {m.number} OF {MODULES.length} &nbsp;&middot;&nbsp; {m.hours} &nbsp;&middot;&nbsp; {m.duration}
               </div>
-              <h1>
-                Module {m.number} — {m.title} ({m.duration})
-              </h1>
+              <FitHeading>{m.title}</FitHeading>
               <H1Wave />
               <p className="hero-lede">{m.hero}</p>
             </div>

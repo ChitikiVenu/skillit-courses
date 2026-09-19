@@ -6,6 +6,7 @@ import ToolCard from '../components/ToolCard.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import { ImageHeroVisual, SocDashboardSvg } from '../components/HeroVisual.jsx';
 import ModuleFlow from '../components/ModuleFlow.jsx';
+import FitHeading from '../components/FitHeading.jsx';
 
 const COUNSEL_TEL = 'tel:' + PHONE.replace(/ /g, '');
 
@@ -67,7 +68,7 @@ export default function CourseHomePage({ course }) {
           <div className="hero-grid">
             <div>
               <div className="duration-chip">{COPY.durationChip}</div>
-              <h1 dangerouslySetInnerHTML={{ __html: COPY.heroTitleHtml }} />
+              <FitHeading html={COPY.heroTitleHtml} />
               <H1Wave />
               <h2 className="hero-kicker">{COPY.heroKicker}</h2>
               <p className="hero-lede">{COPY.heroLede}</p>

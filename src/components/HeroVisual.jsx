@@ -17,13 +17,13 @@ export function SocDashboardSvg() {
       <rect x="0" y="0" width="640" height="620" rx="16" fill="var(--bg-alt)" />
       <rect x="0" y="0" width="640" height="44" rx="16" fill="var(--surface)" />
       <rect x="0" y="28" width="640" height="16" fill="var(--surface)" />
-      <circle cx="24" cy="22" r="5" fill="var(--danger)" />
-      <circle cx="42" cy="22" r="5" fill="var(--warn)" />
-      <circle cx="60" cy="22" r="5" fill="var(--accent)" />
+      <circle cx="24" cy="22" r="5" fill="var(--ink)" />
+      <circle cx="42" cy="22" r="5" fill="var(--ink-3)" />
+      <circle cx="60" cy="22" r="5" fill="var(--ink-4)" />
       <text x="90" y="27" fontFamily="'IBM Plex Mono',monospace" fontSize="13" fontWeight="700" fill="var(--text)">
         SOC LIVE MONITOR
       </text>
-      <text x="624" y="27" fontFamily="'IBM Plex Mono',monospace" fontSize="11" fontWeight="700" fill="var(--accent)" textAnchor="end">
+      <text x="624" y="27" fontFamily="'IBM Plex Mono',monospace" fontSize="11" fontWeight="700" fill="var(--ink)" textAnchor="end">
         ● ONLINE
       </text>
 
@@ -48,7 +48,7 @@ export function SocDashboardSvg() {
         <text x="448" y="82" fontSize="10" fontWeight="700" letterSpacing="0.06em" fill="var(--text-faint)">
           COVERAGE
         </text>
-        <text x="448" y="102" fontSize="20" fontWeight="700" fill="var(--accent)">
+        <text x="448" y="102" fontSize="20" fontWeight="700" fill="var(--ink)">
           24 / 7
         </text>
       </g>
@@ -87,9 +87,9 @@ export function SocDashboardSvg() {
         </text>
 
         <rect x="16" y="264" width="608" height="56" rx="10" fill="var(--surface)" stroke="var(--border)" />
-        <circle cx="40" cy="292" r="6" fill="var(--accent-2)" />
-        <rect x="58" y="282" width="28" height="18" rx="5" fill="var(--accent-2)" opacity="0.12" />
-        <text x="72" y="295" fontSize="10" fontWeight="700" fill="var(--accent-2)" textAnchor="middle">
+        <circle cx="40" cy="292" r="6" fill="var(--ink-3)" />
+        <rect x="58" y="282" width="28" height="18" rx="5" fill="var(--ink-3)" opacity="0.12" />
+        <text x="72" y="295" fontSize="10" fontWeight="700" fill="var(--ink-3)" textAnchor="middle">
           L1
         </text>
         <text x="98" y="289" fontSize="13" fontWeight="600" fill="var(--text)">
@@ -103,9 +103,9 @@ export function SocDashboardSvg() {
         </text>
 
         <rect x="16" y="332" width="608" height="56" rx="10" fill="var(--surface)" stroke="var(--border)" />
-        <circle cx="40" cy="360" r="6" fill="var(--accent)" />
-        <rect x="58" y="350" width="28" height="18" rx="5" fill="var(--accent)" opacity="0.12" />
-        <text x="72" y="363" fontSize="10" fontWeight="700" fill="var(--accent)" textAnchor="middle">
+        <circle cx="40" cy="360" r="6" fill="var(--ink-4)" />
+        <rect x="58" y="350" width="28" height="18" rx="5" fill="var(--ink-4)" opacity="0.12" />
+        <text x="72" y="363" fontSize="10" fontWeight="700" fill="var(--ink-4)" textAnchor="middle">
           L3
         </text>
         <text x="98" y="357" fontSize="13" fontWeight="600" fill="var(--text)">
@@ -123,14 +123,14 @@ export function SocDashboardSvg() {
         EVENTS / HR
       </text>
       <g>
-        <rect x="16" y="508" width="56" height="40" rx="4" fill="var(--accent)" />
-        <rect x="86" y="483" width="56" height="65" rx="4" fill="var(--accent-2)" />
-        <rect x="156" y="498" width="56" height="50" rx="4" fill="var(--accent)" />
-        <rect x="226" y="458" width="56" height="90" rx="4" fill="var(--accent-2)" />
-        <rect x="296" y="478" width="56" height="70" rx="4" fill="var(--accent)" />
-        <rect x="366" y="493" width="56" height="55" rx="4" fill="var(--accent-2)" />
-        <rect x="436" y="468" width="56" height="80" rx="4" fill="var(--accent)" />
-        <rect x="506" y="488" width="56" height="60" rx="4" fill="var(--accent-2)" />
+        <rect x="16" y="508" width="56" height="40" rx="4" fill="var(--ink)" />
+        <rect x="86" y="483" width="56" height="65" rx="4" fill="var(--ink-3)" />
+        <rect x="156" y="498" width="56" height="50" rx="4" fill="var(--ink)" />
+        <rect x="226" y="458" width="56" height="90" rx="4" fill="var(--ink-3)" />
+        <rect x="296" y="478" width="56" height="70" rx="4" fill="var(--ink)" />
+        <rect x="366" y="493" width="56" height="55" rx="4" fill="var(--ink-3)" />
+        <rect x="436" y="468" width="56" height="80" rx="4" fill="var(--ink)" />
+        <rect x="506" y="488" width="56" height="60" rx="4" fill="var(--ink-3)" />
       </g>
 
       <text x="16" y="576" fontFamily="'IBM Plex Mono',monospace" fontSize="10" fontWeight="700" letterSpacing="0.06em" fill="var(--text-faint)">
@@ -145,7 +145,7 @@ export function SocDashboardSvg() {
         <text x="167" y="602" fill="var(--text-dim)" textAnchor="middle">
           Delivery
         </text>
-        <rect x="224" y="584" width="90" height="28" rx="14" fill="var(--accent)" />
+        <rect x="224" y="584" width="90" height="28" rx="14" fill="var(--ink)" />
         <text x="269" y="602" fill="#ffffff" textAnchor="middle">
           Exploit
         </text>

@@ -1,66 +1,8 @@
 import { Fragment, useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Tablet from './Tablet.jsx';
+import CodeScreen from './CodeScreen.jsx';
 import { DUB_LAG, Packet, Ripple, STAGGER, TRAVEL, TailGradients, cablePath, usePrefersReducedMotion } from './flowPulse.jsx';
-
-const CODE_LINES = [
-  'const goal = "your next career";',
-  'learn(handsOnLabs);',
-  'ship(realProjects);',
-];
-
-// The tablet screen types this out, character by character, while the section is in view.
-function TypingScreen({ active }) {
-  const [lines, setLines] = useState([]);
-  const [current, setCurrent] = useState('');
-  const timeoutRef = useRef(null);
-
-  useEffect(() => {
-    if (!active) {
-      clearTimeout(timeoutRef.current);
-      return undefined;
-    }
-    let lineIndex = 0;
-    let charIndex = 0;
-    setLines([]);
-    setCurrent('');
-
-    function tick() {
-      const line = CODE_LINES[lineIndex];
-      if (charIndex < line.length) {
-        charIndex += 1;
-        setCurrent(line.slice(0, charIndex));
-        timeoutRef.current = setTimeout(tick, 38);
-      } else if (lineIndex < CODE_LINES.length - 1) {
-        setLines((prev) => [...prev, line]);
-        lineIndex += 1;
-        charIndex = 0;
-        setCurrent('');
-        timeoutRef.current = setTimeout(tick, 260);
-      } else {
-        setLines((prev) => [...prev, line]);
-        timeoutRef.current = setTimeout(() => {
-          lineIndex = 0;
-          charIndex = 0;
-          setLines([]);
-          setCurrent('');
-          timeoutRef.current = setTimeout(tick, 400);
-        }, 1200);
-      }
-    }
-    timeoutRef.current = setTimeout(tick, 300);
-    return () => clearTimeout(timeoutRef.current);
-  }, [active]);
-
-  return (
-    <div className="flow-screen">
-      {lines.map((l, i) => (
-        <div className="flow-code-line" key={i}>{l || ' '}</div>
-      ))}
-      <div className="flow-code-line">{current}<span className="flow-cursor" /></div>
-    </div>
-  );
-}
 
 const TABLET_X = 12;
 const TABLET_WIDTH_PCT = 22;
@@ -79,9 +21,11 @@ const RELAY_TRAVEL = 0.6;
 // size so the curves and packets are never stretched. Sized to fit one screen — no scrolling.
 export default function ProgrammeFlow({ programmes }) {
   const wrapRef = useRef(null);
+  const tabletRef = useRef(null);
   const svgRef = useRef(null);
   const uid = useId().replace(/[^a-zA-Z0-9]/g, '');
   const [inView, setInView] = useState(false);
+  const [wrapVisible, setWrapVisible] = useState(false);
   const [typing, setTyping] = useState(false);
   const [dims, setDims] = useState({ w: 0, h: 0 });
   const reducedMotion = usePrefersReducedMotion();
@@ -91,11 +35,21 @@ export default function ProgrammeFlow({ programmes }) {
     if (!el) return undefined;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setTyping(entry.isIntersecting);
+        setWrapVisible(entry.isIntersecting);
         if (entry.isIntersecting) setInView(true);
       },
       { threshold: 0.3 },
     );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // The editor types while the tablet itself is on screen (on phones the stacked section is far
+  // taller than the screen, so the whole section is never 30% visible at once).
+  useEffect(() => {
+    const el = tabletRef.current;
+    if (!el) return undefined;
+    const observer = new IntersectionObserver(([entry]) => setTyping(entry.isIntersecting), { threshold: 0.2 });
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
@@ -116,9 +70,9 @@ export default function ProgrammeFlow({ programmes }) {
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg || typeof svg.pauseAnimations !== 'function') return;
-    if (typing) svg.unpauseAnimations();
+    if (wrapVisible) svg.unpauseAnimations();
     else svg.pauseAnimations();
-  }, [typing, animate, dims.w, dims.h]);
+  }, [wrapVisible, animate, dims.w, dims.h]);
 
   const n = programmes.length;
   const rowY = (i) => (n === 1 ? 50 : 10 + i * (80 / (n - 1)));
@@ -152,7 +106,7 @@ export default function ProgrammeFlow({ programmes }) {
   const tailDotId = `pf-tail-d-${uid}`;
 
   return (
-    <div className={`flow-wrap ${inView ? 'in-view' : ''} ${animate ? 'is-flowing' : ''} ${typing ? '' : 'is-offscreen'}`} ref={wrapRef}>
+    <div className={`flow-wrap ${inView ? 'in-view' : ''} ${animate ? 'is-flowing' : ''} ${wrapVisible ? '' : 'is-offscreen'}`} ref={wrapRef}>
       {w > 0 && (
         <svg className="flow-lines" viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" aria-hidden="true">
           <defs>
@@ -206,9 +160,9 @@ export default function ProgrammeFlow({ programmes }) {
         </svg>
       )}
 
-      <div className="flow-tablet" style={{ left: `${TABLET_X}%` }}>
-        <Tablet>
-          <TypingScreen active={typing} />
+      <div className="flow-tablet" style={{ left: `${TABLET_X}%` }} ref={tabletRef}>
+        <Tablet dark>
+          <CodeScreen active={typing} animate={!reducedMotion} />
         </Tablet>
       </div>
 
