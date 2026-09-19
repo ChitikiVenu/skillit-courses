@@ -10,6 +10,8 @@ import HomePage from './pages/HomePage.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CourseHomePage from './pages/CourseHomePage.jsx';
 import CourseModulePage from './pages/CourseModulePage.jsx';
+import BlogIndexPage from './pages/BlogIndexPage.jsx';
+import BlogPostPage from './pages/BlogPostPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 const COURSES = [cyberSecurity, aiMl, socAnalyst, dataScience, dataAnalyst];
@@ -22,6 +24,8 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/programmes" element={<LandingPage />} />
+          <Route path="/blog" element={<BlogIndexPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           {COURSES.map((course) => (
             <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage course={course} />} />
           ))}

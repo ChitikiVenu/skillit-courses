@@ -5,7 +5,7 @@ import H1Wave from '../components/H1Wave.jsx';
 import ToolCard from '../components/ToolCard.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import { ImageHeroVisual, SocDashboardSvg } from '../components/HeroVisual.jsx';
-import ModuleShowcase from '../components/ModuleShowcase.jsx';
+import ModuleFlow from '../components/ModuleFlow.jsx';
 
 const COUNSEL_TEL = 'tel:' + PHONE.replace(/ /g, '');
 
@@ -145,7 +145,7 @@ export default function CourseHomePage({ course }) {
             <h2>{COPY.roadmapTitle}</h2>
             <p>{COPY.roadmapSubtitle}</p>
           </div>
-          <ModuleShowcase course={course} />
+          <ModuleFlow course={course} />
         </div>
       </section>
 
