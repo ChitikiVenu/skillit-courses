@@ -69,9 +69,9 @@ export default function LandingPage() {
   return (
     <main>
       <Seo
-        title="Our Programmes | Skill IT Education"
-        description="Five career-ready technology programmes — Cyber Security, AI & ML, Data Science, SOC Analyst and Data Analytics. Compare modules, duration and fees to find the right one."
-        path="/programmes"
+        title="Skill IT Education | Cyber Security, AI & ML, Data Science Training in Hyderabad"
+        description="Job-ready technology training in Hyderabad — Cyber Security, AI & ML, Data Science, SOC Analyst and Data Analytics, with hands-on labs, real projects and a real-time internship."
+        path="/"
         jsonLd={jsonLd}
       />
 

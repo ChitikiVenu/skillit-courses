@@ -513,6 +513,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 }
 .programmes-menu-label:hover{color:var(--accent-2);}
 .programmes-menu-label{position:relative;}
+button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .programmes-menu.is-active .programmes-menu-label::after{content:"";position:absolute;left:4px;right:2px;bottom:3px;height:2px;border-radius:2px;background:var(--ink);}
 .header-nav .programmes-menu:last-child .programmes-menu-panel{left:auto;right:0;}
 .programmes-menu-caret-btn{

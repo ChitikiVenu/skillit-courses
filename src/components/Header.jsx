@@ -19,9 +19,15 @@ function NavMenu({ label, to, items, active }) {
   return (
     <div className={`programmes-menu${active ? ' is-active' : ''}`} ref={ref}>
       <div className="programmes-menu-trigger">
-        <Link to={to} className="programmes-menu-label" onClick={() => setOpen(false)}>
-          {label}
-        </Link>
+        {to ? (
+          <Link to={to} className="programmes-menu-label" onClick={() => setOpen(false)}>
+            {label}
+          </Link>
+        ) : (
+          <button type="button" className="programmes-menu-label" aria-haspopup="true" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+            {label}
+          </button>
+        )}
         <button
           type="button"
           className="programmes-menu-caret-btn"
@@ -62,7 +68,7 @@ export default function Header({ onBook }) {
 
   const programmeItems = PROGRAMMES.map((p) => ({ path: p.path, label: p.label, soon: !p.available }));
   const insightItems = BLOG_COURSES.map((c) => ({ path: `/blog?course=${c.key}`, label: `${c.name} Insights` }));
-  const programmesActive = pathname === '/programmes' || PROGRAMMES.some((p) => pathname.startsWith(p.path));
+  const programmesActive = PROGRAMMES.some((p) => pathname.startsWith(p.path));
   const insightsActive = pathname.startsWith('/blog');
 
   const isCurrent = (path) => {
@@ -122,9 +128,11 @@ export default function Header({ onBook }) {
       </button>
       {group === id && (
         <div className="mobile-menu-sub">
-          <Link to={allTo} className="mobile-menu-link" aria-current={pathname === allTo && !search ? 'page' : undefined} onClick={close}>
-            {allLabel}
-          </Link>
+          {allTo && (
+            <Link to={allTo} className="mobile-menu-link" aria-current={pathname === allTo && !search ? 'page' : undefined} onClick={close}>
+              {allLabel}
+            </Link>
+          )}
           {items.map((item) => (
             <Link key={item.path} to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
               <span>{item.label}</span>
@@ -144,7 +152,7 @@ export default function Header({ onBook }) {
         </Link>
 
         <nav className="header-nav" aria-label="Main">
-          <NavMenu label="Our Programmes" to="/programmes" items={programmeItems} active={programmesActive} />
+          <NavMenu label="Our Programmes" items={programmeItems} active={programmesActive} />
           <NavMenu label="Career Insights" to="/blog" items={insightItems} active={insightsActive} />
         </nav>
 
@@ -183,7 +191,7 @@ export default function Header({ onBook }) {
           <Link to="/" className="mobile-menu-row" aria-current={pathname === '/' ? 'page' : undefined} onClick={close}>
             Home
           </Link>
-          {renderGroup({ id: 'programmes', label: 'Our Programmes', allTo: '/programmes', allLabel: 'All programmes', items: programmeItems })}
+          {renderGroup({ id: 'programmes', label: 'Our Programmes', items: programmeItems })}
           {renderGroup({ id: 'insights', label: 'Career Insights', allTo: '/blog', allLabel: 'All insights', items: insightItems })}
         </div>
       )}

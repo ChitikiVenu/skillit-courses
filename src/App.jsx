@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import cyberSecurity from './data/cyberSecurity.js';
 import aiMl from './data/aiMl.js';
 import socAnalyst from './data/socAnalyst.js';
@@ -6,7 +6,6 @@ import dataScience from './data/dataScience.js';
 import dataAnalyst from './data/dataAnalyst.js';
 import Layout from './components/Layout.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
-import HomePage from './pages/HomePage.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CourseHomePage from './pages/CourseHomePage.jsx';
 import CourseModulePage from './pages/CourseModulePage.jsx';
@@ -22,8 +21,9 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/programmes" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
+          {/* the programmes page is now the home page; keep old /programmes links working */}
+          <Route path="/programmes" element={<Navigate to="/" replace />} />
           <Route path="/blog" element={<BlogIndexPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           {COURSES.map((course) => (
