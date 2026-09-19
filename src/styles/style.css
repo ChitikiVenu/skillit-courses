@@ -952,7 +952,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 }
 
 /* ---------------------------------------------------------------- Floating buttons (phones and small tablets)
-   Always on screen, bottom of the viewport: Book a free session (left), WhatsApp (right). The page
+   Always on screen, bottom of the viewport: WhatsApp (left), Book a free session (right). The page
    footer gets extra height so nothing at the very bottom of a page is hidden behind them. */
 .floating-actions{display:none;}
 @media (max-width: 960px){
