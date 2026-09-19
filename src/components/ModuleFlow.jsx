@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Tablet from './Tablet.jsx';
+import { DUB_LAG, Packet, Ripple, STAGGER, TRAVEL, TailGradients, cablePath, usePrefersReducedMotion } from './flowPulse.jsx';
 import { blogPostForCourse } from '../data/blogPosts.js';
 
 const ROW_HEIGHT = 118;
@@ -9,78 +10,6 @@ const MODULE_X2 = 95;
 const TABLET_X = 16;
 const TABLET_WIDTH_PCT = 28;
 const TABLET_MIN_WIDTH = 290;
-
-// Heartbeat timing, in seconds. Every cable carries a "lub" (arrow packet) and a "dub" (round
-// packet) once per CYCLE; the lines fire top-to-bottom, STAGGER apart, so the pulse sweeps down
-// the fan instead of all cables blinking at once.
-const CYCLE = 3.6;
-const TRAVEL = 1.5;
-const STAGGER = 0.16;
-const DUB_LAG = 0.32;
-
-function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReduced(mq.matches);
-    const onChange = (e) => setReduced(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
-  return reduced;
-}
-
-// One data packet riding a cable from the tablet to a module: a bright head with a fading tail.
-// The same animation clock (begin + dur) drives the fade-in, the motion and the arrival ripple,
-// so a packet is never visible before it leaves or after it lands.
-function Packet({ pathId, delay, kind, tailId }) {
-  const frac = TRAVEL / CYCLE;
-  const common = { dur: `${CYCLE}s`, begin: `${delay.toFixed(2)}s`, repeatCount: 'indefinite' };
-  return (
-    <g className={`mf-packet mf-packet-${kind}`} opacity="0">
-      <animateMotion
-        {...common}
-        rotate="auto"
-        calcMode="spline"
-        keyPoints="0;1;1"
-        keyTimes={`0;${frac.toFixed(4)};1`}
-        keySplines="0.4 0 0.3 1;0 0 1 1"
-      >
-        <mpath href={`#${pathId}`} />
-      </animateMotion>
-      <animate
-        {...common}
-        attributeName="opacity"
-        values="0;1;1;0;0"
-        keyTimes={`0;0.04;${(frac * 0.9).toFixed(4)};${frac.toFixed(4)};1`}
-      />
-      <rect className="mf-tail" x={kind === 'arrow' ? -44 : -28} y="-2" width={kind === 'arrow' ? 44 : 28} height="4" rx="2" fill={`url(#${tailId})`} />
-      {kind === 'arrow' ? (
-        <>
-          <circle className="mf-halo" r="13" />
-          <polygon className="mf-head" points="9,0 -5.5,-6.6 -1.6,0 -5.5,6.6" />
-        </>
-      ) : (
-        <>
-          <circle className="mf-halo" r="10" />
-          <circle className="mf-head" r="4.2" />
-        </>
-      )}
-    </g>
-  );
-}
-
-// An expanding ring — the visible "beat" at the tablet's hub and on each module's socket.
-function Ripple({ cx, cy, from, to, begin }) {
-  const dur = `${CYCLE}s`;
-  const grow = 0.2;
-  return (
-    <circle className="mf-ripple" cx={cx} cy={cy} r={from} opacity="0">
-      <animate attributeName="r" dur={dur} begin={`${begin.toFixed(2)}s`} repeatCount="indefinite" values={`${from};${to};${to}`} keyTimes={`0;${grow};1`} />
-      <animate attributeName="opacity" dur={dur} begin={`${begin.toFixed(2)}s`} repeatCount="indefinite" values="0.75;0;0" keyTimes={`0;${grow};1`} />
-    </circle>
-  );
-}
 
 // Same left-to-right funnel language as the landing page's programme flow: a bigger tablet asks
 // "How can I become a ___?", a "Get an Answer" button on its screen leads to that role's blog
@@ -143,12 +72,11 @@ export default function ModuleFlow({ course }) {
   const x2 = cardLeft - 10;
   const cables = MODULES.map((m, i) => {
     const y2 = (rowY(i) / 100) * wrapHeight;
-    const dx = (x2 - x1) * 0.55;
     return {
       slug: m.slug,
       y2,
       delay: i * STAGGER,
-      d: `M${x1.toFixed(1)} ${y1.toFixed(1)} C${(x1 + dx).toFixed(1)} ${y1.toFixed(1)} ${(x2 - dx).toFixed(1)} ${y2.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`,
+      d: cablePath(x1, y1, x2, y2),
     };
   });
 
@@ -184,14 +112,7 @@ export default function ModuleFlow({ course }) {
       {size > 0 && animate && (
         <svg ref={svgRef} className="module-flow-pulses" viewBox={`0 0 ${size} ${wrapHeight}`} preserveAspectRatio="none" aria-hidden="true">
           <defs>
-            <linearGradient id={tailArrowId} x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" style={{ stopColor: 'var(--accent-2)', stopOpacity: 0 }} />
-              <stop offset="1" style={{ stopColor: 'var(--accent-2)', stopOpacity: 0.85 }} />
-            </linearGradient>
-            <linearGradient id={tailDotId} x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" style={{ stopColor: 'var(--accent)', stopOpacity: 0 }} />
-              <stop offset="1" style={{ stopColor: 'var(--accent)', stopOpacity: 0.8 }} />
-            </linearGradient>
+            <TailGradients arrowId={tailArrowId} dotId={tailDotId} />
             {cables.map((c, i) => (
               <path key={c.slug} id={`mf-p-${uid}-${i}`} d={c.d} />
             ))}

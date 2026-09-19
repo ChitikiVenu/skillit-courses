@@ -290,18 +290,18 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 
 /* Cables: a solid conduit from the tablet hub to every module, with a faint stream of dots flowing along it. */
 .mf-cable,.mf-cable-stub{fill:none;stroke-width:2.2;stroke-linecap:round;opacity:0;transition:opacity .6s ease;}
-.module-flow-wrap.in-view .mf-cable,.module-flow-wrap.in-view .mf-cable-stub{opacity:.4;}
+:is(.module-flow-wrap,.flow-wrap).in-view .mf-cable,:is(.module-flow-wrap,.flow-wrap).in-view .mf-cable-stub{opacity:.4;}
 .mf-flow{
   fill:none;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:.1 22;
   opacity:0;transition:opacity .6s ease;
 }
-.module-flow-wrap.in-view .mf-flow{opacity:.75;}
+:is(.module-flow-wrap,.flow-wrap).in-view .mf-flow{opacity:.75;}
 .mf-socket{fill:#fff;stroke:var(--accent-2);stroke-width:2;opacity:0;transition:opacity .6s ease;}
-.module-flow-wrap.in-view .mf-socket{opacity:1;}
+:is(.module-flow-wrap,.flow-wrap).in-view .mf-socket{opacity:1;}
 .mf-hub{fill:var(--accent);stroke:#fff;stroke-width:2;opacity:0;transition:opacity .6s ease;}
 .mf-hub-glow{fill:var(--accent);opacity:0;transition:opacity .6s ease;}
-.module-flow-wrap.in-view .mf-hub{opacity:1;}
-.module-flow-wrap.in-view .mf-hub-glow{opacity:.16;}
+:is(.module-flow-wrap,.flow-wrap).in-view .mf-hub{opacity:1;}
+:is(.module-flow-wrap,.flow-wrap).in-view .mf-hub-glow{opacity:.16;}
 
 /* Packets: the head of each pulse, its soft halo, and the ripple where it lands. */
 .mf-halo{fill:var(--accent-2);opacity:.2;}
@@ -309,12 +309,25 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .mf-head{fill:var(--accent-2);stroke:#fff;stroke-width:1.2;}
 .mf-packet-dot .mf-head{fill:var(--accent);}
 .mf-ripple{fill:none;stroke:var(--accent-2);stroke-width:2;}
+.mf-socket-small{stroke-width:1.6;}
+.mf-cable-relay{stroke-width:2;}
+.mf-flow-relay{stroke-dasharray:.1 16;}
+@keyframes flow-beat{
+  0%{border-color:var(--accent-2);box-shadow:0 0 0 4px rgba(37,99,235,.22),var(--base-shadow);}
+  7%{border-color:var(--base-border);box-shadow:var(--base-shadow);}
+  9%{border-color:var(--accent);box-shadow:0 0 0 3px rgba(12,154,131,.18),var(--base-shadow);}
+  17%,100%{border-color:var(--base-border);box-shadow:var(--base-shadow);}
+}
 
 @media (prefers-reduced-motion: no-preference){
-  .module-flow-wrap.is-flowing .mf-flow{animation:mf-dash 1.2s linear infinite;}
-  .module-flow-wrap.is-flowing .module-flow-card{animation:mf-card-beat 3.6s ease-out var(--beat-delay) infinite;}
-  .module-flow-wrap.is-offscreen .mf-flow,
-  .module-flow-wrap.is-offscreen .module-flow-card{animation-play-state:paused;}
+  :is(.module-flow-wrap,.flow-wrap).is-flowing .mf-flow{animation:mf-dash 1.2s linear infinite;}
+  :is(.module-flow-wrap,.flow-wrap).is-flowing .module-flow-card{animation:mf-card-beat 3.6s ease-out var(--beat-delay) infinite;}
+  .flow-wrap.is-flowing .flow-program,
+  .flow-wrap.is-flowing .flow-roles{animation:flow-beat 3.6s ease-out var(--beat-delay) infinite;}
+  :is(.module-flow-wrap,.flow-wrap).is-offscreen .mf-flow,
+  :is(.module-flow-wrap,.flow-wrap).is-offscreen .module-flow-card,
+  .flow-wrap.is-offscreen .flow-program,
+  .flow-wrap.is-offscreen .flow-roles{animation-play-state:paused;}
 }
 @keyframes mf-dash{to{stroke-dashoffset:-22.1;}}
 @keyframes mf-card-beat{
@@ -561,13 +574,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   position:relative;width:100%;max-width:1400px;height:min(78vh,680px);min-height:500px;
   margin:8px auto 0;
 }
-.flow-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
-.flow-connector line{
-  stroke:var(--accent-2);stroke-width:1.5;stroke-dasharray:4 4;
-  opacity:0;transition:opacity .5s ease;
-  vector-effect:non-scaling-stroke;
-}
-.flow-wrap.in-view .flow-connector line{opacity:.5;}
+.flow-lines,.flow-pulses{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 
 .flow-tablet{
   position:absolute;top:50%;transform:translate(-50%,-50%);width:22%;min-width:240px;
@@ -590,6 +597,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 @keyframes flowBlink{50%{opacity:0;}}
 
 .flow-program{
+  --base-shadow:0 8px 18px -10px rgba(16,21,31,.16);--base-border:var(--border);
   position:absolute;transform:translate(-40px,-50%);opacity:0;
   display:block;text-align:left;color:inherit;
   background:var(--surface);border:1px solid var(--border);border-radius:12px;
@@ -610,6 +618,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .flow-program:hover .flow-explore-btn{background:var(--accent-2);border-color:var(--accent-2);border-style:solid;color:#fff;}
 
 .flow-roles{
+  --base-shadow:0 10px 20px -12px rgba(37,99,235,.3);--base-border:var(--accent-2);
   position:absolute;transform:translate(-40px,-50%);opacity:0;
   text-align:left;
   background:var(--surface);border:1.5px solid var(--accent-2);border-radius:12px;
@@ -628,7 +637,8 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 @media (max-width: 1150px){
   .flow-outer{padding:0 16px;}
   .flow-wrap{height:auto;min-height:0;max-width:480px;margin:16px auto 0;}
-  .flow-lines{display:none;}
+  .flow-lines,.flow-pulses{display:none;}
+  .flow-wrap.is-flowing .flow-program,.flow-wrap.is-flowing .flow-roles{animation:none;}
   .flow-tablet{position:static;transform:none;width:290px;max-width:100%;min-width:0;margin:0 auto 18px;filter:none;}
   .flow-program,.flow-roles{
     position:static !important;width:100% !important;top:auto !important;
