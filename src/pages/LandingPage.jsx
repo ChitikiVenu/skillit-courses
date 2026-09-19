@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
-import H1Wave from '../components/H1Wave.jsx';
 import LeadForm from '../components/LeadForm.jsx';
-import { ImageHeroVisual } from '../components/HeroVisual.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
 import cyberSecurity from '../data/cyberSecurity.js';
@@ -75,64 +73,11 @@ export default function LandingPage() {
         jsonLd={jsonLd}
       />
 
-      <section className="hero">
-        <div className="wrap">
-          <div className="hero-grid">
-            <div>
-              <div className="duration-chip">5 CAREER-READY TECH PROGRAMMES</div>
-              <h1>Our Programmes</h1>
-              <H1Wave />
-              <h2 className="hero-kicker">Find the right programme, not just a course</h2>
-              <p className="hero-lede">
-                Every programme here is built the same way: hands-on modules, real projects, a portfolio you can
-                show, and a real-time industry internship. Compare them below and pick the one that matches where
-                you want to end up.
-              </p>
-              <div className="hero-ctas">
-                <a className="btn btn-outline" href="#programmes">
-                  Compare Programmes
-                </a>
-                <a className="btn btn-outline" href="#fit-finder">
-                  Not Sure Which One?
-                </a>
-                <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
-                  Talk to an Advisor
-                </button>
-              </div>
-            </div>
-            <div className="hero-meta">
-              <div className="hero-visual">
-                <div className="hero-visual-glow" />
-                <div className="hero-mockup-card">
-                  <ImageHeroVisual
-                    src="/img/our-programmes-diagram.png"
-                    alt="Skill IT Education's five programmes — Cyber Security, AI & ML, Data Science, SOC Analyst and Data Analytics"
-                    width={1000}
-                    height={1000}
-                  />
-                </div>
-                <div className="floating-badge floating-badge-1">
-                  <span className="dot" />5 Programmes
-                </div>
-                <div className="floating-badge floating-badge-2">
-                  <span className="dot" />Internship Included
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section
         id="programmes"
-        style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: '32px 0' }}
+        style={{ background: 'var(--bg-alt)', borderBottom: '1px solid var(--border)', padding: '28px 0 32px' }}
       >
-        <div className="wrap">
-          <div className="section-head flow-section-head">
-            <span className="eyebrow">Compare Programmes</span>
-            <h2>Pick a programme, see the full curriculum</h2>
-          </div>
-        </div>
+        <h1 className="sr-only">Skill IT Education: job-ready tech training in Hyderabad</h1>
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} />
         </div>
