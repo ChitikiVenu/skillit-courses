@@ -533,6 +533,23 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
   padding:9px 12px;border-radius:8px;font-size:14px;font-weight:600;color:var(--text);
 }
 .programmes-menu-item:hover{background:var(--bg-alt);}
+/* Hover-open menus: the panel keeps a little bridge above it so the cursor never crosses a dead gap */
+.programmes-menu-panel{min-width:330px;animation:sheetIn .16s ease both;}
+.programmes-menu-panel.is-wide{width:380px;}
+.programmes-menu-panel::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px;}
+.programmes-menu.is-open .programmes-menu-label{color:var(--accent-2);}
+.programmes-menu-item.has-desc{align-items:flex-start;padding:10px 12px;}
+.pm-main{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.pm-name{font-size:14.5px;font-weight:700;color:var(--text);transition:color .12s;}
+.pm-desc{font-size:12.5px;font-weight:500;line-height:1.4;color:var(--text-faint);}
+.pm-meta{
+  flex:none;margin-top:1px;font-family:var(--mono);font-size:11.5px;font-weight:700;color:var(--text-dim);
+  background:var(--bg-alt);border:1px solid var(--border);border-radius:100px;padding:3px 10px;white-space:nowrap;
+  transition:border-color .12s,color .12s,background .12s;
+}
+.programmes-menu-item:hover .pm-name{color:var(--accent-2);}
+.programmes-menu-item:hover .pm-meta{background:#fff;border-color:var(--accent-2);color:var(--accent-2);}
+.programmes-menu-item[aria-current="page"]{background:var(--bg-alt);}
 .programmes-menu-soon{
   font-family:var(--mono);font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
   color:var(--text-faint);background:var(--bg-alt);border:1px solid var(--border);border-radius:100px;

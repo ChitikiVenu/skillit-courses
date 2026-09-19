@@ -5,6 +5,7 @@ import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
+import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
 import cyberSecurity from '../data/cyberSecurity.js';
 import aiMl from '../data/aiMl.js';
 import dataScience from '../data/dataScience.js';
@@ -17,27 +18,27 @@ import dataAnalyst from '../data/dataAnalyst.js';
 const PROGRAMMES = [
   {
     course: cyberSecurity,
-    blurb: 'Ethical hacking, penetration testing and SOC-ready defensive skills.',
+    blurb: PROGRAMME_BLURBS[cyberSecurity.routeBase],
     roles: ['SOC Analyst', 'Penetration Tester', 'Security Analyst', 'Ethical Hacker', 'Incident Response Analyst', 'Cloud Security Engineer'],
   },
   {
     course: aiMl,
-    blurb: 'Python, machine learning, Generative AI and production AI systems.',
+    blurb: PROGRAMME_BLURBS[aiMl.routeBase],
     roles: ['AI Engineer', 'Machine Learning Engineer', 'Generative AI Engineer', 'MLOps Engineer', 'AI Solutions Engineer', 'Backend Developer'],
   },
   {
     course: dataScience,
-    blurb: 'Statistics, Python, machine learning and model deployment.',
+    blurb: PROGRAMME_BLURBS[dataScience.routeBase],
     roles: ['Data Scientist', 'ML Engineer', 'Data Analyst', 'BI Analyst', 'Data Engineer', 'Analytics Consultant'],
   },
   {
     course: socAnalyst,
-    blurb: 'SIEM monitoring, incident response and live threat detection.',
+    blurb: PROGRAMME_BLURBS[socAnalyst.routeBase],
     roles: ['SOC Analyst', 'Incident Response Analyst', 'Threat Hunter', 'SIEM Engineer', 'Security Monitoring Analyst', 'Threat Intelligence Analyst'],
   },
   {
     course: dataAnalyst,
-    blurb: 'Excel, SQL, BI dashboards and business reporting.',
+    blurb: PROGRAMME_BLURBS[dataAnalyst.routeBase],
     roles: ['Data Analyst', 'BI Analyst', 'Business Analyst', 'Reporting Analyst', 'Analytics Consultant', 'Dashboard Developer'],
   },
 ];
