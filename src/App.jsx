@@ -6,6 +6,7 @@ import dataScience from './data/dataScience.js';
 import dataAnalyst from './data/dataAnalyst.js';
 import Layout from './components/Layout.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+import HomePage from './pages/HomePage.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import CourseHomePage from './pages/CourseHomePage.jsx';
 import CourseModulePage from './pages/CourseModulePage.jsx';
@@ -19,7 +20,8 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/programmes" element={<LandingPage />} />
           {COURSES.map((course) => (
             <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage course={course} />} />
           ))}

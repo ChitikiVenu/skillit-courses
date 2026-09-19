@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PROGRAMMES } from '../constants.js';
 
-// Deliberately minimal — the header carries only the "Our Programmes" menu, nothing else
-// (no logo, no other nav links, no CTAs).
+// Deliberately minimal — the header carries just Home and the "Our Programmes" menu, nothing
+// else (no logo, no other nav links, no CTAs).
 export default function Header() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -19,9 +19,12 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="wrap site-header-inner">
+        <Link to="/" className="header-home-link">
+          Home
+        </Link>
         <div className="programmes-menu" ref={ref}>
           <div className="programmes-menu-trigger">
-            <Link to="/" className="programmes-menu-label" onClick={() => setOpen(false)}>
+            <Link to="/programmes" className="programmes-menu-label" onClick={() => setOpen(false)}>
               Our Programmes
             </Link>
             <button

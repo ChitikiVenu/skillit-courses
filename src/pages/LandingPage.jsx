@@ -70,7 +70,7 @@ export default function LandingPage() {
       <Seo
         title="Our Programmes | Skill IT Education"
         description="Five career-ready technology programmes — Cyber Security, AI & ML, Data Science, SOC Analyst and Data Analytics. Compare modules, duration and fees to find the right one."
-        path="/"
+        path="/programmes"
         jsonLd={jsonLd}
       />
 

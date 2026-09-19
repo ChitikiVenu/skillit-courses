@@ -403,7 +403,12 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   position:sticky;top:0;z-index:40;
   background:var(--surface);border-bottom:1px solid var(--border);
 }
-.site-header-inner{display:flex;align-items:center;height:56px;}
+.site-header-inner{display:flex;align-items:center;gap:22px;height:56px;}
+.header-home-link{
+  font-family:var(--font);font-size:14px;font-weight:700;color:var(--text);
+  padding:8px 2px;
+}
+.header-home-link:hover{color:var(--accent);}
 .programmes-menu{position:relative;}
 .programmes-menu-trigger{display:flex;align-items:center;gap:2px;}
 .programmes-menu-label{
@@ -415,7 +420,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   background:none;border:none;cursor:pointer;padding:8px 6px;
   display:flex;align-items:center;
 }
-.programmes-menu-caret{font-size:11px;color:var(--text-faint);transition:transform .15s ease;}
+.programmes-menu-caret{font-size:20px;line-height:1;color:var(--text-dim);transition:transform .15s ease;}
 .programmes-menu-caret.open{transform:rotate(180deg);}
 .programmes-menu-panel{
   position:absolute;top:calc(100% + 8px);left:0;z-index:50;
