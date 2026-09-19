@@ -95,7 +95,8 @@ FROM monthly;`,
   },
 ].map((s) => ({ ...s, lines: s.code.split('\n') }));
 
-const VISIBLE_ROWS = 18;
+// Enough rows to fill the tall workstation tablet on large screens (extra rows are clipped).
+const VISIBLE_ROWS = 48;
 
 const KEYWORDS = new Set([
   'import', 'from', 'def', 'for', 'in', 'if', 'return', 'const', 'let', 'not', 'true', 'false', 'null',
@@ -141,14 +142,25 @@ const Row = memo(function Row({ n, text, cursor }) {
   );
 });
 
-function staticRows() {
-  const snip = SNIPPETS[1];
-  return snip.lines.map((text, i) => ({ id: i, n: i + 1, text })).slice(-VISIBLE_ROWS);
+// The screen starts already full of code (the last few scripts), so a tall screen is never empty;
+// typing then carries on from the first script.
+function prefill() {
+  const rows = [];
+  let id = 0;
+  SNIPPETS.slice(-3).forEach((snip) => {
+    snip.lines.forEach((text, i) => rows.push({ id: id++, n: i + 1, text }));
+    rows.push({ id: id++, n: null, text: '' });
+  });
+  return { rows, nextId: id };
 }
 
 export default function CodeScreen({ active, animate = true }) {
-  const [view, setView] = useState(() => ({ rows: animate ? [] : staticRows(), partial: '', n: 1, file: SNIPPETS[animate ? 0 : 1].file }));
-  const engine = useRef({ s: 0, l: 0, c: 0, rows: [], id: 0, file: SNIPPETS[0].file, timer: null });
+  const engine = useRef(null);
+  if (!engine.current) {
+    const { rows, nextId } = prefill();
+    engine.current = { s: 0, l: 0, c: 0, rows, id: nextId, file: SNIPPETS[0].file, timer: null };
+  }
+  const [view, setView] = useState(() => ({ rows: engine.current.rows.slice(-VISIBLE_ROWS), partial: '', n: 1, file: SNIPPETS[0].file }));
 
   useEffect(() => {
     if (!animate || !active) return undefined;

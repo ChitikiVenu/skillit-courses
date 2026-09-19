@@ -1090,3 +1090,17 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 
 /* visible to screen readers and search engines only */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+/* ---------------------------------------------------------------- Home page: tall workstation tablet (large screens only)
+   From 1151px up the funnel layout is used and the tablet stretches from the top of the first
+   programme card to the bottom of the last one. Below that (phones, small tablets) the normal
+   landscape tablet is kept. --tablet-top / --tablet-h are measured in ProgrammeFlow.jsx. */
+@media (min-width: 1151px){
+  .flow-tablet{top:var(--tablet-top,50%);height:var(--tablet-h,auto);transform:translateX(-50%);}
+  .flow-tablet .tablet{height:100%;aspect-ratio:auto;border-radius:30px;padding:3.6% 3.4%;}
+  .flow-tablet .tablet::after{top:-5px;height:5px;}
+  .flow-tablet .tablet-camera{top:1.9cqw;}
+  .flow-tablet .tablet-screen{border-radius:18px;}
+  .flow-tablet .tablet-screen::after{bottom:10px;height:4px;width:22%;}
+  .flow-tablet .code-body{padding-bottom:26px;}
+}

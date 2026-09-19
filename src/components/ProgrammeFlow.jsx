@@ -28,6 +28,7 @@ export default function ProgrammeFlow({ programmes }) {
   const [wrapVisible, setWrapVisible] = useState(false);
   const [typing, setTyping] = useState(false);
   const [dims, setDims] = useState({ w: 0, h: 0 });
+  const [tabletBox, setTabletBox] = useState(null);
   const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
@@ -65,6 +66,29 @@ export default function ProgrammeFlow({ programmes }) {
     return () => ro.disconnect();
   }, []);
 
+  // On large screens the tablet is a tall workstation panel whose top and bottom line up with the
+  // first and last programme cards. Measure those cards (they can change height as fonts load).
+  useEffect(() => {
+    const wrap = wrapRef.current;
+    if (!wrap) return undefined;
+    const cards = [...wrap.querySelectorAll('.flow-program')];
+    if (cards.length < 2) return undefined;
+    const measure = () => {
+      const wr = wrap.getBoundingClientRect();
+      const first = cards[0].getBoundingClientRect();
+      const last = cards[cards.length - 1].getBoundingClientRect();
+      const top = Math.round(first.top - wr.top);
+      const height = Math.round(last.bottom - first.top);
+      setTabletBox((prev) => (prev && prev.top === top && prev.height === height ? prev : { top, height }));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(wrap);
+    cards.forEach((c) => ro.observe(c));
+    document.fonts?.ready.then(measure);
+    return () => ro.disconnect();
+  }, [programmes.length]);
+
   // Don't burn cycles animating a flow nobody can see.
   const animate = inView && !reducedMotion;
   useEffect(() => {
@@ -82,7 +106,7 @@ export default function ProgrammeFlow({ programmes }) {
   // from the programme box's right edge to the roles box's left edge.
   const tabletW = Math.max((TABLET_WIDTH_PCT / 100) * w, TABLET_MIN_WIDTH);
   const hubX = (TABLET_X / 100) * w + tabletW / 2 + 8;
-  const hubY = h / 2;
+  const hubY = tabletBox ? tabletBox.top + tabletBox.height / 2 : h / 2;
   const progLeft = (PROGRAM_X1 / 100) * w;
   const socketX = progLeft - 10;
   const progRight = (PROGRAM_X2 / 100) * w;
@@ -160,7 +184,11 @@ export default function ProgrammeFlow({ programmes }) {
         </svg>
       )}
 
-      <div className="flow-tablet" style={{ left: `${TABLET_X}%` }} ref={tabletRef}>
+      <div
+        className="flow-tablet"
+        style={{ left: `${TABLET_X}%`, ...(tabletBox ? { '--tablet-top': `${tabletBox.top}px`, '--tablet-h': `${tabletBox.height}px` } : {}) }}
+        ref={tabletRef}
+      >
         <Tablet>
           <CodeScreen active={typing} animate={!reducedMotion} />
         </Tablet>
