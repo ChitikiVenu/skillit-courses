@@ -489,7 +489,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .flow-section-head{margin-bottom:8px;}
 .flow-outer{width:100%;padding:0 24px;box-sizing:border-box;}
 .flow-wrap{
-  position:relative;width:100%;max-width:1400px;height:min(72vh,600px);min-height:460px;
+  position:relative;width:100%;max-width:1400px;height:min(78vh,680px);min-height:500px;
   margin:8px auto 0;
 }
 .flow-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
@@ -501,7 +501,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .flow-wrap.in-view .flow-connector line{opacity:.5;}
 
 .flow-laptop{
-  position:absolute;top:50%;transform:translate(-50%,-50%);width:12%;min-width:130px;
+  position:absolute;top:50%;transform:translate(-50%,-50%);width:16%;min-width:180px;
   z-index:2;pointer-events:none;filter:drop-shadow(0 16px 28px rgba(16,21,31,.16));
 }
 .flow-laptop-inner{position:relative;}
@@ -532,9 +532,16 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 }
 .flow-wrap.in-view .flow-program{transform:translate(0,-50%);opacity:1;}
 .flow-program:hover{box-shadow:0 14px 26px -12px rgba(16,21,31,.24);border-color:var(--accent-dim);}
-.flow-program h4{margin:0 0 2px;font-size:14.5px;}
-.flow-program p{margin:0 0 4px;font-size:11px;line-height:1.3;color:var(--text-faint);}
-.flow-duration{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--accent);}
+.flow-program h4{margin:0 0 3px;font-size:17px;}
+.flow-program p{margin:0 0 6px;font-size:13px;line-height:1.35;color:var(--text-faint);}
+.flow-program-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:2px;}
+.flow-duration{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--accent);}
+.flow-explore-btn{
+  font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent-2);
+  background:var(--bg-alt);border:1px dashed var(--border);border-radius:6px;
+  padding:3px 9px;white-space:nowrap;transition:background .2s,border-color .2s,color .2s;
+}
+.flow-program:hover .flow-explore-btn{background:var(--accent-2);border-color:var(--accent-2);border-style:solid;color:#fff;}
 
 .flow-roles{
   position:absolute;transform:translate(-40px,-50%);opacity:0;
@@ -545,28 +552,28 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 }
 .flow-wrap.in-view .flow-roles{transform:translate(0,-50%);opacity:1;}
 .flow-roles:hover{box-shadow:0 14px 24px -12px rgba(37,99,235,.4);border-color:var(--accent-dim);}
-.flow-roles-label{display:block;font-size:9.5px;font-weight:800;color:var(--accent-dim);margin-bottom:4px;}
-.flow-roles-list{display:flex;flex-wrap:wrap;gap:3px;}
+.flow-roles-label{display:block;font-size:11.5px;font-weight:800;color:var(--accent-dim);margin-bottom:5px;}
+.flow-roles-list{display:flex;flex-wrap:wrap;gap:4px;}
 .flow-role-chip{
-  font-size:8.5px;font-weight:600;color:var(--text-dim);
-  background:var(--surface-2);border-radius:100px;padding:2px 6px;
+  font-size:10.5px;font-weight:600;color:var(--text-dim);
+  background:var(--surface-2);border-radius:100px;padding:3px 8px;
 }
 
 @media (max-width: 1150px){
   .flow-outer{padding:0 16px;}
   .flow-wrap{height:auto;min-height:0;max-width:480px;margin:16px auto 0;}
   .flow-lines{display:none;}
-  .flow-laptop{position:static;transform:none;width:150px;margin:0 auto 16px;filter:none;}
+  .flow-laptop{position:static;transform:none;width:190px;margin:0 auto 16px;filter:none;}
   .flow-program,.flow-roles{
     position:static !important;width:100% !important;top:auto !important;
     transform:none !important;opacity:1 !important;
   }
   .flow-program{
-    border-radius:12px 12px 0 0;border-bottom:none;padding:12px 14px 8px;
-    display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+    border-radius:12px 12px 0 0;border-bottom:none;padding:12px 14px 10px;
   }
-  .flow-program h4{margin:0;}
+  .flow-program h4{margin:0 0 2px;}
   .flow-program p{display:none;}
+  .flow-program-bottom{margin-top:6px;}
   .flow-roles{
     border-radius:0 0 12px 12px;margin-bottom:16px;padding:8px 14px 12px;
   }

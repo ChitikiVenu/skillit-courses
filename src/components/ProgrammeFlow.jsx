@@ -87,11 +87,11 @@ export default function ProgrammeFlow({ programmes }) {
   const n = programmes.length;
   const rowY = (i) => (n === 1 ? 50 : 10 + i * (80 / (n - 1)));
 
-  const LAPTOP_X = 8;
-  const PROGRAM_X1 = 30;
+  const LAPTOP_X = 10;
+  const PROGRAM_X1 = 28;
   const PROGRAM_X2 = 58;
-  const ROLES_X1 = 64;
-  const ROLES_X2 = 96;
+  const ROLES_X1 = 62;
+  const ROLES_X2 = 97;
 
   return (
     <div className={`flow-wrap ${inView ? 'in-view' : ''}`} ref={wrapRef}>
@@ -100,7 +100,7 @@ export default function ProgrammeFlow({ programmes }) {
           const y = rowY(i);
           return (
             <g className="flow-connector" key={p.course.routeBase} style={{ transitionDelay: `${0.15 + i * 0.06}s` }}>
-              <line x1={LAPTOP_X + 4} y1={50} x2={PROGRAM_X1} y2={y} vectorEffect="non-scaling-stroke" />
+              <line x1={LAPTOP_X + 8} y1={50} x2={PROGRAM_X1} y2={y} vectorEffect="non-scaling-stroke" />
               <line className="flow-connector-roles" x1={PROGRAM_X2} y1={y} x2={ROLES_X1} y2={y} vectorEffect="non-scaling-stroke" style={{ transitionDelay: `${0.5 + i * 0.06}s` }} />
             </g>
           );
@@ -109,7 +109,7 @@ export default function ProgrammeFlow({ programmes }) {
 
       <div className="flow-laptop" style={{ left: `${LAPTOP_X}%` }}>
         <div className="flow-laptop-inner">
-          <img src="/img/computer-illustration.png" alt="" width={220} height={133} loading="lazy" />
+          <img src="/img/computer-illustration.png" alt="" width={280} height={169} loading="lazy" />
           <TypingScreen active={typing} />
         </div>
       </div>
@@ -123,7 +123,10 @@ export default function ProgrammeFlow({ programmes }) {
           >
             <h4>{course.COPY.courseShortName}</h4>
             <p>{blurb}</p>
-            <span className="flow-duration">{course.COPY.heroStats[0].value}</span>
+            <div className="flow-program-bottom">
+              <span className="flow-duration">{course.COPY.heroStats[0].value}</span>
+              <span className="flow-explore-btn">{'{<Explore Me />}'}</span>
+            </div>
           </Link>
           <div
             className="flow-roles"
