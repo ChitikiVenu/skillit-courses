@@ -1,12 +1,14 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Tablet from './Tablet.jsx';
 import { blogPostForCourse } from '../data/blogPosts.js';
 
 const ROW_HEIGHT = 118;
-const MODULE_X1 = 40;
+const MODULE_X1 = 43;
 const MODULE_X2 = 95;
-const LAPTOP_X = 12;
-const LAPTOP_ASPECT = 193 / 320;
+const TABLET_X = 16;
+const TABLET_WIDTH_PCT = 28;
+const TABLET_MIN_WIDTH = 290;
 
 // Heartbeat timing, in seconds. Every cable carries a "lub" (arrow packet) and a "dub" (round
 // packet) once per CYCLE; the lines fire top-to-bottom, STAGGER apart, so the pulse sweeps down
@@ -28,7 +30,7 @@ function usePrefersReducedMotion() {
   return reduced;
 }
 
-// One data packet riding a cable from the laptop to a module: a bright head with a fading tail.
+// One data packet riding a cable from the tablet to a module: a bright head with a fading tail.
 // The same animation clock (begin + dur) drives the fade-in, the motion and the arrival ripple,
 // so a packet is never visible before it leaves or after it lands.
 function Packet({ pathId, delay, kind, tailId }) {
@@ -68,7 +70,7 @@ function Packet({ pathId, delay, kind, tailId }) {
   );
 }
 
-// An expanding ring — the visible "beat" at the laptop's hub and on each module's socket.
+// An expanding ring — the visible "beat" at the tablet's hub and on each module's socket.
 function Ripple({ cx, cy, from, to, begin }) {
   const dur = `${CYCLE}s`;
   const grow = 0.2;
@@ -80,7 +82,7 @@ function Ripple({ cx, cy, from, to, begin }) {
   );
 }
 
-// Same left-to-right funnel language as the landing page's programme flow: a bigger laptop asks
+// Same left-to-right funnel language as the landing page's programme flow: a bigger tablet asks
 // "How can I become a ___?", a "Get an Answer" button on its screen leads to that role's blog
 // post, and a line runs out to every module in this course — one column, one name + hours +
 // Explore Me per module.
@@ -132,11 +134,11 @@ export default function ModuleFlow({ course }) {
   const rowY = (i) => (n === 1 ? 50 : 10 + i * (80 / (n - 1)));
   const wrapHeight = Math.max(520, n * ROW_HEIGHT + 140);
 
-  // Cables run from a hub just off the laptop screen to a socket in front of each module card,
+  // Cables run from a hub on the tablet's right edge to a socket in front of each module card,
   // as smooth S-curves; y2 is the card's vertical centre (cards are centred on rowY).
-  const laptopW = Math.max(0.21 * size, 220);
-  const x1 = (LAPTOP_X / 100) * size + laptopW * 0.44;
-  const y1 = wrapHeight / 2 - laptopW * LAPTOP_ASPECT * 0.06;
+  const tabletW = Math.max((TABLET_WIDTH_PCT / 100) * size, TABLET_MIN_WIDTH);
+  const x1 = (TABLET_X / 100) * size + tabletW / 2 + 8;
+  const y1 = wrapHeight / 2;
   const cardLeft = (MODULE_X1 / 100) * size;
   const x2 = cardLeft - 10;
   const cables = MODULES.map((m, i) => {
@@ -207,16 +209,15 @@ export default function ModuleFlow({ course }) {
         </svg>
       )}
 
-      <div className="module-flow-laptop" style={{ left: `${LAPTOP_X}%` }}>
-        <div className="module-flow-laptop-inner">
-          <img src="/img/computer-illustration.png" alt="" width={320} height={193} loading="lazy" />
+      <div className="module-flow-tablet" style={{ left: `${TABLET_X}%` }}>
+        <Tablet>
           <div className="module-flow-screen">
             <p className="module-flow-question">{post ? post.question : `How can I become a ${COPY.courseShortName} professional?`}</p>
             <Link to={answerHref} className="module-flow-answer-btn">
               Get an Answer
             </Link>
           </div>
-        </div>
+        </Tablet>
       </div>
 
       {MODULES.map((m, i) => (

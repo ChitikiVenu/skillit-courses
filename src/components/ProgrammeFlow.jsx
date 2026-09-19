@@ -1,5 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Tablet from './Tablet.jsx';
 
 const CODE_LINES = [
   'const goal = "your next career";',
@@ -7,7 +8,7 @@ const CODE_LINES = [
   'ship(realProjects);',
 ];
 
-// The laptop screen types this out, character by character, while the section is in view.
+// The tablet screen types this out, character by character, while the section is in view.
 function TypingScreen({ active }) {
   const [lines, setLines] = useState([]);
   const [current, setCurrent] = useState('');
@@ -60,7 +61,7 @@ function TypingScreen({ active }) {
   );
 }
 
-// A left-to-right funnel: the laptop sits at the narrow end, a line fans out to each programme
+// A left-to-right funnel: the tablet sits at the narrow end, a line fans out to each programme
 // box, and a second line carries on from each programme box to its own roles box — two lines per
 // programme, one flow. Every position is a plain CSS percentage (row = i / (n-1)) so the SVG
 // connector lines (viewBox 0 0 100 100, preserveAspectRatio="none") always line up with the boxes
@@ -87,7 +88,7 @@ export default function ProgrammeFlow({ programmes }) {
   const n = programmes.length;
   const rowY = (i) => (n === 1 ? 50 : 10 + i * (80 / (n - 1)));
 
-  const LAPTOP_X = 10;
+  const TABLET_X = 12;
   const PROGRAM_X1 = 28;
   const PROGRAM_X2 = 58;
   const ROLES_X1 = 62;
@@ -100,18 +101,17 @@ export default function ProgrammeFlow({ programmes }) {
           const y = rowY(i);
           return (
             <g className="flow-connector" key={p.course.routeBase} style={{ transitionDelay: `${0.15 + i * 0.06}s` }}>
-              <line x1={LAPTOP_X + 8} y1={50} x2={PROGRAM_X1} y2={y} vectorEffect="non-scaling-stroke" />
+              <line x1={TABLET_X + 8} y1={50} x2={PROGRAM_X1} y2={y} vectorEffect="non-scaling-stroke" />
               <line className="flow-connector-roles" x1={PROGRAM_X2} y1={y} x2={ROLES_X1} y2={y} vectorEffect="non-scaling-stroke" style={{ transitionDelay: `${0.5 + i * 0.06}s` }} />
             </g>
           );
         })}
       </svg>
 
-      <div className="flow-laptop" style={{ left: `${LAPTOP_X}%` }}>
-        <div className="flow-laptop-inner">
-          <img src="/img/computer-illustration.png" alt="" width={280} height={169} loading="lazy" />
+      <div className="flow-tablet" style={{ left: `${TABLET_X}%` }}>
+        <Tablet>
           <TypingScreen active={typing} />
-        </div>
+        </Tablet>
       </div>
 
       {programmes.map(({ course, blurb, roles }, i) => (
