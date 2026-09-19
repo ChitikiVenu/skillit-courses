@@ -751,7 +751,7 @@ const COPY = {
   "durationChip": "INDUSTRY-ALIGNED AI & ML TRAINING",
   "heroTitleHtml": "Advanced AI &amp; ML<br>Certification Program",
   "heroKicker": "AI & ML Training in Hyderabad",
-  "heroLede": "A seven-month program prepared by an IITian and AI architect. You start with Python and backend basics, then move through machine learning, generative AI and agentic AI to production AI systems. It has seven hands-on modules and a two-month real-time internship, and it is aimed at AI engineer roles.",
+  "heroLede": "A 7-month Advanced AI & ML Certification Program, prepared by an IITian & AI Architect, that takes you from Python and backend foundations through Machine Learning, Generative AI and Agentic AI to production-grade AI systems. Seven hands-on modules and a two-month real-time internship — built to get you job-ready as an AI engineer, not just an AI tool user.",
   "heroStats": [
     {
       "label": "Course Duration",
@@ -862,7 +862,7 @@ const COPY = {
   "certTitle": "AI & ML Certifications This Course Prepares You For",
   "certSubtitle": "The curriculum is structured to help prepare learners for the following external certifications, including Microsoft Azure AI Engineer and AWS ML Engineer.",
   "finalCtaTitle": "Start your AI engineering career with a structured, hands-on program",
-  "finalCtaSubtitle": "7 months in total: 5 months of learning across seven modules, then a 2-month internship."
+  "finalCtaSubtitle": "7 months total — 5 months of core learning across seven modules, plus 2 months of real-time internship."
 };
 
 // routeBase is this course's mount point inside the unified app's router (e.g. "/cyber-security"),

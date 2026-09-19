@@ -78,12 +78,14 @@ export default function LandingPage() {
         <div className="wrap">
           <div className="hero-grid">
             <div>
-              <div className="duration-chip">5 programmes</div>
+              <div className="duration-chip">5 CAREER-READY TECH PROGRAMMES</div>
               <h1>Our Programmes</h1>
               <H1Wave />
+              <h2 className="hero-kicker">Find the right programme, not just a course</h2>
               <p className="hero-lede">
-                Each programme has hands-on modules, projects for your portfolio and a real-time internship.
-                Compare them below, or use the finder to see which one suits you.
+                Every programme here is built the same way: hands-on modules, real projects, a portfolio you can
+                show, and a real-time industry internship. Compare them below and pick the one that matches where
+                you want to end up.
               </p>
               <div className="hero-ctas">
                 <a className="btn btn-outline" href="#programmes">
@@ -126,7 +128,8 @@ export default function LandingPage() {
       >
         <div className="wrap">
           <div className="section-head flow-section-head">
-            <h2>Compare programmes</h2>
+            <span className="eyebrow">Compare Programmes</span>
+            <h2>Pick a programme, see the full curriculum</h2>
           </div>
         </div>
         <div className="flow-outer">
@@ -137,8 +140,9 @@ export default function LandingPage() {
       <section id="fit-finder">
         <div className="wrap">
           <div className="section-head">
-            <h2>Which one is right for you?</h2>
-            <p>Find the line that sounds most like you.</p>
+            <span className="eyebrow">Not Sure Which One?</span>
+            <h2>Which programme fits you?</h2>
+            <p>A quick way to match what you enjoy to the programme built around it.</p>
           </div>
           <div className="fit-grid">
             {FIT_FINDER.map(({ interest, course }) => (
@@ -158,7 +162,8 @@ export default function LandingPage() {
       <section className="cta-banner">
         <div className="wrap">
           <div>
-            <h3>Not sure yet? An advisor can match a programme to your background and goals.</h3>
+            <h3>Still weighing your options?</h3>
+            <p>Talk to an advisor — they'll help you match your background and goals to the right programme.</p>
           </div>
           <div className="hero-ctas" style={{ margin: 0 }}>
             <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>

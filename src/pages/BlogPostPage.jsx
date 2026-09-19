@@ -84,6 +84,7 @@ export default function BlogPostPage() {
   const { COPY } = post.course;
   const minutes = Math.max(1, Math.round(wordCount(post) / WORDS_PER_MINUTE));
   const toc = post.blocks.map((b) => ({ id: anchorId(b.heading), label: b.heading }));
+  toc.push({ id: anchorId(post.closing.heading), label: post.closing.heading });
 
   const jsonLd = [
     {
@@ -132,7 +133,8 @@ export default function BlogPostPage() {
                 <Block block={b} />
               </section>
             ))}
-            <section className="post-block post-closing">
+            <section className="post-block post-closing" id={anchorId(post.closing.heading)}>
+              <h2>{post.closing.heading}</h2>
               <p>{post.closing.text}</p>
             </section>
           </article>

@@ -84,11 +84,11 @@ export default function CourseModulePage({ course }) {
             </div>
             <div className="hero-meta">
               <div className="meta-card">
-                <div className="label">Who it is for</div>
+                <div className="label">Who This Module Is For</div>
                 <div className="value">{m.who_for}</div>
               </div>
               <div className="meta-card">
-                <div className="label">Why it matters</div>
+                <div className="label">Real-World Relevance</div>
                 <div className="value">{m.relevance}</div>
               </div>
             </div>
@@ -129,7 +129,9 @@ export default function CourseModulePage({ course }) {
       <section id="learn">
         <div className="wrap">
           <div className="section-head">
-            <h2>What you will learn</h2>
+            <span className="eyebrow">Curriculum</span>
+            <h2>What You Will Learn</h2>
+            <p>A detailed, industry-aligned breakdown of every topic covered in this module.</p>
           </div>
           <ul className="check-list grid-2">
             {m.learn.map((item) => (
@@ -142,7 +144,9 @@ export default function CourseModulePage({ course }) {
       <section id="tools" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
-            <h2>Tools</h2>
+            <span className="eyebrow">Technology Stack</span>
+            <h2>Tools You Will Use</h2>
+            <p>{COPY.moduleToolsSubtitle}</p>
           </div>
           <div className="tool-grid">
             {m.tools.map((t) => (
@@ -155,7 +159,9 @@ export default function CourseModulePage({ course }) {
       <section id="labs">
         <div className="wrap">
           <div className="section-head">
-            <h2>Labs</h2>
+            <span className="eyebrow">Practical Work</span>
+            <h2>Hands-On Labs</h2>
+            <p>{COPY.moduleLabsSubtitle}</p>
           </div>
           <div className="lab-list">
             {m.labs.map((l, i) => (
@@ -171,15 +177,16 @@ export default function CourseModulePage({ course }) {
       <section id="assessment" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
+            <span className="eyebrow">Evaluation</span>
             <h2>Assessment</h2>
           </div>
           <div className="assessment-grid">
             <div className="assessment-card">
-              <h4>Knowledge</h4>
+              <h4>Knowledge Assessment</h4>
               <p>{m.assessment.knowledge}</p>
             </div>
             <div className="assessment-card">
-              <h4>Practical</h4>
+              <h4>Practical Evaluation</h4>
               <p>{m.assessment.practical}</p>
             </div>
           </div>
@@ -189,7 +196,9 @@ export default function CourseModulePage({ course }) {
       <section id="projects">
         <div className="wrap">
           <div className="section-head">
+            <span className="eyebrow">Portfolio</span>
             <h2>Projects</h2>
+            <p>Industry-style deliverables added directly to your project portfolio.</p>
           </div>
           <div className="project-grid">
             {m.projects.map((p, i) => (
@@ -206,7 +215,8 @@ export default function CourseModulePage({ course }) {
       <section id="outcome" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
-            <h2>Outcome</h2>
+            <span className="eyebrow">Module Outcome</span>
+            <h2>What This Module Builds</h2>
           </div>
           <div className="outcome-block">
             <p style={{ color: 'var(--text)', fontSize: 15.5 }}>{m.outcome}</p>
@@ -237,7 +247,8 @@ export default function CourseModulePage({ course }) {
       <section className="cta-banner">
         <div className="wrap">
           <div>
-            <h3>{nextM ? `Next: Module ${nextM.number}, ${nextM.title}` : 'That was the last module. See the job roles next.'}</h3>
+            <h3>{COPY.moduleCtaHeading}</h3>
+            <p>{nextM ? `Next up: Module ${nextM.number} — ${nextM.title}` : 'You have reached the final module — explore career outcomes next.'}</p>
           </div>
           <div className="hero-ctas" style={{ margin: 0 }}>
             {nextM ? (

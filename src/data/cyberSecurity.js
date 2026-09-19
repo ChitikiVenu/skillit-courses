@@ -632,7 +632,7 @@ const COPY = {
   "durationChip": "INDUSTRY-ALIGNED CYBERSECURITY TRAINING",
   "heroTitleHtml": "Advanced Cyber Security<br>Certification Program",
   "heroKicker": "Cyber Security Training in Hyderabad",
-  "heroLede": "A five-month program that takes you from networking and ethical hacking basics to penetration testing, cryptography and security operations. It has six hands-on modules, a three-month project phase and a two-month real-time internship, and it is aimed at SOC, VAPT and offensive security roles.",
+  "heroLede": "A structured, five-month Advanced Cyber Security Certification Program that takes you from networking and ethical-hacking fundamentals to professional-grade penetration testing, cryptography and security operations. Six hands-on modules, a three-month project phase and a two-month real-time internship — built to get you job-ready for SOC, VAPT and offensive-security roles, not just certified.",
   "heroStats": [
     {
       "label": "Course Duration",
@@ -741,7 +741,7 @@ const COPY = {
   "certTitle": "Cyber Security Certifications This Course Prepares You For",
   "certSubtitle": "The curriculum is structured to help prepare learners for the following external certifications, including CEH, CompTIA Security+ and OSCP.",
   "finalCtaTitle": "Start your cybersecurity career with a structured, hands-on program",
-  "finalCtaSubtitle": "5 months of training, 3 months of projects and a 2-month internship."
+  "finalCtaSubtitle": "5 months of core training, 3 months of project-based learning, 2 months of real-time internship."
 };
 
 // routeBase is this course's mount point inside the unified app's router (e.g. "/cyber-security"),

@@ -42,7 +42,7 @@ a{color:inherit;text-decoration:none;}
 section{padding:72px 0;}
 h1,h2,h3,h4{line-height:1.15;margin:0 0 16px;font-weight:700;letter-spacing:-0.01em;}
 h1{font-size:clamp(36px,5.2vw,58px);margin-bottom:4px;}
-h2{font-size:clamp(24px,2.6vw,32px);}
+h2{font-size:clamp(28px,3.6vw,40px);}
 h3{font-size:21px;}
 p{margin:0 0 14px;color:var(--text-dim);font-size:17px;}
 .eyebrow{
@@ -215,7 +215,7 @@ header.site{
 .progress-nav a:hover{color:var(--accent-2);}
 
 /* sections */
-.section-head{max-width:680px;margin-bottom:28px;}
+.section-head{max-width:680px;margin-bottom:36px;}
 .section-head p{margin:0;}
 
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;}
