@@ -2,281 +2,152 @@ import { Link, useParams } from 'react-router-dom';
 import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
+import ContactCard from '../components/ContactCard.jsx';
 import { BLOG_POSTS } from '../data/blogPosts.js';
 import NotFoundPage from './NotFoundPage.jsx';
 
-const STARTS_WITH_VOWEL = /^[aeiou]/i;
-const article = (word) => (STARTS_WITH_VOWEL.test(word) ? 'an' : 'a');
-const TEL_HREF = (phone) => 'tel:' + phone.replace(/[^\d+]/g, '');
+const WORDS_PER_MINUTE = 200;
 
-// Every post is assembled from its course's own COPY / CAREER_TRACKS / MODULES data — the same
-// data the course page itself is built from — so nothing here can drift out of sync with the
-// course pages. Each course's post.sectionOrder (see blogPosts.js) puts these six sections in a
-// different sequence, so the five posts don't read as one template stamped out five times.
+const anchorId = (heading) =>
+  'sec-' +
+  heading
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60);
+
+function wordCount(post) {
+  const parts = [post.lede, post.closing.heading, post.closing.text];
+  post.blocks.forEach((b) => {
+    parts.push(b.heading, b.intro, ...(b.paras ?? []), ...(b.items ?? []));
+    (b.steps ?? []).forEach((s) => parts.push(s.title, s.text));
+    (b.people ?? []).forEach((s) => parts.push(s.who, s.text));
+    (b.cards ?? []).forEach((s) => parts.push(s.title, s.text));
+  });
+  return parts.filter(Boolean).join(' ').split(/\s+/).length;
+}
+
+function Block({ block }) {
+  return (
+    <>
+      <h2>{block.heading}</h2>
+      {block.intro && <p className="post-intro">{block.intro}</p>}
+      {block.kind === 'text' && block.paras.map((para) => <p key={para}>{para}</p>)}
+      {block.kind === 'steps' && (
+        <ol className="post-steps">
+          {block.steps.map((s) => (
+            <li key={s.title}>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </li>
+          ))}
+        </ol>
+      )}
+      {block.kind === 'whom' && (
+        <div className="post-whom">
+          {block.people.map((p) => (
+            <div className="post-whom-card" key={p.who}>
+              <h3>{p.who}</h3>
+              <p>{p.text}</p>
+            </div>
+          ))}
+        </div>
+      )}
+      {block.kind === 'list' && (
+        <ul className="check-list">
+          {block.items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      )}
+      {block.kind === 'cards' && (
+        <div className="post-cards">
+          {block.cards.map((c) => (
+            <div className="post-card" key={c.title}>
+              <h3>{c.title}</h3>
+              <p>{c.text}</p>
+            </div>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}
+
+// Each Career Insights post is a standalone article about one question: it links nowhere else on
+// the site. The only way out is the back link to the Career Insights grid.
 export default function BlogPostPage() {
   const { slug } = useParams();
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return <NotFoundPage />;
 
-  const { course, role, sectionOrder } = post;
-  const { COPY, CAREER_TRACKS, MODULES, SITE, routeBase } = course;
-  const title = `How Can I Become ${article(role)} ${role}?`;
-  const description = `A practical, step-by-step answer: what ${article(role)} ${role} does, what skills you need, how long it takes and what it pays — based on the ${COPY.courseShortName} programme curriculum.`;
-  const otherPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug);
+  const { COPY } = post.course;
+  const minutes = Math.max(1, Math.round(wordCount(post) / WORDS_PER_MINUTE));
+  const toc = post.blocks.map((b) => ({ id: anchorId(b.heading), label: b.heading }));
+  toc.push({ id: anchorId(post.closing.heading), label: post.closing.heading });
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: title,
-    description,
-    author: { '@type': 'Organization', name: 'Skill IT Education' },
-    publisher: { '@type': 'Organization', name: 'Skill IT Education' },
-    mainEntityOfPage: DOMAIN + '/blog/' + slug,
-  };
-
-  const sections = {
-    about: (
-      <div className="wrap">
-        <div className="section-head">
-          <span className="eyebrow">About Skill IT Education</span>
-          <h2>Job-ready in months, not years</h2>
-        </div>
-        <div className="about-skillit-body">
-          <p>
-            Skill IT Education is a hands-on technology training institute based in Madhapur, Hyderabad, built
-            around one idea: you learn by doing, not by watching. Every programme we run — Cyber Security, AI
-            &amp; ML, Data Science, SOC Analyst and Data Analytics — is built the same way: structured modules,
-            real labs, real projects, and a real-time industry internship at the end, not just recorded lectures
-            and a certificate.
-          </p>
-          <p>
-            Here's the comparison most people never actually think through: a traditional college degree —
-            B.Tech, B.Sc, an MCA — takes three to four years, and even then, most graduates finish without ever
-            having built anything a company would actually pay them to build. Our {COPY.courseShortName} programme
-            is {COPY.heroStats[0].value.toLowerCase()} from start to finish — {COPY.heroStats[1].value.toLowerCase()} of
-            structured, hands-on learning plus {COPY.heroStats[2].value.toLowerCase()} of real-time internship. You
-            don't spend years on unrelated subjects; every week is spent on the exact skills the industry is
-            hiring for right now.
-          </p>
-          <p>
-            That's the real promise: you can go from zero, or from a loosely related background, to being a
-            working, job-ready {role} in months. Whether you're a student still in college, a fresher just out
-            of one, or already working and looking to switch fields entirely, the programme is built to get you
-            interview-ready and portfolio-ready in one structured run — not a four-year commitment before you
-            even know if the field is right for you.
-          </p>
-          <p>
-            We do this by cutting out everything that doesn't directly build your skills. Across {MODULES.length}{' '}
-            modules, every single one closes with a lab exercise or a real project, not a quiz. The tools you use
-            in class are the same tools you'll be expected to know in an actual job interview — not simplified,
-            classroom-only versions of them.
-          </p>
-          <p>
-            By the end, you're not just holding a certificate — you have a portfolio of real, working projects,
-            hands-on experience with industry-standard tools, and real-time internship experience to talk about
-            in interviews. That's the difference between "I studied this" and "I've actually done this."
-          </p>
-          <p>
-            This path isn't only for career changers. Working professionals use it to move sideways into a
-            higher-demand field without quitting their job for years to go back to school. College students use
-            it to graduate with something that actually gets them hired, instead of a degree and no hands-on
-            experience. Freshers use it as the fastest honest route into the field, without pretending a
-            certificate alone will get them through a technical interview.
-          </p>
-          {otherPosts.length > 0 && (
-            <p>
-              If becoming {article(role)} {role} isn't quite the right fit for you, Skill IT Education runs{' '}
-              {otherPosts.length} other career-focused programmes built the exact same way:{' '}
-              {otherPosts.map((p, i) => (
-                <span key={p.slug}>
-                  <Link to={`/blog/${p.slug}`}>{p.role}</Link>
-                  {i < otherPosts.length - 2 ? ', ' : i === otherPosts.length - 2 ? ' and ' : ''}
-                </span>
-              ))}
-              . You can also see all five side by side on{' '}
-              <Link to="/programmes">Our Programmes</Link>.
-            </p>
-          )}
-        </div>
-        <div className="contact-card">
-          <div className="contact-card-item">
-            <span className="contact-card-label">Location</span>
-            <span>{SITE.city}, {SITE.region}, {SITE.country}</span>
-          </div>
-          <div className="contact-card-item">
-            <span className="contact-card-label">Address</span>
-            <span>{SITE.address}</span>
-          </div>
-          <div className="contact-card-item">
-            <span className="contact-card-label">Phone</span>
-            <a href={TEL_HREF(SITE.phone)}>{SITE.phone}</a>
-          </div>
-          <div className="contact-card-item">
-            <span className="contact-card-label">Email</span>
-            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-          </div>
-        </div>
-      </div>
-    ),
-
-    roles: (
-      <div className="wrap">
-        <div className="section-head">
-          <span className="eyebrow">Roles You Could Move Into</span>
-          <h2>Where {article(COPY.courseShortName)} {COPY.courseShortName} path leads</h2>
-        </div>
-        <div className="track-grid">
-          {CAREER_TRACKS.map((t) => (
-            <div className="track-card" key={t.title}>
-              <h4>{t.title}</h4>
-              <ul>
-                {t.roles.map((r) => (
-                  <li key={r}>{r}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-
-    learn: (
-      <div className="wrap">
-        <div className="section-head">
-          <span className="eyebrow">What You'd Need to Learn</span>
-          <h2>{COPY.outcomesTitle}</h2>
-        </div>
-        <ul className="check-list grid-2">
-          {COPY.outcomesList.map((o) => (
-            <li key={o}>{o}</li>
-          ))}
-        </ul>
-      </div>
-    ),
-
-    spotlight: (
-      <div className="wrap">
-        <div className="section-head">
-          <span className="eyebrow">What You'll Actually Build</span>
-          <h2>{COPY.projectsTitle}</h2>
-          <p>{COPY.projectsSubtitle}</p>
-        </div>
-        <div className="project-grid">
-          {COPY.featuredProjects.map((p) => (
-            <div className="project-card" key={p.title}>
-              <span className="tag">{p.tag}</span>
-              <h4>{p.title}</h4>
-              <p>{p.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-
-    salary: (
-      <div className="wrap">
-        <div className="section-head">
-          <span className="eyebrow">Salary Positioning</span>
-          <h2>{COPY.salaryTitle}</h2>
-          <p>{COPY.salarySubtitle}</p>
-        </div>
-        <div className="salary-grid">
-          <div className="salary-card">
-            <div className="region">India</div>
-            <div className="range">{COPY.salaryIndia.range}</div>
-            <p>{COPY.salaryIndia.desc}</p>
-          </div>
-          <div className="salary-card">
-            <div className="region">Global</div>
-            <div className="range">{COPY.salaryGlobal.range}</div>
-            <p>{COPY.salaryGlobal.desc}</p>
-          </div>
-        </div>
-      </div>
-    ),
-
-    timeline: (
-      <div className="wrap">
-        <div className="section-head">
-          <span className="eyebrow">How Long It Takes</span>
-          <h2>The {COPY.courseShortName} path, step by step</h2>
-          <p>
-            {MODULES.length} modules, {COPY.heroStats[0].value} total — {COPY.heroStats[1].value} of structured
-            learning plus {COPY.heroStats[2].value} of real-time internship.
-          </p>
-        </div>
-        <div className="blog-module-list">
-          {MODULES.map((m) => (
-            <Link className="blog-module-item" to={`${routeBase}/${m.slug}`} key={m.slug}>
-              <span className="blog-module-idx">{String(m.number).padStart(2, '0')}</span>
-              <span className="blog-module-title">{m.title}</span>
-              <span className="blog-module-dur">
-                {m.hours} &middot; {m.duration}
-              </span>
-            </Link>
-          ))}
-        </div>
-      </div>
-    ),
-  };
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: post.question,
+      description: post.lede,
+      author: { '@type': 'Organization', name: 'Skill IT Education' },
+      publisher: { '@type': 'Organization', name: 'Skill IT Education' },
+      mainEntityOfPage: `${DOMAIN}/blog/${post.slug}`,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [{ '@type': 'Question', name: post.question, acceptedAnswer: { '@type': 'Answer', text: post.lede } }],
+    },
+  ];
 
   return (
-    <main>
-      <Seo title={`${title} | Skill IT Education Blog`} description={description} path={`/blog/${slug}`} jsonLd={jsonLd} />
+    <main data-course={post.courseKey}>
+      <Seo title={`${post.question} | Skill IT Education`} description={post.lede} path={`/blog/${post.slug}`} jsonLd={jsonLd} />
 
-      <section className="hero">
+      <section className="hero post-hero">
         <div className="wrap">
-          <div className="breadcrumb">
-            <Link to="/">Home</Link>
-            <span className="sep">/</span>
-            <Link to="/blog">Career Insights</Link>
-            <span className="sep">/</span>
-            {title}
-          </div>
-          <h1>{title}</h1>
-          <p className="hero-lede">{COPY.heroLede}</p>
-        </div>
-      </section>
-
-      {sectionOrder.map((id, i) => (
-        <section
-          key={id}
-          id={id}
-          className={id === 'about' ? 'about-skillit blog-section' : 'blog-section'}
-          style={i % 2 === 1 ? { background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' } : undefined}
-        >
-          {sections[id]}
-        </section>
-      ))}
-
-      <section className="cta-banner">
-        <div className="wrap">
-          <div>
-            <h3>Ready to actually become {article(role)} {role}?</h3>
-            <p>{COPY.finalCtaSubtitle}</p>
-          </div>
-          <div className="hero-ctas" style={{ margin: 0 }}>
-            <Link className="btn btn-primary" to={routeBase}>
-              Explore the {COPY.courseShortName} Curriculum
-            </Link>
+          <Link className="post-back" to="/blog">
+            &larr; All Career Insights
+          </Link>
+          <span className="post-course-tag" data-course={post.courseKey}>
+            {post.courseName}
+          </span>
+          <h1>{post.question}</h1>
+          <p className="hero-lede">{post.lede}</p>
+          <div className="post-meta">
+            <span>Skill IT Education</span>
+            <span aria-hidden="true">&middot;</span>
+            <span>{minutes} min read</span>
           </div>
         </div>
       </section>
 
-      <section>
-        <div className="wrap">
-          <div className="explore-more">
-            <span className="explore-more-label">Keep exploring</span>
-            <Link to="/">Home</Link>
-            <Link to="/programmes">Our Programmes</Link>
-            <Link to="/blog">Career Insights</Link>
-            <Link to={routeBase}>{COPY.courseShortName} Course</Link>
-            {otherPosts.map((p) => (
-              <Link to={`/blog/${p.slug}`} key={p.slug}>
-                {p.role} Insights
-              </Link>
+      <section className="post-body">
+        <div className="wrap post-layout">
+          <article className="post-article">
+            {post.blocks.map((b) => (
+              <section className={`post-block post-block-${b.kind}`} id={anchorId(b.heading)} key={b.heading}>
+                <Block block={b} />
+              </section>
             ))}
-          </div>
+            <section className="post-block post-closing" id={anchorId(post.closing.heading)}>
+              <h2>{post.closing.heading}</h2>
+              <p>{post.closing.text}</p>
+            </section>
+          </article>
+          <aside className="post-toc" aria-label="Contents">
+            <span className="post-toc-label">In this guide</span>
+            <ol>
+              {toc.map((t) => (
+                <li key={t.id}>
+                  <a href={`#${t.id}`}>{t.label}</a>
+                </li>
+              ))}
+            </ol>
+          </aside>
         </div>
       </section>
 
@@ -284,11 +155,12 @@ export default function BlogPostPage() {
         <div className="wrap">
           <LeadForm
             formId="blog-form"
-            heading={`Get the ${COPY.courseShortName} Course Fee Structure & Syllabus`}
-            subheading="Share your details and our admissions team will call you back with the full syllabus, batch timings and fee breakdown."
+            heading={post.formHeading}
+            subheading={post.formSubheading}
             brochureFile={COPY.brochureFile}
-            preselectedCourse={COPY.preselectedCourse}
+            preselectedCourse={COPY.preselectedCourse ?? COPY.courseShortName}
           />
+          <ContactCard />
         </div>
       </section>
     </main>

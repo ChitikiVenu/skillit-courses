@@ -1,42 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
-import { BLOG_POSTS } from '../data/blogPosts.js';
-
-// Each card is a full question, and clicking it goes straight to the relevant section of that
-// programme's long-form guide — real article content, not a two-line inline answer.
-function InsightGrid({ post }) {
-  return (
-    <div className="insight-grid">
-      {post.insights.map((item) => (
-        <Link className="insight-card" to={`/blog/${post.slug}#${item.anchor}`} key={item.q}>
-          <span className="insight-card-headline">{item.q}</span>
-          <span className="insight-card-cta">Read the answer &rarr;</span>
-        </Link>
-      ))}
-    </div>
-  );
-}
-
-function ProgrammeInsights({ post }) {
-  return (
-    <div className="programme-insights" id={post.slug}>
-      <div className="programme-insights-head">
-        <span className="eyebrow">{post.course.COPY.courseShortName}</span>
-        <h2>{post.course.COPY.courseShortName} Insights</h2>
-        <p>{post.insights.length} questions students search before choosing {post.course.COPY.courseShortName}.</p>
-      </div>
-      <InsightGrid post={post} />
-      <Link className="programme-insights-link" to={`/blog/${post.slug}`}>
-        Read the full {post.course.COPY.courseShortName} career guide &rarr;
-      </Link>
-    </div>
-  );
-}
+import LeadForm from '../components/LeadForm.jsx';
+import ContactCard from '../components/ContactCard.jsx';
+import { BLOG_COURSES, BLOG_POSTS } from '../data/blogPosts.js';
 
 export default function BlogIndexPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const activeSlug = searchParams.get('course');
+  const activeKey = searchParams.get('course');
+  const activeCourse = BLOG_COURSES.find((c) => c.key === activeKey);
   const tableRef = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -53,30 +26,29 @@ export default function BlogIndexPage() {
     return () => observer.disconnect();
   }, []);
 
-  const visiblePosts = activeSlug ? BLOG_POSTS.filter((p) => p.slug === activeSlug) : BLOG_POSTS;
+  // "All" is the mixed, programme-alternating order; a programme filter just narrows that same list.
+  const visiblePosts = activeCourse ? BLOG_POSTS.filter((p) => p.courseKey === activeCourse.key) : BLOG_POSTS;
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: BLOG_POSTS.flatMap((p) =>
-      p.insights.map((item) => ({
-        '@type': 'Question',
-        name: item.q,
-        acceptedAnswer: { '@type': 'Answer', text: item.a },
-      })),
-    ),
+    '@type': 'ItemList',
+    itemListElement: BLOG_POSTS.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: p.question,
+      url: `${DOMAIN}/blog/${p.slug}`,
+    })),
   };
 
-  function selectCourse(slug) {
-    if (slug) setSearchParams({ course: slug });
-    else setSearchParams({});
+  function selectCourse(key) {
+    setSearchParams(key ? { course: key } : {}, { replace: true, preventScrollReset: true });
   }
 
   return (
     <main>
       <Seo
         title="Career Insights | Skill IT Education Blog"
-        description="How do I become a Cyber Security Professional, AI/ML Engineer, Data Scientist, SOC Analyst or Data Analyst? Real student questions, answered — skills, salary, timeline and the best academy for training."
+        description="Straight answers to the questions students ask before choosing Cyber Security, AI & ML, Data Science, SOC Analyst or Data Analytics — skills, projects, interviews, salary and placement support."
         path="/blog"
         jsonLd={jsonLd}
       />
@@ -84,28 +56,33 @@ export default function BlogIndexPage() {
       <section className="hero">
         <div className="wrap">
           <h1>Career Insights</h1>
-          <p className="hero-lede">All 5 programmes, the questions students actually search before choosing one.</p>
+          <p className="hero-lede">
+            {BLOG_POSTS.length} real student questions across {BLOG_COURSES.length} programmes, each answered in its own
+            step-by-step guide.
+          </p>
           <div className={`insights-table ${inView ? 'in-view' : ''}`} ref={tableRef}>
             <button
               type="button"
-              className={`insights-cell ${!activeSlug ? 'active' : ''}`}
+              className={`insights-cell ${!activeCourse ? 'active' : ''}`}
               style={{ transitionDelay: '0s' }}
               onClick={() => selectCourse(null)}
+              aria-pressed={!activeCourse}
             >
               <span className="insights-cell-name">All Insights</span>
-              <span className="insights-cell-label">{BLOG_POSTS.length} Programmes</span>
+              <span className="insights-cell-label">{BLOG_POSTS.length} articles</span>
               <span className="insights-cell-arrow">&rarr;</span>
             </button>
-            {BLOG_POSTS.map((p, i) => (
+            {BLOG_COURSES.map((c, i) => (
               <button
                 type="button"
-                className={`insights-cell ${activeSlug === p.slug ? 'active' : ''}`}
-                key={p.slug}
+                className={`insights-cell ${activeCourse?.key === c.key ? 'active' : ''}`}
+                key={c.key}
                 style={{ transitionDelay: `${(i + 1) * 0.08}s` }}
-                onClick={() => selectCourse(p.slug)}
+                onClick={() => selectCourse(c.key)}
+                aria-pressed={activeCourse?.key === c.key}
               >
-                <span className="insights-cell-name">{p.course.COPY.courseShortName}</span>
-                <span className="insights-cell-label">Insights</span>
+                <span className="insights-cell-name">{c.name}</span>
+                <span className="insights-cell-label">{c.count} articles</span>
                 <span className="insights-cell-arrow">&rarr;</span>
               </button>
             ))}
@@ -113,11 +90,31 @@ export default function BlogIndexPage() {
         </div>
       </section>
 
-      <section>
+      <section className="insight-section">
         <div className="wrap">
-          {visiblePosts.map((p) => (
-            <ProgrammeInsights post={p} key={p.slug} />
-          ))}
+          <div className="insight-grid" aria-live="polite">
+            {visiblePosts.map((p) => (
+              <Link className="insight-card" data-course={p.courseKey} to={`/blog/${p.slug}`} key={p.slug}>
+                <span className="insight-card-tag">{p.courseName}</span>
+                <span className="insight-card-headline">{p.question}</span>
+                <span className="insight-card-cta">Read the answer &rarr;</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="lead-form-section" id="enquire">
+        <div className="wrap">
+          <LeadForm
+            formId="blog-index-form"
+            heading="Not sure which programme fits you? Talk to our admissions team"
+            subheading="Share your details and we will call you back with the syllabus, batch timings and fee breakdown for the programme you are considering."
+            brochureFile={activeCourse?.course.COPY.brochureFile}
+            preselectedCourse={activeCourse && (activeCourse.course.COPY.preselectedCourse ?? activeCourse.name)}
+            key={activeCourse?.key ?? 'all'}
+          />
+          <ContactCard />
         </div>
       </section>
     </main>

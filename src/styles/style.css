@@ -624,65 +624,105 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   .insights-table{grid-template-columns:1fr 1fr;}
 }
 
-.programme-insights{padding:32px 0;border-top:1px solid var(--border);scroll-margin-top:80px;}
-.programme-insights:first-child{border-top:none;padding-top:8px;}
-.programme-insights-head{margin-bottom:18px;}
-.programme-insights-head h2{margin:4px 0 6px;}
-.programme-insights-head p{margin:0;color:var(--text-faint);font-size:15px;}
-.programme-insights-link{
-  display:inline-block;margin-top:16px;font-weight:700;color:var(--accent-2);
-  transition:color .2s;
-}
-.programme-insights-link:hover{color:var(--accent-dim);text-decoration:underline;}
+/* Career Insights grid: one mixed wall of question cards, 4 per row. */
+[data-course="cyber-security"]{--c:#dc2626;--c-bg:rgba(220,38,38,.09);}
+[data-course="ai-ml"]{--c:#7c3aed;--c-bg:rgba(124,58,237,.09);}
+[data-course="data-science"]{--c:#2563eb;--c-bg:rgba(37,99,235,.09);}
+[data-course="soc-analyst"]{--c:#ea580c;--c-bg:rgba(234,88,12,.09);}
+[data-course="data-analyst"]{--c:#0c9a83;--c-bg:rgba(12,154,131,.10);}
 
-.insight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.insight-section{padding:40px 0 24px;}
+.insight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 .insight-card{
-  display:flex;flex-direction:column;gap:14px;justify-content:space-between;color:inherit;min-height:130px;
-  background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--accent);
-  border-radius:10px;padding:18px;transition:transform .15s,box-shadow .15s,border-color .15s;
+  display:flex;flex-direction:column;gap:14px;justify-content:space-between;color:inherit;min-height:190px;
+  background:var(--surface);border:1px solid var(--border);border-top:4px solid var(--c);
+  border-radius:12px;padding:18px;transition:transform .15s,box-shadow .15s,border-color .15s;
+  animation:insightIn .35s ease both;
 }
-.insight-card:hover{transform:translateY(-3px);box-shadow:0 14px 26px -14px rgba(16,21,31,.3);border-color:var(--accent-dim);}
-.insight-card-headline{font-size:15px;font-weight:700;line-height:1.35;color:var(--text);}
-.insight-card-cta{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--accent-2);}
-@media (max-width: 980px){
+.insight-card:hover{transform:translateY(-4px);box-shadow:0 16px 28px -14px rgba(16,21,31,.3);border-color:var(--c);}
+.insight-card-tag,.post-course-tag{
+  align-self:flex-start;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--c);background:var(--c-bg);border-radius:100px;padding:4px 10px;
+}
+.insight-card-headline{flex:1;font-size:16.5px;font-weight:700;line-height:1.35;color:var(--text);}
+.insight-card-cta{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--c);}
+@keyframes insightIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+@media (max-width: 1080px){
+  .insight-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width: 780px){
   .insight-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media (max-width: 520px){
   .insight-grid{grid-template-columns:1fr;}
+  .insight-card{min-height:0;}
 }
 
-.blog-section{scroll-margin-top:80px;}
-.explore-more{
-  display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;
-  padding:22px 0;
+/* Career Insights article page */
+.post-hero{padding-bottom:44px;}
+.post-back{
+  display:inline-block;margin-bottom:22px;font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text-faint);
+  transition:color .2s;
 }
-.explore-more-label{font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);}
-.explore-more a{
-  font-size:14px;font-weight:600;color:var(--accent-2);
-  background:var(--bg-alt);border:1px solid var(--border);border-radius:100px;padding:6px 14px;
-  transition:background .2s,border-color .2s,color .2s;
-}
-.explore-more a:hover{background:var(--accent-2);border-color:var(--accent-2);color:#fff;}
+.post-back:hover{color:var(--accent-dim);}
+.post-hero .post-course-tag{display:block;width:max-content;margin-bottom:14px;}
+.post-hero h1{max-width:22ch;margin-bottom:18px;font-size:clamp(32px,4.6vw,50px);}
+.post-hero .hero-lede{max-width:68ch;}
+.post-meta{display:flex;gap:10px;align-items:center;margin-top:18px;font-family:var(--mono);font-size:13px;color:var(--text-faint);}
 
-.blog-module-list{display:flex;flex-direction:column;gap:10px;}
-.blog-module-item{
-  display:flex;align-items:center;gap:16px;color:inherit;
-  background:var(--surface);border:1px solid var(--border);border-radius:10px;
-  padding:14px 18px;transition:border-color .15s,transform .15s,box-shadow .15s;
+.post-body{padding:48px 0 32px;}
+.post-layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:56px;align-items:start;}
+.post-article{max-width:760px;}
+.post-block{padding:0;margin-bottom:52px;scroll-margin-top:84px;}
+.post-block h2{font-size:clamp(24px,2.8vw,32px);margin-bottom:14px;}
+.post-block p{font-size:17px;line-height:1.75;}
+.post-intro{color:var(--text);font-weight:500;}
+.post-block h3{font-size:17px;margin:0 0 6px;color:var(--text);}
+.post-block .check-list{margin-top:18px;}
+
+.post-steps{list-style:none;counter-reset:step;margin:22px 0 0;padding:0;position:relative;}
+.post-steps::before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--border);}
+.post-steps li{counter-increment:step;position:relative;padding:0 0 26px 62px;}
+.post-steps li:last-child{padding-bottom:0;}
+.post-steps li::before{
+  content:counter(step);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;
+  background:var(--c);color:#fff;font-family:var(--mono);font-weight:700;font-size:15px;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--bg);
 }
-.blog-module-item:hover{border-color:var(--accent-dim);transform:translateX(3px);box-shadow:0 8px 18px -12px rgba(16,21,31,.2);}
-.blog-module-idx{flex:none;font-family:var(--mono);font-weight:700;color:var(--accent);font-size:14px;}
-.blog-module-title{flex:1;font-weight:600;font-size:15.5px;}
-.blog-module-dur{flex:none;font-family:var(--mono);font-size:13px;color:var(--text-faint);white-space:nowrap;}
-@media (max-width: 600px){
-  .blog-module-item{flex-wrap:wrap;gap:4px 12px;}
-  .blog-module-dur{width:100%;}
+.post-steps p{margin:0;font-size:16.5px;}
+
+.post-whom,.post-cards{display:grid;gap:14px;margin-top:20px;}
+.post-whom{grid-template-columns:1fr;}
+.post-cards{grid-template-columns:1fr 1fr;}
+.post-whom-card,.post-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;
+}
+.post-whom-card{border-left:4px solid var(--c);}
+.post-card{border-top:3px solid var(--c);box-shadow:0 8px 20px -18px rgba(16,21,31,.4);}
+.post-whom-card p,.post-card p{margin:0;font-size:16px;line-height:1.65;}
+
+.post-closing{
+  background:var(--c-bg);border-radius:14px;padding:26px 28px;margin-bottom:8px;
+}
+.post-closing p{margin:0;color:var(--text);}
+
+.post-toc{position:sticky;top:88px;border-left:2px solid var(--border);padding:2px 0 2px 18px;}
+.post-toc-label{display:block;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:12px;}
+.post-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+.post-toc a{font-size:14px;line-height:1.4;color:var(--text-dim);display:block;transition:color .15s;}
+.post-toc a:hover{color:var(--c);}
+@media (max-width: 980px){
+  .post-layout{grid-template-columns:1fr;gap:0;}
+  .post-toc{display:none;}
+}
+@media (max-width: 640px){
+  .post-cards{grid-template-columns:1fr;}
+  .post-steps li{padding-left:54px;}
+  .post-steps::before{left:17px;}
+  .post-steps li::before{width:36px;height:36px;}
+  .post-closing{padding:20px;}
 }
 
-.about-skillit-body{max-width:760px;display:flex;flex-direction:column;gap:16px;}
-.about-skillit-body p{margin:0;font-size:16px;line-height:1.7;color:var(--text-dim);}
-.about-skillit-body a{color:var(--accent-2);font-weight:600;}
-.about-skillit-body a:hover{text-decoration:underline;}
 .contact-card{
   margin-top:28px;max-width:760px;
   display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;
@@ -708,4 +748,12 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
   .contact-card{grid-template-columns:1fr;}
   .contact-card-item{border-left:none !important;}
   .contact-card-item:not(:first-child){border-top:1px solid var(--border);}
+}
+
+/* address block under the enquiry form: address (wider), phone, email */
+.contact-card-3{max-width:none;margin-top:20px;grid-template-columns:1.8fr 1fr 1.2fr;}
+@media (max-width: 760px){
+  .contact-card-3{grid-template-columns:1fr;}
+  .contact-card-3 .contact-card-item{border-left:none !important;}
+  .contact-card-3 .contact-card-item:not(:first-child){border-top:1px solid var(--border);}
 }

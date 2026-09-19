@@ -63,9 +63,11 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
         {submitted && (
           <div className="form-success">
             Thanks — we&rsquo;ve received your details. Our admissions team will call you back shortly.{' '}
-            <a href={`/downloads/${brochureFile}`} download>
-              Download the brochure now &rarr;
-            </a>
+            {brochureFile && (
+              <a href={`/downloads/${brochureFile}`} download>
+                Download the brochure now &rarr;
+              </a>
+            )}
           </div>
         )}
       </form>

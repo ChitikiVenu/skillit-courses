@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PROGRAMMES } from '../constants.js';
-import { BLOG_POSTS } from '../data/blogPosts.js';
+import { BLOG_COURSES } from '../data/blogPosts.js';
 
 function NavMenu({ label, to, items }) {
   const [open, setOpen] = useState(false);
@@ -52,7 +52,7 @@ function NavMenu({ label, to, items }) {
 // nothing else (no logo, no other nav links, no CTAs).
 export default function Header() {
   const programmeItems = PROGRAMMES.map((p) => ({ path: p.path, label: p.label, soon: !p.available }));
-  const insightItems = BLOG_POSTS.map((p) => ({ path: `/blog?course=${p.slug}`, label: `${p.course.COPY.courseShortName} Insights` }));
+  const insightItems = BLOG_COURSES.map((c) => ({ path: `/blog?course=${c.key}`, label: `${c.name} Insights` }));
 
   return (
     <header className="site-header">
