@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import H1Wave from '../components/H1Wave.jsx';
+import LeadForm from '../components/LeadForm.jsx';
 import { ImageHeroVisual } from '../components/HeroVisual.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
@@ -170,6 +171,16 @@ export default function LandingPage() {
               Talk to an Advisor
             </button>
           </div>
+        </div>
+      </section>
+
+      <section className="lead-form-section" id="enquire">
+        <div className="wrap">
+          <LeadForm
+            formId="programmes-form"
+            heading="Get the Fee Structure & Syllabus"
+            subheading="Share your details and our admissions team will call you back with the full syllabus, batch timings and fee breakdown."
+          />
         </div>
       </section>
 
