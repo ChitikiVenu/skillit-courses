@@ -463,7 +463,7 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .why-item .dot{flex:none;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:9px;}
 .why-item p{margin:0;font-size:16px;color:var(--text-dim);}
 
-@media (max-width: 880px){
+@media (max-width: 880px) and (not (pointer: fine)), (max-width: 799px){
   .hero-grid, .grid-2, .assessment-grid, .salary-grid, .why-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr 1fr;}
   .stat-bar{grid-template-columns:1fr 1fr;}
@@ -585,7 +585,7 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .fit-item .fit-text{flex:1;font-size:15.5px;line-height:1.5;color:var(--text-dim);}
 .fit-item .fit-text strong{color:var(--text);}
 .fit-item .fit-cta{flex:none;font-weight:700;font-size:14.5px;color:var(--accent-2);white-space:nowrap;}
-@media (max-width: 880px){
+@media (max-width: 880px) and (not (pointer: fine)), (max-width: 799px){
   .fit-grid{grid-template-columns:1fr;}
 }
 
@@ -624,8 +624,9 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 /* ---------------------------------------------------------------- Programme flow (tablet -> funnel) */
 .flow-section-head{margin-bottom:8px;}
 .flow-outer{width:100%;padding:0 24px;box-sizing:border-box;}
+.flow-fit{width:100%;}
 .flow-wrap{
-  position:relative;width:100%;max-width:1400px;height:min(78vh,680px);min-height:620px;
+  position:relative;width:100%;max-width:1400px;height:min(80vh,700px);min-height:660px;
   margin:8px auto 0;
 }
 .flow-lines,.flow-pulses{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
@@ -726,11 +727,11 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .flow-roles-label{display:block;font-size:15px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.2;}
 .flow-roles-list{display:flex;flex-wrap:wrap;gap:4px;}
 .flow-role-chip{
-  font-size:10.5px;font-weight:600;color:var(--text-dim);
+  font-size:10.5px;font-weight:600;color:var(--text-dim);line-height:1.3;
   background:var(--surface-2);border-radius:100px;padding:3px 8px;
 }
 
-@media (max-width: 1150px){
+@media (max-width: 1150px) and (not (pointer: fine)), (max-width: 799px){
   .flow-outer{padding:0 16px;}
   .flow-wrap{height:auto;min-height:0;max-width:480px;margin:16px auto 0;}
   .flow-lines,.flow-pulses{display:none;}
@@ -862,7 +863,7 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .post-toc ol{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
 .post-toc a{font-size:14px;line-height:1.4;color:var(--text-dim);display:block;transition:color .15s;}
 .post-toc a:hover{color:var(--accent-2);}
-@media (max-width: 980px){
+@media (max-width: 980px) and (not (pointer: fine)), (max-width: 799px){
   .post-layout{grid-template-columns:1fr;gap:0;}
   .post-toc{display:none;}
 }
@@ -949,7 +950,7 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 }
 
 /* ---------------------------------------------------------------- Header: tablet and phone */
-@media (max-width: 960px){
+@media (max-width: 960px) and (not (pointer: fine)), (max-width: 799px){
   html{scroll-padding-top:84px;}
   .post-block{scroll-margin-top:84px;}
   /* a blurred header would become the containing block of the fixed menu sheet, so no blur here */
@@ -1002,7 +1003,7 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
   .mobile-menu-link[aria-current="page"]{background:var(--bg-alt);color:var(--text);font-weight:700;}
 }
 @keyframes sheetIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
-@media (min-width: 961px){
+@media (min-width: 961px), (min-width: 800px) and (pointer: fine){
   .mobile-menu,.header-burger{display:none;}
 }
 
@@ -1010,7 +1011,7 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
    Always on screen, bottom of the viewport: WhatsApp (left), Book a free session (right). The page
    footer gets extra height so nothing at the very bottom of a page is hidden behind them. */
 .floating-actions{display:none;}
-@media (max-width: 960px){
+@media (max-width: 960px) and (not (pointer: fine)), (max-width: 799px){
   .site-footer{height:88px;}
   .floating-actions{
     position:fixed;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:35;
@@ -1132,7 +1133,7 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
    From 1151px up the funnel layout is used and the tablet stretches from the top of the first
    programme card to the bottom of the last one. Below that (phones, small tablets) the normal
    landscape tablet is kept. --tablet-top / --tablet-h are measured in ProgrammeFlow.jsx. */
-@media (min-width: 1151px){
+@media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
   .flow-tablet{top:var(--tablet-top,50%);height:var(--tablet-h,auto);transform:translateX(-50%);}
   .flow-tablet .tablet{height:100%;aspect-ratio:auto;border-radius:30px;padding:3.6% 3.4%;}
   .flow-tablet .tablet::after{top:-5px;height:5px;}
@@ -1140,6 +1141,7 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
   .flow-tablet{--typed-top:27%;--typed-scale:.9;}
   /* the programme box and its "Become A" box are the same size */
   .flow-program,.flow-roles{box-sizing:border-box;height:118px;padding:12px 16px;display:flex;flex-direction:column;justify-content:center;}
+  .flow-roles{padding:10px 16px;}
   .flow-roles-list{gap:5px;}
   .flow-role-chip{font-size:11px;padding:3px 9px;}
   .flow-tablet .tablet-screen{border-radius:18px;}
@@ -1154,16 +1156,31 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 }
 
 /* No code strip on phones and small tablets: the typed content gets the whole screen */
-@media (max-width: 960px){
+@media (max-width: 960px) and (not (pointer: fine)), (max-width: 799px){
   .typed-stage{--strip-h:0px;}
   .code-strip{display:none;}
 }
 
 /* Narrower desktop windows: the boxes are narrower, so the role chips get a little smaller to keep
    every "Become A" box inside the same 118px height as its programme box */
-@media (min-width: 1151px) and (max-width: 1340px){
-  .flow-roles{padding:10px 14px;}
+@media ((min-width: 1151px) and (max-width: 1340px)), ((min-width: 800px) and (max-width: 1150px) and (pointer: fine)){
+  .flow-roles{padding:8px 14px;}
   .flow-roles-label{font-size:14px;margin-bottom:5px;}
   .flow-roles-list{gap:4px;}
   .flow-role-chip{font-size:10px;padding:2px 7px;}
+  /* four rows of chips can be needed here, so the boxes are a little taller */
+  .flow-program,.flow-roles{height:126px;}
+}
+
+/* Desktop header on narrower windows (a laptop at 125-150% zoom): the same header, just tighter, so the
+   logo, both menus, WhatsApp and Book a free session all still fit on one line. */
+@media (min-width: 800px) and (max-width: 1080px){
+  .site-header{--header-h:76px;}
+  .site-header-inner{gap:14px;}
+  .header-logo img{height:56px;}
+  .header-nav{gap:14px;}
+  .header-actions{gap:8px;}
+  .header-whatsapp{padding:8px 10px;}
+  .header-whatsapp span{display:none;}
+  .header-actions .btn-book{padding:10px 14px;font-size:13px;}
 }

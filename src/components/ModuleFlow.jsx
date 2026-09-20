@@ -66,7 +66,8 @@ export default function ModuleFlow({ course }) {
   // Cables run from a hub on the tablet's right edge to a socket in front of each module card,
   // as smooth S-curves; y2 is the card's vertical centre (cards are centred on rowY).
   const tabletW = Math.max((TABLET_WIDTH_PCT / 100) * size, TABLET_MIN_WIDTH);
-  const x1 = (TABLET_X / 100) * size + tabletW / 2 + 8;
+  const tabletCentre = Math.max((TABLET_X / 100) * size, TABLET_MIN_WIDTH / 2);
+  const x1 = tabletCentre + tabletW / 2 + 8;
   const y1 = wrapHeight / 2;
   const cardLeft = (MODULE_X1 / 100) * size;
   const x2 = cardLeft - 10;
@@ -130,7 +131,7 @@ export default function ModuleFlow({ course }) {
         </svg>
       )}
 
-      <div className="module-flow-tablet" style={{ left: `${TABLET_X}%` }}>
+      <div className="module-flow-tablet" style={{ left: `max(${TABLET_X}%, ${TABLET_MIN_WIDTH / 2}px)` }}>
         <Tablet>
           <div className="module-flow-screen">
             <p className="module-flow-question">{post ? post.question : `How can I become a ${COPY.courseShortName} professional?`}</p>

@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { PROGRAMMES, WHATSAPP_URL } from '../constants.js';
 import WhatsAppIcon from './WhatsAppIcon.jsx';
 import { BLOG_COURSES } from '../data/blogPosts.js';
+import { DESKTOP_HEADER } from '../useMediaQuery.js';
 import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
 
 // Time the menu stays open after the cursor leaves it, so a student can cross the small gap and
@@ -142,7 +143,7 @@ export default function Header({ onBook }) {
   }, [openMenu]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    const mq = window.matchMedia('(min-width: 961px)');
+    const mq = window.matchMedia(DESKTOP_HEADER);
     const onChange = (e) => e.matches && setMenuOpen(false);
     mq.addEventListener('change', onChange);
     return () => mq.removeEventListener('change', onChange);

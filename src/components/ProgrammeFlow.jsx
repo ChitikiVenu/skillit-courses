@@ -2,6 +2,7 @@ import { Fragment, useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Tablet from './Tablet.jsx';
 import TypedScreen from './TypedScreen.jsx';
+import { DESKTOP_FLOW, useMediaQuery } from '../useMediaQuery.js';
 import { DUB_LAG, Packet, Ripple, STAGGER, TRAVEL, TailGradients, cablePath, usePrefersReducedMotion } from './flowPulse.jsx';
 
 const ROW_TOP = 10;
@@ -14,6 +15,11 @@ const PROGRAM_X1 = 34;
 const PROGRAM_X2 = 62;
 const ROLES_X1 = 66;
 const ROLES_X2 = 94;
+// On laptops and desktops the funnel is laid out at a design width of at least 1100px and simply
+// scaled down to fit a narrower window (for example a browser zoomed to 150%), so it always looks
+// like the desktop version instead of dropping to the stacked mobile layout.
+const DESIGN_MIN_W = 1100;
+const DESIGN_MAX_W = 1400;
 // How long a packet takes to hop across the short programme -> roles link.
 const RELAY_TRAVEL = 0.6;
 
@@ -31,6 +37,9 @@ export default function ProgrammeFlow({ programmes }) {
   const [wrapVisible, setWrapVisible] = useState(false);
   const [typing, setTyping] = useState(false);
   const [dims, setDims] = useState({ w: 0, h: 0 });
+  const fitRef = useRef(null);
+  const [outerW, setOuterW] = useState(0);
+  const desktopLayout = useMediaQuery(DESKTOP_FLOW);
   const [tabletBox, setTabletBox] = useState(null);
   const reducedMotion = usePrefersReducedMotion();
 
@@ -46,6 +55,15 @@ export default function ProgrammeFlow({ programmes }) {
     );
     observer.observe(el);
     return () => observer.disconnect();
+  }, []);
+
+  // Width available to the whole funnel; used to scale it down when it is narrower than the design.
+  useEffect(() => {
+    const el = fitRef.current;
+    if (!el) return undefined;
+    const ro = new ResizeObserver((entries) => setOuterW(Math.round(entries[0].contentRect.width)));
+    ro.observe(el);
+    return () => ro.disconnect();
   }, []);
 
   // The editor types while the tablet itself is on screen (on phones the stacked section is far
@@ -136,8 +154,20 @@ export default function ProgrammeFlow({ programmes }) {
   const tailArrowId = `pf-tail-a-${uid}`;
   const tailDotId = `pf-tail-d-${uid}`;
 
+  const designW = desktopLayout && outerW ? Math.min(DESIGN_MAX_W, Math.max(DESIGN_MIN_W, outerW)) : undefined;
+  const scale = designW ? Math.min(1, outerW / designW) : 1;
+  const wrapStyle = designW
+    ? { width: designW, maxWidth: 'none', ...(scale < 1 ? { transform: `scale(${scale})`, transformOrigin: 'top left' } : {}) }
+    : undefined;
+  const fitStyle = desktopLayout && dims.h ? { height: Math.round(8 + dims.h * scale) } : undefined;
+
   return (
-    <div className={`flow-wrap ${inView ? 'in-view' : ''} ${animate ? 'is-flowing' : ''} ${wrapVisible ? '' : 'is-offscreen'}`} ref={wrapRef}>
+    <div className="flow-fit" ref={fitRef} style={fitStyle}>
+    <div
+      className={`flow-wrap ${inView ? 'in-view' : ''} ${animate ? 'is-flowing' : ''} ${wrapVisible ? '' : 'is-offscreen'}`}
+      ref={wrapRef}
+      style={wrapStyle}
+    >
       {w > 0 && (
         <svg className="flow-lines" viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" aria-hidden="true">
           <defs>
@@ -238,6 +268,7 @@ export default function ProgrammeFlow({ programmes }) {
           </div>
         </Fragment>
       ))}
+    </div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import CodeStrip from './CodeStrip.jsx';
+import { DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
 
 // The home page tablet: the Skill IT benefits are typed at the top of the screen and a small code
 // editor types away in the bottom fifth (CodeStrip).
@@ -21,18 +22,6 @@ const SEGMENTS = [
   { kind: 'item', text: '05 — Placement Assistance' },
   { kind: 'desc', text: 'Get career guidance and placement support.' },
 ];
-
-// The code strip is left out on phones and small tablets (960px and narrower).
-function useWideScreen() {
-  const [wide, setWide] = useState(() => typeof window !== 'undefined' && window.matchMedia('(min-width: 961px)').matches);
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 961px)');
-    const onChange = (e) => setWide(e.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
-  return wide;
-}
 
 const HOLD_AT_END = 3500;
 const FADE_MS = 450;
@@ -66,7 +55,8 @@ export default function TypedScreen({ active, animate = true }) {
   const bodyRef = useRef(null);
   const innerRef = useRef(null);
   const [shift, setShift] = useState(0);
-  const showCode = useWideScreen();
+  // The code strip is left out on the mobile layout (phones and small touch tablets).
+  const showCode = useMediaQuery(DESKTOP_HEADER);
 
   useEffect(() => {
     if (!animate || !active) return undefined;
