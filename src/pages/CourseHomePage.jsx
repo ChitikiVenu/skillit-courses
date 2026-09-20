@@ -72,15 +72,6 @@ export default function CourseHomePage({ course }) {
               <H1Wave />
               <h2 className="hero-kicker">{COPY.heroKicker}</h2>
               <p className="hero-lede">{COPY.heroLede}</p>
-              <div className="hero-ctas">
-                <a className="btn btn-outline" href="#roadmap">
-                  View Module Roadmap
-                </a>
-                <a className="btn btn-outline" href="#get-details-form">
-                  Download Brochure
-                </a>
-                <CounselButton href="#get-details-form" />
-              </div>
               <div className="hero-stats-row">
                 {COPY.heroStats.map((s, i) => (
                   <div className={`meta-card meta-card-${i + 1}`} key={s.label}>
@@ -89,6 +80,15 @@ export default function CourseHomePage({ course }) {
                     {s.note && <div className="meta-note">{s.note}</div>}
                   </div>
                 ))}
+              </div>
+              <div className="hero-ctas">
+                <a className="btn btn-outline" href="#roadmap">
+                  View Module Roadmap
+                </a>
+                <a className="btn btn-outline" href="#get-details-form">
+                  Download Brochure
+                </a>
+                <CounselButton href="#get-details-form" />
               </div>
             </div>
             <div className="hero-meta">
