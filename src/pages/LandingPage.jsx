@@ -18,6 +18,7 @@ import dataAnalyst from '../data/dataAnalyst.js';
 const PROGRAMMES = [
   {
     course: cyberSecurity,
+    title: 'Cyber Security With AI',
     blurb: PROGRAMME_BLURBS[cyberSecurity.routeBase],
     roles: ['SOC Analyst', 'Penetration Tester', 'Security Analyst', 'Ethical Hacker', 'Incident Response Analyst', 'Cloud Security Engineer'],
   },
@@ -80,7 +81,7 @@ export default function LandingPage() {
       >
         <h1 className="sr-only">Skill IT Education: job-ready tech training in Hyderabad</h1>
         <div className="flow-outer">
-          <ProgrammeFlow programmes={PROGRAMMES} />
+          <ProgrammeFlow programmes={PROGRAMMES} heading="Our Advanced Certification Programmes" />
         </div>
       </section>
 
