@@ -75,12 +75,16 @@ export default function ProgrammeFlow({ programmes }) {
     if (!wrap) return undefined;
     const cards = [...wrap.querySelectorAll('.flow-program')];
     if (cards.length < 2) return undefined;
+    // Use layout positions (offsetTop/offsetHeight), not on-screen rectangles: the cards slide in with a
+    // transform transition, and a rectangle measured mid-slide (for example right after the window is
+    // resized across the phone breakpoint) would leave the tablet the wrong size. Each card rests
+    // centred on its offsetTop (translateY(-50%)).
     const measure = () => {
-      const wr = wrap.getBoundingClientRect();
-      const first = cards[0].getBoundingClientRect();
-      const last = cards[cards.length - 1].getBoundingClientRect();
-      const top = Math.round(first.top - wr.top);
-      const height = Math.round(last.bottom - first.top);
+      const firstCard = cards[0];
+      const lastCard = cards[cards.length - 1];
+      const top = Math.round(firstCard.offsetTop - firstCard.offsetHeight / 2);
+      const bottom = Math.round(lastCard.offsetTop + lastCard.offsetHeight / 2);
+      const height = bottom - top;
       setTabletBox((prev) => (prev && prev.top === top && prev.height === height ? prev : { top, height }));
     };
     measure();

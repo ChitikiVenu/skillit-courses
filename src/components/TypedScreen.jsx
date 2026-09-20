@@ -1,6 +1,10 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import CodeStrip from './CodeStrip.jsx';
 
-// What the tablet on the home page types out. Each entry is typed as its own line; earlier lines
+// The home page tablet: the Skill IT benefits are typed at the top of the screen and a small code
+// editor types away in the bottom fifth (CodeStrip).
+//
+// What the tablet types out at the top. Each entry is typed as its own line; earlier lines
 // stay exactly where they are while the next one is typed underneath. After the last line the
 // screen holds for a moment and then starts again from the top.
 const SEGMENTS = [
@@ -115,16 +119,21 @@ export default function TypedScreen({ active, animate = true }) {
           <span />
         </span>
       </div>
-      <div className="typed-body" ref={bodyRef}>
-        <div
-          className={`typed-inner${view.fading ? ' is-fading' : ''}`}
-          ref={innerRef}
-          style={{ transform: `translateY(${-shift}px)` }}
-        >
-          {SEGMENTS.slice(0, view.done).map((s, i) => (
-            <Segment key={i} kind={s.kind} text={s.text} />
-          ))}
-          {!finished && animate && <Segment kind={SEGMENTS[view.done].kind} text={view.partial} cursor />}
+      <div className="typed-stage">
+        <div className="typed-body" ref={bodyRef}>
+          <div
+            className={`typed-inner${view.fading ? ' is-fading' : ''}`}
+            ref={innerRef}
+            style={{ transform: `translateY(${-shift}px)` }}
+          >
+            {SEGMENTS.slice(0, view.done).map((s, i) => (
+              <Segment key={i} kind={s.kind} text={s.text} />
+            ))}
+            {!finished && animate && <Segment kind={SEGMENTS[view.done].kind} text={view.partial} cursor />}
+          </div>
+        </div>
+        <div className="code-strip">
+          <CodeStrip active={active} animate={animate} />
         </div>
       </div>
     </div>
