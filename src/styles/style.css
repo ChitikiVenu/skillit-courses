@@ -858,6 +858,10 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .post-card{border-top:3px solid var(--c);box-shadow:0 8px 20px -18px rgba(16,21,31,.4);}
 .post-whom-card p,.post-card p{margin:0;font-size:16px;line-height:1.65;}
 
+.post-faq{margin-top:18px;border-top:1px solid var(--border);}
+.post-faq-item{padding:16px 0;border-bottom:1px solid var(--border);}
+.post-faq-item h3{margin:0 0 6px;font-size:17px;}
+.post-faq-item p{margin:0;font-size:16px;line-height:1.65;}
 .post-block-links{background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;padding:26px 28px;}
 .post-block-links h2{margin-top:0;}
 .post-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}

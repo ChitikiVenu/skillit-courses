@@ -8,13 +8,19 @@ import csSalary1 from './blog/csSalary1.js';
 import csSalary2 from './blog/csSalary2.js';
 import csSalary3 from './blog/csSalary3.js';
 import csSalary4 from './blog/csSalary4.js';
-import aiMlPosts from './blog/aiMl.js';
+import aiMlCorePosts from './blog/aiMl.js';
+import aiSeo1 from './blog/aiSeo1.js';
+import aiSeo2 from './blog/aiSeo2.js';
+import aiSeo3 from './blog/aiSeo3.js';
 import dataSciencePosts from './blog/dataScience.js';
 import socAnalystPosts from './blog/socAnalyst.js';
 import dataAnalystPosts from './blog/dataAnalyst.js';
 
 // The Cyber Security programme's salary and career questions (20 more articles) sit after its core posts.
 const cyberSecurityPosts = [...cyberSecurityCorePosts, ...csSalary1, ...csSalary2, ...csSalary3, ...csSalary4];
+
+// The AI & ML programme's search-question articles (15 more) sit after its core posts.
+const aiMlPosts = [...aiMlCorePosts, ...aiSeo1, ...aiSeo2, ...aiSeo3];
 
 // One entry per programme, in the order the filter buttons show them. Each programme has its own
 // file of long-form posts under ./blog/ — one standalone article per student question.
@@ -34,26 +40,26 @@ export const BLOG_COURSES = PROGRAMME_POSTS.map(({ course, posts }) => ({
 }));
 
 // The "All Insights" view is a deliberate mix so no two neighbouring cards in the 4-wide grid come from
-// the same programme. The smaller programmes are dealt out round-robin (post 1 of each, then post 2 of
-// each, ...), and the biggest programme's posts are then spread evenly between them, which gives the
-// zigzag. Filtering to one programme keeps that programme's posts in their original order.
+// the same programme. Each programme's posts are spread evenly along the sequence, any neighbours that
+// still share a programme are separated, and every programme keeps its own posts in their original
+// order. Filtering to one programme shows just its posts, in that same order.
 export const BLOG_POSTS = (() => {
   const tagged = PROGRAMME_POSTS.map(({ course, posts }) =>
     posts.map((p) => ({ ...p, courseKey: course.routeBase.slice(1), courseName: course.COPY.courseShortName, course })),
   );
-  const biggest = tagged.reduce((a, b) => (b.length > a.length ? b : a));
-  const rest = tagged.filter((list) => list !== biggest);
-  const dealt = [];
-  for (let i = 0; i < Math.max(0, ...rest.map((list) => list.length)); i += 1) {
-    rest.forEach((list) => {
-      if (list[i]) dealt.push(list[i]);
-    });
+  const seq = tagged
+    .flatMap((list, c) => list.map((_, i) => ({ c, at: (i + 0.5) / list.length })))
+    .sort((a, b) => a.at - b.at || a.c - b.c)
+    .map((s) => s.c);
+  for (let k = 1; k < seq.length; k += 1) {
+    if (seq[k] === seq[k - 1]) {
+      let j = k + 1;
+      while (j < seq.length && seq[j] === seq[k]) j += 1;
+      if (j < seq.length) [seq[k], seq[j]] = [seq[j], seq[k]];
+    }
   }
-  const slotted = [
-    ...biggest.map((post, i) => ({ post, at: (i + 0.5) / biggest.length, tie: 0 })),
-    ...dealt.map((post, i) => ({ post, at: (i + 0.5) / dealt.length, tie: 1 })),
-  ];
-  return slotted.sort((a, b) => a.at - b.at || a.tie - b.tie).map((s) => s.post);
+  const next = tagged.map(() => 0);
+  return seq.map((c) => tagged[c][next[c]++]);
 })();
 
 // The course page's "how do I become..." link points at that programme's first post.

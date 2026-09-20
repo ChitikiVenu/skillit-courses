@@ -8,6 +8,8 @@ import NotFoundPage from './NotFoundPage.jsx';
 
 const WORDS_PER_MINUTE = 200;
 
+const sentenceCase = (q) => q.charAt(0).toUpperCase() + q.slice(1);
+
 const anchorId = (heading) =>
   'sec-' +
   heading
@@ -23,6 +25,7 @@ function wordCount(post) {
     (b.steps ?? []).forEach((s) => parts.push(s.title, s.text));
     (b.people ?? []).forEach((s) => parts.push(s.who, s.text));
     (b.cards ?? []).forEach((s) => parts.push(s.title, s.text));
+    (b.faqs ?? []).forEach((s) => parts.push(s.q, s.a));
   });
   return parts.filter(Boolean).join(' ').split(/\s+/).length;
 }
@@ -59,6 +62,16 @@ function Block({ block }) {
             <li key={item}>{item}</li>
           ))}
         </ul>
+      )}
+      {block.kind === 'faq' && (
+        <div className="post-faq">
+          {block.faqs.map((f) => (
+            <div className="post-faq-item" key={f.q}>
+              <h3>{sentenceCase(f.q)}</h3>
+              <p>{f.a}</p>
+            </div>
+          ))}
+        </div>
       )}
       {block.kind === 'links' && (
         <div className="post-links">
@@ -97,26 +110,48 @@ export default function BlogPostPage() {
   const toc = post.blocks.map((b) => ({ id: anchorId(b.heading), label: b.heading }));
   toc.push({ id: anchorId(post.closing.heading), label: post.closing.heading });
 
+  // Posts can carry a `faq` block of short question-and-answer pairs. They are shown on the page and also
+  // sent to search engines as FAQPage structured data, together with the article's own question.
+  const faqs = post.blocks.filter((b) => b.kind === 'faq').flatMap((b) => b.faqs);
+  const pageUrl = `${DOMAIN}/blog/${post.slug}`;
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: post.question,
-      description: post.lede,
+      description: post.metaDescription ?? post.lede,
       author: { '@type': 'Organization', name: 'Skill IT Education' },
       publisher: { '@type': 'Organization', name: 'Skill IT Education' },
-      mainEntityOfPage: `${DOMAIN}/blog/${post.slug}`,
+      mainEntityOfPage: pageUrl,
+      ...(post.published ? { datePublished: post.published, dateModified: post.published } : {}),
     },
     {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: [{ '@type': 'Question', name: post.question, acceptedAnswer: { '@type': 'Answer', text: post.lede } }],
+      mainEntity: [
+        { '@type': 'Question', name: post.question, acceptedAnswer: { '@type': 'Answer', text: post.lede } },
+        ...faqs.map((f) => ({ '@type': 'Question', name: sentenceCase(f.q), acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: DOMAIN + '/' },
+        { '@type': 'ListItem', position: 2, name: 'Career Insights', item: `${DOMAIN}/blog` },
+        { '@type': 'ListItem', position: 3, name: post.question, item: pageUrl },
+      ],
     },
   ];
 
   return (
     <main data-course={post.courseKey}>
-      <Seo title={`${post.question} | Skill IT Education`} description={post.lede} path={`/blog/${post.slug}`} jsonLd={jsonLd} />
+      <Seo
+        title={post.metaTitle ?? `${post.question} | Skill IT Education`}
+        description={post.metaDescription ?? post.lede}
+        path={`/blog/${post.slug}`}
+        jsonLd={jsonLd}
+      />
 
       <section className="hero post-hero">
         <div className="wrap">
