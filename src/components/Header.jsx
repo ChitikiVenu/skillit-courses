@@ -4,7 +4,7 @@ import { PROGRAMMES, WHATSAPP_URL } from '../constants.js';
 import WhatsAppIcon from './WhatsAppIcon.jsx';
 import { BLOG_COURSES } from '../data/blogPosts.js';
 import { DESKTOP_HEADER } from '../useMediaQuery.js';
-import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
+import { INSIGHT_BLURBS, PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
 
 // Time the menu stays open after the cursor leaves it, so a student can cross the small gap and
 // pick an item without it vanishing.
@@ -51,12 +51,13 @@ function NavMenu({ id, label, to, items, active, open, wide, onEnter, onLeave, o
       {open && (
         <div className={`programmes-menu-panel${wide ? ' is-wide' : ''}`} role="menu">
           {items.map((item) => (
-            <Link key={item.path} to={item.path} className={`programmes-menu-item${item.blurb ? ' has-desc' : ''}`} role="menuitem" aria-current={item.current ? 'page' : undefined} onClick={onNavigate}>
+            <Link key={item.path} to={item.path} className={`programmes-menu-item${item.blurb ? ' has-desc' : ''}${item.divider ? ' has-divider' : ''}`} role="menuitem" aria-current={item.current ? 'page' : undefined} onClick={onNavigate}>
               <span className="pm-main">
                 <span className="pm-name">{item.label}</span>
                 {item.blurb && <span className="pm-desc">{item.blurb}</span>}
               </span>
               {item.soon ? <span className="programmes-menu-soon">Coming soon</span> : item.meta && <span className="pm-meta">{item.meta}</span>}
+              {item.arrow && <span className="pm-arrow" aria-hidden="true">&rarr;</span>}
             </Link>
           ))}
         </div>
@@ -105,10 +106,9 @@ export default function Header({ onBook }) {
     const course = BLOG_COURSES.find((c) => `/${c.key}` === p.path)?.course;
     return { path: p.path, label: p.label, soon: !p.available, blurb: PROGRAMME_BLURBS[p.path], meta: course?.COPY.heroStats[0].value, current: pathname.startsWith(p.path) };
   });
-  const totalArticles = BLOG_COURSES.reduce((n, c) => n + c.count, 0);
   const insightMenuItems = [
-    { path: '/blog', label: 'All career insights', meta: `${totalArticles} articles`, current: pathname === '/blog' && !search },
-    ...BLOG_COURSES.map((c) => ({ path: `/blog?course=${c.key}`, label: `${c.name} Insights`, meta: `${c.count} articles`, current: pathname === '/blog' && search === `?course=${c.key}` })),
+    { path: '/blog', label: 'All career insights', blurb: INSIGHT_BLURBS.all, arrow: true, divider: true, current: pathname === '/blog' && !search },
+    ...BLOG_COURSES.map((c) => ({ path: `/blog?course=${c.key}`, label: `${c.name} Insights`, blurb: INSIGHT_BLURBS[c.key], arrow: true, current: pathname === '/blog' && search === `?course=${c.key}` })),
   ];
   const programmesActive = PROGRAMMES.some((p) => pathname.startsWith(p.path));
   const insightsActive = pathname.startsWith('/blog');
@@ -213,7 +213,7 @@ export default function Header({ onBook }) {
 
         <nav className="header-nav" aria-label="Main">
           <NavMenu id="programmes" label="Our Programmes" items={programmeMenuItems} active={programmesActive} open={openMenu === 'programmes'} wide onEnter={openNow} onLeave={scheduleClose} onToggle={toggleMenu} onOpen={openNow} onNavigate={closeMenus} />
-          <NavMenu id="insights" label="Career Insights" to="/blog" items={insightMenuItems} active={insightsActive} open={openMenu === 'insights'} onEnter={openNow} onLeave={scheduleClose} onToggle={toggleMenu} onOpen={openNow} onNavigate={closeMenus} />
+          <NavMenu id="insights" label="Career Insights" to="/blog" items={insightMenuItems} active={insightsActive} open={openMenu === 'insights'} wide onEnter={openNow} onLeave={scheduleClose} onToggle={toggleMenu} onOpen={openNow} onNavigate={closeMenus} />
         </nav>
 
         <div className="header-actions">

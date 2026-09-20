@@ -7,3 +7,14 @@ export const PROGRAMME_BLURBS = {
   '/soc-analyst': 'SIEM monitoring, incident response and live threat detection.',
   '/data-analyst': 'Excel, SQL, BI dashboards and business reporting.',
 };
+
+// One-line description of each Career Insights collection for the header's "Career Insights" dropdown.
+// Keyed by the blog filter key (the programme's route without the slash).
+export const INSIGHT_BLURBS = {
+  all: 'Every guide across the five programmes, in one place.',
+  'cyber-security': 'Ethical hacking, salaries, certifications and getting hired.',
+  'ai-ml': 'AI engineer roles, skills, tools, salary and how to start.',
+  'data-science': 'Statistics, Python, projects and data science interviews.',
+  'soc-analyst': 'SOC shifts, L1 to L3 levels, SIEM tools and incident response.',
+  'data-analyst': 'Excel, SQL, dashboards, projects and switching into analytics.',
+};
