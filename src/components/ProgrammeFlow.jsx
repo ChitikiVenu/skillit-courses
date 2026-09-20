@@ -22,7 +22,7 @@ const DESIGN_MIN_W = 1100;
 const DESIGN_MAX_W = 1400;
 // Below this scale the funnel would be too small to read, so it stops shrinking and scrolls a little instead.
 const MIN_SCALE = 0.45;
-const BOTTOM_GAP = 16;
+const BOTTOM_GAP = 26;
 const FIT_MARGIN_TOP = 8; // .flow-wrap's top margin
 // How long a packet takes to hop across the short programme -> roles link.
 const RELAY_TRAVEL = 0.6;
@@ -81,9 +81,18 @@ export default function ProgrammeFlow({ programmes }) {
       setAvailH(Math.max(0, Math.round(window.innerHeight - top - BOTTOM_GAP)));
     };
     measure();
+    // Browser zoom, window resizes, the toolbar showing/hiding and late layout shifts all change the room left.
     window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+    window.visualViewport?.addEventListener('resize', measure);
     document.fonts?.ready.then(measure);
-    return () => window.removeEventListener('resize', measure);
+    const settle = setTimeout(measure, 500);
+    return () => {
+      clearTimeout(settle);
+      window.removeEventListener('resize', measure);
+      window.removeEventListener('load', measure);
+      window.visualViewport?.removeEventListener('resize', measure);
+    };
   }, [desktopLayout]);
 
   // The editor types while the tablet itself is on screen (on phones the stacked section is far
@@ -183,11 +192,15 @@ export default function ProgrammeFlow({ programmes }) {
     ? Math.min(DESIGN_MAX_W / scaleH, Math.max(DESIGN_MIN_W, outerW / scaleH))
     : undefined;
   const scale = designW ? Math.min(scaleH, outerW / designW) : 1;
+  // Centre the drawn content, not the box: the tablet's left edge sits ~1% in from the box's left, while the
+  // roles boxes stop ~6% short of its right, so the box is nudged right to balance them (the empty strip that overflows is clipped by .flow-outer).
+  const spare = designW ? Math.max(0, outerW - designW * scale) : 0;
+  const centreOffset = Math.round(spare / 2 + ((100 - ROLES_X2 - (TABLET_X - TABLET_WIDTH_PCT / 2)) / 200) * (designW ?? 0) * scale);
   const wrapStyle = designW
     ? {
         width: designW,
         maxWidth: 'none',
-        marginLeft: Math.max(0, Math.round((outerW - designW * scale) / 2)),
+        marginLeft: centreOffset,
         ...(scale < 1 ? { transform: `scale(${scale})`, transformOrigin: 'top left' } : {}),
       }
     : undefined;

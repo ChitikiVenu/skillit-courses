@@ -623,7 +623,7 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 
 /* ---------------------------------------------------------------- Programme flow (tablet -> funnel) */
 .flow-section-head{margin-bottom:8px;}
-.flow-outer{width:100%;padding:0 24px;box-sizing:border-box;}
+.flow-outer{width:100%;padding:0 24px;box-sizing:border-box;overflow-x:clip;}
 .flow-fit{width:100%;}
 .programmes-hero{background:var(--bg-alt);border-bottom:1px solid var(--border);padding:28px 0 32px;}
 @media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
@@ -858,6 +858,10 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .post-card{border-top:3px solid var(--c);box-shadow:0 8px 20px -18px rgba(16,21,31,.4);}
 .post-whom-card p,.post-card p{margin:0;font-size:16px;line-height:1.65;}
 
+.post-block-links{background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;padding:26px 28px;}
+.post-block-links h2{margin-top:0;}
+.post-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.post-links .btn{white-space:normal;text-align:left;}
 .post-closing{
   background:var(--c-bg);border-radius:14px;padding:26px 28px;margin-bottom:8px;
 }
@@ -878,6 +882,9 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
   .post-steps::before{left:17px;}
   .post-steps li::before{width:36px;height:36px;}
   .post-closing{padding:20px;}
+  .post-block-links{padding:20px;}
+  .post-links{flex-direction:column;}
+  .post-links .btn{width:100%;justify-content:space-between;}
 }
 
 .contact-card{
@@ -1187,4 +1194,11 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
   .header-whatsapp{padding:8px 10px;}
   .header-whatsapp span{display:none;}
   .header-actions .btn-book{padding:10px 14px;font-size:13px;}
+}
+
+/* Short desktop windows (a laptop at 100%, or a bigger screen zoomed in): a slimmer header leaves the
+   home funnel more room so all five programmes stay in one view. */
+@media (min-width: 800px) and (max-height: 820px) and (pointer: fine){
+  .site-header{--header-h:72px;}
+  .header-logo img{height:52px;}
 }

@@ -60,6 +60,16 @@ function Block({ block }) {
           ))}
         </ul>
       )}
+      {block.kind === 'links' && (
+        <div className="post-links">
+          {block.buttons.map((b) => (
+            <Link key={b.to} to={b.to} className={`btn ${b.primary ? 'btn-primary' : 'btn-outline'}`}>
+              {b.label}
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          ))}
+        </div>
+      )}
       {block.kind === 'cards' && (
         <div className="post-cards">
           {block.cards.map((c) => (
@@ -74,8 +84,9 @@ function Block({ block }) {
   );
 }
 
-// Each Career Insights post is a standalone article about one question: it links nowhere else on
-// the site. The only way out is the back link to the Career Insights grid.
+// Each Career Insights post is a standalone article about one question. The way out is the back
+// link to the Career Insights grid and, for posts that have one, a `links` block of backlink buttons
+// (programme pages and related posts).
 export default function BlogPostPage() {
   const { slug } = useParams();
   const post = BLOG_POSTS.find((p) => p.slug === slug);
