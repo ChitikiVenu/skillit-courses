@@ -16,6 +16,7 @@
   --warn: #b06a08;
   --danger: #c0392b;
   --cta: #2563eb;       /* buttons: the one blue */
+  --logo-blue: #0148fa;  /* the bright blue of the Skill IT logo (the "IT" and the rays) */
   --orange: #ea580c;    /* the Book a free session button only */
   --cta-dark: #1d4ed8;
   --dot: rgba(16,21,31,.07);
@@ -678,13 +679,13 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 }
 .flow-wrap.in-view .flow-program{transform:translate(0,-50%);opacity:1;}
 
-/* the small dark box above the first programme */
+/* the small logo-blue box above the first programme */
 .flow-heading{
   position:absolute;transform:translate(-40px,-50%);opacity:0;box-sizing:border-box;
   display:flex;align-items:center;min-height:42px;padding:9px 16px;
-  background:var(--text);color:#fff;border-radius:12px;
+  background:var(--logo-blue);color:#fff;border-radius:12px;
   font-size:clamp(12.5px,1.1vw,14.5px);font-weight:700;letter-spacing:.01em;line-height:1.3;
-  box-shadow:0 8px 18px -10px rgba(16,21,31,.45);
+  box-shadow:0 10px 20px -10px rgba(1,72,250,.55);
   transition:transform .6s cubic-bezier(.22,1,.36,1), opacity .5s ease;
 }
 .flow-wrap.in-view .flow-heading{transform:translate(0,-50%);opacity:1;}
