@@ -1173,10 +1173,12 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
   .flow-tablet .tablet::after{top:-5px;height:5px;}
   .flow-tablet .tablet-camera{top:1.9cqw;}
   /* the programme box and its "Become A" box are the same size */
-  .flow-program,.flow-roles{box-sizing:border-box;height:118px;padding:12px 16px;display:flex;flex-direction:column;justify-content:center;}
-  .flow-roles{padding:10px 16px;}
+  .flow-wrap{height:var(--flow-h);--flow-h:760px;--box-h:144px;}
+  .flow-program,.flow-roles{box-sizing:border-box;height:var(--box-h);padding:12px 16px;display:flex;flex-direction:column;justify-content:center;}
+  .flow-roles{padding:10px 14px;}
+  .flow-roles-label{font-size:15px;margin-bottom:6px;}
   .flow-roles-list{gap:5px;}
-  .flow-role-chip{font-size:11px;padding:3px 9px;}
+  .flow-role-chip{font-size:12.5px;padding:2px 8px;}
   .flow-tablet .tablet-screen{border-radius:18px;}
   .flow-tablet .tablet-screen::after{bottom:10px;height:4px;width:22%;}
 }
@@ -1192,17 +1194,6 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 @media (max-width: 960px) and (not (pointer: fine)), (max-width: 799px){
   .typed-stage{--strip-h:0px;}
   .code-strip{display:none;}
-}
-
-/* Narrower desktop windows: the boxes are narrower, so the role chips get a little smaller to keep
-   every "Become A" box inside the same 118px height as its programme box */
-@media ((min-width: 1151px) and (max-width: 1340px)), ((min-width: 800px) and (max-width: 1150px) and (pointer: fine)){
-  .flow-roles{padding:8px 14px;}
-  .flow-roles-label{font-size:14px;margin-bottom:5px;}
-  .flow-roles-list{gap:4px;}
-  .flow-role-chip{font-size:10px;padding:2px 7px;}
-  /* four rows of chips can be needed here, so the boxes are a little taller */
-  .flow-program,.flow-roles{height:126px;}
 }
 
 /* Desktop header on narrower windows (a laptop at 125-150% zoom): the same header, just tighter, so the

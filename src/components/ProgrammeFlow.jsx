@@ -20,9 +20,6 @@ const ROLES_X2 = 94;
 // like the desktop version instead of dropping to the stacked mobile layout.
 const DESIGN_MIN_W = 1100;
 const DESIGN_MAX_W = 1400;
-// Below this scale the funnel would be too small to read, so it stops shrinking and scrolls a little instead.
-const MIN_SCALE = 0.45;
-const BOTTOM_GAP = 26;
 const FIT_MARGIN_TOP = 8; // .flow-wrap's top margin
 // How long a packet takes to hop across the short programme -> roles link.
 const RELAY_TRAVEL = 0.6;
@@ -43,7 +40,6 @@ export default function ProgrammeFlow({ programmes }) {
   const [dims, setDims] = useState({ w: 0, h: 0 });
   const fitRef = useRef(null);
   const [outerW, setOuterW] = useState(0);
-  const [availH, setAvailH] = useState(0);
   const desktopLayout = useMediaQuery(DESKTOP_FLOW);
   const [tabletBox, setTabletBox] = useState(null);
   const reducedMotion = usePrefersReducedMotion();
@@ -70,34 +66,6 @@ export default function ProgrammeFlow({ programmes }) {
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
-
-  // Height left in the window below the header, so the funnel can be scaled to fit one screen's height. Browser zoom and window resizes both fire `resize`.
-  useEffect(() => {
-    const el = fitRef.current;
-    if (!el) return undefined;
-    const measure = () => {
-      // Size the funnel as if it began right under the header: whatever sits above it in the hero (the
-      // headline and its gap) pushes the funnel down the page, it does not shrink it.
-      const section = el.closest('section');
-      const top = section
-        ? section.getBoundingClientRect().top + window.scrollY + parseFloat(getComputedStyle(section).paddingTop)
-        : el.getBoundingClientRect().top + window.scrollY;
-      setAvailH(Math.max(0, Math.round(window.innerHeight - top - BOTTOM_GAP)));
-    };
-    measure();
-    // Browser zoom, window resizes, the toolbar showing/hiding and late layout shifts all change the room left.
-    window.addEventListener('resize', measure);
-    window.addEventListener('load', measure);
-    window.visualViewport?.addEventListener('resize', measure);
-    document.fonts?.ready.then(measure);
-    const settle = setTimeout(measure, 500);
-    return () => {
-      clearTimeout(settle);
-      window.removeEventListener('resize', measure);
-      window.removeEventListener('load', measure);
-      window.visualViewport?.removeEventListener('resize', measure);
-    };
-  }, [desktopLayout]);
 
   // The editor types while the tablet itself is on screen (on phones the stacked section is far
   // taller than the screen, so the whole section is never 30% visible at once).
@@ -187,15 +155,11 @@ export default function ProgrammeFlow({ programmes }) {
   const tailArrowId = `pf-tail-a-${uid}`;
   const tailDotId = `pf-tail-d-${uid}`;
 
-  // Desktop layout: the funnel is drawn at a fixed design size and scaled down so the whole thing
-  // (tablet, five programmes, roles) fits the window in one view, with no scrolling. `scaleH` is the
-  // scale the window height allows; when it is the limit the design is widened so the funnel still
-  // fills the width, then centred.
-  const scaleH = desktopLayout && availH && dims.h ? Math.min(1, Math.max(MIN_SCALE, (availH - FIT_MARGIN_TOP) / dims.h)) : 1;
-  const designW = desktopLayout && outerW
-    ? Math.min(DESIGN_MAX_W / scaleH, Math.max(DESIGN_MIN_W, outerW / scaleH))
-    : undefined;
-  const scale = designW ? Math.min(scaleH, outerW / designW) : 1;
+  // Desktop layout: the funnel is drawn at a fixed design size (its height never shrinks, so the text in the
+  // boxes stays a readable size; the page simply scrolls) and is scaled down only when the window is narrower
+  // than the design width.
+  const designW = desktopLayout && outerW ? Math.min(DESIGN_MAX_W, Math.max(DESIGN_MIN_W, outerW)) : undefined;
+  const scale = designW ? Math.min(1, outerW / designW) : 1;
   // Centre the drawn content, not the box: the tablet's left edge sits ~1% in from the box's left, while the
   // roles boxes stop ~6% short of its right, so the box is nudged right to balance them (the empty strip that overflows is clipped by .flow-outer).
   const spare = designW ? Math.max(0, outerW - designW * scale) : 0;
