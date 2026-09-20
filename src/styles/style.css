@@ -1380,22 +1380,24 @@ section[id]{scroll-margin-top:92px;}
 .policy-brief-card{display:flex;flex-direction:column;gap:4px;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--ink);border-radius:12px;padding:14px 16px;}
 .policy-brief-card strong{font-size:15.5px;color:var(--text);}
 .policy-brief-card span{font-size:14px;line-height:1.5;color:var(--text-dim);}
-.policy-section{margin:0 0 34px;scroll-margin-top:100px;}
-.policy-section h2{margin:0 0 12px;font-size:clamp(21px,2.4vw,26px);line-height:1.25;}
+.policy-body{padding:30px 0 22px;}
+/* a policy section is a <section>, so it must not pick up the global 72px section padding */
+.policy-section{padding:0;margin:0 0 22px;scroll-margin-top:100px;}
+.policy-section h2{margin:0 0 8px;font-size:clamp(21px,2.4vw,26px);line-height:1.25;}
 .policy-num{font-family:var(--mono);font-size:.82em;color:var(--text-faint);margin-right:2px;}
-.policy-section h3{margin:20px 0 8px;font-size:17px;}
-.policy-section p{margin:0 0 12px;font-size:16.5px;line-height:1.75;color:var(--text-dim);}
-.policy-section ul{margin:0 0 14px;padding-left:20px;display:grid;gap:7px;font-size:16.5px;line-height:1.65;color:var(--text-dim);}
-.policy-note{padding:14px 18px;background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--ink);border-radius:10px;}
-.policy-table-wrap{margin:6px 0 16px;overflow-x:auto;border:1px solid var(--border);border-radius:12px;}
+.policy-section h3{margin:14px 0 6px;font-size:16.5px;}
+.policy-section p{margin:0 0 9px;font-size:16px;line-height:1.65;color:var(--text-dim);}
+.policy-section ul{margin:0 0 10px;padding-left:20px;display:grid;gap:4px;font-size:16px;line-height:1.6;color:var(--text-dim);}
+.policy-note{padding:11px 16px;background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--ink);border-radius:10px;}
+.policy-table-wrap{margin:4px 0 12px;overflow-x:auto;border:1px solid var(--border);border-radius:12px;}
 .policy-table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.55;}
-.policy-table th{position:sticky;top:0;text-align:left;background:var(--bg-alt);color:var(--text);font-weight:800;padding:11px 14px;border-bottom:1px solid var(--border);}
-.policy-table td{vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);}
+.policy-table th{position:sticky;top:0;text-align:left;background:var(--bg-alt);color:var(--text);font-weight:800;padding:9px 12px;border-bottom:1px solid var(--border);}
+.policy-table td{vertical-align:top;padding:8px 12px;border-bottom:1px solid var(--border);color:var(--text-dim);}
 .policy-table tr:last-child td{border-bottom:0;}
 .policy-table td:first-child{color:var(--text);font-weight:700;}
-.policy-contact{margin:6px 0 16px;padding:18px 22px;background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;}
+.policy-contact{margin:4px 0 12px;padding:14px 20px;background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;}
 .policy-contact > strong{display:block;margin-bottom:8px;font-size:17px;color:var(--text);}
-.policy-contact dl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 16px;margin:0;font-size:15.5px;}
+.policy-contact dl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:5px 16px;margin:0;font-size:15.5px;}
 .policy-contact dt{font-weight:700;color:var(--text);}
 .policy-contact dd{margin:0;color:var(--text-dim);}
 .policy-contact a:hover{color:var(--accent-2);}
@@ -1408,6 +1410,7 @@ section[id]{scroll-margin-top:92px;}
 @media (max-width: 640px){
   .policy-brief{grid-template-columns:1fr;}
   .policy-section p,.policy-section ul{font-size:15.5px;}
+  .policy-section{margin-bottom:18px;}
   .policy-table-wrap{border:0;}
   .policy-table,.policy-table tbody,.policy-table tr,.policy-table td{display:block;width:100%;}
   .policy-table thead{display:none;}
