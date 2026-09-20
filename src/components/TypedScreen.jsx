@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import CodeStrip from './CodeStrip.jsx';
-import { DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
+import { DESKTOP_FLOW, DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
 
 // The home page tablet: the Skill IT benefits are typed at the top of the screen and a small code
 // editor types away in the bottom fifth (CodeStrip).
@@ -54,9 +54,13 @@ export default function TypedScreen({ active, animate = true }) {
   const engine = useRef({ i: 0, c: 0, timer: null });
   const bodyRef = useRef(null);
   const innerRef = useRef(null);
+  const screenRef = useRef(null);
+  const ghostRef = useRef(null);
   const [shift, setShift] = useState(0);
   // The code strip is left out on the mobile layout (phones and small touch tablets).
   const showCode = useMediaQuery(DESKTOP_HEADER);
+  // On the tall desktop tablet the text is sized so the finished screen fills everything above the code strip.
+  const fill = useMediaQuery(DESKTOP_FLOW);
 
   useEffect(() => {
     if (!animate || !active) return undefined;
@@ -111,10 +115,44 @@ export default function TypedScreen({ active, animate = true }) {
     });
   }, [view]);
 
+  // Fill mode: find the largest text scale at which the complete, fully typed content (an invisible copy of
+  // it, so the size doesn't change while typing) still fits the space above the code strip.
+  useLayoutEffect(() => {
+    const body = bodyRef.current;
+    const ghost = ghostRef.current;
+    const screen = screenRef.current;
+    if (!fill || !body || !ghost || !screen) return undefined;
+    const fit = () => {
+      const bodyH = body.clientHeight;
+      if (!bodyH) return;
+      const top = Math.round(bodyH * 0.05);
+      const target = bodyH - top - 18;
+      let lo = 0.8;
+      let hi = 2.6;
+      for (let k = 0; k < 12; k += 1) {
+        const mid = (lo + hi) / 2;
+        screen.style.setProperty('--typed-scale', mid.toFixed(3));
+        if (ghost.offsetHeight <= target) lo = mid;
+        else hi = mid;
+      }
+      screen.style.setProperty('--typed-scale', lo.toFixed(3));
+      screen.style.setProperty('--typed-top', `${top}px`);
+    };
+    fit();
+    const ro = new ResizeObserver(fit);
+    ro.observe(body);
+    document.fonts?.ready.then(fit);
+    return () => {
+      ro.disconnect();
+      screen.style.removeProperty('--typed-scale');
+      screen.style.removeProperty('--typed-top');
+    };
+  }, [fill]);
+
   const finished = view.done >= SEGMENTS.length;
 
   return (
-    <div className="typed-screen" aria-hidden="true">
+    <div className="typed-screen" aria-hidden="true" ref={screenRef}>
       <div className="typed-bar">
         <span className="typed-dots">
           <span />
@@ -124,6 +162,13 @@ export default function TypedScreen({ active, animate = true }) {
       </div>
       <div className="typed-stage">
         <div className="typed-body" ref={bodyRef}>
+          {fill && (
+            <div className="typed-inner typed-ghost" ref={ghostRef}>
+              {SEGMENTS.map((sg, i) => (
+                <Segment key={i} kind={sg.kind} text={sg.text} />
+              ))}
+            </div>
+          )}
           <div
             className={`typed-inner${view.fading ? ' is-fading' : ''}`}
             ref={innerRef}

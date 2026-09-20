@@ -20,6 +20,10 @@ const ROLES_X2 = 94;
 // like the desktop version instead of dropping to the stacked mobile layout.
 const DESIGN_MIN_W = 1100;
 const DESIGN_MAX_W = 1400;
+// Below this scale the funnel would be too small to read, so it stops shrinking and scrolls a little instead.
+const MIN_SCALE = 0.45;
+const BOTTOM_GAP = 16;
+const FIT_MARGIN_TOP = 8; // .flow-wrap's top margin
 // How long a packet takes to hop across the short programme -> roles link.
 const RELAY_TRAVEL = 0.6;
 
@@ -39,6 +43,7 @@ export default function ProgrammeFlow({ programmes }) {
   const [dims, setDims] = useState({ w: 0, h: 0 });
   const fitRef = useRef(null);
   const [outerW, setOuterW] = useState(0);
+  const [availH, setAvailH] = useState(0);
   const desktopLayout = useMediaQuery(DESKTOP_FLOW);
   const [tabletBox, setTabletBox] = useState(null);
   const reducedMotion = usePrefersReducedMotion();
@@ -65,6 +70,21 @@ export default function ProgrammeFlow({ programmes }) {
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
+
+  // Height left in the window below the funnel's own top edge (header included), so the whole funnel
+  // can be scaled to fit one screen. Browser zoom and window resizes both fire `resize`.
+  useEffect(() => {
+    const el = fitRef.current;
+    if (!el) return undefined;
+    const measure = () => {
+      const top = el.getBoundingClientRect().top + window.scrollY;
+      setAvailH(Math.max(0, Math.round(window.innerHeight - top - BOTTOM_GAP)));
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    document.fonts?.ready.then(measure);
+    return () => window.removeEventListener('resize', measure);
+  }, [desktopLayout]);
 
   // The editor types while the tablet itself is on screen (on phones the stacked section is far
   // taller than the screen, so the whole section is never 30% visible at once).
@@ -154,12 +174,24 @@ export default function ProgrammeFlow({ programmes }) {
   const tailArrowId = `pf-tail-a-${uid}`;
   const tailDotId = `pf-tail-d-${uid}`;
 
-  const designW = desktopLayout && outerW ? Math.min(DESIGN_MAX_W, Math.max(DESIGN_MIN_W, outerW)) : undefined;
-  const scale = designW ? Math.min(1, outerW / designW) : 1;
-  const wrapStyle = designW
-    ? { width: designW, maxWidth: 'none', ...(scale < 1 ? { transform: `scale(${scale})`, transformOrigin: 'top left' } : {}) }
+  // Desktop layout: the funnel is drawn at a fixed design size and scaled down so the whole thing
+  // (tablet, five programmes, roles) fits the window in one view, with no scrolling. `scaleH` is the
+  // scale the window height allows; when it is the limit the design is widened so the funnel still
+  // fills the width, then centred.
+  const scaleH = desktopLayout && availH && dims.h ? Math.min(1, Math.max(MIN_SCALE, (availH - FIT_MARGIN_TOP) / dims.h)) : 1;
+  const designW = desktopLayout && outerW
+    ? Math.min(DESIGN_MAX_W / scaleH, Math.max(DESIGN_MIN_W, outerW / scaleH))
     : undefined;
-  const fitStyle = desktopLayout && dims.h ? { height: Math.round(8 + dims.h * scale) } : undefined;
+  const scale = designW ? Math.min(scaleH, outerW / designW) : 1;
+  const wrapStyle = designW
+    ? {
+        width: designW,
+        maxWidth: 'none',
+        marginLeft: Math.max(0, Math.round((outerW - designW * scale) / 2)),
+        ...(scale < 1 ? { transform: `scale(${scale})`, transformOrigin: 'top left' } : {}),
+      }
+    : undefined;
+  const fitStyle = desktopLayout && dims.h ? { height: Math.round(FIT_MARGIN_TOP + dims.h * scale) } : undefined;
 
   return (
     <div className="flow-fit" ref={fitRef} style={fitStyle}>

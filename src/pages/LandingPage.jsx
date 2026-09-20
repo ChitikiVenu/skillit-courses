@@ -75,10 +75,7 @@ export default function LandingPage() {
         jsonLd={jsonLd}
       />
 
-      <section
-        id="programmes"
-        style={{ background: 'var(--bg-alt)', borderBottom: '1px solid var(--border)', padding: '28px 0 32px' }}
-      >
+      <section id="programmes" className="programmes-hero">
         <h1 className="sr-only">Skill IT Education: job-ready tech training in Hyderabad</h1>
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} />
