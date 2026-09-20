@@ -6,12 +6,14 @@ import LeadForm from '../components/LeadForm.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
 import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
+import { rolesForCourse } from '../data/roleCourses/index.js';
 import cyberSecurity from '../data/cyberSecurity.js';
 import aiMl from '../data/aiMl.js';
 import dataScience from '../data/dataScience.js';
 import socAnalyst from '../data/socAnalyst.js';
 import dataAnalyst from '../data/dataAnalyst.js';
 
+// The roles under each card come from the role courses (src/data/roleCourses), so every chip links to its own page.
 // Card copy kept here rather than in each course's own data file — this is the one place all
 // five need to be compared side by side, so a short, distinct blurb per course belongs with the
 // page that shows them together.
@@ -20,27 +22,27 @@ const PROGRAMMES = [
     course: cyberSecurity,
     title: 'Cyber Security With AI',
     blurb: PROGRAMME_BLURBS[cyberSecurity.routeBase],
-    roles: ['SOC Analyst', 'Penetration Tester', 'Security Analyst', 'Ethical Hacker', 'Incident Response Analyst', 'Cloud Security Engineer'],
+    roles: rolesForCourse(cyberSecurity.routeBase),
   },
   {
     course: aiMl,
     blurb: PROGRAMME_BLURBS[aiMl.routeBase],
-    roles: ['AI Engineer', 'Machine Learning Engineer', 'Generative AI Engineer', 'MLOps Engineer', 'AI Solutions Engineer', 'Backend Developer'],
+    roles: rolesForCourse(aiMl.routeBase),
   },
   {
     course: dataScience,
     blurb: PROGRAMME_BLURBS[dataScience.routeBase],
-    roles: ['Data Scientist', 'ML Engineer', 'Data Analyst', 'BI Analyst', 'Data Engineer', 'Analytics Consultant'],
+    roles: rolesForCourse(dataScience.routeBase),
   },
   {
     course: socAnalyst,
     blurb: PROGRAMME_BLURBS[socAnalyst.routeBase],
-    roles: ['SOC Analyst', 'Incident Response Analyst', 'Threat Hunter', 'SIEM Engineer', 'Security Monitoring Analyst', 'Threat Intelligence Analyst'],
+    roles: rolesForCourse(socAnalyst.routeBase),
   },
   {
     course: dataAnalyst,
     blurb: PROGRAMME_BLURBS[dataAnalyst.routeBase],
-    roles: ['Data Analyst', 'BI Analyst', 'Business Analyst', 'Reporting Analyst', 'Analytics Consultant', 'Dashboard Developer'],
+    roles: rolesForCourse(dataAnalyst.routeBase),
   },
 ];
 

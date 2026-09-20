@@ -279,7 +279,7 @@ export default function ProgrammeFlow({ programmes }) {
           >
             <span className="flow-roles-label">Become A</span>
             <div className="flow-roles-list">
-              {roles.map((r) => (<span className="flow-role-chip" key={r}>{r}</span>))}
+              {roles.map((r) => (<Link className="flow-role-chip" to={r.href} key={r.href}>{r.title}</Link>))}
             </div>
           </div>
         </Fragment>

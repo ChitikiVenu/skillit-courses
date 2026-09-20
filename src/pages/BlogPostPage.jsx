@@ -4,6 +4,7 @@ import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import ContactCard from '../components/ContactCard.jsx';
 import { BLOG_POSTS } from '../data/blogPosts.js';
+import { rolesForCourse } from '../data/roleCourses/index.js';
 import NotFoundPage from './NotFoundPage.jsx';
 
 const WORDS_PER_MINUTE = 200;
@@ -112,6 +113,7 @@ export default function BlogPostPage() {
 
   // Posts can carry a `faq` block of short question-and-answer pairs. They are shown on the page and also
   // sent to search engines as FAQPage structured data, together with the article's own question.
+  const roleCourses = rolesForCourse(post.course.routeBase);
   const faqs = post.blocks.filter((b) => b.kind === 'faq').flatMap((b) => b.faqs);
   const pageUrl = `${DOMAIN}/blog/${post.slug}`;
   const jsonLd = [
@@ -196,6 +198,27 @@ export default function BlogPostPage() {
           </aside>
         </div>
       </section>
+
+      {roleCourses.length > 0 && (
+        <section className="post-roles">
+          <div className="wrap">
+            <div className="post-roles-box">
+              <div>
+                <h2>Train for a {post.courseName} role</h2>
+                <p>The same programme, duration and fees, with the learning path built around one job role.</p>
+              </div>
+              <div className="post-links">
+                {roleCourses.map((r) => (
+                  <Link key={r.href} to={r.href} className="btn btn-outline">
+                    {r.title}
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="lead-form-section" id="enquire">
         <div className="wrap">

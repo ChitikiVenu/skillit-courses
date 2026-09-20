@@ -7,6 +7,7 @@ import LeadForm from '../components/LeadForm.jsx';
 import { ImageHeroVisual, SocDashboardSvg } from '../components/HeroVisual.jsx';
 import ModuleFlow from '../components/ModuleFlow.jsx';
 import FitHeading from '../components/FitHeading.jsx';
+import { rolesForCourse } from '../data/roleCourses/index.js';
 
 const COUNSEL_TEL = 'tel:' + PHONE.replace(/ /g, '');
 
@@ -22,6 +23,8 @@ export default function CourseHomePage({ course }) {
   const { SITE, MODULES, CAREER_TRACKS, CERTIFICATIONS, WHY_COURSE, COPY, routeBase } = course;
   const canonicalUrl = DOMAIN + routeBase;
   const ogImage = COPY.ogImageFile ? DOMAIN + '/img/' + COPY.ogImageFile : undefined;
+
+  const roleCourses = rolesForCourse(routeBase);
 
   const allTools = new Map();
   MODULES.forEach((m) => m.tools.forEach((t) => allTools.set(t.name, t)));
@@ -268,6 +271,29 @@ export default function CourseHomePage({ course }) {
           </div>
         </div>
       </section>
+
+      {roleCourses.length > 0 && (
+        <section id="role-courses">
+          <div className="wrap">
+            <div className="section-head">
+              <span className="eyebrow">Role courses</span>
+              <h2>Train for a specific {COPY.courseShortName} role</h2>
+              <p>
+                The same programme, duration and fees, with the learning path arranged around one job role. Pick the role you want and see exactly what you will learn.
+              </p>
+            </div>
+            <div className="role-siblings">
+              {roleCourses.map((r) => (
+                <Link className="role-sibling" to={r.href} key={r.href}>
+                  <strong>{r.title}</strong>
+                  <span>{r.skills.slice(0, 3).join(' · ')}</span>
+                  <span className="role-sibling-more">View role course &rarr;</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section id="salary">
         <div className="wrap">
