@@ -20,7 +20,10 @@ import socAnalystCorePosts from './blog/socAnalyst.js';
 import socSeo1 from './blog/socSeo1.js';
 import socSeo2 from './blog/socSeo2.js';
 import socSeo3 from './blog/socSeo3.js';
-import dataAnalystPosts from './blog/dataAnalyst.js';
+import dataAnalystCorePosts from './blog/dataAnalyst.js';
+import daSeo1 from './blog/daSeo1.js';
+import daSeo2 from './blog/daSeo2.js';
+import daSeo3 from './blog/daSeo3.js';
 
 // The Cyber Security programme's salary and career questions (20 more articles) sit after its core posts.
 const cyberSecurityPosts = [...cyberSecurityCorePosts, ...csSalary1, ...csSalary2, ...csSalary3, ...csSalary4];
@@ -33,6 +36,9 @@ const socAnalystPosts = [...socAnalystCorePosts, ...socSeo1, ...socSeo2, ...socS
 
 // The Data Science programme's search-question articles (15 more) sit after its core posts.
 const dataSciencePosts = [...dataScienceCorePosts, ...dsSeo1, ...dsSeo2, ...dsSeo3];
+
+// The Data Analytics programme's search-question articles (15 more) sit after its core posts.
+const dataAnalystPosts = [...dataAnalystCorePosts, ...daSeo1, ...daSeo2, ...daSeo3];
 
 // One entry per programme, in the order the filter buttons show them. Each programme has its own
 // file of long-form posts under ./blog/ — one standalone article per student question.
