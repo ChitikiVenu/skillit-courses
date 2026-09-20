@@ -81,7 +81,7 @@ export default function LandingPage() {
       >
         <h1 className="sr-only">Skill IT Education: job-ready tech training in Hyderabad</h1>
         <div className="flow-outer">
-          <ProgrammeFlow programmes={PROGRAMMES} heading="Our Advanced Certification Programmes" />
+          <ProgrammeFlow programmes={PROGRAMMES} />
         </div>
       </section>
 

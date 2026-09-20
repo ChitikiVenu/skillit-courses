@@ -1,13 +1,11 @@
 import { Fragment, useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Tablet from './Tablet.jsx';
-import CodeScreen from './CodeScreen.jsx';
+import TypedScreen from './TypedScreen.jsx';
 import { DUB_LAG, Packet, Ripple, STAGGER, TRAVEL, TailGradients, cablePath, usePrefersReducedMotion } from './flowPulse.jsx';
 
-// The small heading box sits above the first programme; the five programme rows share the rest of the height.
-const HEADING_Y = 5.5;
-const ROW_TOP = 17.5;
-const ROW_BOTTOM = 91;
+const ROW_TOP = 10;
+const ROW_BOTTOM = 90;
 const TABLET_X = 12;
 const TABLET_WIDTH_PCT = 22;
 const TABLET_MIN_WIDTH = 240;
@@ -23,7 +21,7 @@ const RELAY_TRAVEL = 0.6;
 // — the packet that lands on a programme is handed on to its roles. Box positions are CSS
 // percentages (row = i / (n-1)); the lines are drawn in real pixels from the measured container
 // size so the curves and packets are never stretched. Sized to fit one screen — no scrolling.
-export default function ProgrammeFlow({ programmes, heading }) {
+export default function ProgrammeFlow({ programmes }) {
   const wrapRef = useRef(null);
   const tabletRef = useRef(null);
   const svgRef = useRef(null);
@@ -76,11 +74,10 @@ export default function ProgrammeFlow({ programmes, heading }) {
     const wrap = wrapRef.current;
     if (!wrap) return undefined;
     const cards = [...wrap.querySelectorAll('.flow-program')];
-    const headingBox = wrap.querySelector('.flow-heading');
     if (cards.length < 2) return undefined;
     const measure = () => {
       const wr = wrap.getBoundingClientRect();
-      const first = (headingBox ?? cards[0]).getBoundingClientRect();
+      const first = cards[0].getBoundingClientRect();
       const last = cards[cards.length - 1].getBoundingClientRect();
       const top = Math.round(first.top - wr.top);
       const height = Math.round(last.bottom - first.top);
@@ -90,7 +87,6 @@ export default function ProgrammeFlow({ programmes, heading }) {
     const ro = new ResizeObserver(measure);
     ro.observe(wrap);
     cards.forEach((c) => ro.observe(c));
-    if (headingBox) ro.observe(headingBox);
     document.fonts?.ready.then(measure);
     return () => ro.disconnect();
   }, [programmes.length]);
@@ -196,18 +192,9 @@ export default function ProgrammeFlow({ programmes, heading }) {
         ref={tabletRef}
       >
         <Tablet>
-          <CodeScreen active={typing} animate={!reducedMotion} />
+          <TypedScreen active={typing} animate={!reducedMotion} />
         </Tablet>
       </div>
-
-      {heading && (
-        <div
-          className="flow-heading"
-          style={{ left: `${PROGRAM_X1}%`, width: `${PROGRAM_X2 - PROGRAM_X1}%`, top: `${HEADING_Y}%`, transitionDelay: '0.1s' }}
-        >
-          {heading}
-        </div>
-      )}
 
       {programmes.map(({ course, title, blurb, roles }, i) => (
         <Fragment key={course.routeBase}>
