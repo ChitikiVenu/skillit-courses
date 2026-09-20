@@ -21,7 +21,7 @@ const ROLES_X2 = 94;
 const DESIGN_MIN_W = 1100;
 const DESIGN_MAX_W = 1400;
 // Below this scale the funnel would be too small to read, so it stops shrinking and scrolls a little instead.
-const MIN_SCALE = 0.38;
+const MIN_SCALE = 0.45;
 const BOTTOM_GAP = 26;
 const FIT_MARGIN_TOP = 8; // .flow-wrap's top margin
 // How long a packet takes to hop across the short programme -> roles link.
@@ -71,13 +71,17 @@ export default function ProgrammeFlow({ programmes }) {
     return () => ro.disconnect();
   }, []);
 
-  // Height left in the window below the funnel's own top edge (header included), so the whole funnel
-  // can be scaled to fit one screen. Browser zoom and window resizes both fire `resize`.
+  // Height left in the window below the header, so the funnel can be scaled to fit one screen's height. Browser zoom and window resizes both fire `resize`.
   useEffect(() => {
     const el = fitRef.current;
     if (!el) return undefined;
     const measure = () => {
-      const top = el.getBoundingClientRect().top + window.scrollY;
+      // Size the funnel as if it began right under the header: whatever sits above it in the hero (the
+      // headline and its gap) pushes the funnel down the page, it does not shrink it.
+      const section = el.closest('section');
+      const top = section
+        ? section.getBoundingClientRect().top + window.scrollY + parseFloat(getComputedStyle(section).paddingTop)
+        : el.getBoundingClientRect().top + window.scrollY;
       setAvailH(Math.max(0, Math.round(window.innerHeight - top - BOTTOM_GAP)));
     };
     measure();

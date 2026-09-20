@@ -635,14 +635,14 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .flow-fit{width:100%;}
 .programmes-hero{background:var(--bg-alt);border-bottom:1px solid var(--border);padding:28px 0 32px;}
 .home-tagline{
-  margin:0 auto 6px;padding:0 20px;max-width:720px;text-align:center;
-  font-family:'Figtree',var(--font);font-size:21px;font-weight:600;line-height:1.3;letter-spacing:-.02em;color:var(--text);text-wrap:balance;
+  margin:10px auto 6px;padding:0 20px;max-width:640px;text-align:center;
+  font-family:'Figtree',var(--font);font-size:18px;font-weight:600;line-height:1.35;letter-spacing:-.015em;color:var(--text);text-wrap:balance;
 }
 @media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
   .programmes-hero{padding:6px 0 14px;}
-  /* desktop: one line, sized from the window width so the whole sentence always fits; the tablet and programme
-     section starts at least 5 cm below it */
-  .home-tagline{max-width:none;white-space:nowrap;margin:12px auto 5cm;font-size:clamp(14px,2.35vw,58px);}
+  /* desktop: the headline sits 1 cm under the header (6px of it is the hero's own padding), on two balanced
+     lines, and the tablet and programme section starts at least 5 cm below it */
+  .home-tagline{max-width:min(1300px,94vw);margin:calc(1cm - 6px) auto 5cm;font-size:clamp(20px,2.2vw,44px);letter-spacing:-.02em;}
 }
 .flow-wrap{
   position:relative;width:100%;max-width:1400px;height:680px;
