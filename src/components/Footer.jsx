@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { EMAIL, WHATSAPP_URL } from '../constants.js';
 import { ROLE_GROUPS } from '../data/roleCourses/index.js';
 import { DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
 
@@ -16,21 +15,15 @@ const SITE_LINKS = [
   { label: 'Refund Policy', to: '/refund-policy' },
 ];
 
-// "Our Courses": the five programmes, each with the role courses under it, in a narrow centred column (about 30% of
-// the footer on laptops and desktops) so the space either side can hold the brand and quick links. On phones each
-// programme is a collapsible group so the footer stays short; on laptops and desktops every list is open.
+// The five programmes side by side across the footer, each with its role courses under it, and the logo and site links on
+// the left. On phones each programme is a collapsible group so the footer stays short; on laptops and desktops every list is open.
 export default function Footer() {
   const wide = useMediaQuery(DESKTOP_HEADER);
   const [open, setOpen] = useState(null);
 
   return (
     <footer className="site-footer">
-      <div className="wrap">
-        <div className="footer-head">
-          <h2>Our Courses</h2>
-          <p>Pick a programme, then the role you want to train for.</p>
-        </div>
-
+      <div className="footer-wide">
         <div className="footer-layout">
           <div className="footer-side footer-about">
             <Link to="/" className="footer-brand" aria-label="Skill IT Education, home">
@@ -82,26 +75,9 @@ export default function Footer() {
               );
             })}
           </div>
-
-          <div className="footer-side footer-links">
-            <h3>Quick links</h3>
-            <ul>
-              <li>
-                <Link to="/blog">Career Insights</Link>
-              </li>
-              <li>
-                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  Chat on WhatsApp
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${EMAIL}`}>Email us</a>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        <p className="footer-copy">&copy; {new Date().getFullYear()} Skill IT Education. All rights reserved.</p>
+        <p className="footer-copy">&copy; {new Date().getFullYear()} Skill IT Education Pvt Ltd. All rights reserved.</p>
       </div>
     </footer>
   );
