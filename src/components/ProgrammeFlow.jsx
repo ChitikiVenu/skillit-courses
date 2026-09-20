@@ -6,13 +6,14 @@ import { DUB_LAG, Packet, Ripple, STAGGER, TRAVEL, TailGradients, cablePath, use
 
 const ROW_TOP = 10;
 const ROW_BOTTOM = 90;
-const TABLET_X = 12;
-const TABLET_WIDTH_PCT = 22;
-const TABLET_MIN_WIDTH = 240;
-const PROGRAM_X1 = 32;
-const PROGRAM_X2 = 59;
-const ROLES_X1 = 64;
-const ROLES_X2 = 98;
+// Programme boxes and their "Become A" boxes are the same width (28% each).
+const TABLET_X = 13.5;
+const TABLET_WIDTH_PCT = 25;
+const TABLET_MIN_WIDTH = 260;
+const PROGRAM_X1 = 34;
+const PROGRAM_X2 = 62;
+const ROLES_X1 = 66;
+const ROLES_X2 = 94;
 // How long a packet takes to hop across the short programme -> roles link.
 const RELAY_TRAVEL = 0.6;
 
@@ -230,7 +231,7 @@ export default function ProgrammeFlow({ programmes }) {
               '--beat-delay': `${links[i].relayArrive.toFixed(2)}s`,
             }}
           >
-            <span className="flow-roles-label">You could become a:</span>
+            <span className="flow-roles-label">Become A</span>
             <div className="flow-roles-list">
               {roles.map((r) => (<span className="flow-role-chip" key={r}>{r}</span>))}
             </div>

@@ -22,6 +22,18 @@ const SEGMENTS = [
   { kind: 'desc', text: 'Get career guidance and placement support.' },
 ];
 
+// The code strip is left out on phones and small tablets (960px and narrower).
+function useWideScreen() {
+  const [wide, setWide] = useState(() => typeof window !== 'undefined' && window.matchMedia('(min-width: 961px)').matches);
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 961px)');
+    const onChange = (e) => setWide(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  return wide;
+}
+
 const HOLD_AT_END = 3500;
 const FADE_MS = 450;
 
@@ -54,6 +66,7 @@ export default function TypedScreen({ active, animate = true }) {
   const bodyRef = useRef(null);
   const innerRef = useRef(null);
   const [shift, setShift] = useState(0);
+  const showCode = useWideScreen();
 
   useEffect(() => {
     if (!animate || !active) return undefined;
@@ -132,9 +145,11 @@ export default function TypedScreen({ active, animate = true }) {
             {!finished && animate && <Segment kind={SEGMENTS[view.done].kind} text={view.partial} cursor />}
           </div>
         </div>
-        <div className="code-strip">
-          <CodeStrip active={active} animate={animate} />
-        </div>
+        {showCode && (
+          <div className="code-strip">
+            <CodeStrip active={active} animate={animate} />
+          </div>
+        )}
       </div>
     </div>
   );
