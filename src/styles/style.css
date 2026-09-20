@@ -640,8 +640,9 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 }
 @media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
   .programmes-hero{padding:6px 0 14px;}
-  /* desktop: one line, sized from the window width so the whole sentence always fits */
-  .home-tagline{max-width:none;white-space:nowrap;margin:12px auto 0;font-size:clamp(14px,2.05vw,40px);letter-spacing:-.02em;}
+  /* desktop: one line, sized from the window width so the whole sentence always fits; the tablet and programme
+     section starts at least 5 cm below it */
+  .home-tagline{max-width:none;white-space:nowrap;margin:12px auto 5cm;font-size:clamp(14px,2.05vw,40px);letter-spacing:-.02em;}
 }
 .flow-wrap{
   position:relative;width:100%;max-width:1400px;height:680px;
