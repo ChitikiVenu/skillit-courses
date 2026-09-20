@@ -18,11 +18,8 @@ const ROLES_X2 = 94;
 // On laptops and desktops the funnel is laid out at a design width of at least 1100px and simply
 // scaled down to fit a narrower window (for example a browser zoomed to 150%), so it always looks
 // like the desktop version instead of dropping to the stacked mobile layout.
-const DESIGN_MIN_W = 1100;
-const DESIGN_MAX_W = 1400;
-// The whole desktop funnel (tablet, boxes, text) is drawn at this fraction of its design size, all equally.
-// From the top of the first box to the bottom of the last it is 672px in the design, so this makes it 550px tall.
-const FUNNEL_SCALE = 550 / 672;
+const DESIGN_MIN_W = 1392;
+const DESIGN_MAX_W = 1800;
 const FIT_MARGIN_TOP = 8; // .flow-wrap's top margin
 // How long a packet takes to hop across the short programme -> roles link.
 const RELAY_TRAVEL = 0.6;
@@ -162,7 +159,7 @@ export default function ProgrammeFlow({ programmes }) {
   // boxes stays a readable size; the page simply scrolls) and is scaled down only when the window is narrower
   // than the design width.
   const designW = desktopLayout && outerW ? Math.min(DESIGN_MAX_W, Math.max(DESIGN_MIN_W, outerW)) : undefined;
-  const scale = designW ? Math.min(1, outerW / designW) * FUNNEL_SCALE : 1;
+  const scale = designW ? Math.min(1, outerW / designW) : 1;
   // Centre the drawn content, not the box: the tablet's left edge sits ~1% in from the box's left, while the
   // roles boxes stop ~6% short of its right, so the box is nudged right to balance them (the empty strip that overflows is clipped by .flow-outer).
   const spare = designW ? Math.max(0, outerW - designW * scale) : 0;

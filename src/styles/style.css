@@ -577,43 +577,58 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
   color:var(--text-faint);background:var(--bg-alt);border:1px solid var(--border);border-radius:100px;
   padding:2px 7px;
 }
-.site-footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:56px 0 30px;}
-.footer-head{text-align:center;margin-bottom:34px;}
-.footer-head h2{margin:0 0 8px;font-family:'Figtree',var(--font);font-size:clamp(28px,3vw,38px);font-weight:600;letter-spacing:-.02em;color:var(--text);}
-.footer-head p{margin:0;font-size:15.5px;color:var(--text-faint);}
-.footer-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px 28px;align-items:start;}
-.footer-col{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 18px 14px;}
-.footer-course{display:block;font-size:16px;font-weight:800;color:var(--text);line-height:1.25;padding-bottom:12px;margin-bottom:10px;border-bottom:1px solid var(--border);transition:color .15s;}
+.site-footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:44px 0 22px;}
+.footer-head{text-align:center;margin-bottom:26px;}
+.footer-head h2{margin:0 0 6px;font-family:'Figtree',var(--font);font-size:clamp(26px,2.6vw,34px);font-weight:600;letter-spacing:-.02em;color:var(--text);}
+.footer-head p{margin:0;font-size:15px;color:var(--text-faint);}
+/* three zones: brand on the left, the five courses in a narrow centred column (about 30% of the footer), quick links on the right */
+.footer-layout{display:grid;grid-template-columns:minmax(0,1fr) clamp(380px,30vw,560px) minmax(0,1fr);gap:0 32px;align-items:start;}
+.footer-courses{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 22px;align-items:start;}
+.footer-col{min-width:0;}
+.footer-course{display:block;font-size:14px;font-weight:800;color:var(--text);line-height:1.25;padding-bottom:6px;margin-bottom:5px;border-bottom:1px solid var(--border);transition:color .15s;}
 a.footer-course:hover{color:var(--accent-2);}
-.footer-course-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:none;border:0;border-bottom:0;padding:0;margin:0;cursor:pointer;font-family:var(--font);text-align:left;}
+.footer-course-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;background:none;border:0;padding:0;margin:0;cursor:pointer;font-family:var(--font);text-align:left;}
 .footer-caret{font-size:16px;color:var(--text-faint);transition:transform .15s ease;}
 .footer-col.is-open .footer-caret{transform:rotate(180deg);}
-.footer-roles{list-style:none;margin:0;padding:0;display:grid;gap:2px;}
-.footer-roles a{display:block;padding:6px 0;font-size:14.5px;font-weight:500;color:var(--text-dim);transition:color .15s,transform .15s;}
+.footer-roles{list-style:none;margin:0;padding:0;display:grid;gap:0;}
+.footer-roles a{display:block;padding:1.5px 0;font-size:13px;font-weight:500;line-height:1.35;color:var(--text-dim);transition:color .15s,transform .15s;}
 .footer-roles a:hover{color:var(--accent-2);transform:translateX(3px);}
 .footer-roles .footer-all{font-weight:700;color:var(--text);}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:38px;padding-top:26px;border-top:1px solid var(--border);}
-.footer-brand img{height:58px;width:auto;display:block;}
-.footer-info{text-align:right;font-size:13.5px;color:var(--text-faint);}
-.footer-info p{margin:0 0 4px;}
-.footer-info a{color:var(--text-dim);}
-.footer-info a:hover{color:var(--accent-2);}
-.footer-copy{margin-top:8px !important;}
-@media (max-width: 1180px) and (min-width: 801px){
-  .footer-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+.footer-side{font-size:13.5px;line-height:1.55;color:var(--text-faint);}
+.footer-side p{margin:0 0 6px;}
+.footer-side a{color:var(--text-dim);}
+.footer-side a:hover{color:var(--accent-2);}
+.footer-brand img{height:56px;width:auto;display:block;margin-bottom:10px;}
+.footer-address{max-width:34ch;}
+.footer-links{justify-self:end;text-align:left;min-width:150px;}
+.footer-links h3{margin:0 0 8px;font-size:15px;font-weight:800;color:var(--text);}
+.footer-links ul{list-style:none;margin:0;padding:0;display:grid;gap:0;}
+.footer-links li a{display:block;padding:2px 0;font-size:13.5px;font-weight:500;}
+.footer-copy{margin:26px 0 0;padding-top:16px;border-top:1px solid var(--border);text-align:center;font-size:13px;color:var(--text-faint);}
+@media (max-width: 1000px) and (min-width: 801px){
+  .footer-layout{grid-template-columns:1fr;gap:26px;justify-items:center;}
+  .footer-courses{width:min(520px,100%);}
+  .footer-side{text-align:center;justify-self:center;}
+  .footer-brand img{margin-left:auto;margin-right:auto;}
+  .footer-address{margin-left:auto;margin-right:auto;}
+  .footer-links{justify-self:center;text-align:center;}
 }
 @media (max-width: 960px) and (not (pointer: fine)), (max-width: 799px){
-  .site-footer{padding:36px 0 96px;}
-  .footer-head{margin-bottom:22px;}
-  .footer-head h2{font-size:26px;}
+  .site-footer{padding:32px 0 96px;}
+  .footer-head{margin-bottom:18px;}
+  .footer-head h2{font-size:24px;}
   .footer-head p{font-size:14px;}
-  .footer-grid{grid-template-columns:1fr;gap:10px;}
-  .footer-col{padding:14px 16px;border-radius:12px;}
-  .footer-course-btn{font-size:15.5px;min-height:34px;}
-  .footer-col.is-open .footer-course-btn{padding-bottom:10px;margin-bottom:8px;border-bottom:1px solid var(--border);}
-  .footer-roles a{padding:9px 0;font-size:14.5px;}
-  .footer-bottom{flex-direction:column;align-items:flex-start;gap:14px;margin-top:26px;padding-top:20px;}
-  .footer-info{text-align:left;}
+  .footer-layout{grid-template-columns:1fr;gap:20px;}
+  .footer-courses{grid-template-columns:1fr;gap:8px;}
+  .footer-col{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;}
+  .footer-course-btn{font-size:15px;min-height:32px;}
+  .footer-col.is-open .footer-course-btn{padding-bottom:8px;margin-bottom:6px;border-bottom:1px solid var(--border);}
+  .footer-roles a{padding:7px 0;font-size:14.5px;}
+  .footer-side,.footer-links{text-align:left;justify-self:start;}
+  .footer-about{order:2;}
+  .footer-links{order:3;}
+  .footer-links li a{padding:5px 0;}
+  .footer-copy{margin-top:18px;}
 }
 
 .landing-shell{min-height:60vh;display:grid;place-items:center;text-align:center;padding:0 24px;}
@@ -1212,12 +1227,24 @@ a.flow-role-chip:hover{background:var(--accent-2);color:#fff;}
   .flow-tablet .tablet::after{top:-5px;height:5px;}
   .flow-tablet .tablet-camera{top:1.9cqw;}
   /* the programme box and its "Become A" box are the same size */
-  .flow-wrap{height:var(--flow-h);--flow-h:680px;--box-h:128px;}
-  .flow-program,.flow-roles{box-sizing:border-box;height:var(--box-h);padding:10px 16px;display:flex;flex-direction:column;justify-content:center;}
-  .flow-roles{padding:8px 14px;}
-  .flow-roles-label{font-size:14.5px;margin-bottom:4px;}
-  .flow-roles-list{gap:4px;}
-  .flow-role-chip{font-size:12.5px;line-height:1.25;padding:1.5px 8px;}
+  /* A wide, short funnel: boxes are wide enough for the role chips to sit in two or three rows, so each box
+     (and the whole funnel) can be short. The programme box is a compact two-column layout (text left, button
+     right) and the "Become A" label runs inline with the chips. */
+  .flow-wrap{height:var(--flow-h);--flow-h:460px;--box-h:84px;}
+  .flow-program,.flow-roles{box-sizing:border-box;height:var(--box-h);padding:7px 14px;}
+  .flow-program{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"t a" "b a" "m a";
+    align-content:center;column-gap:12px;row-gap:1px;
+  }
+  .flow-program h4{grid-area:t;margin:0;font-size:16px;line-height:1.2;}
+  .flow-program p{grid-area:b;display:block;margin:0;font-size:12.5px;line-height:1.3;}
+  .flow-program-bottom{display:contents;}
+  .flow-duration{grid-area:m;font-size:12px;}
+  .flow-explore-btn{grid-area:a;align-self:center;}
+  .flow-roles{display:flex;flex-wrap:wrap;align-content:center;align-items:center;gap:4px;}
+  .flow-roles-list{display:contents;}
+  .flow-roles-label{font-size:14px;margin:0 6px 0 0;line-height:1.25;}
+  .flow-role-chip{font-size:12px;line-height:1.25;padding:1.5px 8px;}
   .flow-tablet .tablet-screen{border-radius:18px;}
   .flow-tablet .tablet-screen::after{bottom:10px;height:4px;width:22%;}
 }
