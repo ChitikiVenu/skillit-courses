@@ -12,7 +12,10 @@ import aiMlCorePosts from './blog/aiMl.js';
 import aiSeo1 from './blog/aiSeo1.js';
 import aiSeo2 from './blog/aiSeo2.js';
 import aiSeo3 from './blog/aiSeo3.js';
-import dataSciencePosts from './blog/dataScience.js';
+import dataScienceCorePosts from './blog/dataScience.js';
+import dsSeo1 from './blog/dsSeo1.js';
+import dsSeo2 from './blog/dsSeo2.js';
+import dsSeo3 from './blog/dsSeo3.js';
 import socAnalystCorePosts from './blog/socAnalyst.js';
 import socSeo1 from './blog/socSeo1.js';
 import socSeo2 from './blog/socSeo2.js';
@@ -27,6 +30,9 @@ const aiMlPosts = [...aiMlCorePosts, ...aiSeo1, ...aiSeo2, ...aiSeo3];
 
 // The SOC Analyst programme's search-question articles (15 more) sit after its core posts.
 const socAnalystPosts = [...socAnalystCorePosts, ...socSeo1, ...socSeo2, ...socSeo3];
+
+// The Data Science programme's search-question articles (15 more) sit after its core posts.
+const dataSciencePosts = [...dataScienceCorePosts, ...dsSeo1, ...dsSeo2, ...dsSeo3];
 
 // One entry per programme, in the order the filter buttons show them. Each programme has its own
 // file of long-form posts under ./blog/ — one standalone article per student question.
