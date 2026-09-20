@@ -2,7 +2,8 @@ import { useState } from 'react';
 
 const COURSE_OPTIONS = ['Cyber Security', 'SOC (Security Operations Center)', 'AI/ML', 'Data Science', 'Data Analyst'];
 
-export default function LeadForm({ formId, heading, subheading, brochureFile, preselectedCourse }) {
+// `bare` drops the card's own border, background and padding so the form can sit inside another box.
+export default function LeadForm({ formId, heading, subheading, brochureFile, preselectedCourse, bare = false }) {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
@@ -11,7 +12,7 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
   };
 
   return (
-    <div className="lead-form-card">
+    <div className={`lead-form-card${bare ? ' is-bare' : ''}`}>
       <div className="lead-form-head">
         <h3>{heading}</h3>
         <p>{subheading}</p>

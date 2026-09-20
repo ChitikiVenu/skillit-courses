@@ -188,6 +188,19 @@ header.site{
   border-top:3px solid var(--cta);border-radius:14px;padding:18px 22px;
   box-shadow:0 16px 34px -22px rgba(16,21,31,.16);
 }
+/* One box holding the "Still weighing your options?" prompt and the enquiry form (home page) */
+.enquiry-box{
+  max-width:1080px;margin:0 auto;background:var(--surface-2);border:1px solid var(--border);
+  border-top:3px solid var(--cta);border-radius:14px;padding:22px 24px;
+  box-shadow:0 16px 34px -22px rgba(16,21,31,.16);
+}
+.enquiry-intro{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--border);
+}
+.enquiry-intro h3{margin:0 0 4px;font-size:21px;}
+.enquiry-intro p{margin:0;}
+.lead-form-card.is-bare{max-width:none;margin:0;background:none;border:none;border-radius:0;box-shadow:none;padding:0;}
 .lead-form-head{margin-bottom:12px;}
 .lead-form-head h3{margin:0 0 3px;font-size:17px;}
 .lead-form-head p{margin:0;font-size:13.5px;}
@@ -1103,4 +1116,11 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
   .flow-tablet .tablet-screen{border-radius:18px;}
   .flow-tablet .tablet-screen::after{bottom:10px;height:4px;width:22%;}
   .flow-tablet .code-body{padding-bottom:26px;}
+}
+
+@media (max-width: 640px){
+  .enquiry-box{padding:16px;}
+  .enquiry-intro{flex-direction:column;align-items:stretch;gap:12px;padding-bottom:14px;margin-bottom:14px;}
+  .enquiry-intro h3{font-size:17px;}
+  .enquiry-intro .btn{width:100%;}
 }

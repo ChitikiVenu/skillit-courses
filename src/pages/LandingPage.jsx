@@ -106,27 +106,25 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="cta-banner">
-        <div className="wrap">
-          <div>
-            <h3>Still weighing your options?</h3>
-            <p>Talk to an advisor — they'll help you match your background and goals to the right programme.</p>
-          </div>
-          <div className="hero-ctas" style={{ margin: 0 }}>
-            <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
-              Talk to an Advisor
-            </button>
-          </div>
-        </div>
-      </section>
-
       <section className="lead-form-section" id="enquire">
         <div className="wrap">
-          <LeadForm
-            formId="programmes-form"
-            heading="Get the Fee Structure & Syllabus"
-            subheading="Share your details and our admissions team will call you back with the full syllabus, batch timings and fee breakdown."
-          />
+          <div className="enquiry-box">
+            <div className="enquiry-intro">
+              <div>
+                <h3>Still weighing your options?</h3>
+                <p>Talk to an advisor — they'll help you match your background and goals to the right programme.</p>
+              </div>
+              <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
+                Talk to an Advisor
+              </button>
+            </div>
+            <LeadForm
+              bare
+              formId="programmes-form"
+              heading="Get the Fee Structure & Syllabus"
+              subheading="Share your details and our admissions team will call you back with the full syllabus, batch timings and fee breakdown."
+            />
+          </div>
         </div>
       </section>
 
