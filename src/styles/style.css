@@ -636,13 +636,13 @@ button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .programmes-hero{background:var(--bg-alt);border-bottom:1px solid var(--border);padding:28px 0 32px;}
 .home-tagline{
   margin:0 auto 6px;padding:0 20px;max-width:720px;text-align:center;
-  font-size:18px;font-weight:800;line-height:1.3;letter-spacing:-.015em;color:var(--text);text-wrap:balance;
+  font-family:'Figtree',var(--font);font-size:21px;font-weight:600;line-height:1.3;letter-spacing:-.02em;color:var(--text);text-wrap:balance;
 }
 @media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
   .programmes-hero{padding:6px 0 14px;}
   /* desktop: one line, sized from the window width so the whole sentence always fits; the tablet and programme
      section starts at least 5 cm below it */
-  .home-tagline{max-width:none;white-space:nowrap;margin:12px auto 5cm;font-size:clamp(14px,2.05vw,40px);letter-spacing:-.02em;}
+  .home-tagline{max-width:none;white-space:nowrap;margin:12px auto 5cm;font-size:clamp(14px,2.35vw,58px);}
 }
 .flow-wrap{
   position:relative;width:100%;max-width:1400px;height:680px;
