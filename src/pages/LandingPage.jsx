@@ -80,10 +80,7 @@ export default function LandingPage() {
       <section id="programmes" className="programmes-hero">
         <h1 className="sr-only">Skill IT Education: job-ready tech training in Hyderabad</h1>
         {/* The top of the hero is kept free for the page's main (h1) design; this is the section heading under it. */}
-        <h2 className="home-tagline">
-          Bridging the gap between academic learning and the practical, industry-ready skills needed to build a
-          successful technology career.
-        </h2>
+        <h2 className="home-tagline">Connecting Higher Education to Corporate Careers through Advanced Technology Learning.</h2>
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} />
         </div>

@@ -692,9 +692,9 @@ a.footer-course:hover{color:var(--accent-2);}
 }
 @media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
   .programmes-hero{padding:6px 0 14px;}
-  /* desktop: the headline sits 1 cm under the header (6px of it is the hero's own padding), on two balanced
-     lines, and the tablet and programme section starts at least 5 cm below it */
-  .home-tagline{max-width:min(1300px,94vw);margin:calc(1cm - 6px) auto 5cm;font-size:clamp(20px,2.2vw,44px);letter-spacing:-.02em;}
+  /* desktop: the headline sits 1 cm under the header (6px of it is the hero's own padding), on one line sized from
+     the window width, and the tablet and programme section starts at least 5 cm below it */
+  .home-tagline{max-width:none;white-space:nowrap;margin:calc(1cm - 6px) auto 5cm;font-size:clamp(16px,2.05vw,44px);letter-spacing:-.02em;}
 }
 .flow-wrap{
   position:relative;width:100%;max-width:1400px;height:680px;
