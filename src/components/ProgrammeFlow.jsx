@@ -21,7 +21,8 @@ const ROLES_X2 = 94;
 const DESIGN_MIN_W = 1100;
 const DESIGN_MAX_W = 1400;
 // The whole desktop funnel (tablet, boxes, text) is drawn at this fraction of its design size, all equally.
-const FUNNEL_SCALE = 0.92;
+// From the top of the first box to the bottom of the last it is 672px in the design, so this makes it 550px tall.
+const FUNNEL_SCALE = 550 / 672;
 const FIT_MARGIN_TOP = 8; // .flow-wrap's top margin
 // How long a packet takes to hop across the short programme -> roles link.
 const RELAY_TRAVEL = 0.6;
