@@ -77,6 +77,7 @@ export default function LandingPage() {
 
       <section id="programmes" className="programmes-hero">
         <h1 className="sr-only">Skill IT Education: job-ready tech training in Hyderabad</h1>
+        <p className="home-tagline">Our programmes are designed to prepare you for the technology careers of tomorrow.</p>
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} />
         </div>

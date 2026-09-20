@@ -21,7 +21,7 @@ const ROLES_X2 = 94;
 const DESIGN_MIN_W = 1100;
 const DESIGN_MAX_W = 1400;
 // Below this scale the funnel would be too small to read, so it stops shrinking and scrolls a little instead.
-const MIN_SCALE = 0.45;
+const MIN_SCALE = 0.38;
 const BOTTOM_GAP = 26;
 const FIT_MARGIN_TOP = 8; // .flow-wrap's top margin
 // How long a packet takes to hop across the short programme -> roles link.
