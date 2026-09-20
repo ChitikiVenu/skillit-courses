@@ -396,7 +396,7 @@ export default [
       {
         kind: `links`,
         heading: `Where to read next about a SOC analyst's day`,
-        intro: `Start with the programme page to see the labs behind this routine. The related guides give the wider definition of the role and the tools you will meet during a shift.`,
+        intro: `The programme page shows the labs behind this routine. The related guides give the wider definition of the role and the tools you will meet during a shift.`,
         buttons: [
           { label: `See the SOC Analyst programme`, to: `/soc-analyst`, primary: true },
           { label: `Read: what a SOC analyst does in a shift`, to: `/blog/what-a-soc-analyst-does-during-a-shift` },
@@ -576,7 +576,7 @@ export default [
       {
         kind: `faq`,
         heading: `Quick answers about SOC analyst tools`,
-        intro: `Short answers to what people search most about the tool stack.`,
+        intro: `The questions learners ask most often about tools, answered briefly.`,
         faqs: [
           {
             q: `Which tool is the most important for a SOC analyst?`,
@@ -603,7 +603,7 @@ export default [
       {
         kind: `links`,
         heading: `Where to read next about SOC analyst tools`,
-        intro: `Start with the programme page for the modules behind these tools. The related guides go deeper on the SIEM, which is the centre of the stack, and on the skills around it.`,
+        intro: `Open the programme page to see which modules cover which tools. The related guides go deeper on the SIEM, which is the centre of the stack, and on the skills around it.`,
         buttons: [
           { label: `See the SOC Analyst programme`, to: `/soc-analyst`, primary: true },
           { label: `Read: what SIEM is and why it matters`, to: `/blog/what-is-siem-and-why-is-it-important-for-soc-analysts` },
@@ -615,10 +615,10 @@ export default [
     ],
     closing: {
       heading: `Pick one tool and open it this week`,
-      text: `You do not have to learn the whole stack before you start. Choose one tool from the list above, use it on a real sample and write down what it told you. Tell us your background and the admissions team will suggest where to begin.`,
+      text: `You do not have to learn the whole stack before you start. Choose one tool from the list above, use it on a real sample and write down what it told you. The admissions team can suggest a starting point for your background.`,
     },
     formHeading: `Ask about SOC tools training`,
-    formSubheading: `Share your background and goals, and our admissions team will call you back to explain which tools the programme covers and how much hands-on time each gets.`,
+    formSubheading: `Leave a few details and our admissions team will call to explain which tools the programme covers and how much hands-on time each gets.`,
   },
 
   // ---------------------------------------------------------------------------
@@ -793,7 +793,7 @@ export default [
       {
         kind: `faq`,
         heading: `Quick answers about SIEM`,
-        intro: `Short answers to what people search most about SIEM.`,
+        intro: `Common SIEM questions, answered in a few lines.`,
         faqs: [
           {
             q: `What does SIEM stand for?`,
@@ -820,7 +820,7 @@ export default [
       {
         kind: `links`,
         heading: `Where to read next about SIEM`,
-        intro: `Start with the programme page to see how the SIEM module runs. The related guides cover the wider tool stack, which SIEM tools to learn first and how a shift uses the SIEM.`,
+        intro: `See how the SIEM module runs on the programme page. The related guides cover the wider tool stack, which SIEM tools to learn first and how a shift uses the SIEM.`,
         buttons: [
           { label: `See the SOC Analyst programme`, to: `/soc-analyst`, primary: true },
           { label: `Read: tools a SOC analyst uses`, to: `/blog/tools-and-technologies-used-by-soc-analysts` },
@@ -832,10 +832,10 @@ export default [
     ],
     closing: {
       heading: `Open a SIEM and follow one log through it`,
-      text: `The idea of a SIEM sticks once you have watched a single log travel from a device to an alert. Tell us where you are today, and the admissions team will explain how the SIEM labs are run and where you would start.`,
+      text: `The idea of a SIEM sticks once you have watched a single log travel from a device to an alert. Ask the admissions team how the SIEM labs are run and which background helps most.`,
     },
     formHeading: `Ask about SIEM training in Hyderabad`,
-    formSubheading: `Share your details and our admissions team will call you back to explain how the SIEM module and labs are structured and what background helps.`,
+    formSubheading: `Send your details and the admissions team will call to walk you through the SIEM module, the labs and what background helps.`,
   },
 
   // ---------------------------------------------------------------------------
@@ -1002,7 +1002,7 @@ export default [
       {
         kind: `faq`,
         heading: `Quick answers about SOC levels`,
-        intro: `Short answers to what people search most about SOC L1, L2 and L3.`,
+        intro: `The level questions we hear most, answered briefly.`,
         faqs: [
           {
             q: `Is SOC L3 higher than L2 and L1?`,
@@ -1029,7 +1029,7 @@ export default [
       {
         kind: `links`,
         heading: `Where to read next about SOC levels`,
-        intro: `Start with the programme page for the modules behind each level. The related guides cover the career path, pay for L1 and L2, and interview preparation.`,
+        intro: `The programme page lists the modules behind each level. The related guides cover the career path, pay for L1 and L2, and interview preparation.`,
         buttons: [
           { label: `See the SOC Analyst programme`, to: `/soc-analyst`, primary: true },
           { label: `Read: SOC levels and career growth`, to: `/blog/soc-analyst-l1-l2-l3-levels-and-career-growth` },
@@ -1042,9 +1042,9 @@ export default [
     ],
     closing: {
       heading: `Start by mastering the level in front of you`,
-      text: `You do not need to choose your L3 destination today. Get good at the tier you are aiming for and practise one level above it. Tell us your background, and the admissions team will help you plan where to start.`,
+      text: `You do not need to choose your L3 destination today. Get good at the tier you are aiming for and practise one level above it. Share where you stand today and the admissions team will map a realistic first step.`,
     },
     formHeading: `Ask about starting at SOC L1 or L2`,
-    formSubheading: `Share your background and goals, and our admissions team will call you back with an honest view of where you would begin and how the programme prepares you.`,
+    formSubheading: `Tell us about your studies or work, and our admissions team will call with an honest view of which level to aim at first.`,
   },
 ];
