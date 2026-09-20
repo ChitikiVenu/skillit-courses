@@ -1,8 +1,20 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ADDRESS, EMAIL, WHATSAPP_URL } from '../constants.js';
+import { EMAIL, WHATSAPP_URL } from '../constants.js';
 import { ROLE_GROUPS } from '../data/roleCourses/index.js';
 import { DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
+
+// Under the logo: the site links, one by one. About Us, FAQs and Refund Policy are pages whose content is still to come.
+const SITE_LINKS = [
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about-us' },
+  { label: 'Our Programmes', to: '/#programmes' },
+  { label: 'Contact', to: '/#enquire' },
+  { label: 'FAQs', to: '/faqs' },
+  { label: 'Privacy Policy', to: '/privacy-policy' },
+  { label: 'Data Compliance Policy', to: '/data-compliance-policy' },
+  { label: 'Refund Policy', to: '/refund-policy' },
+];
 
 // "Our Courses": the five programmes, each with the role courses under it, in a narrow centred column (about 30% of
 // the footer on laptops and desktops) so the space either side can hold the brand and quick links. On phones each
@@ -24,11 +36,13 @@ export default function Footer() {
             <Link to="/" className="footer-brand" aria-label="Skill IT Education, home">
               <img src="/img/skill-it-logo.png" alt="Skill IT Education" width="520" height="206" loading="lazy" />
             </Link>
-            <p>Job-ready technology training in Hyderabad.</p>
-            <p className="footer-address">{ADDRESS}</p>
-            <p>
-              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-            </p>
+            <ul className="footer-site-links">
+              {SITE_LINKS.map((l) => (
+                <li key={l.label}>
+                  <Link to={l.to}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="footer-courses">
@@ -72,9 +86,6 @@ export default function Footer() {
           <div className="footer-side footer-links">
             <h3>Quick links</h3>
             <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
               <li>
                 <Link to="/blog">Career Insights</Link>
               </li>

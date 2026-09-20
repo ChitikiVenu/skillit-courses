@@ -599,7 +599,9 @@ a.footer-course:hover{color:var(--accent-2);}
 .footer-side a{color:var(--text-dim);}
 .footer-side a:hover{color:var(--accent-2);}
 .footer-brand img{height:56px;width:auto;display:block;margin-bottom:10px;}
-.footer-address{max-width:34ch;}
+.footer-site-links{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:0;}
+.footer-site-links a{display:block;padding:2px 0;font-size:13.5px;font-weight:500;color:var(--text-dim);transition:color .15s,transform .15s;}
+.footer-site-links a:hover{color:var(--accent-2);transform:translateX(3px);}
 .footer-links{justify-self:end;text-align:left;min-width:150px;}
 .footer-links h3{margin:0 0 8px;font-size:15px;font-weight:800;color:var(--text);}
 .footer-links ul{list-style:none;margin:0;padding:0;display:grid;gap:0;}
@@ -610,7 +612,6 @@ a.footer-course:hover{color:var(--accent-2);}
   .footer-courses{width:min(520px,100%);}
   .footer-side{text-align:center;justify-self:center;}
   .footer-brand img{margin-left:auto;margin-right:auto;}
-  .footer-address{margin-left:auto;margin-right:auto;}
   .footer-links{justify-self:center;text-align:center;}
 }
 @media (max-width: 960px) and (not (pointer: fine)), (max-width: 799px){
@@ -626,6 +627,8 @@ a.footer-course:hover{color:var(--accent-2);}
   .footer-roles a{padding:7px 0;font-size:14.5px;}
   .footer-side,.footer-links{text-align:left;justify-self:start;}
   .footer-about{order:2;}
+  .footer-site-links{grid-template-columns:1fr 1fr;gap:0 18px;}
+  .footer-site-links a{padding:6px 0;font-size:14.5px;}
   .footer-links{order:3;}
   .footer-links li a{padding:5px 0;}
   .footer-copy{margin-top:18px;}
@@ -1100,7 +1103,6 @@ a.flow-role-chip:hover{background:var(--accent-2);color:#fff;}
    footer gets extra height so nothing at the very bottom of a page is hidden behind them. */
 .floating-actions{display:none;}
 @media (max-width: 960px) and (not (pointer: fine)), (max-width: 799px){
-  .site-footer{height:88px;}
   .floating-actions{
     position:fixed;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:35;
     display:flex;align-items:center;justify-content:space-between;gap:12px;pointer-events:none;
@@ -1373,4 +1375,56 @@ a.flow-role-chip:hover{background:var(--accent-2);color:#fff;}
 .post-roles-box .post-links{margin-top:16px;}
 @media (max-width: 640px){
   .post-roles-box{padding:20px;}
+}
+
+/* in-page links from the footer (#programmes, #enquire) stop below the sticky header */
+section[id]{scroll-margin-top:92px;}
+.placeholder-title{margin:0 0 6px;font-size:clamp(28px,3.4vw,40px);}
+.footer-site-links a:focus-visible,.footer-roles a:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px;border-radius:4px;}
+
+/* ---------------------------------------------------------------- Policy pages (privacy, data compliance) */
+.policy-hero{padding-bottom:26px;}
+.policy-hero h1{margin:0 0 6px;font-size:clamp(32px,4.2vw,48px);}
+.policy-updated{margin:0 0 18px;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--text-faint);}
+.policy-hero .hero-lede{max-width:82ch;margin-bottom:12px;}
+.policy-brief{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px;}
+.policy-brief-card{display:flex;flex-direction:column;gap:4px;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--ink);border-radius:12px;padding:14px 16px;}
+.policy-brief-card strong{font-size:15.5px;color:var(--text);}
+.policy-brief-card span{font-size:14px;line-height:1.5;color:var(--text-dim);}
+.policy-section{margin:0 0 34px;scroll-margin-top:100px;}
+.policy-section h2{margin:0 0 12px;font-size:clamp(21px,2.4vw,26px);line-height:1.25;}
+.policy-num{font-family:var(--mono);font-size:.82em;color:var(--text-faint);margin-right:2px;}
+.policy-section h3{margin:20px 0 8px;font-size:17px;}
+.policy-section p{margin:0 0 12px;font-size:16.5px;line-height:1.75;color:var(--text-dim);}
+.policy-section ul{margin:0 0 14px;padding-left:20px;display:grid;gap:7px;font-size:16.5px;line-height:1.65;color:var(--text-dim);}
+.policy-note{padding:14px 18px;background:var(--bg-alt);border:1px solid var(--border);border-left:4px solid var(--ink);border-radius:10px;}
+.policy-table-wrap{margin:6px 0 16px;overflow-x:auto;border:1px solid var(--border);border-radius:12px;}
+.policy-table{width:100%;border-collapse:collapse;font-size:14.5px;line-height:1.55;}
+.policy-table th{position:sticky;top:0;text-align:left;background:var(--bg-alt);color:var(--text);font-weight:800;padding:11px 14px;border-bottom:1px solid var(--border);}
+.policy-table td{vertical-align:top;padding:11px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);}
+.policy-table tr:last-child td{border-bottom:0;}
+.policy-table td:first-child{color:var(--text);font-weight:700;}
+.policy-contact{margin:6px 0 16px;padding:18px 22px;background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;}
+.policy-contact > strong{display:block;margin-bottom:8px;font-size:17px;color:var(--text);}
+.policy-contact dl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 16px;margin:0;font-size:15.5px;}
+.policy-contact dt{font-weight:700;color:var(--text);}
+.policy-contact dd{margin:0;color:var(--text-dim);}
+.policy-contact a:hover{color:var(--accent-2);}
+.policy-related{margin:8px 0 0;font-size:15.5px;color:var(--text-dim);}
+.policy-related a{font-weight:700;color:var(--text);text-decoration:underline;text-underline-offset:3px;}
+.policy-related a:hover{color:var(--accent-2);}
+@media (max-width: 960px){
+  .policy-brief{grid-template-columns:1fr 1fr;}
+}
+@media (max-width: 640px){
+  .policy-brief{grid-template-columns:1fr;}
+  .policy-section p,.policy-section ul{font-size:15.5px;}
+  .policy-table-wrap{border:0;}
+  .policy-table,.policy-table tbody,.policy-table tr,.policy-table td{display:block;width:100%;}
+  .policy-table thead{display:none;}
+  .policy-table tr{margin-bottom:12px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface);}
+  .policy-table td{border-bottom:1px solid var(--border);padding:9px 12px;}
+  .policy-table td::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--text-faint);margin-bottom:2px;}
+  .policy-contact dl{grid-template-columns:1fr;gap:2px;}
+  .policy-contact dt{margin-top:8px;}
 }

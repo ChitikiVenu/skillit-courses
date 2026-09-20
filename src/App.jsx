@@ -12,6 +12,9 @@ import CourseModulePage from './pages/CourseModulePage.jsx';
 import BlogIndexPage from './pages/BlogIndexPage.jsx';
 import BlogPostPage from './pages/BlogPostPage.jsx';
 import RoleCoursePage from './pages/RoleCoursePage.jsx';
+import PolicyPage from './pages/PolicyPage.jsx';
+import PlaceholderPage from './pages/PlaceholderPage.jsx';
+import { DATA_COMPLIANCE_POLICY, PRIVACY_POLICY } from './data/policies.js';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 
 const COURSES = [cyberSecurity, aiMl, socAnalyst, dataScience, dataAnalyst];
@@ -28,6 +31,12 @@ export default function App() {
           <Route path="/blog" element={<BlogIndexPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/courses/:parent/:role" element={<RoleCoursePage />} />
+          <Route path="/privacy-policy" element={<PolicyPage policy={PRIVACY_POLICY} related={{ to: '/data-compliance-policy', label: 'Data Compliance Policy' }} />} />
+          <Route path="/data-compliance-policy" element={<PolicyPage policy={DATA_COMPLIANCE_POLICY} related={{ to: '/privacy-policy', label: 'Privacy Policy' }} />} />
+          {/* linked from the footer; content to be added */}
+          <Route path="/about-us" element={<PlaceholderPage title="About Us" path="/about-us" />} />
+          <Route path="/faqs" element={<PlaceholderPage title="FAQs" path="/faqs" />} />
+          <Route path="/refund-policy" element={<PlaceholderPage title="Refund Policy" path="/refund-policy" />} />
           {COURSES.map((course) => (
             <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage key={course.routeBase} course={course} />} />
           ))}
