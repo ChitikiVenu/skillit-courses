@@ -45,11 +45,11 @@ export default function Footer() {
                 <div className={`footer-col${isOpen ? ' is-open' : ''}`} key={g.key}>
                   {wide ? (
                     <Link className="footer-course" to={g.href}>
-                      {g.label} Course
+                      {g.label} Courses
                     </Link>
                   ) : (
                     <button type="button" className="footer-course footer-course-btn" aria-expanded={isOpen} onClick={() => setOpen((k) => (k === g.key ? null : g.key))}>
-                      <span>{g.label} Course</span>
+                      <span>{g.label} Courses</span>
                       <span className="footer-caret" aria-hidden="true">
                         &#9662;
                       </span>

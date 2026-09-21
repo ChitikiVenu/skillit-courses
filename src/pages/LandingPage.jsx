@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { DOMAIN } from '../constants.js';
+import { DOMAIN, EMAIL, PHONE } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
@@ -54,33 +54,78 @@ const FIT_FINDER = [
   { interest: 'You like Excel, SQL and turning numbers into decisions', course: dataAnalyst },
 ];
 
+// The home page's main heading section: the h1, the most advanced skills the programmes teach (from each programme's own
+// modules: Agentic AI, Generative AI and LLMs, MLOps, AI-powered security operations, SIEM and threat hunting, machine
+// learning), and a short introduction that search engines also see as the organisation description.
+const HERO_TITLE = 'Cutting-Edge Upskilling Programs to Connect Higher Education with Corporate Careers.';
+const ADVANCED_SKILLS = ['Agentic AI', 'Generative AI & LLMs', 'MLOps', 'AI-Powered Cyber Defense', 'SIEM & Threat Hunting', 'Machine Learning'];
+const HERO_INTRO =
+  'Skill IT Education, in Madhapur, Hyderabad, trains graduates, IT professionals and career switchers in Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics. Every programme brings hands-on labs, real projects and a real-time internship, so classroom learning turns into skills employers look for.';
+
 export default function LandingPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
 
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    itemListElement: PROGRAMMES.map((p, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: p.course.SITE.program,
-      url: DOMAIN + p.course.routeBase,
-    })),
+    '@graph': [
+      {
+        '@type': 'EducationalOrganization',
+        '@id': `${DOMAIN}/#organization`,
+        name: 'Skill IT Education',
+        legalName: 'Skill IT Education Pvt Ltd',
+        url: DOMAIN,
+        logo: `${DOMAIN}/img/skill-it-logo.png`,
+        description: HERO_INTRO,
+        email: EMAIL,
+        telephone: PHONE,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'House No. 3-5-35, LR Towers, 3rd Floor, 100 Feet Road, Ayyappa Society, Madhapur',
+          addressLocality: 'Hyderabad',
+          addressRegion: 'Telangana',
+          postalCode: '500081',
+          addressCountry: 'IN',
+        },
+        areaServed: 'Hyderabad',
+        knowsAbout: ['Cyber Security', 'SOC Analyst', 'AI and Machine Learning', 'Data Science', 'Data Analytics'],
+      },
+      { '@type': 'WebSite', '@id': `${DOMAIN}/#website`, name: 'Skill IT Education', url: DOMAIN, publisher: { '@id': `${DOMAIN}/#organization` } },
+      {
+        '@type': 'ItemList',
+        name: 'Skill IT Education programmes',
+        itemListElement: PROGRAMMES.map((p, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: p.course.SITE.program,
+          url: DOMAIN + p.course.routeBase,
+        })),
+      },
+    ],
   };
 
   return (
     <main>
       <Seo
-        title="Skill IT Education | Cyber Security, AI & ML, Data Science Training in Hyderabad"
-        description="Job-ready technology training in Hyderabad — Cyber Security, AI & ML, Data Science, SOC Analyst and Data Analytics, with hands-on labs, real projects and a real-time internship."
+        title="Cyber Security, AI & Data Courses in Hyderabad | Skill IT Education"
+        description="Cutting-edge upskilling in Hyderabad: Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics, with hands-on labs, projects and an internship."
         path="/"
+        ogImage={`${DOMAIN}/img/our-programmes-diagram.png`}
         jsonLd={jsonLd}
       />
 
       <section id="programmes" className="programmes-hero">
-        <h1 className="sr-only">Skill IT Education: job-ready tech training in Hyderabad</h1>
-        {/* The top of the hero is kept free for the page's main (h1) design; this is the section heading under it. */}
-        <h2 className="home-tagline">Connecting Higher Education to Corporate Careers through Advanced Technology Learning.</h2>
+        <h1 className="home-tagline">{HERO_TITLE}</h1>
+        <div className="home-hero-rest">
+          <div className="home-skills">
+            <span className="home-skills-label">Most advanced skills we teach</span>
+            <ul>
+              {ADVANCED_SKILLS.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+          <p className="home-intro">{HERO_INTRO}</p>
+        </div>
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} />
         </div>
