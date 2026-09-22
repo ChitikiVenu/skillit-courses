@@ -26,45 +26,27 @@ const ICONS = {
   ),
 };
 
-const TILT_MAX = 12; // degrees, at the very edge of the card
-const LIFT = 'translateY(-8px) scale(1.045)';
-const REST = 'translateY(0) scale(1)';
-
-function Badge({ badge, tiltEnabled }) {
+function Badge({ badge, glareEnabled }) {
   // A badge with one linked programme goes straight there; one that spans several (e.g. Security+
   // appears in two courses) opens the first, since a single link can only go one place.
   const to = badge.courses[0].routeBase;
   const ref = useRef(null);
 
-  // Real cursor-tracked 3D tilt: the card rotates toward the pointer and a light glare follows it, like a
-  // glossy physical badge catching the light. Disabled under prefers-reduced-motion.
+  // Zoom in while the mouse is over the badge, zoom back out the moment it leaves (no tilt/rotation).
+  // While hovered, a light glare follows the cursor across the surface — purely cosmetic, no motion of
+  // its own, so it's kept even under prefers-reduced-motion.
   const handleMove = (e) => {
-    if (!tiltEnabled) return;
+    if (!glareEnabled) return;
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    const px = (e.clientX - r.left) / r.width;
-    const py = (e.clientY - r.top) / r.height;
-    const rx = (0.5 - py) * TILT_MAX;
-    const ry = (px - 0.5) * TILT_MAX;
-    el.style.setProperty('--rx', `${rx.toFixed(2)}deg`);
-    el.style.setProperty('--ry', `${ry.toFixed(2)}deg`);
-    el.style.setProperty('--mx', `${(px * 100).toFixed(1)}%`);
-    el.style.setProperty('--my', `${(py * 100).toFixed(1)}%`);
-    el.style.setProperty('--lift', LIFT);
+    const px = ((e.clientX - r.left) / r.width) * 100;
+    const py = ((e.clientY - r.top) / r.height) * 100;
+    el.style.setProperty('--mx', `${px.toFixed(1)}%`);
+    el.style.setProperty('--my', `${py.toFixed(1)}%`);
   };
-  const handleEnter = () => {
-    ref.current?.style.setProperty('--lift', tiltEnabled ? LIFT : REST);
-    ref.current?.classList.add('is-active');
-  };
-  const handleLeave = () => {
-    const el = ref.current;
-    if (!el) return;
-    el.style.setProperty('--rx', '0deg');
-    el.style.setProperty('--ry', '0deg');
-    el.style.setProperty('--lift', REST);
-    el.classList.remove('is-active');
-  };
+  const handleEnter = () => ref.current?.classList.add('is-active');
+  const handleLeave = () => ref.current?.classList.remove('is-active');
 
   return (
     <Link
@@ -106,7 +88,7 @@ export default function CertStrip() {
       <div className={`cert-strip-track ${reducedMotion ? 'is-static' : ''}`}>
         <div className="cert-strip-row">
           {track.map((badge, i) => (
-            <Badge badge={badge} tiltEnabled={!reducedMotion} key={`${badge.name}-${i}`} />
+            <Badge badge={badge} glareEnabled={!reducedMotion} key={`${badge.name}-${i}`} />
           ))}
         </div>
       </div>

@@ -1455,27 +1455,25 @@ section[id]{scroll-margin-top:92px;}
 .cert-strip-track:hover .cert-strip-row{animation-play-state:paused;}
 .cert-strip-track.is-static .cert-strip-row{animation:none;overflow-x:auto;}
 @keyframes cert-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-/* Real cursor-tracked 3D tilt (--rx/--ry/--mx/--my/--lift are set from JS in CertStrip.jsx as the
-   pointer moves) with a soft grounded shadow that deepens on lift, and a glare that follows the cursor
-   like light on a glossy badge. transform-style/perspective make the icon and text feel slightly raised
-   off the card surface rather than flat. */
+/* Zoom in while the pointer is over the badge (.is-active, toggled from JS in CertStrip.jsx),
+   zoom back out the moment it leaves — no tilt or rotation. A soft glare follows the cursor across the
+   surface while zoomed in, purely cosmetic. */
 .cert-strip-track{padding:26px 4px 34px;margin:-26px -4px -34px;}
-.cert-strip-row{perspective:1000px;}
 .cert-badge{
-  --rx:0deg;--ry:0deg;--mx:50%;--my:50%;--lift:translateY(0) scale(1);
+  --mx:50%;--my:50%;
   position:relative;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
   width:150px;height:150px;text-align:center;isolation:isolate;overflow:hidden;
   background:linear-gradient(155deg,var(--surface) 0%,var(--bg-alt) 130%);
   border:1px solid var(--border);border-radius:16px;padding:14px 10px;color:inherit;
-  transform-style:preserve-3d;
-  transform:perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) var(--lift);
-  transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .25s,box-shadow .35s;
+  transform:scale(1);transform-origin:center;
+  transition:transform .25s cubic-bezier(.22,1,.36,1),border-color .25s,box-shadow .25s;
   box-shadow:
     0 1px 1px rgba(16,21,31,.05),
     0 4px 10px -6px rgba(16,21,31,.14),
     0 10px 20px -14px rgba(16,21,31,.16);
 }
 .cert-badge.is-active{
+  transform:scale(1.16);
   border-color:var(--accent-2);
   z-index:2;
   box-shadow:
@@ -1494,11 +1492,10 @@ section[id]{scroll-margin-top:92px;}
 .cert-badge-icon{
   flex:none;width:34px;height:34px;padding:7px;border-radius:10px;background:var(--bg-alt);fill:var(--accent-2);
   box-shadow:0 1px 2px rgba(16,21,31,.1),inset 0 1px 0 rgba(255,255,255,.6);
-  transform:translateZ(18px);
-  transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,background .25s;
+  transition:box-shadow .25s,background .25s;
 }
 .cert-badge.is-active .cert-badge-icon{background:#fff;box-shadow:0 8px 16px -6px rgba(37,99,235,.45),inset 0 1px 0 rgba(255,255,255,.9);}
-.cert-badge-text{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;transform:translateZ(10px);transition:transform .35s cubic-bezier(.22,1,.36,1);}
+.cert-badge-text{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;}
 .cert-badge-text strong{
   font-size:12.5px;line-height:1.3;color:var(--text);
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
@@ -1512,7 +1509,6 @@ section[id]{scroll-margin-top:92px;}
   .cert-strip-row{animation-duration:70s;}
 }
 @media (hover: none){
-  /* touch devices report no hover/pointermove worth tracking; keep the cards flat and calm */
-  .cert-badge{transform:none !important;}
-  .cert-badge-icon,.cert-badge-text{transform:none !important;}
+  /* touch devices have no pointer to move over a card, so there is nothing to zoom */
+  .cert-badge.is-active{transform:scale(1);}
 }
