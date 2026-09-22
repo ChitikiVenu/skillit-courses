@@ -1455,15 +1455,50 @@ section[id]{scroll-margin-top:92px;}
 .cert-strip-track:hover .cert-strip-row{animation-play-state:paused;}
 .cert-strip-track.is-static .cert-strip-row{animation:none;overflow-x:auto;}
 @keyframes cert-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+/* Real cursor-tracked 3D tilt (--rx/--ry/--mx/--my/--lift are set from JS in CertStrip.jsx as the
+   pointer moves) with a soft grounded shadow that deepens on lift, and a glare that follows the cursor
+   like light on a glossy badge. transform-style/perspective make the icon and text feel slightly raised
+   off the card surface rather than flat. */
+.cert-strip-track{padding:26px 4px 34px;margin:-26px -4px -34px;}
+.cert-strip-row{perspective:1000px;}
 .cert-badge{
-  flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  width:150px;height:150px;text-align:center;
-  background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px 10px;
-  transition:border-color .15s,box-shadow .15s,transform .15s;color:inherit;
+  --rx:0deg;--ry:0deg;--mx:50%;--my:50%;--lift:translateY(0) scale(1);
+  position:relative;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  width:150px;height:150px;text-align:center;isolation:isolate;overflow:hidden;
+  background:linear-gradient(155deg,var(--surface) 0%,var(--bg-alt) 130%);
+  border:1px solid var(--border);border-radius:16px;padding:14px 10px;color:inherit;
+  transform-style:preserve-3d;
+  transform:perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) var(--lift);
+  transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .25s,box-shadow .35s;
+  box-shadow:
+    0 1px 1px rgba(16,21,31,.05),
+    0 4px 10px -6px rgba(16,21,31,.14),
+    0 10px 20px -14px rgba(16,21,31,.16);
 }
-.cert-badge:hover{border-color:var(--accent-2);box-shadow:0 12px 24px -18px rgba(16,21,31,.4);transform:translateY(-2px);}
-.cert-badge-icon{flex:none;width:34px;height:34px;padding:7px;border-radius:10px;background:var(--bg-alt);fill:var(--accent-2);}
-.cert-badge-text{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;}
+.cert-badge.is-active{
+  border-color:var(--accent-2);
+  z-index:2;
+  box-shadow:
+    0 2px 3px rgba(16,21,31,.08),
+    0 14px 24px -10px rgba(37,99,235,.28),
+    0 28px 46px -20px rgba(16,21,31,.32),
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
+/* the glare: a soft highlight that follows the cursor, as if the badge's surface is catching light */
+.cert-badge-sheen{
+  position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(160px circle at var(--mx) var(--my), rgba(255,255,255,.65), transparent 62%);
+  opacity:0;transition:opacity .3s ease;
+}
+.cert-badge.is-active .cert-badge-sheen{opacity:1;}
+.cert-badge-icon{
+  flex:none;width:34px;height:34px;padding:7px;border-radius:10px;background:var(--bg-alt);fill:var(--accent-2);
+  box-shadow:0 1px 2px rgba(16,21,31,.1),inset 0 1px 0 rgba(255,255,255,.6);
+  transform:translateZ(18px);
+  transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,background .25s;
+}
+.cert-badge.is-active .cert-badge-icon{background:#fff;box-shadow:0 8px 16px -6px rgba(37,99,235,.45),inset 0 1px 0 rgba(255,255,255,.9);}
+.cert-badge-text{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;transform:translateZ(10px);transition:transform .35s cubic-bezier(.22,1,.36,1);}
 .cert-badge-text strong{
   font-size:12.5px;line-height:1.3;color:var(--text);
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
@@ -1475,4 +1510,9 @@ section[id]{scroll-margin-top:92px;}
   .cert-strip-head p{font-size:14px;}
   .cert-badge{width:128px;height:128px;padding:12px 8px;}
   .cert-strip-row{animation-duration:70s;}
+}
+@media (hover: none){
+  /* touch devices report no hover/pointermove worth tracking; keep the cards flat and calm */
+  .cert-badge{transform:none !important;}
+  .cert-badge-icon,.cert-badge-text{transform:none !important;}
 }
