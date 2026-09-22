@@ -23,12 +23,13 @@ import dataAnalyst from '../data/dataAnalyst.js';
 const PROGRAMMES = [
   {
     course: cyberSecurity,
-    title: 'Cyber Security With AI',
+    title: 'Advanced Cyber Security',
     blurb: PROGRAMME_BLURBS[cyberSecurity.routeBase],
     roles: rolesForCourse(cyberSecurity.routeBase),
   },
   {
     course: aiMl,
+    title: 'AI & Machine Learning',
     blurb: PROGRAMME_BLURBS[aiMl.routeBase],
     roles: rolesForCourse(aiMl.routeBase),
   },
@@ -44,6 +45,7 @@ const PROGRAMMES = [
   },
   {
     course: dataAnalyst,
+    title: 'Data Analyst',
     blurb: PROGRAMME_BLURBS[dataAnalyst.routeBase],
     roles: rolesForCourse(dataAnalyst.routeBase),
   },
@@ -68,7 +70,8 @@ const FIT_FINDER = [
 // are AI & ML modules 5, 4 and 6; AI-Powered Cyber Defense is Cyber Security's module 6; SIEM & Threat
 // Hunting is SOC Analyst's modules 4 and 5; Machine Learning is Data Science's module 7), and a short
 // introduction that search engines also see as the organisation description.
-const HERO_TITLE = 'Cutting-Edge Upskilling Programs to Connect Higher Education with Corporate Careers.';
+const HERO_TITLE = 'Technology Training Programs in Cyber Security, AI & ML, Data Science and Data Analytics';
+const HERO_POSITIONING = 'Cutting-Edge Upskilling Programs Connecting Higher Education to Corporate Careers.';
 const ADVANCED_SKILLS = [
   { label: 'Python Full Stack', course: aiMl },
   { label: 'Agentic AI', course: aiMl },
@@ -79,7 +82,7 @@ const ADVANCED_SKILLS = [
   { label: 'Machine Learning', course: dataScience },
 ];
 const HERO_INTRO =
-  'Skill IT Education, in Madhapur, Hyderabad, trains graduates, IT professionals and career switchers in Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics. Every programme brings hands-on labs, real projects and a real-time internship, so classroom learning turns into skills employers look for.';
+  'Skill IT Education provides career-focused training in Cyber Security, SOC Analysis, AI & Machine Learning, Data Science and Data Analytics for graduates, IT professionals and career switchers in Madhapur, Hyderabad. Every programme brings hands-on labs, real projects and a real-time internship, so classroom learning turns into skills employers look for.';
 
 // One-line "who can join" note shown above the h1 — owner-supplied (2026-09-22).
 const ELIGIBILITY_LABEL = 'Who can learn these programmes:';
@@ -153,6 +156,7 @@ export default function LandingPage() {
             <FitHeading className="home-tagline" maxLines={2} minPx={21}>
               {HERO_TITLE}
             </FitHeading>
+            <p className="home-positioning">{HERO_POSITIONING}</p>
             <div className="home-hero-rest">
               <p className="home-intro">{HERO_INTRO}</p>
               <a className="hero-mode-badge" href="#our-programmes">
@@ -162,7 +166,7 @@ export default function LandingPage() {
                 Offline / Online &mdash; Hyderabad
               </a>
               <div className="home-skills">
-                <span className="home-skills-label">Most advanced skills we teach</span>
+                <span className="home-skills-label">Key Skills You Can Learn</span>
                 <div className={`home-skills-track ${reducedMotion ? 'is-static' : ''}`}>
                   <ul className="home-skills-row">
                     {/* duplicated once so the marquee can scroll from 0 to -50% and loop with no visible seam */}
@@ -192,7 +196,7 @@ export default function LandingPage() {
 
       <section className="flow-section" id="our-programmes">
         <div className="wrap">
-          <h2 className="flow-section-title">Our {PROGRAMMES.length} Advanced Programmes</h2>
+          <h2 className="flow-section-title">Explore Our Technology Programs</h2>
         </div>
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} onContact={() => setAdvisorOpen(true)} />
@@ -201,11 +205,29 @@ export default function LandingPage() {
 
       <CertStrip />
 
+      <section id="how-you-learn">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">How Training Works</span>
+            <h2>Learn Through Practical Projects and Labs</h2>
+            <p>Every programme is built around doing the work, not just watching it explained.</p>
+          </div>
+          <ul className="check-list grid-2">
+            <li>Hands-on labs in every module, run in your own practice environment</li>
+            <li>Real, portfolio-ready projects you can show in interviews</li>
+            <li>Industry-standard tools and platforms used on the job, not simplified substitutes</li>
+            <li>A knowledge quiz and a practical assessment at the end of every module</li>
+            <li>A real-time internship phase after the core curriculum</li>
+            <li>Placement assistance — resume support, mock interviews and interview opportunities with hiring partners</li>
+          </ul>
+        </div>
+      </section>
+
       <section id="fit-finder">
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">Not Sure Which One?</span>
-            <h2>Which programme fits you?</h2>
+            <h2>Choose a Program Based on Your Career Goal</h2>
             <p>A quick way to match what you enjoy to the programme built around it.</p>
           </div>
           <div className="fit-panel">
@@ -236,6 +258,31 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="who-can-join" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">Eligibility</span>
+            <h2>Who Can Join Our Programs?</h2>
+            <p>{ELIGIBILITY_TEXT}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="home-faqs">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">Have Questions?</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>Courses, eligibility, fees, internships, projects, certifications and placement support — answered in detail.</p>
+          </div>
+          <div className="hero-ctas" style={{ justifyContent: 'center' }}>
+            <Link className="btn btn-outline" to="/faqs">
+              View All FAQs
+            </Link>
           </div>
         </div>
       </section>
