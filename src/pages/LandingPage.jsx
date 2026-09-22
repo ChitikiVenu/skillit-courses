@@ -77,6 +77,11 @@ const ADVANCED_SKILLS = [
 const HERO_INTRO =
   'Skill IT Education, in Madhapur, Hyderabad, trains graduates, IT professionals and career switchers in Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics. Every programme brings hands-on labs, real projects and a real-time internship, so classroom learning turns into skills employers look for.';
 
+// Eligibility chips shown above the h1, and the next-batch line shown under it — owner-supplied
+// (2026-09-22), update the date/course here when the next batch is confirmed.
+const ELIGIBILITY_CHIPS = ['Eligibility: 2025, 2026 & 2027 graduates', 'Any Branch, Any Degree'];
+const NEXT_BATCH = { course: socAnalyst, date: 'Sep 28' };
+
 export default function LandingPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
   const reducedMotion = usePrefersReducedMotion();
@@ -130,11 +135,31 @@ export default function LandingPage() {
       />
 
       <section id="programmes" className="programmes-hero">
+        <a className="hero-promo-bar" href="#enquire">
+          <span className="hero-promo-badge">Limited-Time Offer</span>
+          <span className="hero-promo-text">
+            <strong>15% off</strong> on all our courses — claim it before you enrol
+          </span>
+          <span className="hero-promo-arrow" aria-hidden="true">
+            &rarr;
+          </span>
+        </a>
         <div className="wrap home-hero-grid">
           <div className="home-hero-left">
+            <div className="hero-chips">
+              {ELIGIBILITY_CHIPS.map((c, i) => (
+                <span className={`hero-chip${i === 0 ? ' hero-chip-accent' : ''}`} key={c}>
+                  {c}
+                </span>
+              ))}
+            </div>
             <FitHeading className="home-tagline" maxLines={2} minPx={18}>
               {HERO_TITLE}
             </FitHeading>
+            <Link className="hero-batch-badge" to={NEXT_BATCH.course.routeBase}>
+              <span className="hero-batch-dot" aria-hidden="true" />
+              Next batch: {NEXT_BATCH.course.COPY.courseShortName} starts {NEXT_BATCH.date}
+            </Link>
             <div className="home-hero-rest">
               <p className="home-intro">{HERO_INTRO}</p>
               <div className="home-skills">
@@ -151,6 +176,14 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
+            <div className="hero-ctas">
+              <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
+                Talk to Counsellor
+              </button>
+              <a className="btn btn-outline" href="#our-programmes">
+                Explore Our Programmes
+              </a>
+            </div>
           </div>
           <div className="home-hero-form">
             <LeadForm
@@ -163,7 +196,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="flow-section">
+      <section className="flow-section" id="our-programmes">
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} />
         </div>

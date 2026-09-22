@@ -732,6 +732,42 @@ a.footer-course:hover{color:var(--accent-2);}
    breathe instead of being squeezed under the headline. */
 .flow-section{padding:20px 0 32px;}
 .programmes-hero{background:var(--bg-alt);border-bottom:1px solid var(--border);padding:28px 0 32px;}
+/* Slim offer bar above the hero grid (owner-supplied offer, 2026-09-22) — full width, its own warm
+   accent so it reads as a banner rather than part of the headline. */
+.hero-promo-bar{
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+  margin:0 0 18px;padding:9px 20px;text-align:center;
+  background:linear-gradient(90deg,rgba(234,88,12,.12),rgba(234,88,12,.06));
+  border-bottom:1px solid rgba(234,88,12,.25);color:var(--text);
+  font-size:13.5px;transition:background .2s;
+}
+.hero-promo-bar:hover{background:linear-gradient(90deg,rgba(234,88,12,.18),rgba(234,88,12,.1));}
+.hero-promo-badge{
+  flex:none;font-family:var(--mono);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  color:#fff;background:var(--orange);border-radius:100px;padding:3px 10px;
+}
+.hero-promo-text strong{color:var(--orange);}
+.hero-promo-arrow{font-weight:700;color:var(--orange);transition:transform .2s;}
+.hero-promo-bar:hover .hero-promo-arrow{transform:translateX(3px);}
+
+/* Eligibility chips above the h1, and the next-batch line below it (ccbp.in/intensive-style hero
+   layout, owner-requested 2026-09-22, restyled to this site's palette). Chip/badge accents are fine
+   here per the design rule — it's the running headline/paragraph text that must stay black, not
+   small pill UI like this (see .fit-card-programme for the same pattern). */
+.hero-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+.hero-chip{
+  font-size:12.5px;font-weight:700;color:var(--text-dim);background:var(--surface);
+  border:1px solid var(--border);border-radius:100px;padding:6px 13px;
+}
+.hero-chip-accent{color:var(--accent-dim);background:rgba(12,154,131,.1);border-color:rgba(12,154,131,.3);}
+.hero-batch-badge{
+  display:inline-flex;align-items:center;gap:7px;margin:10px auto 0;
+  font-size:13px;font-weight:700;color:var(--orange);background:rgba(234,88,12,.08);
+  border:1px solid rgba(234,88,12,.28);border-radius:100px;padding:6px 14px;
+  transition:background .2s,transform .15s;
+}
+.hero-batch-badge:hover{background:rgba(234,88,12,.14);transform:translateY(-1px);}
+.hero-batch-dot{flex:none;width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 3px rgba(234,88,12,.18);}
 /* Hero: headline/intro/skills on the left, a lead-capture form on the right. Stacked on phones and
    tablets (form under the text); side by side from 800px on a mouse/trackpad device, or 1151px on any
    device, per the mobile-vs-desktop rule. */
@@ -786,8 +822,10 @@ a.footer-course:hover{color:var(--accent-2);}
   .programmes-hero{padding:22px 0 28px;}
   .home-hero-grid{flex-direction:row;align-items:center;gap:48px;}
   .home-hero-left{flex:1 1 auto;}
+  .hero-chips{justify-content:flex-start;}
+  .hero-batch-badge{margin-left:0;}
   /* the headline sits 1 cm under the header, on up to two lines (see the two-line-headline rule; FitHeading enforces it) */
-  .home-tagline{max-width:none;margin:calc(1cm - 14px) 0 14px;text-align:left;font-size:clamp(24px,2.6vw,40px);letter-spacing:-.02em;}
+  .home-tagline{max-width:none;margin:calc(1cm - 14px) 0 6px;text-align:left;font-size:clamp(24px,2.6vw,40px);letter-spacing:-.02em;}
   .home-hero-rest{align-items:flex-start;text-align:left;justify-content:flex-start;}
   .home-skills{align-items:flex-start;}
   .home-intro{font-size:16.5px;}
@@ -806,6 +844,10 @@ a.footer-course:hover{color:var(--accent-2);}
   .home-intro{font-size:14px;line-height:1.55;}
   .home-hero-grid{gap:20px;}
   .home-hero-form{padding:18px 16px;max-width:420px;}
+  .hero-promo-bar{margin-bottom:14px;padding:8px 16px;font-size:12.5px;}
+  .hero-promo-badge{font-size:9.5px;padding:3px 8px;}
+  .hero-chip{font-size:11.5px;padding:5px 11px;}
+  .hero-batch-badge{font-size:12px;padding:5px 12px;text-align:left;}
 }
 .flow-wrap{
   position:relative;width:100%;max-width:1400px;height:680px;
