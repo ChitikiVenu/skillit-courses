@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ROLE_GROUPS } from '../data/roleCourses/index.js';
 import { DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
 
-// Under the logo: the site links, one by one. About Us, FAQs and Refund Policy are pages whose content is still to come.
+// Under the logo: the site links, one by one. About Us and Refund Policy are pages whose content is still to come.
 const SITE_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about-us' },
