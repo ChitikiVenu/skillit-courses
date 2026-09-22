@@ -17,18 +17,23 @@ const SITE_LINKS = [
 
 // The five programmes side by side across the footer, each with its role courses under it, and the logo and site links on
 // the left. On phones each programme is a collapsible group so the footer stays short; on laptops and desktops every list is open.
-export default function Footer() {
+export default function Footer({ onBook }) {
   const wide = useMediaQuery(DESKTOP_HEADER);
   const [open, setOpen] = useState(null);
 
   return (
     <footer className="site-footer">
       <div className="footer-wide">
+        <div className="footer-brand-row">
+          <Link to="/" className="footer-brand" aria-label="Skill IT Education, home">
+            <img src="/img/skill-it-logo.png" alt="Skill IT Education" width="520" height="206" loading="lazy" />
+          </Link>
+          <button type="button" className="btn btn-book footer-book-btn" onClick={onBook}>
+            Book a free session
+          </button>
+        </div>
         <div className="footer-layout">
           <div className="footer-side footer-about">
-            <Link to="/" className="footer-brand" aria-label="Skill IT Education, home">
-              <img src="/img/skill-it-logo.png" alt="Skill IT Education" width="520" height="206" loading="lazy" />
-            </Link>
             <ul className="footer-site-links">
               {SITE_LINKS.map((l) => (
                 <li key={l.label}>

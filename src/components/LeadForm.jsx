@@ -15,7 +15,7 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
     <div className={`lead-form-card${bare ? ' is-bare' : ''}`}>
       <div className="lead-form-head">
         <h3>{heading}</h3>
-        <p>{subheading}</p>
+        {subheading && <p>{subheading}</p>}
       </div>
       <form className="lead-form" onSubmit={handleSubmit} noValidate>
         {!submitted && (
@@ -58,7 +58,7 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
                 Request a Callback
               </button>
             </div>
-            <div className="form-note">Our admissions team will call you back within 24 hours.</div>
+            <div className="form-note">Our admissions team will call you back within 90 minutes.</div>
           </>
         )}
         {submitted && (

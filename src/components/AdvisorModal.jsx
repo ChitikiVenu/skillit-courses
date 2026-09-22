@@ -40,7 +40,7 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
         {!submitted ? (
           <>
             <h3>{title}</h3>
-            <p>Share a few details and our admissions team will call you back within 24 hours.</p>
+            <p>Share a few details and our admissions team will call you back within 90 minutes.</p>
             <form className="modal-form" onSubmit={handleSubmit} noValidate>
               <div className="modal-field">
                 <label htmlFor="advisor-name">Full Name</label>

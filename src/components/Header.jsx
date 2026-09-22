@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { PROGRAMMES, WHATSAPP_URL } from '../constants.js';
-import WhatsAppIcon from './WhatsAppIcon.jsx';
+import { PROGRAMMES } from '../constants.js';
 import { BLOG_COURSES } from '../data/blogPosts.js';
 import { DESKTOP_HEADER } from '../useMediaQuery.js';
 import { INSIGHT_BLURBS, PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
@@ -66,10 +65,11 @@ function NavMenu({ id, label, to, items, active, open, wide, onEnter, onLeave, o
   );
 }
 
-// The logo is the Home link. Wide screens show the two menus, a WhatsApp chat button and the
-// orange "Book a free session" button. Phones show only the logo and a Menu button, which opens a
-// compact dropdown (Home and two collapsible groups), not a full-screen sheet; the booking and WhatsApp
-// buttons float on screen instead (FloatingActions).
+// The logo is the Home link. Wide screens show the two menus and the orange "Book a free session"
+// button (WhatsApp was removed from the desktop header, 2026-09-22 — it's still reachable on phones
+// via the floating WhatsApp button, FloatingActions). Phones show only the logo and a Menu button,
+// which opens a compact dropdown (Home and two collapsible groups), not a full-screen sheet; the
+// booking and WhatsApp buttons float on screen instead (FloatingActions).
 export default function Header({ onBook }) {
   const { pathname, search } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -217,10 +217,6 @@ export default function Header({ onBook }) {
         </nav>
 
         <div className="header-actions">
-          <a className="header-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-            <WhatsAppIcon />
-            <span>WhatsApp</span>
-          </a>
           <button type="button" className="btn btn-book" onClick={onBook}>
             Book a free session
           </button>
