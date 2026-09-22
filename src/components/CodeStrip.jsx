@@ -96,8 +96,11 @@ FROM monthly;`,
   },
 ].map((s) => ({ ...s, lines: s.code.split('\n') }));
 
-// The strip is short (about a fifth of the screen); older rows scroll up out of it.
-const VISIBLE_ROWS = 14;
+// The code editor now fills the whole tablet screen (2026-09-22 — it used to be a short strip under
+// typed marketing copy). Rows are bottom-aligned with overflow clipped above (.code-body's
+// flex-end + overflow:hidden), so any screen height just shows however many of the last VISIBLE_ROWS
+// actually fit — this only needs to be "large enough for the tallest tablet", not exact.
+const VISIBLE_ROWS = 60;
 
 const KEYWORDS = new Set([
   'import', 'from', 'def', 'for', 'in', 'if', 'return', 'const', 'let', 'not', 'true', 'false', 'null',
@@ -143,14 +146,23 @@ const Row = memo(function Row({ n, text, cursor }) {
   );
 });
 
-// The screen starts already full of code (the last few scripts), so a tall screen is never empty;
-// typing then carries on from the first script.
+// The screen starts already full of code, so a tall screen is never empty while the first line types;
+// typing then carries on from the first script. Walks backward through the snippets, wrapping around
+// as many times as it takes to reach VISIBLE_ROWS — a single lap (the last 3 snippets) isn't enough
+// rows to fill the full-height screen any more.
 function prefill() {
   const rows = [];
   let id = 0;
-  SNIPPETS.slice(-3).forEach((snip) => {
-    snip.lines.forEach((text, i) => rows.push({ id: id++, n: i + 1, text }));
-    rows.push({ id: id++, n: null, text: '' });
+  let idx = SNIPPETS.length;
+  while (rows.length < VISIBLE_ROWS) {
+    idx = (idx - 1 + SNIPPETS.length) % SNIPPETS.length;
+    const snip = SNIPPETS[idx];
+    const block = snip.lines.map((text, i) => ({ id: 0, n: i + 1, text }));
+    block.push({ id: 0, n: null, text: '' });
+    rows.unshift(...block);
+  }
+  rows.forEach((r) => {
+    r.id = id++;
   });
   return { rows, nextId: id };
 }
