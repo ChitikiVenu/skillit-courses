@@ -188,7 +188,7 @@ const RAW_CATEGORIES = [
     items: [
       {
         q: 'What are the fees for each programme?',
-        a: 'Cyber Security is ₹45K online / ₹55K offline, AI & ML is ₹55K online / ₹65K offline, Data Science is ₹50K online / ₹55K offline, SOC Analyst is ₹50K online / ₹55K offline, and Data Analytics is ₹45K online / ₹50K offline. Fees are also shown on each programme’s own page.',
+        a: 'Cyber Security is ₹45,000 online / ₹55,000 offline, AI & ML is ₹55,000 online / ₹65,000 offline, Data Science is ₹50,000 online / ₹55,000 offline, SOC Analyst is ₹50,000 online / ₹55,000 offline, and Data Analytics is ₹45,000 online / ₹50,000 offline. Fees are also shown on each programme’s own page.',
       },
       {
         q: 'Why is the offline fee higher than the online fee?',

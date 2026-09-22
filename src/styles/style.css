@@ -673,7 +673,7 @@ a.footer-course:hover{color:var(--accent-2);}
 .fit-row{display:flex;width:max-content;gap:18px;padding:4px 28px;animation:cert-scroll 38s linear infinite;}
 .fit-track:hover .fit-row,.fit-track:focus-within .fit-row{animation-play-state:paused;}
 .fit-track.is-static .fit-row{animation:none;overflow-x:auto;-webkit-mask-image:none;mask-image:none;}
-.fit-row .fit-card{flex:0 0 260px;width:260px;}
+.fit-row .fit-card{flex:0 0 300px;width:300px;}
 .fit-card{
   position:relative;overflow:hidden;display:flex;flex-direction:column;
   background:var(--surface);border:1px solid var(--border);border-radius:18px;color:inherit;
@@ -697,7 +697,7 @@ a.footer-course:hover{color:var(--accent-2);}
   background:var(--fit-tint);border-radius:100px;padding:4px 11px;margin-top:-30px;
   box-shadow:0 6px 14px -8px rgba(16,21,31,.25);
 }
-.fit-card-interest{margin:2px 0 0;flex:1;font-size:17px;font-weight:700;line-height:1.4;color:var(--text);}
+.fit-card-interest{margin:2px 0 0;flex:1;font-size:14.5px;font-weight:700;line-height:1.4;color:var(--text);}
 .fit-card-cta{
   display:inline-flex;align-items:center;gap:6px;margin-top:4px;
   font-size:14px;font-weight:700;color:var(--fit-tint-text);
@@ -706,26 +706,27 @@ a.footer-course:hover{color:var(--accent-2);}
 .fit-card:hover .fit-card-arrow,.fit-card:focus-visible .fit-card-arrow{transform:translateX(4px);}
 @media (min-width: 800px) and (max-width: 1150px){
   .fit-row{gap:14px;padding:4px 20px;}
-  .fit-row .fit-card{flex-basis:220px;width:220px;}
+  .fit-row .fit-card{flex-basis:250px;width:250px;}
   .fit-card-visual{aspect-ratio:4/4;padding-top:10px;}
   .fit-card-body{padding:12px 12px 14px;gap:6px;}
   .fit-card-programme{margin-top:-22px;font-size:9.5px;padding:3px 9px;}
-  .fit-card-interest{font-size:13.5px;}
+  .fit-card-interest{font-size:12.5px;}
   .fit-card-cta{font-size:12px;}
   .fit-card-arrow{width:14px;height:14px;}
 }
 @media (max-width: 880px) and (not (pointer: fine)), (max-width: 799px){
   .fit-panel{border-radius:18px;padding:20px 0;}
   .fit-row{gap:14px;padding:4px 18px;}
-  .fit-row .fit-card{flex-basis:200px;width:200px;}
+  .fit-row .fit-card{flex-basis:230px;width:230px;}
   .fit-card-body{padding:14px 14px 16px;}
   .fit-card-programme{margin-top:-24px;font-size:10px;padding:3px 9px;}
-  .fit-card-interest{font-size:14.5px;}
+  .fit-card-interest{font-size:13px;}
   .fit-card-cta{font-size:13px;}
 }
 @media (max-width: 560px){
-  .fit-row .fit-card{flex-basis:180px;width:180px;}
+  .fit-row .fit-card{flex-basis:210px;width:210px;}
   .fit-card-visual{aspect-ratio:4/2.9;}
+  .fit-card-interest{font-size:12.5px;}
 }
 
 /* ---------------------------------------------------------------- Advisor modal */
@@ -860,13 +861,19 @@ a.footer-course:hover{color:var(--accent-2);}
   .home-hero-form{flex-basis:340px;max-width:340px;padding:18px 18px 16px;}
 }
 @media (max-width: 799px){
-  .home-hero-rest{gap:10px;padding:0 0 6px;}
+  /* The mobile hero was too cramped (owner: "clumsy... give me some space") — a bit more room between
+     the eligibility box, headline, intro, mode badge, marquee and buttons, and before the form. */
+  .hero-eligibility{margin-bottom:20px;}
+  .home-tagline{margin-bottom:16px;}
+  .home-hero-rest{gap:18px;padding:0 0 10px;}
+  .hero-mode-badge{margin:2px 0 6px;}
   .home-skills-label{display:none;}
   .home-skills-track{max-width:100%;}
   .home-skills-row{animation-duration:16s;}
   .home-skills-row a{font-size:12.5px;padding:4px 10px;}
   .home-intro{font-size:14px;line-height:1.55;}
-  .home-hero-grid{gap:20px;}
+  .home-hero-grid{gap:30px;}
+  .hero-ctas{margin-top:26px;}
   .home-hero-form{padding:18px 16px;max-width:420px;}
   .hero-eligibility{font-size:12px;padding:11px 14px;text-align:left;}
 }

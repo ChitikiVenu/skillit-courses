@@ -52,12 +52,15 @@ const PROGRAMMES = [
 // Each card gets a student photo the owner supplied (public/img/fit-photos/<slug>.webp — background
 // removed, cropped to the waist) and a matching tint for its chip and CTA colour. No name or claim is
 // attached to any photo; they are decorative, like the rest of the card.
+// Each interest line is now a full "if you like/want X, you should try our Y programme" recommendation
+// (owner-requested 2026-09-22), not just a standalone description — it names the programme itself, the
+// same one the card's own link and "Explore X" button already point to.
 const FIT_FINDER = [
-  { interest: 'You want to break into systems and defend them', course: cyberSecurity, image: 'cyber-security', w: 640, h: 691, tint: '#e9f0ff', tintText: '#2450d6' },
-  { interest: 'You want to build and ship AI-powered products', course: aiMl, image: 'ai-ml', w: 640, h: 768, tint: '#f2edff', tintText: '#7c3aed' },
-  { interest: 'You like statistics, Python and building predictive models', course: dataScience, image: 'data-science', w: 640, h: 691, tint: '#e8faf3', tintText: '#0c9a83' },
-  { interest: 'You want to monitor live systems and respond to real attacks', course: socAnalyst, image: 'soc-analyst', w: 640, h: 778, tint: '#fff1e6', tintText: '#c2410c' },
-  { interest: 'You like Excel, SQL and turning numbers into decisions', course: dataAnalyst, image: 'data-analyst', w: 640, h: 787, tint: '#fff8e1', tintText: '#a16207' },
+  { interest: 'If you want to break into systems and defend them, you should try our Cyber Security programme.', course: cyberSecurity, image: 'cyber-security', w: 640, h: 691, tint: '#e9f0ff', tintText: '#2450d6' },
+  { interest: 'If you want to build and ship AI-powered products, you should try our AI & ML programme.', course: aiMl, image: 'ai-ml', w: 640, h: 768, tint: '#f2edff', tintText: '#7c3aed' },
+  { interest: 'If you like statistics, Python and building predictive models, you should try our Data Science programme.', course: dataScience, image: 'data-science', w: 640, h: 691, tint: '#e8faf3', tintText: '#0c9a83' },
+  { interest: 'If you want to monitor live systems and respond to real attacks, you should try our SOC Analyst programme.', course: socAnalyst, image: 'soc-analyst', w: 640, h: 778, tint: '#fff1e6', tintText: '#c2410c' },
+  { interest: 'If you like Excel, SQL and turning numbers into decisions, you should try our Data Analytics programme.', course: dataAnalyst, image: 'data-analyst', w: 640, h: 787, tint: '#fff8e1', tintText: '#a16207' },
 ];
 
 // The home page's main heading section: the h1, the most advanced skills the programmes teach (each one
