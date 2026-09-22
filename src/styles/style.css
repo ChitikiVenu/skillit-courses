@@ -744,16 +744,22 @@ a.footer-course:hover{color:var(--accent-2);}
 .home-skills-row{list-style:none;margin:0;padding:2px 0;display:flex;width:max-content;gap:8px;animation:cert-scroll 22s linear infinite;}
 .home-skills-track:hover .home-skills-row{animation-play-state:paused;}
 .home-skills-track.is-static .home-skills-row{animation:none;overflow-x:auto;max-width:100%;}
-.home-skills-row li{
-  flex:none;white-space:nowrap;font-size:13.5px;font-weight:600;color:var(--text);
+.home-skills-row li{flex:none;}
+/* each chip links to the programme whose modules teach it (see ADVANCED_SKILLS in LandingPage.jsx) */
+.home-skills-row a{
+  display:block;white-space:nowrap;font-size:13.5px;font-weight:600;color:var(--text);
   background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:5px 13px;
+  transition:background .15s,color .15s,border-color .15s,transform .15s;
+}
+.home-skills-row a:hover,.home-skills-row a:focus-visible{
+  background:var(--accent-2);border-color:var(--accent-2);color:#fff;transform:translateY(-1px);
 }
 @media (max-width: 799px){
   .home-hero-rest{gap:10px;padding:0 16px 6px;}
   .home-skills-label{display:none;}
   .home-skills-track{max-width:100%;}
   .home-skills-row{animation-duration:16s;}
-  .home-skills-row li{font-size:12.5px;padding:4px 10px;}
+  .home-skills-row a{font-size:12.5px;padding:4px 10px;}
   .home-intro{font-size:14px;line-height:1.55;}
 }
 .flow-wrap{

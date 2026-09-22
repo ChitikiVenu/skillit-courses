@@ -60,11 +60,20 @@ const FIT_FINDER = [
   { interest: 'You like Excel, SQL and turning numbers into decisions', course: dataAnalyst, image: 'data-analyst', tint: '#fff8e1', tintText: '#a16207' },
 ];
 
-// The home page's main heading section: the h1, the most advanced skills the programmes teach (from each programme's own
-// modules: Agentic AI, Generative AI and LLMs, MLOps, AI-powered security operations, SIEM and threat hunting, machine
-// learning), and a short introduction that search engines also see as the organisation description.
+// The home page's main heading section: the h1, the most advanced skills the programmes teach (each one
+// linked to the programme whose own modules actually teach it — Agentic AI, Generative AI & LLMs and MLOps
+// are AI & ML modules 5, 4 and 6; AI-Powered Cyber Defense is Cyber Security's module 6; SIEM & Threat
+// Hunting is SOC Analyst's modules 4 and 5; Machine Learning is Data Science's module 7), and a short
+// introduction that search engines also see as the organisation description.
 const HERO_TITLE = 'Cutting-Edge Upskilling Programs to Connect Higher Education with Corporate Careers.';
-const ADVANCED_SKILLS = ['Agentic AI', 'Generative AI & LLMs', 'MLOps', 'AI-Powered Cyber Defense', 'SIEM & Threat Hunting', 'Machine Learning'];
+const ADVANCED_SKILLS = [
+  { label: 'Agentic AI', course: aiMl },
+  { label: 'Generative AI & LLMs', course: aiMl },
+  { label: 'MLOps', course: aiMl },
+  { label: 'AI-Powered Cyber Defense', course: cyberSecurity },
+  { label: 'SIEM & Threat Hunting', course: socAnalyst },
+  { label: 'Machine Learning', course: dataScience },
+];
 const HERO_INTRO =
   'Skill IT Education, in Madhapur, Hyderabad, trains graduates, IT professionals and career switchers in Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics. Every programme brings hands-on labs, real projects and a real-time internship, so classroom learning turns into skills employers look for.';
 
@@ -129,8 +138,10 @@ export default function LandingPage() {
             <div className={`home-skills-track ${reducedMotion ? 'is-static' : ''}`}>
               <ul className="home-skills-row">
                 {/* duplicated once so the marquee can scroll from 0 to -50% and loop with no visible seam */}
-                {[...ADVANCED_SKILLS, ...ADVANCED_SKILLS].map((skill, i) => (
-                  <li key={`${skill}-${i}`}>{skill}</li>
+                {[...ADVANCED_SKILLS, ...ADVANCED_SKILLS].map(({ label, course }, i) => (
+                  <li key={`${label}-${i}`}>
+                    <Link to={course.routeBase}>{label}</Link>
+                  </li>
                 ))}
               </ul>
             </div>
