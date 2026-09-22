@@ -1442,3 +1442,33 @@ section[id]{scroll-margin-top:92px;}
   .policy-contact dl{grid-template-columns:1fr;gap:2px;}
   .policy-contact dt{margin-top:8px;}
 }
+
+/* ---------------------------------------------------------------- Certification strip (home page, under the funnel)
+   Generic badge icons (never a certification body's own logo — see the design-rules memory) in a strip that scrolls
+   left to right on its own; every name is read from a programme's own CERTIFICATIONS list. */
+.cert-strip-section{padding:36px 0 44px;border-top:1px solid var(--border);overflow:hidden;}
+.cert-strip-head{text-align:center;margin-bottom:22px;}
+.cert-strip-head h2{margin:0 0 6px;font-size:clamp(22px,2.6vw,30px);}
+.cert-strip-head p{margin:0 auto;max-width:64ch;font-size:15px;color:var(--text-faint);}
+.cert-strip-track{width:100%;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+.cert-strip-row{display:flex;width:max-content;gap:14px;padding:2px 0;animation:cert-scroll 46s linear infinite;}
+.cert-strip-track:hover .cert-strip-row{animation-play-state:paused;}
+.cert-strip-track.is-static .cert-strip-row{animation:none;overflow-x:auto;}
+@keyframes cert-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.cert-badge{
+  flex:none;display:flex;align-items:center;gap:10px;width:280px;
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px 16px;
+  transition:border-color .15s,box-shadow .15s,transform .15s;color:inherit;
+}
+.cert-badge:hover{border-color:var(--accent-2);box-shadow:0 12px 24px -18px rgba(16,21,31,.4);transform:translateY(-2px);}
+.cert-badge-icon{flex:none;width:30px;height:30px;padding:6px;border-radius:9px;background:var(--bg-alt);fill:var(--accent-2);}
+.cert-badge-text{display:flex;flex-direction:column;gap:1px;min-width:0;}
+.cert-badge-text strong{font-size:13.5px;line-height:1.3;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.cert-badge-text em{font-size:11.5px;font-style:normal;font-weight:600;color:var(--text-faint);}
+@media (max-width: 799px){
+  .cert-strip-section{padding:26px 0 32px;}
+  .cert-strip-head{margin-bottom:16px;padding:0 20px;}
+  .cert-strip-head p{font-size:14px;}
+  .cert-badge{width:220px;padding:10px 13px;}
+  .cert-strip-row{animation-duration:34s;}
+}

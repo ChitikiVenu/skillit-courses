@@ -5,6 +5,7 @@ import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
+import CertStrip from '../components/CertStrip.jsx';
 import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
 import { rolesForCourse } from '../data/roleCourses/index.js';
 import cyberSecurity from '../data/cyberSecurity.js';
@@ -130,6 +131,8 @@ export default function LandingPage() {
           <ProgrammeFlow programmes={PROGRAMMES} />
         </div>
       </section>
+
+      <CertStrip />
 
       <section id="fit-finder">
         <div className="wrap">
