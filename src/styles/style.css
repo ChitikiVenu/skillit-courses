@@ -651,10 +651,11 @@ a.footer-course:hover{color:var(--accent-2);}
   box-shadow:0 2px 4px rgba(16,21,31,.06),0 26px 40px -20px color-mix(in srgb,var(--fit-tint-text) 45%,transparent),0 16px 28px -18px rgba(16,21,31,.22);
 }
 .fit-card-visual{
-  display:block;aspect-ratio:16/11;background:var(--fit-tint);overflow:hidden;
+  display:flex;align-items:flex-end;justify-content:center;
+  aspect-ratio:4/3.6;background:var(--fit-tint);overflow:hidden;padding-top:14px;
 }
-.fit-card-visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.22,1,.36,1);}
-.fit-card:hover .fit-card-visual img,.fit-card:focus-visible .fit-card-visual img{transform:scale(1.06) translateY(-2%);}
+.fit-card-visual img{width:auto;max-width:94%;height:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.22,1,.36,1);}
+.fit-card:hover .fit-card-visual img,.fit-card:focus-visible .fit-card-visual img{transform:scale(1.05) translateY(-2%);}
 .fit-card-body{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:18px 20px 20px;}
 .fit-card-programme{
   display:inline-flex;align-items:center;font-family:var(--mono);font-size:11px;font-weight:700;
@@ -672,7 +673,7 @@ a.footer-course:hover{color:var(--accent-2);}
 @media (min-width: 800px) and (max-width: 1150px){
   /* narrower desktop/tablet windows: four columns is tight, so the card shrinks instead of dropping the count */
   .fit-grid{gap:12px;}
-  .fit-card-visual{aspect-ratio:16/13;}
+  .fit-card-visual{aspect-ratio:4/4;padding-top:10px;}
   .fit-card-body{padding:12px 12px 14px;gap:6px;}
   .fit-card-programme{margin-top:-22px;font-size:9.5px;padding:3px 9px;}
   .fit-card-interest{font-size:13.5px;}
@@ -688,7 +689,7 @@ a.footer-course:hover{color:var(--accent-2);}
 }
 @media (max-width: 560px){
   .fit-grid{grid-template-columns:1fr;}
-  .fit-card-visual{aspect-ratio:16/9;}
+  .fit-card-visual{aspect-ratio:4/2.9;}
 }
 
 /* ---------------------------------------------------------------- Advisor modal */

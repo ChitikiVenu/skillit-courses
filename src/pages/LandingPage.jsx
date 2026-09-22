@@ -48,16 +48,15 @@ const PROGRAMMES = [
   },
 ];
 
-// Each card gets a small illustration (public/img/fit/<slug>.svg — a student at a laptop, drawn for this
-// site) and a matching tint for its chip and CTA colour. These are illustrations, not photos: there are no
-// real photographs of Skill IT students to use honestly, so a stylised drawing is what "attractive, with
-// images" means here without implying a real student photo that doesn't exist.
+// Each card gets a student photo the owner supplied (public/img/fit-photos/<slug>.png — background
+// removed, cropped to the waist) and a matching tint for its chip and CTA colour. No name or claim is
+// attached to any photo; they are decorative, like the rest of the card.
 const FIT_FINDER = [
-  { interest: 'You want to break into systems and defend them', course: cyberSecurity, image: 'cyber-security', tint: '#e9f0ff', tintText: '#2450d6' },
-  { interest: 'You want to build and ship AI-powered products', course: aiMl, image: 'ai-ml', tint: '#f2edff', tintText: '#7c3aed' },
-  { interest: 'You like statistics, Python and building predictive models', course: dataScience, image: 'data-science', tint: '#e8faf3', tintText: '#0c9a83' },
-  { interest: 'You want to monitor live systems and respond to real attacks', course: socAnalyst, image: 'soc-analyst', tint: '#fff1e6', tintText: '#c2410c' },
-  { interest: 'You like Excel, SQL and turning numbers into decisions', course: dataAnalyst, image: 'data-analyst', tint: '#fff8e1', tintText: '#a16207' },
+  { interest: 'You want to break into systems and defend them', course: cyberSecurity, image: 'cyber-security', w: 640, h: 691, tint: '#e9f0ff', tintText: '#2450d6' },
+  { interest: 'You want to build and ship AI-powered products', course: aiMl, image: 'ai-ml', w: 640, h: 768, tint: '#f2edff', tintText: '#7c3aed' },
+  { interest: 'You like statistics, Python and building predictive models', course: dataScience, image: 'data-science', w: 640, h: 691, tint: '#e8faf3', tintText: '#0c9a83' },
+  { interest: 'You want to monitor live systems and respond to real attacks', course: socAnalyst, image: 'soc-analyst', w: 640, h: 778, tint: '#fff1e6', tintText: '#c2410c' },
+  { interest: 'You like Excel, SQL and turning numbers into decisions', course: dataAnalyst, image: 'data-analyst', w: 640, h: 787, tint: '#fff8e1', tintText: '#a16207' },
 ];
 
 // The home page's main heading section: the h1, the most advanced skills the programmes teach (each one
@@ -162,7 +161,7 @@ export default function LandingPage() {
             <p>A quick way to match what you enjoy to the programme built around it.</p>
           </div>
           <div className="fit-grid">
-            {FIT_FINDER.map(({ interest, course, image, tint, tintText }) => (
+            {FIT_FINDER.map(({ interest, course, image, w, h, tint, tintText }) => (
               <Link
                 className="fit-card"
                 to={course.routeBase}
@@ -170,7 +169,7 @@ export default function LandingPage() {
                 style={{ '--fit-tint': tint, '--fit-tint-text': tintText }}
               >
                 <span className="fit-card-visual">
-                  <img src={`/img/fit/${image}.svg`} alt="" width="320" height="260" loading="lazy" />
+                  <img src={`/img/fit-photos/${image}.webp`} alt="" width={w} height={h} loading="lazy" />
                 </span>
                 <span className="fit-card-body">
                   <span className="fit-card-programme">{course.COPY.courseShortName}</span>
