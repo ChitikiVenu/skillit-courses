@@ -47,13 +47,30 @@ const PROGRAMMES = [
   },
 ];
 
+// Generic icon per programme (a shape drawn for this site, never a certification or company logo — see
+// CertStrip.jsx / the design-rules memory) so the fit-finder cards read at a glance, not just by colour.
 const FIT_FINDER = [
-  { interest: 'You want to break into systems and defend them', course: cyberSecurity },
-  { interest: 'You want to build and ship AI-powered products', course: aiMl },
-  { interest: 'You like statistics, Python and building predictive models', course: dataScience },
-  { interest: 'You want to monitor live systems and respond to real attacks', course: socAnalyst },
-  { interest: 'You like Excel, SQL and turning numbers into decisions', course: dataAnalyst },
+  { interest: 'You want to break into systems and defend them', course: cyberSecurity, icon: 'shield' },
+  { interest: 'You want to build and ship AI-powered products', course: aiMl, icon: 'spark' },
+  { interest: 'You like statistics, Python and building predictive models', course: dataScience, icon: 'atom' },
+  { interest: 'You want to monitor live systems and respond to real attacks', course: socAnalyst, icon: 'radar' },
+  { interest: 'You like Excel, SQL and turning numbers into decisions', course: dataAnalyst, icon: 'chart' },
 ];
+
+const FIT_ICONS = {
+  shield: <path d="M12 2.5 4.5 5.5v6c0 5 3.2 8.6 7.5 10 4.3-1.4 7.5-5 7.5-10v-6L12 2.5Zm-1.1 12.4-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6Z" />,
+  spark: <path d="m11 21 1-7-5 1 8-11-1 7 5-1Z" />,
+  atom: (
+    <>
+      <circle cx="12" cy="12" r="2.1" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(0 12 12)" fill="none" stroke="currentColor" strokeWidth="1.6" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)" fill="none" stroke="currentColor" strokeWidth="1.6" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)" fill="none" stroke="currentColor" strokeWidth="1.6" />
+    </>
+  ),
+  radar: <path d="M12 2v3.2A6.8 6.8 0 0 1 18.8 12H22a10 10 0 0 0-10-10Zm0 6.5A3.5 3.5 0 1 0 15.5 12 3.5 3.5 0 0 0 12 8.5ZM12 2A10 10 0 0 0 2 12h3.2A6.8 6.8 0 0 1 12 5.2Zm0 16.8A6.8 6.8 0 0 1 5.2 12H2a10 10 0 0 0 10 10Zm0 0A10 10 0 0 0 22 12h-3.2A6.8 6.8 0 0 1 12 18.8Z" />,
+  chart: <path d="M4 20V10h3v10Zm6.5 0V4h3v16Zm6.5 0v-7h3v7Z" />,
+};
 
 // The home page's main heading section: the h1, the most advanced skills the programmes teach (from each programme's own
 // modules: Agentic AI, Generative AI and LLMs, MLOps, AI-powered security operations, SIEM and threat hunting, machine
@@ -142,15 +159,22 @@ export default function LandingPage() {
             <p>A quick way to match what you enjoy to the programme built around it.</p>
           </div>
           <div className="fit-grid">
-            {FIT_FINDER.map(({ interest, course }) => (
-              <div className="fit-item" key={course.routeBase}>
-                <div className="fit-text">
-                  <strong>{interest}</strong>
-                </div>
-                <Link className="fit-cta" to={course.routeBase}>
-                  {course.COPY.courseShortName} &rarr;
-                </Link>
-              </div>
+            {FIT_FINDER.map(({ interest, course, icon }) => (
+              <Link className="fit-card" to={course.routeBase} key={course.routeBase}>
+                <span className="fit-card-icon">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    {FIT_ICONS[icon]}
+                  </svg>
+                </span>
+                <span className="fit-card-programme">{course.COPY.courseShortName}</span>
+                <p className="fit-card-interest">{interest}</p>
+                <span className="fit-card-cta">
+                  Explore the programme
+                  <svg className="fit-card-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </Link>
             ))}
           </div>
         </div>

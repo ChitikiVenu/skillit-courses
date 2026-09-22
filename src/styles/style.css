@@ -631,18 +631,52 @@ a.footer-course:hover{color:var(--accent-2);}
 .landing-shell{min-height:60vh;display:grid;place-items:center;text-align:center;padding:0 24px;}
 .landing-shell p{color:var(--text-faint);font-size:15px;}
 
-/* ---------------------------------------------------------------- Our Programmes landing page */
-.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.fit-item{
-  display:flex;align-items:center;gap:14px;
-  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
-  padding:16px 20px;transition:border-color .15s,transform .15s,box-shadow .15s;
+/* ---------------------------------------------------------------- Our Programmes landing page: fit-finder cards
+   Five clickable cards ("which programme fits you"), each with a generic icon (never a logo), the programme
+   name, the interest sentence and an explore link. Wraps 3 + 2 on a wide screen, 2 + 2 + 1 narrower, 1 per row
+   on phones. */
+.fit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.fit-card{
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:24px 22px 20px;color:inherit;
+  transition:transform .22s cubic-bezier(.22,1,.36,1),border-color .2s,box-shadow .22s;
+  box-shadow:0 1px 1px rgba(16,21,31,.04),0 6px 14px -10px rgba(16,21,31,.12);
 }
-.fit-item:hover{border-color:var(--accent-2);transform:translateX(4px);box-shadow:0 10px 24px -12px rgba(16,21,31,.16);}
-.fit-item .fit-text{flex:1;font-size:15.5px;line-height:1.5;color:var(--text-dim);}
-.fit-item .fit-text strong{color:var(--text);}
-.fit-item .fit-cta{flex:none;font-weight:700;font-size:14.5px;color:var(--accent-2);white-space:nowrap;}
+.fit-card::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;border-radius:16px 16px 0 0;
+  background:var(--accent-2);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
+}
+.fit-card:hover,.fit-card:focus-visible{
+  transform:translateY(-5px);border-color:var(--accent-2);
+  box-shadow:0 2px 3px rgba(16,21,31,.06),0 20px 32px -18px rgba(37,99,235,.3),0 14px 26px -16px rgba(16,21,31,.22);
+}
+.fit-card:hover::before,.fit-card:focus-visible::before{transform:scaleX(1);}
+.fit-card-icon{
+  display:flex;align-items:center;justify-content:center;width:46px;height:46px;flex:none;
+  border-radius:12px;background:var(--bg-alt);color:var(--accent-2);
+  transition:background .22s,color .22s,transform .22s cubic-bezier(.22,1,.36,1);
+}
+.fit-card-icon svg{width:24px;height:24px;fill:currentColor;}
+.fit-card:hover .fit-card-icon,.fit-card:focus-visible .fit-card-icon{background:var(--accent-2);color:#fff;transform:scale(1.08) rotate(-4deg);}
+.fit-card-programme{
+  font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--text-faint);
+}
+.fit-card-interest{margin:0;flex:1;font-size:17px;font-weight:700;line-height:1.4;color:var(--text);}
+.fit-card-cta{
+  display:inline-flex;align-items:center;gap:6px;margin-top:4px;
+  font-size:14px;font-weight:700;color:var(--accent-2);
+}
+.fit-card-arrow{width:16px;height:16px;transition:transform .22s cubic-bezier(.22,1,.36,1);}
+.fit-card:hover .fit-card-arrow,.fit-card:focus-visible .fit-card-arrow{transform:translateX(4px);}
 @media (max-width: 880px) and (not (pointer: fine)), (max-width: 799px){
+  .fit-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .fit-card{padding:18px 16px 16px;}
+  .fit-card-interest{font-size:15px;}
+}
+@media (max-width: 560px){
   .fit-grid{grid-template-columns:1fr;}
 }
 
@@ -1163,7 +1197,6 @@ a.flow-role-chip:hover{background:var(--accent-2);color:#fff;}
   .cert-item{font-size:14.5px;}
   .salary-card .range{font-size:20.5px;}
   .why-item p{font-size:14.5px;}
-  .fit-item .fit-text{font-size:14.5px;}
   .flow-program h4{font-size:14.5px;}
   .insights-cell-arrow{font-size:14.5px;}
   .insight-card-headline{font-size:15px;}
