@@ -48,7 +48,7 @@ const PROGRAMMES = [
   },
 ];
 
-// Each card gets a student photo the owner supplied (public/img/fit-photos/<slug>.png — background
+// Each card gets a student photo the owner supplied (public/img/fit-photos/<slug>.webp — background
 // removed, cropped to the waist) and a matching tint for its chip and CTA colour. No name or claim is
 // attached to any photo; they are decorative, like the rest of the card.
 const FIT_FINDER = [
@@ -175,7 +175,7 @@ export default function LandingPage() {
                   <span className="fit-card-programme">{course.COPY.courseShortName}</span>
                   <p className="fit-card-interest">{interest}</p>
                   <span className="fit-card-cta">
-                    Explore the programme
+                    Explore {course.COPY.courseShortName}
                     <svg className="fit-card-arrow" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
