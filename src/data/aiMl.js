@@ -689,7 +689,7 @@ const STATS = [
 const WHY_COURSE = [
   "Prepared by an IITian & AI Architect — curriculum built from real industry AI engineering practice",
   "100% hands-on delivery — every module closes with a lab exercise or a real project, not slides",
-  "Learn to engineer AI, not just use AI tools — from Python foundations to production-grade systems",
+  "Learn to engineer AI, not just use AI tools — from Python full-stack foundations to production-grade systems",
   "Structured path from backend engineering through Machine Learning, Generative AI and Agentic AI",
   "Curriculum mapped toward globally recognised certification pathways (Azure, AWS, Google Cloud, NVIDIA and more)",
   "A minimum of five portfolio projects across the program, documented to professional reporting standards",
@@ -737,7 +737,7 @@ const TOOL_LIBRARY = {
 // identical across every course.
 const COPY = {
   "metaTitle": "Best AI & ML Training Institute in Hyderabad | Skill IT Education",
-  "metaDesc": "The Best AI & ML Training Institute in Hyderabad — a 7-month AI Engineering Certification Program: Python, ML, Generative AI, Agentic AI and MLOps.",
+  "metaDesc": "The Best AI & ML Training Institute in Hyderabad — a 7-month AI Engineering Certification Program: Python Full Stack, ML, Generative AI, Agentic AI and MLOps.",
   "breadcrumbProgramName": "AI & ML Program",
   "courseShortName": "AI & ML",
   "ogImageFile": "ai-ml-program-diagram.png",
@@ -748,10 +748,10 @@ const COPY = {
   "heroImageHeight": 881,
   "brochureFile": "Skill-IT-Education-AI-ML-Engineering-Brochure.pdf",
   "preselectedCourse": "AI/ML",
-  "durationChip": "INDUSTRY-ALIGNED AI & ML TRAINING",
+  "durationChip": "PYTHON FULL STACK + GENAI & AGENTIC AI",
   "heroTitleHtml": "Advanced AI &amp; ML<br>Certification Program",
   "heroKicker": "AI & ML Training in Hyderabad",
-  "heroLede": "A 7-month Advanced AI & ML Certification Program, prepared by an IITian & AI Architect, that takes you from Python and backend foundations through Machine Learning, Generative AI and Agentic AI to production-grade AI systems. Seven hands-on modules and a two-month real-time internship — built to get you job-ready as an AI engineer, not just an AI tool user.",
+  "heroLede": "A 7-month Advanced AI & ML Certification Program, prepared by an IITian & AI Architect, that takes you from Python full-stack foundations through Machine Learning, Generative AI and Agentic AI to production-grade AI systems. Seven hands-on modules and a two-month real-time internship — built to get you job-ready as an AI engineer, not just an AI tool user.",
   "heroStats": [
     {
       "label": "Course Duration",

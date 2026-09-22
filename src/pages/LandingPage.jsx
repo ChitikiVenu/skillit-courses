@@ -67,6 +67,7 @@ const FIT_FINDER = [
 // introduction that search engines also see as the organisation description.
 const HERO_TITLE = 'Cutting-Edge Upskilling Programs to Connect Higher Education with Corporate Careers.';
 const ADVANCED_SKILLS = [
+  { label: 'Python Full Stack', course: aiMl },
   { label: 'Agentic AI', course: aiMl },
   { label: 'Generative AI & LLMs', course: aiMl },
   { label: 'MLOps', course: aiMl },
@@ -74,6 +75,15 @@ const ADVANCED_SKILLS = [
   { label: 'SIEM & Threat Hunting', course: socAnalyst },
   { label: 'Machine Learning', course: dataScience },
 ];
+// Same five programmes, with the duration/fees/project figures each already shows on its own hero —
+// shown again here as a compact curriculum-and-fees comparison. `durationChip` doubles as a one-line
+// positioning tag per card (e.g. AI & ML's "Python Full Stack + GenAI & Agentic AI").
+const PROGRAMME_CARDS = PROGRAMMES.map(({ course }) => ({
+  course,
+  duration: course.COPY.heroStats[0].value,
+  fees: course.COPY.heroStats[3].value,
+  feesNote: course.COPY.heroStats[3].note,
+}));
 const HERO_INTRO =
   'Skill IT Education, in Madhapur, Hyderabad, trains graduates, IT professionals and career switchers in Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics. Every programme brings hands-on labs, real projects and a real-time internship, so classroom learning turns into skills employers look for.';
 
@@ -165,6 +175,12 @@ export default function LandingPage() {
               <a className="btn btn-outline" href="#our-programmes">
                 Explore Our Programmes
               </a>
+              <a className="btn btn-outline" href="#curriculum-fees">
+                Offline / Online
+              </a>
+              <a className="btn btn-outline" href="/faqs#placement">
+                Placements
+              </a>
             </div>
           </div>
           <div className="home-hero-form">
@@ -179,6 +195,47 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <section id="curriculum-fees" className="prog-fees-section">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">Curriculum &amp; Fees</span>
+            <h2>Every programme, side by side</h2>
+            <p>Available at our Madhapur training center and online — same curriculum, same faculty, either way.</p>
+          </div>
+          <div className="prog-fees-grid">
+            {PROGRAMME_CARDS.map(({ course, duration, fees, feesNote }) => (
+              <div className="prog-fees-card" key={course.routeBase}>
+                <span className="prog-fees-mode">Training Center &amp; Online</span>
+                <h3>{course.COPY.courseShortName}</h3>
+                <span className="prog-fees-tag">{course.COPY.durationChip}</span>
+                <dl className="prog-fees-meta">
+                  <div>
+                    <dt>Duration</dt>
+                    <dd>{duration}</dd>
+                  </div>
+                  <div>
+                    <dt>Projects</dt>
+                    <dd>5+</dd>
+                  </div>
+                </dl>
+                <div className="prog-fees-price">
+                  <span className="prog-fees-amount">{fees}</span>
+                  <span className="prog-fees-note">{feesNote}</span>
+                </div>
+                <div className="prog-fees-actions">
+                  <Link className="btn btn-outline btn-sm" to={`${course.routeBase}#roadmap`}>
+                    View Curriculum
+                  </Link>
+                  <button type="button" className="btn btn-primary btn-sm" onClick={() => setAdvisorOpen(true)}>
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <CertStrip />
 
       <section id="fit-finder">
@@ -188,29 +245,34 @@ export default function LandingPage() {
             <h2>Which programme fits you?</h2>
             <p>A quick way to match what you enjoy to the programme built around it.</p>
           </div>
-          <div className="fit-grid">
-            {FIT_FINDER.map(({ interest, course, image, w, h, tint, tintText }) => (
-              <Link
-                className="fit-card"
-                to={course.routeBase}
-                key={course.routeBase}
-                style={{ '--fit-tint': tint, '--fit-tint-text': tintText }}
-              >
-                <span className="fit-card-visual">
-                  <img src={`/img/fit-photos/${image}.webp`} alt="" width={w} height={h} loading="lazy" />
-                </span>
-                <span className="fit-card-body">
-                  <span className="fit-card-programme">{course.COPY.courseShortName}</span>
-                  <p className="fit-card-interest">{interest}</p>
-                  <span className="fit-card-cta">
-                    Explore {course.COPY.courseShortName}
-                    <svg className="fit-card-arrow" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </span>
-              </Link>
-            ))}
+          <div className="fit-panel">
+            <div className={`fit-track ${reducedMotion ? 'is-static' : ''}`}>
+              <div className="fit-row">
+                {/* duplicated once so the marquee can scroll from 0 to -50% and loop with no visible seam */}
+                {[...FIT_FINDER, ...FIT_FINDER].map(({ interest, course, image, w, h, tint, tintText }, i) => (
+                  <Link
+                    className="fit-card"
+                    to={course.routeBase}
+                    key={`${course.routeBase}-${i}`}
+                    style={{ '--fit-tint': tint, '--fit-tint-text': tintText }}
+                  >
+                    <span className="fit-card-visual">
+                      <img src={`/img/fit-photos/${image}.webp`} alt="" width={w} height={h} loading="lazy" />
+                    </span>
+                    <span className="fit-card-body">
+                      <span className="fit-card-programme">{course.COPY.courseShortName}</span>
+                      <p className="fit-card-interest">{interest}</p>
+                      <span className="fit-card-cta">
+                        Explore {course.COPY.courseShortName}
+                        <svg className="fit-card-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
