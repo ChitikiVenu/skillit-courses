@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" role="img" aria-label="Illustration of a student working on a laptop">
+  <defs>
+    <linearGradient id="ai-ml-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2edff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#f2edff" stop-opacity=".35"/>
+    </linearGradient>
+    <filter id="ai-ml-shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#7c3aed" flood-opacity=".22"/>
+    </filter>
+  </defs>
+  <rect width="320" height="260" fill="url(#ai-ml-bg)"/>
+  <circle cx="248" cy="46" r="58" fill="#7c3aed" opacity=".08"/>
+  <circle cx="46" cy="214" r="46" fill="#7c3aed" opacity=".08"/>
+
+  <!-- desk -->
+  <ellipse cx="160" cy="222" rx="118" ry="10" fill="#7c3aed" opacity=".12"/>
+  <rect x="34" y="206" width="252" height="14" rx="7" fill="#1c2230"/>
+
+  <!-- person -->
+  <path d="M100,208 C100,156 126,120 160,120 C194,120 220,156 220,208 Z" fill="#8b5cf6"/>
+  <path d="M148,208 L148,168 C148,160 153,155 160,155 C167,155 172,160 172,168 L172,208 Z" fill="#6d28d9"/>
+  <circle cx="160" cy="92" r="21" fill="#e0ac69"/>
+  <circle cx="152" cy="94" r="1.7" fill="#20242c"/><circle cx="168" cy="94" r="1.7" fill="#20242c"/><path d="M154,101 Q160,104 166,101" stroke="#20242c" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <clipPath id="ai-ml-hair-clip"><circle cx="160" cy="92" r="21.5"/></clipPath><rect x="135" y="65" width="50" height="30" fill="#2a2035" clip-path="url(#ai-ml-hair-clip)"/><circle cx="160" cy="63" r="9" fill="#2a2035"/>
+
+  <!-- laptop -->
+  <g filter="url(#ai-ml-shadow)">
+    <rect x="118" y="108" width="84" height="60" rx="7" fill="#161b26"/>
+    <rect x="123" y="113" width="74" height="50" rx="3" fill="#ffffff"/>
+    <g transform="translate(140,114) scale(1.7)" fill="#7c3aed"><path d="m11 21 1-7-5 1 8-11-1 7 5-1Z"/></g>
+    <path d="M108,168 L212,168 L222,182 C222,186 218,188 214,188 L106,188 C102,188 98,186 98,182 Z" fill="#20242c"/>
+  </g>
+
+  <!-- floating badge -->
+  <g filter="url(#ai-ml-shadow)">
+    <circle cx="252" cy="98" r="24" fill="#ffffff"/>
+    <g transform="translate(240,86) scale(1.05)" fill="#7c3aed" color="#7c3aed"><path d="m11 21 1-7-5 1 8-11-1 7 5-1Z"/></g>
+  </g>
+  <circle cx="70" cy="70" r="5" fill="#7c3aed" opacity=".5"/>
+  <circle cx="86" cy="52" r="3" fill="#7c3aed" opacity=".4"/>
+</svg>
