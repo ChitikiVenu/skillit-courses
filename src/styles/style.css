@@ -635,9 +635,11 @@ a.footer-course:hover{color:var(--accent-2);}
    Five clickable cards ("which programme fits you"), each with a small illustration (a student at a laptop —
    see the comment above FIT_FINDER in LandingPage.jsx for why it's a drawing and not a photo), a coloured tint
    that matches the illustration, the programme name, the interest sentence and an explore link. Each card sets
-   --fit-tint/--fit-tint-text inline so one set of rules serves all five colours. Wraps 3 + 2 on a wide screen,
-   2 + 2 + 1 narrower, 1 per row on phones. */
-.fit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+   --fit-tint/--fit-tint-text inline so one set of rules serves all five colours. Fixed at 4 across (Cyber
+   Security, AI & ML, Data Science, SOC Analyst on one row, Data Analytics wrapping alone) on every screen
+   except phones/small touch tablets, which is the same "mobile" cutoff the rest of the page uses. Phones get
+   2 across, then 1 across on the narrowest phones. */
+.fit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
 .fit-card{
   position:relative;overflow:hidden;display:flex;flex-direction:column;
   background:var(--surface);border:1px solid var(--border);border-radius:18px;color:inherit;
@@ -667,6 +669,16 @@ a.footer-course:hover{color:var(--accent-2);}
 }
 .fit-card-arrow{width:16px;height:16px;transition:transform .22s cubic-bezier(.22,1,.36,1);}
 .fit-card:hover .fit-card-arrow,.fit-card:focus-visible .fit-card-arrow{transform:translateX(4px);}
+@media (min-width: 800px) and (max-width: 1150px){
+  /* narrower desktop/tablet windows: four columns is tight, so the card shrinks instead of dropping the count */
+  .fit-grid{gap:12px;}
+  .fit-card-visual{aspect-ratio:16/13;}
+  .fit-card-body{padding:12px 12px 14px;gap:6px;}
+  .fit-card-programme{margin-top:-22px;font-size:9.5px;padding:3px 9px;}
+  .fit-card-interest{font-size:13.5px;}
+  .fit-card-cta{font-size:12px;}
+  .fit-card-arrow{width:14px;height:14px;}
+}
 @media (max-width: 880px) and (not (pointer: fine)), (max-width: 799px){
   .fit-grid{grid-template-columns:1fr 1fr;gap:14px;}
   .fit-card-body{padding:14px 14px 16px;}
