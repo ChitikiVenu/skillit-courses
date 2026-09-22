@@ -730,17 +730,30 @@ a.footer-course:hover{color:var(--accent-2);}
   .home-intro{font-size:16.5px;}
 }
 .home-tagline{margin-bottom:10px;}
-.home-hero-rest{display:flex;flex-direction:column;align-items:center;gap:12px;padding:0 20px 8px;text-align:center;}
-.home-skills{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 10px;}
-.home-skills-label{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);}
-.home-skills ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
-.home-skills li{font-size:13.5px;font-weight:600;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:5px 13px;}
+.home-hero-rest{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 20px 8px;text-align:center;}
 .home-intro{margin:0;max-width:86ch;font-size:15px;line-height:1.6;color:var(--text-dim);}
+/* "Most advanced skills we teach" — a left-to-right auto-scrolling strip of chips under the intro, so the
+   full list stays legible instead of wrapping onto several lines. Same marquee pattern as CertStrip.jsx. */
+.home-skills{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
+.home-skills-label{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text-faint);}
+.home-skills-track{
+  width:100%;max-width:640px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+}
+.home-skills-row{list-style:none;margin:0;padding:2px 0;display:flex;width:max-content;gap:8px;animation:cert-scroll 22s linear infinite;}
+.home-skills-track:hover .home-skills-row{animation-play-state:paused;}
+.home-skills-track.is-static .home-skills-row{animation:none;overflow-x:auto;max-width:100%;}
+.home-skills-row li{
+  flex:none;white-space:nowrap;font-size:13.5px;font-weight:600;color:var(--text);
+  background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:5px 13px;
+}
 @media (max-width: 799px){
   .home-hero-rest{gap:10px;padding:0 16px 6px;}
   .home-skills-label{display:none;}
-  .home-skills ul{gap:6px;}
-  .home-skills li{font-size:12.5px;padding:4px 10px;}
+  .home-skills-track{max-width:100%;}
+  .home-skills-row{animation-duration:16s;}
+  .home-skills-row li{font-size:12.5px;padding:4px 10px;}
   .home-intro{font-size:14px;line-height:1.55;}
 }
 .flow-wrap{

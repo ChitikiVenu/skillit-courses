@@ -6,6 +6,7 @@ import LeadForm from '../components/LeadForm.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
 import CertStrip from '../components/CertStrip.jsx';
+import { usePrefersReducedMotion } from '../components/flowPulse.jsx';
 import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
 import { rolesForCourse } from '../data/roleCourses/index.js';
 import cyberSecurity from '../data/cyberSecurity.js';
@@ -69,6 +70,7 @@ const HERO_INTRO =
 
 export default function LandingPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -121,15 +123,18 @@ export default function LandingPage() {
       <section id="programmes" className="programmes-hero">
         <h1 className="home-tagline">{HERO_TITLE}</h1>
         <div className="home-hero-rest">
+          <p className="home-intro">{HERO_INTRO}</p>
           <div className="home-skills">
             <span className="home-skills-label">Most advanced skills we teach</span>
-            <ul>
-              {ADVANCED_SKILLS.map((skill) => (
-                <li key={skill}>{skill}</li>
-              ))}
-            </ul>
+            <div className={`home-skills-track ${reducedMotion ? 'is-static' : ''}`}>
+              <ul className="home-skills-row">
+                {/* duplicated once so the marquee can scroll from 0 to -50% and loop with no visible seam */}
+                {[...ADVANCED_SKILLS, ...ADVANCED_SKILLS].map((skill, i) => (
+                  <li key={`${skill}-${i}`}>{skill}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <p className="home-intro">{HERO_INTRO}</p>
         </div>
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} />
