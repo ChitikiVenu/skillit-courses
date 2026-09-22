@@ -29,7 +29,7 @@ const RELAY_TRAVEL = 0.6;
 // — the packet that lands on a programme is handed on to its roles. Box positions are CSS
 // percentages (row = i / (n-1)); the lines are drawn in real pixels from the measured container
 // size so the curves and packets are never stretched. Sized to fit one screen — no scrolling.
-export default function ProgrammeFlow({ programmes }) {
+export default function ProgrammeFlow({ programmes, onContact }) {
   const wrapRef = useRef(null);
   const tabletRef = useRef(null);
   const svgRef = useRef(null);
@@ -246,8 +246,7 @@ export default function ProgrammeFlow({ programmes }) {
 
       {programmes.map(({ course, title, blurb, roles }, i) => (
         <Fragment key={course.routeBase}>
-          <Link
-            to={course.routeBase}
+          <div
             className="flow-program"
             style={{
               left: `${PROGRAM_X1}%`,
@@ -257,13 +256,23 @@ export default function ProgrammeFlow({ programmes }) {
               '--beat-delay': `${links[i].arrive.toFixed(2)}s`,
             }}
           >
-            <h4>{title ?? course.COPY.courseShortName}</h4>
+            <Link to={course.routeBase} className="flow-program-title">
+              <h4>{title ?? course.COPY.courseShortName}</h4>
+            </Link>
             <p>{blurb}</p>
-            <div className="flow-program-bottom">
+            <div className="flow-program-meta">
               <span className="flow-duration">{course.COPY.heroStats[0].value}</span>
-              <span className="flow-explore-btn">{'{<Explore Me />}'}</span>
+              <span className="flow-fees">{course.COPY.heroStats[3].value}</span>
             </div>
-          </Link>
+            <div className="flow-program-actions">
+              <Link className="flow-curriculum-btn" to={`${course.routeBase}#roadmap`}>
+                View Curriculum
+              </Link>
+              <button type="button" className="flow-contact-btn" onClick={() => onContact?.()}>
+                Contact Us
+              </button>
+            </div>
+          </div>
           <div
             className="flow-roles"
             style={{

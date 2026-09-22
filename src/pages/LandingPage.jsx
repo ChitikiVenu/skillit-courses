@@ -75,21 +75,12 @@ const ADVANCED_SKILLS = [
   { label: 'SIEM & Threat Hunting', course: socAnalyst },
   { label: 'Machine Learning', course: dataScience },
 ];
-// Same five programmes, with the duration/fees/project figures each already shows on its own hero —
-// shown again here as a compact curriculum-and-fees comparison. `durationChip` doubles as a one-line
-// positioning tag per card (e.g. AI & ML's "Python Full Stack + GenAI & Agentic AI").
-const PROGRAMME_CARDS = PROGRAMMES.map(({ course }) => ({
-  course,
-  duration: course.COPY.heroStats[0].value,
-  fees: course.COPY.heroStats[3].value,
-  feesNote: course.COPY.heroStats[3].note,
-}));
 const HERO_INTRO =
   'Skill IT Education, in Madhapur, Hyderabad, trains graduates, IT professionals and career switchers in Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics. Every programme brings hands-on labs, real projects and a real-time internship, so classroom learning turns into skills employers look for.';
 
 // One-line "who can join" note shown above the h1 — owner-supplied (2026-09-22).
 const ELIGIBILITY_LABEL = 'Who can learn these programmes:';
-const ELIGIBILITY_TEXT = '2025, 2026 & 2027 graduates · Any Branch, Any Degree';
+const ELIGIBILITY_TEXT = '2025, 2026 & 2027 graduates, Any Branch or Degree — also working professionals and career switchers.';
 
 export default function LandingPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
@@ -147,7 +138,14 @@ export default function LandingPage() {
         <div className="wrap home-hero-grid">
           <div className="home-hero-left">
             <p className="hero-eligibility">
-              <span className="hero-eligibility-label">{ELIGIBILITY_LABEL}</span> {ELIGIBILITY_TEXT}
+              <svg className="hero-eligibility-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3 2 8l10 5 10-5-10-5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                <path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <span>
+                <span className="hero-eligibility-label">{ELIGIBILITY_LABEL}</span>
+                {ELIGIBILITY_TEXT}
+              </span>
             </p>
             <FitHeading className="home-tagline" maxLines={2} minPx={18}>
               {HERO_TITLE}
@@ -175,7 +173,7 @@ export default function LandingPage() {
               <a className="btn btn-outline" href="#our-programmes">
                 Explore Our Programmes
               </a>
-              <a className="btn btn-outline" href="#curriculum-fees">
+              <a className="btn btn-outline" href="#our-programmes">
                 Offline / Online
               </a>
               <a className="btn btn-outline" href="/faqs#placement">
@@ -191,48 +189,7 @@ export default function LandingPage() {
 
       <section className="flow-section" id="our-programmes">
         <div className="flow-outer">
-          <ProgrammeFlow programmes={PROGRAMMES} />
-        </div>
-      </section>
-
-      <section id="curriculum-fees" className="prog-fees-section">
-        <div className="wrap">
-          <div className="section-head">
-            <span className="eyebrow">Curriculum &amp; Fees</span>
-            <h2>Every programme, side by side</h2>
-            <p>Available at our Madhapur training center and online — same curriculum, same faculty, either way.</p>
-          </div>
-          <div className="prog-fees-grid">
-            {PROGRAMME_CARDS.map(({ course, duration, fees, feesNote }) => (
-              <div className="prog-fees-card" key={course.routeBase}>
-                <span className="prog-fees-mode">Training Center &amp; Online</span>
-                <h3>{course.COPY.courseShortName}</h3>
-                <span className="prog-fees-tag">{course.COPY.durationChip}</span>
-                <dl className="prog-fees-meta">
-                  <div>
-                    <dt>Duration</dt>
-                    <dd>{duration}</dd>
-                  </div>
-                  <div>
-                    <dt>Projects</dt>
-                    <dd>5+</dd>
-                  </div>
-                </dl>
-                <div className="prog-fees-price">
-                  <span className="prog-fees-amount">{fees}</span>
-                  <span className="prog-fees-note">{feesNote}</span>
-                </div>
-                <div className="prog-fees-actions">
-                  <Link className="btn btn-outline btn-sm" to={`${course.routeBase}#roadmap`}>
-                    View Curriculum
-                  </Link>
-                  <button type="button" className="btn btn-primary btn-sm" onClick={() => setAdvisorOpen(true)}>
-                    Contact Us
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ProgrammeFlow programmes={PROGRAMMES} onContact={() => setAdvisorOpen(true)} />
         </div>
       </section>
 
