@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ROLE_GROUPS } from '../data/roleCourses/index.js';
 import { DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
+import { WHATSAPP_URL } from '../constants.js';
+import WhatsAppIcon from './WhatsAppIcon.jsx';
 
 // Under the logo: the site links, one by one. About Us and Refund Policy are pages whose content is still to come.
 const SITE_LINKS = [
@@ -28,9 +30,16 @@ export default function Footer({ onBook }) {
           <Link to="/" className="footer-brand" aria-label="Skill IT Education, home">
             <img src="/img/skill-it-logo.png" alt="Skill IT Education" width="520" height="206" loading="lazy" />
           </Link>
-          <button type="button" className="btn btn-book footer-book-btn" onClick={onBook}>
-            Book a free session
-          </button>
+          {/* Desktop only — phones already have these two as floating buttons (FloatingActions), so
+              repeating them here would just be clutter. */}
+          <div className="footer-actions">
+            <a className="footer-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+              <WhatsAppIcon fill="#fff" />
+            </a>
+            <button type="button" className="btn btn-book footer-book-btn" onClick={onBook}>
+              Book a free session
+            </button>
+          </div>
         </div>
         <div className="footer-layout">
           <div className="footer-side footer-about">

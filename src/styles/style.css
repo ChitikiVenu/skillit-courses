@@ -529,15 +529,6 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .header-logo{display:flex;align-items:center;flex:none;height:100%;}
 .header-logo img{height:68px;width:auto;display:block;}
 .header-nav{display:flex;align-items:center;gap:26px;margin-left:auto;}
-.header-actions{display:flex;align-items:center;gap:12px;flex:none;}
-.header-whatsapp{
-  display:inline-flex;align-items:center;gap:9px;flex:none;white-space:nowrap;
-  padding:8px 16px 8px 12px;border:1px solid var(--border);border-radius:100px;
-  font-size:13.5px;font-weight:700;color:var(--text);background:#fff;
-  transition:border-color .15s,color .15s,box-shadow .15s;
-}
-.header-whatsapp:hover{border-color:var(--accent-2);color:var(--accent-2);box-shadow:0 6px 16px -10px rgba(37,99,235,.5);}
-.header-whatsapp svg{width:22px;height:22px;flex:none;}
 /* Orange "Book a free session" button; blue on hover */
 .btn-book{background:var(--orange);color:#fff;white-space:nowrap;transition:background .15s,box-shadow .15s;}
 .btn-book:hover{background:var(--accent-2);box-shadow:0 8px 18px -10px rgba(37,99,235,.7);}
@@ -619,10 +610,20 @@ a.footer-course:hover{color:var(--accent-2);}
 .footer-roles a:hover{color:var(--accent-2);transform:translateX(3px);}
 .footer-roles .footer-all{font-weight:700;color:var(--text);}
 .footer-side{font-size:13.5px;line-height:1.55;color:var(--text-faint);}
-/* Full-width row above the site-links/courses grid: logo + a large "Book a free session" button,
-   side by side (owner-requested 2026-09-22) — sized to match the logo's visual weight. */
-.footer-brand-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:22px;}
+/* Full-width row above the site-links/courses grid: logo on the left, WhatsApp + "Book a free
+   session" on the far right (owner-requested 2026-09-22 — these moved here from the header, which is
+   now just the logo and menus). Desktop only: phones already have both as floating buttons
+   (FloatingActions), so repeating them here would just be clutter. */
+.footer-brand-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:22px;}
 .footer-brand img{height:74px;width:auto;display:block;}
+.footer-actions{display:flex;align-items:center;gap:14px;}
+.footer-whatsapp{
+  display:inline-flex;align-items:center;justify-content:center;flex:none;
+  width:48px;height:48px;border-radius:50%;background:#25D366;
+  box-shadow:0 10px 22px -12px rgba(37,211,102,.55);transition:transform .15s,box-shadow .15s;
+}
+.footer-whatsapp svg{width:25px;height:25px;}
+.footer-whatsapp:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(37,211,102,.65);}
 .footer-book-btn{padding:16px 30px;font-size:15.5px;border-radius:8px;box-shadow:0 10px 22px -12px rgba(234,88,12,.45);}
 .footer-site-links{list-style:none;margin:0;padding:0;display:grid;gap:0;}
 .footer-site-links a{display:block;padding:1.5px 0;font-size:13.5px;font-weight:500;color:var(--text-dim);transition:color .15s,transform .15s;}
@@ -640,7 +641,7 @@ a.footer-course:hover{color:var(--accent-2);}
   .footer-wide{width:min(1200px,100% - 32px);}
   .footer-brand-row{margin-bottom:18px;}
   .footer-brand img{height:56px;}
-  .footer-book-btn{padding:13px 22px;font-size:14.5px;}
+  .footer-actions{display:none;}
   .footer-layout{grid-template-columns:1fr;gap:20px;}
   .footer-courses{grid-template-columns:1fr;gap:8px;}
   .footer-col{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px;}
@@ -780,6 +781,19 @@ a.footer-course:hover{color:var(--accent-2);}
 }
 .hero-eligibility-icon{flex:none;width:19px;height:19px;margin-top:1px;color:var(--accent);}
 .hero-eligibility-label{display:block;font-weight:800;color:var(--text);margin-bottom:2px;}
+/* "Offline / Online — Hyderabad" note, moved above the skills marquee (owner-requested 2026-09-22 —
+   it was one of the hero CTA buttons, now a small badge instead). */
+.hero-mode-badge{
+  display:inline-flex;align-items:center;gap:7px;margin:2px 0 4px;
+  font-size:13px;font-weight:700;color:var(--text);background:var(--surface);
+  border:1px solid var(--border);border-radius:100px;padding:7px 15px;
+  transition:border-color .2s,box-shadow .2s,transform .15s;
+}
+.hero-mode-badge svg{flex:none;width:16px;height:16px;color:var(--accent-2);}
+.hero-mode-badge:hover{border-color:var(--accent-2);box-shadow:0 6px 16px -10px rgba(37,99,235,.4);transform:translateY(-1px);}
+/* Heading above the funnel (owner-requested 2026-09-22 — the tablet used to have no heading of its
+   own above it). */
+.flow-section-title{margin:0 0 4px;text-align:center;font-size:clamp(24px,3vw,34px);}
 /* Hero: headline/intro/skills on the left, a lead-capture form on the right. Stacked on phones and
    tablets (form under the text); side by side from 800px on a mouse/trackpad device, or 1151px on any
    device, per the mobile-vs-desktop rule. */
@@ -787,7 +801,7 @@ a.footer-course:hover{color:var(--accent-2);}
 .home-hero-left{display:flex;flex-direction:column;min-width:0;}
 .home-tagline{
   margin:10px auto 6px;max-width:640px;text-align:center;
-  font-family:'Figtree',var(--font);font-size:18px;font-weight:600;line-height:1.35;letter-spacing:-.015em;color:var(--text);text-wrap:balance;
+  font-family:'Figtree',var(--font);font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.015em;color:var(--text);text-wrap:balance;
 }
 .home-tagline{margin-bottom:10px;}
 .home-hero-rest{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 0 8px;text-align:center;}
@@ -1216,7 +1230,6 @@ a.flow-role-chip:hover{background:var(--accent-2);color:#fff;}
   .header-burger.is-open .header-burger-icon span:nth-child(2){opacity:0;}
   .header-burger.is-open .header-burger-icon span:nth-child(3){top:5px;transform:rotate(-45deg);}
 
-  .header-actions{display:none;}
   .mobile-menu{
     position:absolute;top:calc(100% + 6px);left:12px;right:12px;z-index:39;
     max-height:calc(100vh - var(--header-h) - 20px);overflow-y:auto;overscroll-behavior:contain;
@@ -1376,26 +1389,28 @@ a.flow-role-chip:hover{background:var(--accent-2);color:#fff;}
   .flow-tablet .tablet::after{top:-5px;height:5px;}
   .flow-tablet .tablet-camera{top:1.9cqw;}
   /* the programme box and its "Become A" box are the same size */
-  /* Each programme box now carries duration, fees and two action buttons as well as the title and
-     blurb (owner-requested 2026-09-22 — merged in from a separate pricing section), so the funnel
-     grew taller to fit it without the boxes colliding with their neighbours (row gap = 20% of
-     --flow-h; --box-h must stay comfortably under that). Adjust both together if either changes. */
-  .flow-wrap{height:var(--flow-h);--flow-h:840px;--box-h:150px;}
-  .flow-program,.flow-roles{box-sizing:border-box;height:var(--box-h);padding:10px 16px;overflow:hidden;}
+  /* Each programme box carries duration, fees and two action buttons as well as the title and blurb
+     (owner-requested 2026-09-22 — merged in from a separate pricing section). The funnel first grew a
+     lot to fit that (840/150), then the owner asked for the tablet/funnel to come back down in size —
+     this is the smaller version, kept as tight as the content allows: 1-line blurb, small type. Row
+     gap = 20% of --flow-h; --box-h must stay comfortably under that, or boxes overlap their
+     neighbours (position:absolute, no document-flow collision protection). */
+  .flow-wrap{height:var(--flow-h);--flow-h:620px;--box-h:106px;}
+  .flow-program,.flow-roles{box-sizing:border-box;height:var(--box-h);padding:8px 14px;overflow:hidden;}
   .flow-program{display:flex;flex-direction:column;justify-content:center;}
-  .flow-program h4{margin:0 0 2px;font-size:16px;line-height:1.2;}
+  .flow-program h4{margin:0 0 1px;font-size:14.5px;line-height:1.2;}
   .flow-program p{
-    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-    margin:0 0 6px;font-size:12.5px;line-height:1.3;
+    display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;
+    margin:0 0 4px;font-size:11.5px;line-height:1.25;
   }
-  .flow-duration{font-size:12px;}
-  .flow-fees{font-size:12px;}
-  .flow-program-actions{margin-top:7px;}
-  .flow-curriculum-btn,.flow-contact-btn{font-size:10.5px;padding:5px 6px;}
-  .flow-roles{display:flex;flex-direction:column;justify-content:center;gap:4px;}
-  .flow-roles-list{display:flex;flex-wrap:wrap;gap:4px;}
-  .flow-roles-label{font-size:14px;margin:0;line-height:1.25;}
-  .flow-role-chip{font-size:12px;line-height:1.25;padding:1.5px 8px;}
+  .flow-duration{font-size:11px;}
+  .flow-fees{font-size:11px;}
+  .flow-program-actions{margin-top:5px;}
+  .flow-curriculum-btn,.flow-contact-btn{font-size:10px;padding:4px 5px;}
+  .flow-roles{display:flex;flex-direction:column;justify-content:center;gap:3px;}
+  .flow-roles-list{display:flex;flex-wrap:wrap;gap:3px;}
+  .flow-roles-label{font-size:13px;margin:0;line-height:1.2;}
+  .flow-role-chip{font-size:11px;line-height:1.2;padding:1.5px 7px;}
   .flow-tablet .tablet-screen{border-radius:18px;}
   .flow-tablet .tablet-screen::after{bottom:10px;height:4px;width:22%;}
 }
@@ -1407,17 +1422,13 @@ a.flow-role-chip:hover{background:var(--accent-2);color:#fff;}
   .enquiry-intro .btn{width:100%;}
 }
 
-/* Desktop header on narrower windows (a laptop at 125-150% zoom): the same header, just tighter, so the
-   logo, both menus, WhatsApp and Book a free session all still fit on one line. */
+/* Desktop header on narrower windows (a laptop at 125-150% zoom): the same header, just tighter, so
+   the logo and both menus still fit on one line. */
 @media (min-width: 800px) and (max-width: 1080px){
   .site-header{--header-h:76px;}
   .site-header-inner{gap:14px;}
   .header-logo img{height:56px;}
   .header-nav{gap:14px;}
-  .header-actions{gap:8px;}
-  .header-whatsapp{padding:8px 10px;}
-  .header-whatsapp span{display:none;}
-  .header-actions .btn-book{padding:10px 14px;font-size:13px;}
 }
 
 /* Short desktop windows (a laptop at 100%, or a bigger screen zoomed in): a slimmer header leaves the

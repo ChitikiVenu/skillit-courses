@@ -65,12 +65,12 @@ function NavMenu({ id, label, to, items, active, open, wide, onEnter, onLeave, o
   );
 }
 
-// The logo is the Home link. Wide screens show the two menus and the orange "Book a free session"
-// button (WhatsApp was removed from the desktop header, 2026-09-22 — it's still reachable on phones
-// via the floating WhatsApp button, FloatingActions). Phones show only the logo and a Menu button,
-// which opens a compact dropdown (Home and two collapsible groups), not a full-screen sheet; the
-// booking and WhatsApp buttons float on screen instead (FloatingActions).
-export default function Header({ onBook }) {
+// The logo is the Home link, and the two menus sit beside it — the header is deliberately minimal now
+// (2026-09-22): WhatsApp and "Book a free session" were both removed from it (they'd doubled up with
+// the same actions elsewhere — the footer's top row on desktop, FloatingActions on phones). Phones
+// show only the logo and a Menu button, which opens a compact dropdown (Home and two collapsible
+// groups), not a full-screen sheet.
+export default function Header() {
   const { pathname, search } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [group, setGroup] = useState(null);
@@ -215,12 +215,6 @@ export default function Header({ onBook }) {
           <NavMenu id="programmes" label="Our Programmes" items={programmeMenuItems} active={programmesActive} open={openMenu === 'programmes'} wide onEnter={openNow} onLeave={scheduleClose} onToggle={toggleMenu} onOpen={openNow} onNavigate={closeMenus} />
           <NavMenu id="insights" label="Career Insights" to="/blog" items={insightMenuItems} active={insightsActive} open={openMenu === 'insights'} wide onEnter={openNow} onLeave={scheduleClose} onToggle={toggleMenu} onOpen={openNow} onNavigate={closeMenus} />
         </nav>
-
-        <div className="header-actions">
-          <button type="button" className="btn btn-book" onClick={onBook}>
-            Book a free session
-          </button>
-        </div>
 
         <button
           type="button"

@@ -11,7 +11,7 @@ export default function Layout() {
   return (
     <>
       <PromoBar />
-      <Header onBook={() => setBookingOpen(true)} />
+      <Header />
       <Outlet />
       <Footer onBook={() => setBookingOpen(true)} />
       <FloatingActions onBook={() => setBookingOpen(true)} />

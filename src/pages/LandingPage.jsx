@@ -147,11 +147,17 @@ export default function LandingPage() {
                 {ELIGIBILITY_TEXT}
               </span>
             </p>
-            <FitHeading className="home-tagline" maxLines={2} minPx={18}>
+            <FitHeading className="home-tagline" maxLines={2} minPx={21}>
               {HERO_TITLE}
             </FitHeading>
             <div className="home-hero-rest">
               <p className="home-intro">{HERO_INTRO}</p>
+              <a className="hero-mode-badge" href="#our-programmes">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                </svg>
+                Offline / Online &mdash; Hyderabad
+              </a>
               <div className="home-skills">
                 <span className="home-skills-label">Most advanced skills we teach</span>
                 <div className={`home-skills-track ${reducedMotion ? 'is-static' : ''}`}>
@@ -173,12 +179,6 @@ export default function LandingPage() {
               <a className="btn btn-outline" href="#our-programmes">
                 Explore Our Programmes
               </a>
-              <a className="btn btn-outline" href="#our-programmes">
-                Offline / Online
-              </a>
-              <a className="btn btn-outline" href="/faqs#placement">
-                Placements
-              </a>
             </div>
           </div>
           <div className="home-hero-form">
@@ -188,6 +188,9 @@ export default function LandingPage() {
       </section>
 
       <section className="flow-section" id="our-programmes">
+        <div className="wrap">
+          <h2 className="flow-section-title">Our {PROGRAMMES.length} Advanced Programmes</h2>
+        </div>
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} onContact={() => setAdvisorOpen(true)} />
         </div>
