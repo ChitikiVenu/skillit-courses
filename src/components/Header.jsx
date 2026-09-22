@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { PROGRAMMES } from '../constants.js';
-import { BLOG_COURSES } from '../data/blogPosts.js';
+// Lightweight metadata only — see blogCourses.js for why this isn't imported from blogPosts.js
+// (that file pulls in every full article body, ~1.4MB, just to compute the same counts).
+import { BLOG_COURSES } from '../data/blogCourses.js';
 import { DESKTOP_HEADER } from '../useMediaQuery.js';
 import { INSIGHT_BLURBS, PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
 

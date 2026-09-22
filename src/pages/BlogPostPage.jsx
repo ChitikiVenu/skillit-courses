@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { DOMAIN } from '../constants.js';
+import { SITE_LOGO } from '../config/site.js';
 import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import ContactCard from '../components/ContactCard.jsx';
@@ -8,8 +9,23 @@ import { rolesForCourse } from '../data/roleCourses/index.js';
 import NotFoundPage from './NotFoundPage.jsx';
 
 const WORDS_PER_MINUTE = 200;
+const META_DESCRIPTION_LIMIT = 158;
 
 const sentenceCase = (q) => q.charAt(0).toUpperCase() + q.slice(1);
+
+// About 60 of the 120 posts (the newer salary/search-question articles) don't have their own
+// hand-written metaDescription, so the meta tag falls back to the post's lede — but a lede is an
+// intro paragraph, often 250-500 characters, too long for a meta description. This truncates it at a
+// word boundary instead of hand-writing 60 more descriptions (which risked drifting from the real
+// content) or letting an oversized description ship as-is.
+function truncate(s, limit) {
+  const trimmed = s.trim();
+  if (trimmed.length <= limit) return trimmed;
+  const cut = trimmed.slice(0, limit);
+  const lastSpace = cut.lastIndexOf(' ');
+  const safe = lastSpace > 0 ? cut.slice(0, lastSpace) : cut;
+  return safe.replace(/[,.;—-]+$/, '') + '…';
+}
 
 const anchorId = (heading) =>
   'sec-' +
@@ -116,14 +132,16 @@ export default function BlogPostPage() {
   const roleCourses = rolesForCourse(post.course.routeBase);
   const faqs = post.blocks.filter((b) => b.kind === 'faq').flatMap((b) => b.faqs);
   const pageUrl = `${DOMAIN}/blog/${post.slug}`;
+  const metaDescription = post.metaDescription ?? truncate(post.lede, META_DESCRIPTION_LIMIT);
   const jsonLd = [
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
       headline: post.question,
-      description: post.metaDescription ?? post.lede,
+      description: metaDescription,
       author: { '@type': 'Organization', name: 'Skill IT Education' },
-      publisher: { '@type': 'Organization', name: 'Skill IT Education' },
+      publisher: { '@type': 'Organization', name: 'Skill IT Education', logo: { '@type': 'ImageObject', url: SITE_LOGO } },
+      image: SITE_LOGO,
       mainEntityOfPage: pageUrl,
       ...(post.published ? { datePublished: post.published, dateModified: post.published } : {}),
     },
@@ -150,13 +168,21 @@ export default function BlogPostPage() {
     <main data-course={post.courseKey}>
       <Seo
         title={post.metaTitle ?? `${post.question} | Skill IT Education`}
-        description={post.metaDescription ?? post.lede}
+        description={metaDescription}
         path={`/blog/${post.slug}`}
+        ogType="article"
         jsonLd={jsonLd}
       />
 
       <section className="hero post-hero">
         <div className="wrap">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span className="sep">/</span>
+            <Link to="/blog">Career Insights</Link>
+            <span className="sep">/</span>
+            <span aria-current="page">{post.courseName}</span>
+          </nav>
           <Link className="post-back" to="/blog">
             &larr; All Career Insights
           </Link>

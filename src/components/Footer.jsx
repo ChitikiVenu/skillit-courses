@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ROLE_GROUPS } from '../data/roleCourses/index.js';
+// Lightweight, generated projection (title/href only) — see roleCoursesLite.js's own header comment
+// for why this isn't the real src/data/roleCourses/index.js (RoleCoursePage.jsx imports that one).
+import { ROLE_GROUPS_LITE } from '../data/roleCoursesLite.js';
 import { DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
 import { WHATSAPP_URL } from '../constants.js';
 import WhatsAppIcon from './WhatsAppIcon.jsx';
@@ -53,7 +55,7 @@ export default function Footer({ onBook }) {
           </div>
 
           <div className="footer-courses">
-            {ROLE_GROUPS.map((g) => {
+            {ROLE_GROUPS_LITE.map((g) => {
               const isOpen = wide || open === g.key;
               return (
                 <div className={`footer-col${isOpen ? ' is-open' : ''}`} key={g.key}>

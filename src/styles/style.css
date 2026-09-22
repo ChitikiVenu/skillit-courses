@@ -655,6 +655,9 @@ a.footer-course:hover{color:var(--accent-2);}
 }
 
 .landing-shell{min-height:60vh;display:grid;place-items:center;text-align:center;padding:0 24px;}
+/* Suspense fallback while a lazy-loaded route's chunk downloads (Layout.jsx) — just holds some
+   vertical space so the header/footer don't jump when the real page pops in a moment later. */
+.page-fallback{min-height:40vh;}
 .landing-shell p{color:var(--text-faint);font-size:15px;}
 
 /* ---------------------------------------------------------------- Our Programmes landing page: fit-finder cards

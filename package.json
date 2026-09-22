@@ -8,8 +8,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "npm run sitemap && vite build",
+    "preview": "vite preview",
+    "sitemap": "node scripts/generate-sitemap.mjs",
+    "seo:audit": "npm run sitemap --silent && node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

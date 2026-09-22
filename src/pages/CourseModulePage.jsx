@@ -35,9 +35,12 @@ export default function CourseModulePage({ course }) {
   const prevM = index > 0 ? MODULES[index - 1] : null;
   const nextM = index < MODULES.length - 1 ? MODULES[index + 1] : null;
 
-  const title = `${m.title} | Skill IT Education`;
-  const descPrefix = `Module ${m.number} (${m.duration}): `;
-  const desc = descPrefix + truncate(m.hero, 155 - descPrefix.length);
+  // A handful of module topics (e.g. "Exploratory Data Analysis") recur by name across more than one
+  // programme with near-identical opening copy, which would otherwise produce duplicate title/description
+  // tags. Qualifying both with the real programme name keeps every module page's tags unique.
+  const title = `${m.title} — ${COPY.courseShortName} | Skill IT Education`;
+  const descPrefix = `Module ${m.number} — ${COPY.courseShortName} (${m.duration}): `;
+  const desc = descPrefix + truncate(m.hero, 160 - descPrefix.length);
   const path = `${routeBase}/${m.slug}`;
   const canonicalUrl = DOMAIN + path;
 
@@ -47,8 +50,9 @@ export default function CourseModulePage({ course }) {
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: COPY.breadcrumbProgramName, item: DOMAIN + routeBase },
-          { '@type': 'ListItem', position: 2, name: `Module ${m.number} — ${m.title}`, item: canonicalUrl },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${DOMAIN}/` },
+          { '@type': 'ListItem', position: 2, name: COPY.breadcrumbProgramName, item: DOMAIN + routeBase },
+          { '@type': 'ListItem', position: 3, name: `Module ${m.number} — ${m.title}`, item: canonicalUrl },
         ],
       },
       {
@@ -56,7 +60,7 @@ export default function CourseModulePage({ course }) {
         name: `Module ${m.number} — ${m.title}`,
         description: m.hero,
         url: canonicalUrl,
-        provider: { '@type': 'Organization', name: 'Skill IT Education', sameAs: DOMAIN },
+        provider: { '@type': 'EducationalOrganization', name: 'Skill IT Education', sameAs: DOMAIN },
         isPartOf: { '@type': 'Course', name: SITE.program, url: DOMAIN + routeBase },
       },
     ],
@@ -68,11 +72,13 @@ export default function CourseModulePage({ course }) {
 
       <section className="hero">
         <div className="wrap">
-          <div className="breadcrumb">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span className="sep">/</span>
             <Link to={routeBase}>{COPY.breadcrumbProgramName}</Link>
             <span className="sep">/</span>
-            <span>Module {m.number}</span>
-          </div>
+            <span aria-current="page">Module {m.number}</span>
+          </nav>
           <div className="hero-grid">
             <div>
               <div className="duration-chip" style={{ marginTop: 22 }}>

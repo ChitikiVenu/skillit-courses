@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import cyberSecurity from './data/cyberSecurity.js';
 import aiMl from './data/aiMl.js';
@@ -6,17 +7,25 @@ import dataScience from './data/dataScience.js';
 import dataAnalyst from './data/dataAnalyst.js';
 import Layout from './components/Layout.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
-import LandingPage from './pages/LandingPage.jsx';
-import CourseHomePage from './pages/CourseHomePage.jsx';
-import CourseModulePage from './pages/CourseModulePage.jsx';
-import BlogIndexPage from './pages/BlogIndexPage.jsx';
-import BlogPostPage from './pages/BlogPostPage.jsx';
-import RoleCoursePage from './pages/RoleCoursePage.jsx';
-import PolicyPage from './pages/PolicyPage.jsx';
-import FaqPage from './pages/FaqPage.jsx';
-import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import { DATA_COMPLIANCE_POLICY, PRIVACY_POLICY } from './data/policies.js';
-import NotFoundPage from './pages/NotFoundPage.jsx';
+
+// Every page is lazy — split into its own chunk instead of the main bundle, so a visitor only
+// downloads the page they actually landed on (plus Layout/Header/Footer, which stay eager since
+// they're on every page anyway). Layout.jsx wraps the <Outlet/> in the one <Suspense> boundary this
+// needs, so only the routed content area shows the fallback while its chunk loads — the header and
+// footer never do. The five course data files stay eager here (not lazy): the footer's role-course
+// listing (Footer.jsx -> roleCourses/index.js) needs all five on every page anyway, so deferring them
+// per-route would just add complexity for no real saving.
+const LandingPage = lazy(() => import('./pages/LandingPage.jsx'));
+const CourseHomePage = lazy(() => import('./pages/CourseHomePage.jsx'));
+const CourseModulePage = lazy(() => import('./pages/CourseModulePage.jsx'));
+const BlogIndexPage = lazy(() => import('./pages/BlogIndexPage.jsx'));
+const BlogPostPage = lazy(() => import('./pages/BlogPostPage.jsx'));
+const RoleCoursePage = lazy(() => import('./pages/RoleCoursePage.jsx'));
+const PolicyPage = lazy(() => import('./pages/PolicyPage.jsx'));
+const FaqPage = lazy(() => import('./pages/FaqPage.jsx'));
+const PlaceholderPage = lazy(() => import('./pages/PlaceholderPage.jsx'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 const COURSES = [cyberSecurity, aiMl, socAnalyst, dataScience, dataAnalyst];
 

@@ -8,6 +8,7 @@ import { ImageHeroVisual, SocDashboardSvg } from '../components/HeroVisual.jsx';
 import ModuleFlow from '../components/ModuleFlow.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import { rolesForCourse } from '../data/roleCourses/index.js';
+import { monthsToIso8601, parseRupeeAmounts } from '../lib/schema.js';
 
 const COUNSEL_TEL = 'tel:' + PHONE.replace(/ /g, '');
 
@@ -28,6 +29,37 @@ export default function CourseHomePage({ course }) {
 
   const allTools = new Map();
   MODULES.forEach((m) => m.tools.forEach((t) => allTools.set(t.name, t)));
+
+  // Duration and fees for the schema come straight from the same heroStats the page itself displays
+  // (COPY.heroStats[0] is always the course's total/core duration stat; "Course Fees" is always
+  // "₹X / ₹Y" for Online / Offline) — never a separately invented number. hasCourseInstance is only
+  // added for whichever of the two prices actually parses.
+  const durationStat = COPY.heroStats[0];
+  const feesStat = COPY.heroStats.find((s) => s.label === 'Course Fees');
+  const isoDuration = monthsToIso8601(durationStat?.value);
+  const [onlinePrice, offlinePrice] = parseRupeeAmounts(feesStat?.value);
+  const hasCourseInstance = [];
+  if (onlinePrice) {
+    hasCourseInstance.push({
+      '@type': 'CourseInstance',
+      courseMode: 'Online',
+      ...(isoDuration && { duration: isoDuration }),
+      offers: { '@type': 'Offer', price: onlinePrice, priceCurrency: 'INR', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+    });
+  }
+  if (offlinePrice) {
+    hasCourseInstance.push({
+      '@type': 'CourseInstance',
+      courseMode: 'Onsite',
+      ...(isoDuration && { duration: isoDuration }),
+      location: {
+        '@type': 'Place',
+        name: 'Skill IT Education',
+        address: { '@type': 'PostalAddress', streetAddress: SITE.street, addressLocality: SITE.city, addressRegion: SITE.region, addressCountry: SITE.country },
+      },
+      offers: { '@type': 'Offer', price: offlinePrice, priceCurrency: 'INR', url: canonicalUrl, availability: 'https://schema.org/InStock' },
+    });
+  }
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -53,11 +85,19 @@ export default function CourseHomePage({ course }) {
         description: COPY.metaDesc,
         url: canonicalUrl,
         provider: { '@type': 'EducationalOrganization', name: 'Skill IT Education', sameAs: DOMAIN },
+        ...(hasCourseInstance.length && { hasCourseInstance }),
         hasPart: MODULES.map((m) => ({
           '@type': 'Course',
           name: `Module ${m.number} — ${m.title}`,
           url: DOMAIN + routeBase + '/' + m.slug,
         })),
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${DOMAIN}/` },
+          { '@type': 'ListItem', position: 2, name: COPY.courseShortName, item: canonicalUrl },
+        ],
       },
     ],
   };
@@ -68,6 +108,11 @@ export default function CourseHomePage({ course }) {
 
       <section className="hero">
         <div className="wrap">
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span className="sep">/</span>
+            <span aria-current="page">{COPY.courseShortName}</span>
+          </nav>
           <div className="hero-grid">
             <div>
               <div className="duration-chip">{COPY.durationChip}</div>

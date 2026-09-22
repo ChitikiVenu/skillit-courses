@@ -1,4 +1,8 @@
-export const DOMAIN = 'https://skilliteducation.com';
+// DOMAIN now comes from the central config (src/config/site.js), which reads it from the
+// VITE_SITE_URL environment variable — re-exported here so the ~10 files already importing
+// `{ DOMAIN }` from this file keep working unchanged. To point the whole site at a new domain, set
+// VITE_SITE_URL (see .env.example); don't hard-code a domain anywhere else.
+export { SITE_URL as DOMAIN, absoluteUrl } from './config/site.js';
 export const BRAND = 'SKILL IT EDUCATION';
 export const PHONE = '+91 9177715978';
 

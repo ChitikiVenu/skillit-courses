@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skillit-courses.vercel.app/sitemap.xml

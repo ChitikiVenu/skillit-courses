@@ -298,7 +298,7 @@ export default [
   {
     slug: 'data-analyst',
     title: 'Data Analyst',
-    metaTitle: `Data Analyst Course in Hyderabad | Skill IT Education`,
+    metaTitle: `Data Analyst Course in Hyderabad — Data Science Track | Skill IT Education`,
     metaDescription: `Data analyst course in Hyderabad with a data science angle: SQL, Python and Pandas, statistics, exploratory analysis, charts and machine learning basics.`,
     lede: `This role course arranges the Data Science programme for a data analyst who wants statistics and Python behind the reports. You start with SQL and Pandas, add statistics and exploratory analysis, learn to chart findings clearly, and finish with an introduction to machine learning.`,
     skills: [
@@ -447,7 +447,7 @@ export default [
   {
     slug: 'bi-analyst',
     title: 'BI Analyst',
-    metaTitle: `BI Analyst Course in Hyderabad | Skill IT Education`,
+    metaTitle: `BI Analyst Course in Hyderabad — Data Science Track | Skill IT Education`,
     metaDescription: `BI analyst course in Hyderabad: build Power BI and Tableau dashboards backed by SQL, exploratory analysis and statistics, and practise presenting them.`,
     lede: `This role course arranges the Data Science programme around a BI analyst. Power BI and Tableau come first, supported by SQL, exploratory analysis and Python charting, plus the statistics you need to say whether a KPI has really moved. You practise building and presenting dashboards.`,
     skills: [
@@ -726,7 +726,7 @@ export default [
   {
     slug: 'analytics-consultant',
     title: 'Analytics Consultant',
-    metaTitle: `Analytics Consultant Course in Hyderabad | Skill IT Education`,
+    metaTitle: `Analytics Consultant Course in Hyderabad — Data Science Track | Skill IT Education`,
     metaDescription: `Analytics consultant course in Hyderabad: hypothesis-driven analysis, statistics, visual storytelling, Power BI or Tableau dashboards and ML basics.`,
     lede: `This role course arranges the Data Science programme around an analytics consultant. You learn to explore data with a clear question in mind, back your view with statistics, present it in charts and dashboards, and understand where machine learning can and cannot help a client.`,
     skills: [
