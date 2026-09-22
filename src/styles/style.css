@@ -728,23 +728,34 @@ a.footer-course:hover{color:var(--accent-2);}
 .flow-section-head{margin-bottom:8px;}
 .flow-outer{width:100%;padding:0 24px;box-sizing:border-box;overflow-x:clip;}
 .flow-fit{width:100%;}
+/* Programme flow (tablet + funnel) now lives in its own section below the hero, so it has room to
+   breathe instead of being squeezed under the headline. */
+.flow-section{padding:20px 0 32px;}
 .programmes-hero{background:var(--bg-alt);border-bottom:1px solid var(--border);padding:28px 0 32px;}
+/* Hero: headline/intro/skills on the left, a lead-capture form on the right. Stacked on phones and
+   tablets (form under the text); side by side from 800px on a mouse/trackpad device, or 1151px on any
+   device, per the mobile-vs-desktop rule. */
+.home-hero-grid{display:flex;flex-direction:column;gap:24px;}
+.home-hero-left{display:flex;flex-direction:column;min-width:0;}
 .home-tagline{
-  margin:10px auto 6px;padding:0 20px;max-width:640px;text-align:center;
+  margin:10px auto 6px;max-width:640px;text-align:center;
   font-family:'Figtree',var(--font);font-size:18px;font-weight:600;line-height:1.35;letter-spacing:-.015em;color:var(--text);text-wrap:balance;
 }
-@media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
-  .programmes-hero{padding:6px 0 14px;}
-  /* desktop: the headline sits 1 cm under the header (6px of it is the hero's own padding), on one line sized from
-     the window width, and the tablet and programme section starts at least 5 cm below it */
-  .home-tagline{max-width:none;white-space:nowrap;margin:calc(1cm - 6px) auto 14px;font-size:clamp(16px,2.05vw,44px);letter-spacing:-.02em;}
-  /* the skills line and the introduction fill the space between the headline and the funnel, which starts at least 5 cm below the headline */
-  .home-hero-rest{min-height:5cm;justify-content:center;gap:14px;padding-bottom:6px;}
-  .home-intro{font-size:16.5px;}
-}
 .home-tagline{margin-bottom:10px;}
-.home-hero-rest{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 20px 8px;text-align:center;}
+.home-hero-rest{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 0 8px;text-align:center;}
 .home-intro{margin:0;max-width:86ch;font-size:15px;line-height:1.6;color:var(--text-dim);}
+/* Hero lead form: same "best" card treatment as the enquiry box lower on the page (surface, top
+   accent border, soft shadow), just narrower and with its fields stacked for the tighter column. */
+.home-hero-form{
+  width:100%;max-width:440px;margin:0 auto;box-sizing:border-box;
+  background:var(--surface-2);border:1px solid var(--border);border-top:3px solid var(--cta);
+  border-radius:16px;padding:22px 22px 20px;
+  box-shadow:0 24px 48px -22px rgba(16,21,31,.22);
+}
+.home-hero-form .lead-form-head h3{font-size:18px;}
+.home-hero-form .form-row{flex-direction:column;align-items:stretch;gap:12px;}
+.home-hero-form .form-field{flex:0 0 auto;min-width:0;}
+.home-hero-form .form-submit{width:100%;justify-content:center;margin-top:2px;}
 /* "Most advanced skills we teach" — a left-to-right auto-scrolling strip of chips under the intro, so the
    full list stays legible instead of wrapping onto several lines. Same marquee pattern as CertStrip.jsx. */
 .home-skills{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;}
@@ -767,13 +778,34 @@ a.footer-course:hover{color:var(--accent-2);}
 .home-skills-row a:hover,.home-skills-row a:focus-visible{
   background:var(--accent-2);border-color:var(--accent-2);color:#fff;transform:translateY(-1px);
 }
+/* Desktop tier: headline/intro/skills on the left, form on the right (side by side from 800px on a
+   mouse/trackpad device, or 1151px on any device, per the mobile-vs-desktop rule). All the base rules
+   above are the mobile/stacked defaults; this single block holds every desktop override, placed after
+   every base rule it touches so source order can't fight the cascade. */
+@media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
+  .programmes-hero{padding:22px 0 28px;}
+  .home-hero-grid{flex-direction:row;align-items:center;gap:48px;}
+  .home-hero-left{flex:1 1 auto;}
+  /* the headline sits 1 cm under the header, on up to two lines (see the two-line-headline rule; FitHeading enforces it) */
+  .home-tagline{max-width:none;margin:calc(1cm - 14px) 0 14px;text-align:left;font-size:clamp(24px,2.6vw,40px);letter-spacing:-.02em;}
+  .home-hero-rest{align-items:flex-start;text-align:left;justify-content:flex-start;}
+  .home-skills{align-items:flex-start;}
+  .home-intro{font-size:16.5px;}
+  .home-hero-form{flex:0 0 380px;max-width:380px;margin:0;}
+}
+@media (min-width: 800px) and (max-width: 1150px){
+  .home-hero-grid{gap:28px;}
+  .home-hero-form{flex-basis:340px;max-width:340px;padding:18px 18px 16px;}
+}
 @media (max-width: 799px){
-  .home-hero-rest{gap:10px;padding:0 16px 6px;}
+  .home-hero-rest{gap:10px;padding:0 0 6px;}
   .home-skills-label{display:none;}
   .home-skills-track{max-width:100%;}
   .home-skills-row{animation-duration:16s;}
   .home-skills-row a{font-size:12.5px;padding:4px 10px;}
   .home-intro{font-size:14px;line-height:1.55;}
+  .home-hero-grid{gap:20px;}
+  .home-hero-form{padding:18px 16px;max-width:420px;}
 }
 .flow-wrap{
   position:relative;width:100%;max-width:1400px;height:680px;

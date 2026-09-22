@@ -5,6 +5,7 @@ import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
+import FitHeading from '../components/FitHeading.jsx';
 import CertStrip from '../components/CertStrip.jsx';
 import { usePrefersReducedMotion } from '../components/flowPulse.jsx';
 import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
@@ -129,23 +130,40 @@ export default function LandingPage() {
       />
 
       <section id="programmes" className="programmes-hero">
-        <h1 className="home-tagline">{HERO_TITLE}</h1>
-        <div className="home-hero-rest">
-          <p className="home-intro">{HERO_INTRO}</p>
-          <div className="home-skills">
-            <span className="home-skills-label">Most advanced skills we teach</span>
-            <div className={`home-skills-track ${reducedMotion ? 'is-static' : ''}`}>
-              <ul className="home-skills-row">
-                {/* duplicated once so the marquee can scroll from 0 to -50% and loop with no visible seam */}
-                {[...ADVANCED_SKILLS, ...ADVANCED_SKILLS].map(({ label, course }, i) => (
-                  <li key={`${label}-${i}`}>
-                    <Link to={course.routeBase}>{label}</Link>
-                  </li>
-                ))}
-              </ul>
+        <div className="wrap home-hero-grid">
+          <div className="home-hero-left">
+            <FitHeading className="home-tagline" maxLines={2} minPx={18}>
+              {HERO_TITLE}
+            </FitHeading>
+            <div className="home-hero-rest">
+              <p className="home-intro">{HERO_INTRO}</p>
+              <div className="home-skills">
+                <span className="home-skills-label">Most advanced skills we teach</span>
+                <div className={`home-skills-track ${reducedMotion ? 'is-static' : ''}`}>
+                  <ul className="home-skills-row">
+                    {/* duplicated once so the marquee can scroll from 0 to -50% and loop with no visible seam */}
+                    {[...ADVANCED_SKILLS, ...ADVANCED_SKILLS].map(({ label, course }, i) => (
+                      <li key={`${label}-${i}`}>
+                        <Link to={course.routeBase}>{label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
+          <div className="home-hero-form">
+            <LeadForm
+              bare
+              formId="hero-form"
+              heading="Get Free Career Guidance"
+              subheading="Share your details — we'll call you back with the syllabus, batch timings and fee breakdown."
+            />
+          </div>
         </div>
+      </section>
+
+      <section className="flow-section">
         <div className="flow-outer">
           <ProgrammeFlow programmes={PROGRAMMES} />
         </div>

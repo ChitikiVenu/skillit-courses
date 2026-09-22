@@ -5,7 +5,7 @@ import { useLayoutEffect, useRef } from 'react';
 // height is no more than maxLines lines), then re-fits whenever the column width changes or the
 // web font finishes loading. Pass `html` for a headline with its own <br> line break (the course
 // titles), or children for plain text that wraps on its own (the module titles).
-export default function FitHeading({ html, children, maxLines = 2, minPx = 15 }) {
+export default function FitHeading({ html, children, maxLines = 2, minPx = 15, className: extraClassName }) {
   const ref = useRef(null);
 
   useLayoutEffect(() => {
@@ -44,7 +44,7 @@ export default function FitHeading({ html, children, maxLines = 2, minPx = 15 })
     };
   }, [html, children, maxLines, minPx]);
 
-  const className = `fit-h1${html ? ' fit-h1-nowrap' : ''}`;
+  const className = `fit-h1${html ? ' fit-h1-nowrap' : ''}${extraClassName ? ` ${extraClassName}` : ''}`;
   return html ? (
     <h1 ref={ref} className={className} dangerouslySetInnerHTML={{ __html: html }} />
   ) : (
