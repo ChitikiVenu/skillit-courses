@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { COURSE_BROCHURES } from '../data/courseBrochures.js';
 
 const COURSE_OPTIONS = ['Cyber Security', 'AI & ML', 'Data Science', 'SOC (Security Operations Center)', 'Data Analyst'];
 
 export default function AdvisorModal({ open, onClose, title = 'Talk to an Advisor' }) {
   const [submitted, setSubmitted] = useState(false);
+  const [brochureFile, setBrochureFile] = useState(undefined);
 
   useEffect(() => {
     if (!open) return undefined;
@@ -22,11 +24,13 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
 
   const handleClose = () => {
     setSubmitted(false);
+    setBrochureFile(undefined);
     onClose();
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setBrochureFile(COURSE_BROCHURES[e.target.elements.course?.value]);
     setSubmitted(true);
   };
 
@@ -78,7 +82,12 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
           </>
         ) : (
           <div className="form-success">
-            Thanks — we&rsquo;ve received your details. Our admissions team will call you back shortly.
+            Thanks — we&rsquo;ve received your details. Our admissions team will call you back shortly.{' '}
+            {brochureFile && (
+              <a href={`/downloads/${brochureFile}`} download>
+                Download the brochure now &rarr;
+              </a>
+            )}
           </div>
         )}
       </div>

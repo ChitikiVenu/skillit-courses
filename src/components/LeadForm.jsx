@@ -1,13 +1,23 @@
 import { useState } from 'react';
+import { COURSE_BROCHURES } from '../data/courseBrochures.js';
 
 const COURSE_OPTIONS = ['Cyber Security', 'SOC (Security Operations Center)', 'AI/ML', 'Data Science', 'Data Analyst'];
 
 // `bare` drops the card's own border, background and padding so the form can sit inside another box.
 export default function LeadForm({ formId, heading, subheading, brochureFile, preselectedCourse, bare = false }) {
   const [submitted, setSubmitted] = useState(false);
+  // Some forms already know which course they're for (a course page, a role page, a blog post) and
+  // pass `brochureFile` directly. Forms that don't — the homepage's general enquiry forms, the FAQ
+  // page — fall back to whichever course the visitor actually picked in the dropdown, so every
+  // submission still ends with a real, relevant brochure link, not just the ones with a preset course.
+  const [resolvedBrochure, setResolvedBrochure] = useState(brochureFile);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!brochureFile) {
+      const selectedCourse = e.target.elements.course?.value;
+      setResolvedBrochure(COURSE_BROCHURES[selectedCourse]);
+    }
     setSubmitted(true);
   };
 
@@ -64,8 +74,8 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
         {submitted && (
           <div className="form-success">
             Thanks — we&rsquo;ve received your details. Our admissions team will call you back shortly.{' '}
-            {brochureFile && (
-              <a href={`/downloads/${brochureFile}`} download>
+            {resolvedBrochure && (
+              <a href={`/downloads/${resolvedBrochure}`} download>
                 Download the brochure now &rarr;
               </a>
             )}
