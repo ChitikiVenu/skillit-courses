@@ -543,7 +543,12 @@ footer.site{border-top:1px solid var(--border);background:var(--bg-alt);padding:
 .programmes-menu-label{position:relative;}
 button.programmes-menu-label{background:none;border:none;cursor:pointer;}
 .programmes-menu.is-active .programmes-menu-label::after{content:"";position:absolute;left:4px;right:2px;bottom:3px;height:2px;border-radius:2px;background:var(--ink);}
-.header-nav .programmes-menu:last-child .programmes-menu-panel{left:auto;right:0;}
+/* Both dropdowns grow leftward from their trigger's right edge, not just the last one — the whole
+   nav already sits close to the header's right edge, so a left-aligned (grows-rightward) panel on
+   "Our Programmes" ran off the viewport at medium widths (roughly 1000-1300px) before there was
+   enough room. Growing left is always safe here: there's open space the whole width of the hero
+   column to the left of either trigger, at every width the desktop nav itself is shown. */
+.header-nav .programmes-menu .programmes-menu-panel{left:auto;right:0;}
 .programmes-menu-caret-btn{
   background:none;border:none;cursor:pointer;padding:8px 6px;
   display:flex;align-items:center;
