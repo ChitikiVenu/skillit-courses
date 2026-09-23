@@ -505,3 +505,82 @@ export const DATA_COMPLIANCE_POLICY = {
     },
   ],
 };
+
+// Refund terms: owner-specified rule (2026-09-23) is the 7-working-days eligibility window — nothing
+// beyond that (refund amount, processing timeline, deductions) has been given, so this deliberately
+// doesn't invent a percentage, a deduction, or a number of days to actually receive the money back.
+// It states the refund is of the fee paid (the plain, unqualified reading of "refund" with nothing
+// said about a deduction), and leaves timeline/method to be confirmed when admissions processes a
+// request. The batch-cancelled-by-us clause and the certification-fees-are-separate note are already
+// true elsewhere on the site (faq.js) and are safe, standard, pro-student inclusions.
+export const REFUND_POLICY = {
+  slug: 'refund-policy',
+  title: 'Refund Policy',
+  metaTitle: 'Refund Policy | Skill IT Education',
+  metaDescription:
+    'Skill IT Education’s refund policy: request a refund at least 7 working days before your course start date. How to request one, what’s covered, and what happens if we cancel your batch.',
+  intro: [
+    `This Refund Policy explains when you can get a refund of the course fee you paid Skill IT Education Pvt Ltd ("Skill IT", "we", "us" or "our") for one of our training programmes, and how to request one. It applies to fees paid directly to us for enrolment in a Skill IT programme, online or offline.`,
+    `It does not apply to fees for external certification exams, which are paid directly to the certifying body and never form part of what you pay us.`,
+  ],
+  brief: [
+    { title: '7 working days’ notice', text: 'Request your refund at least 7 working days before your course’s start date.' },
+    { title: 'Refund of the fee paid', text: 'An eligible request is refunded the course fee you paid for that programme.' },
+    { title: 'After the window closes', text: 'Requests made less than 7 working days before your start date, or after the course has started, are not eligible.' },
+    { title: 'If we cancel your batch', text: 'If Skill IT Education cancels or indefinitely postpones your batch before it starts, you get a full refund.' },
+    { title: 'Certification fees are separate', text: 'External certification exam fees go straight to the certifying body — they are not part of this policy.' },
+  ],
+  sections: [
+    {
+      heading: 'Scope of this Policy',
+      blocks: [
+        p(`This Policy covers the course fee you pay Skill IT Education for enrolment in one of our programmes, whichever mode you study in. It does not cover fees for external certification exams (for example CEH, CompTIA Security+ or similar) — those are paid directly to the certifying body, not to us, and are governed by that body’s own terms.`),
+      ],
+    },
+    {
+      heading: 'Refund Eligibility Window',
+      blocks: [
+        p(`To be eligible for a refund, you must submit your request at least 7 working days before your course’s scheduled start date.`),
+        ul(
+          'Requests received 7 or more working days before your start date are eligible for a refund.',
+          'Requests received less than 7 working days before your start date, or on or after the date your course has started, are not eligible for a refund.',
+        ),
+        p(`"Working days" excludes Sundays and public holidays.`),
+      ],
+    },
+    {
+      heading: 'How to Request a Refund',
+      blocks: [
+        p(`Send your refund request in writing to us, by email or phone, stating your full name, the programme you enrolled in, and your batch’s start date:`),
+        { t: 'contact' },
+        p(`We’ll confirm we’ve received your request and let you know its status.`),
+      ],
+    },
+    {
+      heading: 'Refund Amount, Method and Timeline',
+      blocks: [
+        p(`An eligible request is refunded the course fee you paid for that programme, back to your original payment method. Our admissions team will confirm the exact timeline when they process your request.`),
+      ],
+    },
+    {
+      heading: 'If We Cancel or Postpone Your Batch',
+      blocks: [
+        p(`If Skill IT Education cancels a batch, or postpones it indefinitely, before it starts, you are entitled to a full refund of the fees you paid for that batch — this eligibility window does not apply in that case.`),
+      ],
+    },
+    {
+      heading: 'Contact Us',
+      id: 'contact',
+      blocks: [
+        p(`Questions about a refund, or about this Policy, can go to the same team:`),
+        { t: 'contact' },
+      ],
+    },
+    {
+      heading: 'Changes to this Policy',
+      blocks: [
+        p(`We may update this Refund Policy from time to time. The current version is always on this page with its "Last updated" date.`),
+      ],
+    },
+  ],
+};

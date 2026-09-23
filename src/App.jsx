@@ -7,7 +7,7 @@ import dataScience from './data/dataScience.js';
 import dataAnalyst from './data/dataAnalyst.js';
 import Layout from './components/Layout.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
-import { DATA_COMPLIANCE_POLICY, PRIVACY_POLICY } from './data/policies.js';
+import { DATA_COMPLIANCE_POLICY, PRIVACY_POLICY, REFUND_POLICY } from './data/policies.js';
 
 // Every page is lazy — split into its own chunk instead of the main bundle, so a visitor only
 // downloads the page they actually landed on (plus Layout/Header/Footer, which stay eager since
@@ -24,7 +24,6 @@ const BlogPostPage = lazy(() => import('./pages/BlogPostPage.jsx'));
 const RoleCoursePage = lazy(() => import('./pages/RoleCoursePage.jsx'));
 const PolicyPage = lazy(() => import('./pages/PolicyPage.jsx'));
 const FaqPage = lazy(() => import('./pages/FaqPage.jsx'));
-const PlaceholderPage = lazy(() => import('./pages/PlaceholderPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 const CareersPage = lazy(() => import('./pages/CareersPage.jsx'));
 const CareerDetailPage = lazy(() => import('./pages/CareerDetailPage.jsx'));
@@ -50,8 +49,7 @@ export default function App() {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/careers/:slug" element={<CareerDetailPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
-          {/* linked from the footer; content still to come */}
-          <Route path="/refund-policy" element={<PlaceholderPage title="Refund Policy" path="/refund-policy" />} />
+          <Route path="/refund-policy" element={<PolicyPage policy={REFUND_POLICY} related={{ to: '/faqs', label: 'FAQs' }} />} />
           {COURSES.map((course) => (
             <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage key={course.routeBase} course={course} />} />
           ))}

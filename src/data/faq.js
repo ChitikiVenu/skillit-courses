@@ -8,8 +8,8 @@
 // to 6 interview opportunities with hiring partners per student. Every placement-related answer below
 // says this plainly; never rephrase it into a guarantee.
 //
-// Refund terms are NOT invented here (see the skillit-legal-pages memory) — refund questions point to
-// the /refund-policy page and direct contact with admissions instead of stating figures or timelines.
+// Refund questions point to the real /refund-policy page (2026-09-23: 7-working-days eligibility
+// window) rather than restating its terms here, so there's one place they can drift out of sync.
 //
 // `accent` cycles a short palette already used elsewhere on the site (the fit-finder card tints), so
 // each box reads as its own subject without inventing new colours.
@@ -216,7 +216,7 @@ const RAW_CATEGORIES = [
       },
       {
         q: 'Is the course fee refundable if I drop out?',
-        a: 'Refunds are governed by our Refund Policy, which is being finalised — contact our admissions team directly for the current terms before you enroll if this matters to your decision.',
+        a: 'Yes, if you request it at least 7 working days before your course start date — see our Refund Policy page for the full terms. Requests made closer to or after the start date are not eligible.',
       },
       {
         q: 'Do I pay the full fee before the batch starts?',
@@ -486,7 +486,7 @@ const RAW_CATEGORIES = [
     items: [
       {
         q: 'Where can I read your Refund Policy?',
-        a: 'Our Refund Policy page is being finalised — contact our admissions team directly at +91 9177715978 or info@skilliteducation.com for the current terms before you enroll.',
+        a: 'On our Refund Policy page — in short, request a refund at least 7 working days before your course start date and you’re eligible for the fee you paid.',
       },
       {
         q: 'Where can I read your Privacy Policy?',

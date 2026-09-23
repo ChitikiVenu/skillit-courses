@@ -81,8 +81,9 @@ try {
   errors.push('public/sitemap.xml not found — run `npm run sitemap` first.');
 }
 if (sitemapUrls.length) {
-  // noindex pages (About Us, Refund Policy — still placeholders) are deliberately left out of the
-  // sitemap by scripts/generate-sitemap.mjs, so they're excluded from this comparison too.
+  // noindex pages (currently none — just kept generic here for whenever one exists again) are
+  // deliberately left out of the sitemap by scripts/generate-sitemap.mjs, so they're excluded from
+  // this comparison too.
   const pagePaths = new Set(pages.filter((p) => !p.noindex).map((p) => p.path));
   const sitemapSet = new Set(sitemapUrls);
   for (const p of pagePaths) {

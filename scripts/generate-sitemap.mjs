@@ -65,6 +65,7 @@ const urls = [
   { path: '/careers', changefreq: 'weekly', priority: '0.6' },
   ...CAREERS.map((c) => ({ path: `/careers/${c.slug}`, changefreq: 'weekly', priority: '0.5' })),
   { path: '/about-us', changefreq: 'monthly', priority: '0.5' },
+  { path: '/refund-policy', changefreq: 'yearly', priority: '0.3' },
   { path: '/privacy-policy', changefreq: 'yearly', priority: '0.3' },
   { path: '/data-compliance-policy', changefreq: 'yearly', priority: '0.3' },
   ...COURSES.map((c) => ({ path: c.routeBase, changefreq: 'weekly', priority: '1.0' })),
@@ -73,10 +74,9 @@ const urls = [
   ...BLOG_POSTS.map((p) => ({ path: `/blog/${p.slug}`, changefreq: 'monthly', priority: '0.6' })),
 ];
 
-// Not included on purpose: /refund-policy (still PlaceholderPage, noindex — a sitemap should only
-// list pages meant to be indexed), /programmes (a redirect), /404, and /blog?course=... (a
-// client-side filter of /blog, not a distinct indexable page — see BlogIndexPage.jsx/Header.jsx; it
-// has no canonical of its own and isn't meant to be crawled as a separate URL).
+// Not included on purpose: /programmes (a redirect), /404, and /blog?course=... (a client-side
+// filter of /blog, not a distinct indexable page — see BlogIndexPage.jsx/Header.jsx; it has no
+// canonical of its own and isn't meant to be crawled as a separate URL).
 
 const seen = new Set();
 for (const u of urls) {

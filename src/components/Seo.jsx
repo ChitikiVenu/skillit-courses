@@ -9,10 +9,10 @@ import { absoluteUrl, SITE_LOGO } from '../config/site.js';
 // a domain.
 //
 // Indexable pages get an explicit "index, follow" robots tag (not just the absence of one) and a
-// self-referencing canonical. `noindex` pages (About Us, Refund Policy — still PlaceholderPage; the
-// 404) get "noindex, follow" and still get a canonical, so a crawler that reaches the page anyway has
-// one consistent URL to record, matching Google's guidance that the canonical seen before and after
-// JavaScript execution should never disagree.
+// self-referencing canonical. `noindex` pages (just the 404 now) get "noindex, follow" and still get
+// a canonical, so a crawler that reaches the page anyway has one consistent URL to record, matching
+// Google's guidance that the canonical seen before and after JavaScript execution should never
+// disagree.
 export default function Seo({ title, description, path, ogImage, ogImageAlt, ogType = 'website', jsonLd, noindex }) {
   const canonicalUrl = absoluteUrl(path);
   const image = ogImage || SITE_LOGO;

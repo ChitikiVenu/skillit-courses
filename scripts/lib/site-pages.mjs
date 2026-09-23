@@ -27,7 +27,7 @@ export async function getSitePages() {
   const dataAnalyst = (await import('../../src/data/dataAnalyst.js')).default;
   const { ROLE_COURSES } = await import('../../src/data/roleCourses/index.js');
   const { BLOG_POSTS } = await import('../../src/data/blogPosts.js');
-  const { PRIVACY_POLICY, DATA_COMPLIANCE_POLICY } = await import('../../src/data/policies.js');
+  const { PRIVACY_POLICY, DATA_COMPLIANCE_POLICY, REFUND_POLICY } = await import('../../src/data/policies.js');
   const { CAREERS } = await import('../../src/data/careers.js');
 
   const COURSES = [cyberSecurity, aiMl, dataScience, socAnalyst, dataAnalyst];
@@ -69,7 +69,7 @@ export async function getSitePages() {
       description:
         'Skill IT Education is an upskilling academy in Madhapur, Hyderabad, training graduates and professionals in future technologies through hands-on labs, real projects, a real-time internship and honest placement assistance.',
     },
-    { path: '/refund-policy', title: 'Refund Policy | Skill IT Education', description: 'Refund Policy at Skill IT Education.', noindex: true },
+    { path: '/refund-policy', title: REFUND_POLICY.metaTitle, description: REFUND_POLICY.metaDescription },
     ...COURSES.map((c) => ({
       path: c.routeBase,
       title: c.COPY.metaTitle,
