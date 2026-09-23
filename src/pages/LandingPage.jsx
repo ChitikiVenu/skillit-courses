@@ -262,16 +262,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="who-can-join" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-        <div className="wrap">
-          <div className="section-head">
-            <span className="eyebrow">Eligibility</span>
-            <h2>Who Can Join Our Programs?</h2>
-            <p>{ELIGIBILITY_TEXT}</p>
-          </div>
-        </div>
-      </section>
-
       <section id="home-faqs">
         <div className="wrap">
           <div className="section-head">
