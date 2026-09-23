@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
+import FitHeading from '../components/FitHeading.jsx';
 import { CAREERS } from '../data/careers.js';
 
 // Purely decorative balloon shapes for the hero — aria-hidden, never carries information. Colours
@@ -79,7 +80,9 @@ export default function CareersPage() {
           </svg>
 
           <Ribbon>We&rsquo;re Hiring</Ribbon>
-          <h1>Careers at Skill IT Education</h1>
+          <FitHeading className="career-hero-title" maxLines={1} minPx={22}>
+            Careers at Skill IT Education
+          </FitHeading>
           <p className="career-hero-sub">
             Help us build the training that turns classroom learning into real careers in Cyber Security, AI, and Data.
             Here&rsquo;s what&rsquo;s open right now.
@@ -117,6 +120,7 @@ export default function CareersPage() {
                       </svg>
                       {c.employmentType}
                     </span>
+                    {c.openings > 1 && <span className="career-chip career-chip-openings">{c.openings} openings</span>}
                   </div>
                 </div>
                 <Link className="btn btn-primary career-apply-btn" to={`/careers/${c.slug}`}>

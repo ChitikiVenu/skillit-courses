@@ -58,6 +58,81 @@ export const CAREERS = [
       phone: '+91 91777 15978',
     },
   },
+  // The next three roles were requested with a title/openings/department only — no responsibilities
+  // or requirements list was supplied, so none are invented here. CareerDetailPage.jsx shows a
+  // "full job description on request" callout in place of those two sections until real content
+  // comes in; `about` below is kept to what's actually known (role, department, location).
+  {
+    slug: 'sales-executive-higher-education',
+    title: 'Sales Executive – Higher Education',
+    location: 'Madhapur, Hyderabad',
+    workMode: 'Onsite',
+    employmentType: 'Full-time',
+    company: 'Skill IT Education Pvt Ltd',
+    postedDate: '2026-09-23',
+    summary:
+      'Higher-education sales role — building relationships with colleges and institutions to grow enrolments across our technology programmes.',
+    about: [
+      'Skill IT Education is hiring a Sales Executive for our Higher Education sales team, based at our Madhapur, Hyderabad campus.',
+      'This role is focused on higher-education sales — building relationships with colleges, universities and institutions to grow enrolments across our Cyber Security, SOC, AI & ML, Data Science and Data Analytics programmes.',
+    ],
+    responsibilities: [],
+    requirements: [],
+    whyJoin:
+      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team building training that turns into real careers.',
+    howToApply: {
+      email: 'info@skilliteducation.com',
+      subject: 'Sales Executive – Higher Education',
+      phone: '+91 91777 15978',
+    },
+  },
+  {
+    slug: 'sales-intern',
+    title: 'Sales Intern',
+    location: 'Madhapur, Hyderabad',
+    workMode: 'Onsite',
+    employmentType: 'Internship',
+    openings: 4,
+    company: 'Skill IT Education Pvt Ltd',
+    postedDate: '2026-09-23',
+    summary: '4 openings — supporting the sales team at our Madhapur, Hyderabad campus.',
+    about: [
+      'Skill IT Education is hiring Sales Interns to support our sales team at our Madhapur, Hyderabad campus.',
+      '4 openings are available for this internship.',
+    ],
+    responsibilities: [],
+    requirements: [],
+    whyJoin:
+      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team building training that turns into real careers.',
+    howToApply: {
+      email: 'info@skilliteducation.com',
+      subject: 'Sales Intern',
+      phone: '+91 91777 15978',
+    },
+  },
+  {
+    slug: 'digital-marketing-manager',
+    title: 'Digital Marketing Manager',
+    location: 'Madhapur, Hyderabad',
+    workMode: 'Onsite',
+    employmentType: 'Full-time',
+    company: 'Skill IT Education Pvt Ltd',
+    postedDate: '2026-09-23',
+    summary: 'Lead digital marketing for Skill IT Education across our Cyber Security, AI & ML, Data Science and Data Analytics programmes.',
+    about: [
+      'Skill IT Education is hiring a Digital Marketing Manager, based at our Madhapur, Hyderabad campus.',
+      'This role leads digital marketing across our Cyber Security, SOC, AI & ML, Data Science and Data Analytics programmes.',
+    ],
+    responsibilities: [],
+    requirements: [],
+    whyJoin:
+      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team building training that turns into real careers.',
+    howToApply: {
+      email: 'info@skilliteducation.com',
+      subject: 'Digital Marketing Manager',
+      phone: '+91 91777 15978',
+    },
+  },
 ];
 
 export const getCareerBySlug = (slug) => CAREERS.find((c) => c.slug === slug);

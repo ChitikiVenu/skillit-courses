@@ -75,13 +75,13 @@ export default function CareerDetailPage() {
   const telHref = 'tel:' + career.howToApply.phone.replace(/\s+/g, '');
   const postedLabel = formatPostedDate(career.postedDate);
 
+  const hasResponsibilities = career.responsibilities?.length > 0;
+  const hasRequirements = career.requirements?.length > 0;
   const description = [
     career.summary,
     ...career.about,
-    "What You'll Own:",
-    ...career.responsibilities.map((r) => `${r.title} — ${r.text}`),
-    "What We're Looking For:",
-    ...career.requirements,
+    ...(hasResponsibilities ? ["What You'll Own:", ...career.responsibilities.map((r) => `${r.title} — ${r.text}`)] : []),
+    ...(hasRequirements ? ["What We're Looking For:", ...career.requirements] : []),
     'Why Join Us:',
     career.whyJoin,
   ].join('\n\n');
@@ -172,6 +172,12 @@ export default function CareerDetailPage() {
               <span>{career.workMode}</span>
               <span className="sep">&middot;</span>
               <span>{career.employmentType}</span>
+              {career.openings > 1 && (
+                <>
+                  <span className="sep">&middot;</span>
+                  <span>{career.openings} openings</span>
+                </>
+              )}
               <span className="sep">&middot;</span>
               <span>Posted {postedLabel}</span>
             </div>
@@ -198,25 +204,38 @@ export default function CareerDetailPage() {
             ))}
           </section>
 
-          <section>
-            <h2>What You&rsquo;ll Own</h2>
-            <ul className="check-list">
-              {career.responsibilities.map((r) => (
-                <li key={r.title}>
-                  <strong>{r.title}</strong> &mdash; {r.text}
-                </li>
-              ))}
-            </ul>
-          </section>
+          {hasResponsibilities && (
+            <section>
+              <h2>What You&rsquo;ll Own</h2>
+              <ul className="check-list">
+                {career.responsibilities.map((r) => (
+                  <li key={r.title}>
+                    <strong>{r.title}</strong> &mdash; {r.text}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
-          <section>
-            <h2>What We&rsquo;re Looking For</h2>
-            <ul className="check-list">
-              {career.requirements.map((r) => (
-                <li key={r}>{r}</li>
-              ))}
-            </ul>
-          </section>
+          {hasRequirements && (
+            <section>
+              <h2>What We&rsquo;re Looking For</h2>
+              <ul className="check-list">
+                {career.requirements.map((r) => (
+                  <li key={r}>{r}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {!hasResponsibilities && !hasRequirements && (
+            <section className="career-jd-pending">
+              <p>
+                The full role and requirements for this position are available from our HR team — reach out below and
+                we&rsquo;ll send over the complete job description.
+              </p>
+            </section>
+          )}
 
           <section>
             <h2>Why Join Us</h2>

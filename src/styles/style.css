@@ -1812,6 +1812,9 @@ section[id]{scroll-margin-top:92px;}
 .career-body-wrap{max-width:720px;}
 .career-body-wrap section{padding:24px 0;border-top:1px solid var(--border);}
 .career-body-wrap section:first-child{padding-top:0;border-top:none;}
+.career-body-wrap section.career-jd-pending{background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:18px 20px;}
+.career-jd-pending p{margin:0;font-style:italic;}
+.career-chip-openings{background:rgba(37,99,235,.08);border-color:var(--accent-2);color:var(--accent-2);font-weight:700;}
 .career-body-wrap .check-list li strong{color:var(--text);}
 .career-apply-section{background:var(--bg-alt);border:1px solid var(--border);border-radius:12px;padding:24px 24px 8px;margin-top:4px;}
 .career-apply-section .hero-ctas{align-items:center;}
