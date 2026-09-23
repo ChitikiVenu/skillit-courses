@@ -193,7 +193,6 @@ export default function CourseHomePage({ course }) {
           <div className="section-head">
             <span className="eyebrow">{COPY.roadmapEyebrow}</span>
             <h2>{COPY.roadmapTitle}</h2>
-            <p>{COPY.roadmapSubtitle}</p>
           </div>
           <ModuleFlow course={course} />
         </div>

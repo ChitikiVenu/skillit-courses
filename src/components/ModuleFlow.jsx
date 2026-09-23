@@ -4,7 +4,8 @@ import Tablet from './Tablet.jsx';
 import { DUB_LAG, Packet, Ripple, STAGGER, TRAVEL, TailGradients, cablePath, usePrefersReducedMotion } from './flowPulse.jsx';
 import { blogPostForCourse } from '../data/blogPosts.js';
 
-const ROW_HEIGHT = 92;
+const ROW_SPACING = 105; // px between card centres — fixed regardless of module count, so a 9-module course isn't cramped while a 6-module course isn't overly spread out
+const TOP_PAD = 58; // px from the top of the flow to the first card's centre
 const MODULE_X1 = 43;
 const MODULE_X2 = 95;
 const TABLET_X = 16;
@@ -60,8 +61,8 @@ export default function ModuleFlow({ course }) {
   }, [visible, animate, size]);
 
   const n = MODULES.length;
-  const rowY = (i) => (n === 1 ? 50 : 10 + i * (80 / (n - 1)));
-  const wrapHeight = Math.max(520, n * ROW_HEIGHT + 140);
+  const wrapHeight = Math.max(520, TOP_PAD * 2 + (n - 1) * ROW_SPACING);
+  const rowY = (i) => (n === 1 ? wrapHeight / 2 : TOP_PAD + i * ROW_SPACING);
 
   // Cables run from a hub on the tablet's right edge to a socket in front of each module card,
   // as smooth S-curves; y2 is the card's vertical centre (cards are centred on rowY).
@@ -72,7 +73,7 @@ export default function ModuleFlow({ course }) {
   const cardLeft = (MODULE_X1 / 100) * size;
   const x2 = cardLeft - 10;
   const cables = MODULES.map((m, i) => {
-    const y2 = (rowY(i) / 100) * wrapHeight;
+    const y2 = rowY(i);
     return {
       slug: m.slug,
       y2,
@@ -150,7 +151,7 @@ export default function ModuleFlow({ course }) {
           style={{
             left: `${MODULE_X1}%`,
             width: `${MODULE_X2 - MODULE_X1}%`,
-            top: `${rowY(i)}%`,
+            top: `${(rowY(i) / wrapHeight) * 100}%`,
             '--beat-delay': `${(i * STAGGER + TRAVEL).toFixed(2)}s`,
           }}
         >
