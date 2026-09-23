@@ -19,6 +19,16 @@ function formatPostedDate(isoDate) {
   return POSTED_DATE_FORMAT.format(new Date(y, m - 1, d));
 }
 
+// Shared between the "send resume" apply button and the "share this posting" button below — same
+// glyph, two different jobs.
+function WhatsAppGlyph() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.35A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.07-1.11l-.29-.17-3 .8.8-2.92-.19-.3A8 8 0 1 1 12 20Zm4.38-5.85c-.24-.12-1.43-.7-1.65-.78s-.38-.12-.55.12-.63.78-.78.94-.29.18-.53.06a6.6 6.6 0 0 1-1.94-1.2 7.3 7.3 0 0 1-1.34-1.67c-.14-.24 0-.37.1-.49s.24-.29.36-.43a1.6 1.6 0 0 0 .24-.4.44.44 0 0 0 0-.42c-.06-.12-.55-1.33-.76-1.82s-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.75 2.75 0 0 0-.86 2.05 4.8 4.8 0 0 0 1 2.53 10.9 10.9 0 0 0 4.19 3.71c.58.25 1.04.4 1.4.51a3.37 3.37 0 0 0 1.54.1 2.52 2.52 0 0 0 1.65-1.17 2 2 0 0 0 .14-1.17c-.06-.1-.22-.16-.46-.28Z" />
+    </svg>
+  );
+}
+
 // Small "job portal" style share row — WhatsApp and LinkedIn open their own share dialog in a new
 // tab, Copy Link uses the clipboard with a brief confirmation. No follower counts or share counts
 // are shown, since we don't track any.
@@ -42,9 +52,7 @@ function ShareBar({ url, title }) {
     <div className="career-share">
       <span className="career-share-label">Share:</span>
       <a className="career-share-btn career-share-whatsapp" href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.35A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.07-1.11l-.29-.17-3 .8.8-2.92-.19-.3A8 8 0 1 1 12 20Zm4.38-5.85c-.24-.12-1.43-.7-1.65-.78s-.38-.12-.55.12-.63.78-.78.94-.29.18-.53.06a6.6 6.6 0 0 1-1.94-1.2 7.3 7.3 0 0 1-1.34-1.67c-.14-.24 0-.37.1-.49s.24-.29.36-.43a1.6 1.6 0 0 0 .24-.4.44.44 0 0 0 0-.42c-.06-.12-.55-1.33-.76-1.82s-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.75 2.75 0 0 0-.86 2.05 4.8 4.8 0 0 0 1 2.53 10.9 10.9 0 0 0 4.19 3.71c.58.25 1.04.4 1.4.51a3.37 3.37 0 0 0 1.54.1 2.52 2.52 0 0 0 1.65-1.17 2 2 0 0 0 .14-1.17c-.06-.1-.22-.16-.46-.28Z" />
-        </svg>
+        <WhatsAppGlyph />
         WhatsApp
       </a>
       <a className="career-share-btn career-share-linkedin" href={linkedinHref} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
@@ -72,7 +80,9 @@ export default function CareerDetailPage() {
   const path = `/careers/${career.slug}`;
   const canonicalUrl = DOMAIN + path;
   const mailto = `mailto:${career.howToApply.email}?subject=${encodeURIComponent(career.howToApply.subject)}`;
-  const telHref = 'tel:' + career.howToApply.phone.replace(/\s+/g, '');
+  const applyWhatsappHref = `https://wa.me/${career.howToApply.phone.replace(/\D/g, '')}?text=${encodeURIComponent(
+    `Hi, I'd like to apply for the ${career.title} position at Skill IT Education. I'm attaching my resume.`,
+  )}`;
   const postedLabel = formatPostedDate(career.postedDate);
 
   const hasResponsibilities = career.responsibilities?.length > 0;
@@ -186,11 +196,12 @@ export default function CareerDetailPage() {
               <a className="btn btn-primary" href={mailto}>
                 Apply Now
               </a>
-              <a className="btn btn-outline" href={telHref}>
-                Call to Apply
+              <a className="btn btn-whatsapp" href={applyWhatsappHref} target="_blank" rel="noopener noreferrer">
+                <WhatsAppGlyph />
+                Send Resume via WhatsApp
               </a>
-              <ShareBar url={canonicalUrl} title={career.title} />
             </div>
+            <ShareBar url={canonicalUrl} title={career.title} />
           </div>
         </div>
       </header>
@@ -241,40 +252,20 @@ export default function CareerDetailPage() {
             <h2>Why Join Us</h2>
             <p>{career.whyJoin}</p>
           </section>
-
-          <section className="career-apply-section">
-            <h2>How to Apply</h2>
-            <p>
-              Send your resume to{' '}
-              <a href={mailto}>{career.howToApply.email}</a> with the subject line &ldquo;{career.howToApply.subject}&rdquo;, or call{' '}
-              <a href={telHref}>{career.howToApply.phone}</a>.
-            </p>
-            <div className="hero-ctas">
-              <a className="btn btn-primary" href={mailto}>
-                Apply Now
-              </a>
-              <ShareBar url={canonicalUrl} title={career.title} />
-            </div>
-          </section>
         </div>
       </article>
 
       <footer className="career-letterhead">
-        <div className="wrap career-letterhead-wrap">
-          <p className="career-letterhead-contact">
-            Skill IT Education &middot; <a href={mailto}>{career.howToApply.email}</a> &middot; Ramya TS, Head of Counselling:{' '}
-            <a href={telHref}>{career.howToApply.phone}</a>
-          </p>
-          <div className="career-letterhead-card">
+        <div className="wrap">
+          <p className="career-letterhead-banner">
             <strong>SKILL IT Education Pvt Ltd</strong>
-            <span>An Upskilling Academy for Future Technologies</span>
-            <span>Phone: +91 91777 15978</span>
-            <span>info@skilliteducation.com</span>
-            <span>https://www.skilliteducation.com</span>
-            <span>3rd Floor, A Section, LR Towers</span>
-            <span>100 Feet Rd, Ayyappa Society, Madhapur</span>
-            <span>Hyderabad, Telangana &ndash; 500081, India</span>
-          </div>
+            <span className="sep">&middot;</span>
+            <a href="tel:+919177715978">+91 91777 15978</a>
+            <span className="sep">&middot;</span>
+            <a href="mailto:info@skilliteducation.com">info@skilliteducation.com</a>
+            <span className="sep">&middot;</span>
+            <span>3rd Floor, A Section, LR Towers, 100 Feet Rd, Ayyappa Society, Madhapur, Hyderabad, Telangana &ndash; 500081, India</span>
+          </p>
         </div>
       </footer>
 

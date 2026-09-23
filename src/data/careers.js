@@ -1,6 +1,9 @@
-// Open roles at Skill IT Education. Each entry is real, owner-supplied job-posting content —
-// nothing here is invented. `postedDate` is the date the listing actually went live (used for
-// JobPosting structured data), not a placeholder.
+// Open roles at Skill IT Education. `postedDate` is the date the listing actually went live (used
+// for JobPosting structured data), not a placeholder. The first role's full JD was owner-supplied
+// verbatim; the other three were drafted from a real core duty the owner gave for each (field visits
+// + webinars, shadowing senior sales to enrol students, owning all marketing programmes) — the
+// surrounding responsibilities/requirements are reasonable, generic detail for that kind of role, not
+// specific claims about Skill IT Education (headcounts, budgets, tooling, etc.) that weren't given.
 export const CAREERS = [
   {
     slug: 'head-of-channel-partnerships',
@@ -58,31 +61,55 @@ export const CAREERS = [
       phone: '+91 91777 15978',
     },
   },
-  // The next three roles were requested with a title/openings/department only — no responsibilities
-  // or requirements list was supplied, so none are invented here. CareerDetailPage.jsx shows a
-  // "full job description on request" callout in place of those two sections until real content
-  // comes in; `about` below is kept to what's actually known (role, department, location).
   {
-    slug: 'sales-executive-higher-education',
-    title: 'Sales Executive – Higher Education',
+    slug: 'field-sales-manager-higher-education',
+    title: 'Field Sales Manager – Higher Education',
     location: 'Madhapur, Hyderabad',
     workMode: 'Onsite',
     employmentType: 'Full-time',
     company: 'Skill IT Education Pvt Ltd',
     postedDate: '2026-09-23',
     summary:
-      'Higher-education sales role — building relationships with colleges and institutions to grow enrolments across our technology programmes.',
+      'A field role visiting colleges and universities to set up webinars and build institution relationships that grow enrolments across our programmes.',
     about: [
-      'Skill IT Education is hiring a Sales Executive for our Higher Education sales team, based at our Madhapur, Hyderabad campus.',
-      'This role is focused on higher-education sales — building relationships with colleges, universities and institutions to grow enrolments across our Cyber Security, SOC, AI & ML, Data Science and Data Analytics programmes.',
+      'Skill IT Education is hiring a Field Sales Manager to grow our presence across higher-education institutions in and around Hyderabad.',
+      "This is a field-first role: you'll visit colleges and universities in person, connect with placement cells and faculty, and set up webinars that introduce students to our Cyber Security, SOC, AI & ML, Data Science and Data Analytics programmes.",
+      "Every institution visit and webinar is a lead-generation opportunity — you'll own the relationship from first contact through to enrolment.",
     ],
-    responsibilities: [],
-    requirements: [],
+    responsibilities: [
+      {
+        title: 'Institution Outreach',
+        text: 'Visit colleges, universities and training institutes to introduce Skill IT Education and build relationships with placement cells and faculty.',
+      },
+      {
+        title: 'Webinar Coordination',
+        text: 'Set up and coordinate webinars with institutions, working with the academics and marketing teams on content and scheduling.',
+      },
+      {
+        title: 'On-Campus Presentations',
+        text: 'Present our programmes to student audiences at webinars and on-campus sessions, answering questions on curriculum, fees and careers.',
+      },
+      {
+        title: 'Lead Follow-Up',
+        text: 'Follow up on enquiries generated from institution visits and webinars, guiding interested students through to enrolment.',
+      },
+      {
+        title: 'Relationship Pipeline',
+        text: 'Maintain and grow a pipeline of institution contacts across Hyderabad for repeat webinars and campus drives.',
+      },
+    ],
+    requirements: [
+      'Comfortable with regular field travel to colleges and institutions across Hyderabad.',
+      'Confident presenting to student audiences, in person and on webinars.',
+      'Strong communication and relationship-building skills.',
+      'Prior experience in field sales, business development, or the education sector is an advantage.',
+      'Target-driven and comfortable managing a pipeline of institution relationships independently.',
+    ],
     whyJoin:
-      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team building training that turns into real careers.',
+      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team building training that turns into real careers, with direct ownership of how we reach new institutions and students.',
     howToApply: {
       email: 'info@skilliteducation.com',
-      subject: 'Sales Executive – Higher Education',
+      subject: 'Field Sales Manager – Higher Education',
       phone: '+91 91777 15978',
     },
   },
@@ -95,15 +122,38 @@ export const CAREERS = [
     openings: 4,
     company: 'Skill IT Education Pvt Ltd',
     postedDate: '2026-09-23',
-    summary: '4 openings — supporting the sales team at our Madhapur, Hyderabad campus.',
+    summary: '4 openings — learn hands-on from our senior sales team how we guide students through enrolling in our programmes.',
     about: [
-      'Skill IT Education is hiring Sales Interns to support our sales team at our Madhapur, Hyderabad campus.',
+      'Skill IT Education is hiring Sales Interns to work directly alongside our senior sales team at our Madhapur, Hyderabad campus.',
+      "You'll learn, hands-on, how our senior sales team guides a student from their first enquiry through to enrolling in a programme — the questions students ask, how we match them to the right course, and how to follow up without being pushy.",
       '4 openings are available for this internship.',
     ],
-    responsibilities: [],
-    requirements: [],
+    responsibilities: [
+      {
+        title: 'Shadow Senior Sales',
+        text: 'Sit in on enquiry calls and counselling sessions with senior sales staff to learn how student enquiries are handled end to end.',
+      },
+      {
+        title: 'Enquiry Follow-Up',
+        text: 'Support follow-up on student enquiries under guidance, helping prospective students get the information they need to decide.',
+      },
+      {
+        title: 'Enrolment Support',
+        text: 'Assist with the practical steps of enrolling a student once they decide to join — paperwork, scheduling and handoffs to the academics team.',
+      },
+      {
+        title: 'Enquiry Records',
+        text: 'Help keep enquiry and follow-up records accurate and up to date.',
+      },
+    ],
+    requirements: [
+      'Currently studying or a recent graduate, comfortable talking to people on calls and in person.',
+      'Genuinely interested in learning how sales and student counselling works, not just observing.',
+      'Good spoken and written communication.',
+      'Based in or able to commute to Madhapur, Hyderabad for this onsite internship.',
+    ],
     whyJoin:
-      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team building training that turns into real careers.',
+      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team and learn real sales and counselling skills directly from people who do it every day.',
     howToApply: {
       email: 'info@skilliteducation.com',
       subject: 'Sales Intern',
@@ -118,15 +168,43 @@ export const CAREERS = [
     employmentType: 'Full-time',
     company: 'Skill IT Education Pvt Ltd',
     postedDate: '2026-09-23',
-    summary: 'Lead digital marketing for Skill IT Education across our Cyber Security, AI & ML, Data Science and Data Analytics programmes.',
+    summary: 'Own and run all of Skill IT Education’s marketing programmes across our five technology courses.',
     about: [
-      'Skill IT Education is hiring a Digital Marketing Manager, based at our Madhapur, Hyderabad campus.',
-      'This role leads digital marketing across our Cyber Security, SOC, AI & ML, Data Science and Data Analytics programmes.',
+      'Skill IT Education is hiring a Digital Marketing Manager to own our marketing end to end.',
+      "You'll handle all of our marketing programmes — campaigns, content, our online presence and lead generation — across our Cyber Security, SOC, AI & ML, Data Science and Data Analytics programmes.",
+      "This is a full-ownership role: you'll plan what we run, execute it, and be accountable for the leads it brings in for the sales and admissions team.",
     ],
-    responsibilities: [],
-    requirements: [],
+    responsibilities: [
+      {
+        title: 'Campaign Planning & Execution',
+        text: 'Plan and run digital marketing campaigns across channels (paid, social, search, email) for all five programmes.',
+      },
+      {
+        title: 'Content & Creative',
+        text: 'Own content and creative for programme promotions, working with the academics team to keep messaging accurate to what we actually teach.',
+      },
+      {
+        title: 'Website & SEO',
+        text: "Manage the website's content, SEO performance and ongoing improvements alongside our web/dev resources.",
+      },
+      {
+        title: 'Lead Generation',
+        text: 'Run campaigns that generate qualified enquiries and hand them off cleanly to the sales and admissions team.',
+      },
+      {
+        title: 'Performance Reporting',
+        text: 'Track campaign performance and marketing spend, and report results and learnings to leadership.',
+      },
+    ],
+    requirements: [
+      'Proven experience running digital marketing campaigns — paid, social, search or email.',
+      'Comfortable owning a marketing programme end to end, from planning through to reporting results.',
+      'Familiarity with SEO and website content fundamentals.',
+      'Data-driven — comfortable tracking performance and adjusting based on what the numbers say.',
+      'Strong written communication for ads, content and campaign messaging.',
+    ],
     whyJoin:
-      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team building training that turns into real careers.',
+      'Skill IT Education is growing quickly across Cyber Security, AI, and Data programmes — join a small, fast-moving team with real ownership over how we reach new students.',
     howToApply: {
       email: 'info@skilliteducation.com',
       subject: 'Digital Marketing Manager',
