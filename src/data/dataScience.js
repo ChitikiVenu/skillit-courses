@@ -644,7 +644,7 @@ const COPY = {
     },
     {
       "label": "Course Fees",
-      "value": "₹50,000 / ₹55,000",
+      "value": "₹55,000 / ₹60,000",
       "note": "Online / Offline"
     }
   ],

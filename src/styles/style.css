@@ -958,6 +958,7 @@ a.footer-course:hover{color:var(--accent-2);}
 .flow-duration{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--text);}
 .flow-fees{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--accent-dim);}
 .flow-fees::before{content:"\00b7";margin-right:8px;color:var(--text-faint);font-weight:400;}
+.flow-fees-sep{margin:0 3px;color:var(--text-faint);font-weight:400;}
 .flow-program-actions{display:flex;gap:6px;margin-top:6px;}
 .flow-curriculum-btn,.flow-contact-btn{
   flex:1 1 auto;text-align:center;font-family:var(--mono);font-size:10.5px;font-weight:700;

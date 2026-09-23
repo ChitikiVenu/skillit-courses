@@ -244,7 +244,12 @@ export default function ProgrammeFlow({ programmes, onContact }) {
         </Tablet>
       </div>
 
-      {programmes.map(({ course, title, blurb, roles }, i) => (
+      {programmes.map(({ course, title, blurb, roles }, i) => {
+        // heroStats[3] is always "Course Fees" as "₹online / ₹offline" (see its own "Online / Offline"
+        // note) — split out here so the compact funnel card can label each figure instead of just
+        // showing two bare numbers.
+        const [onlineFee, offlineFee] = course.COPY.heroStats[3].value.split(' / ');
+        return (
         <Fragment key={course.routeBase}>
           <div
             className="flow-program"
@@ -262,7 +267,9 @@ export default function ProgrammeFlow({ programmes, onContact }) {
             <p>{blurb}</p>
             <div className="flow-program-meta">
               <span className="flow-duration">{course.COPY.heroStats[0].value}</span>
-              <span className="flow-fees">{course.COPY.heroStats[3].value}</span>
+              <span className="flow-fees">
+                Online {onlineFee} <span className="flow-fees-sep">&middot;</span> Offline {offlineFee}
+              </span>
             </div>
             <div className="flow-program-actions">
               <Link className="flow-curriculum-btn" to={`${course.routeBase}#roadmap`}>
@@ -289,7 +296,8 @@ export default function ProgrammeFlow({ programmes, onContact }) {
             </div>
           </div>
         </Fragment>
-      ))}
+        );
+      })}
     </div>
     </div>
   );
