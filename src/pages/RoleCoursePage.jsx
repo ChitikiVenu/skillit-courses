@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import LeadForm from '../components/LeadForm.jsx';
+import LeadFormModal from '../components/LeadFormModal.jsx';
 import { ROLE_GROUPS, roleCourse } from '../data/roleCourses/index.js';
 import { BLOG_POSTS } from '../data/blogPosts.js';
 import NotFoundPage from './NotFoundPage.jsx';
@@ -25,6 +27,7 @@ const sentenceCase = (q) => q.charAt(0).toUpperCase() + q.slice(1);
 export default function RoleCoursePage() {
   const { parent: parentKey, role: roleSlug } = useParams();
   const role = roleCourse(parentKey, roleSlug);
+  const [leadModalOpen, setLeadModalOpen] = useState(false);
   if (!role) return <NotFoundPage />;
 
   const group = ROLE_GROUPS.find((g) => g.key === role.parentKey);
@@ -103,12 +106,12 @@ export default function RoleCoursePage() {
                 <a className="btn btn-outline" href="#path">
                   View Learning Path
                 </a>
-                <a className="btn btn-outline" href="#get-details-form">
+                <button type="button" className="btn btn-outline" onClick={() => setLeadModalOpen(true)}>
                   Download Brochure
-                </a>
-                <a className="btn btn-primary" href="#get-details-form">
+                </button>
+                <button type="button" className="btn btn-primary" onClick={() => setLeadModalOpen(true)}>
                   Book Career Counselling
-                </a>
+                </button>
               </div>
             </div>
             <div className="hero-meta">
@@ -351,6 +354,8 @@ export default function RoleCoursePage() {
           </div>
         </div>
       </section>
+
+      <LeadFormModal open={leadModalOpen} onClose={() => setLeadModalOpen(false)} course={course} />
     </main>
   );
 }

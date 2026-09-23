@@ -1,27 +1,28 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { DOMAIN, PHONE } from '../constants.js';
+import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import H1Wave from '../components/H1Wave.jsx';
 import ToolCard from '../components/ToolCard.jsx';
 import LeadForm from '../components/LeadForm.jsx';
+import LeadFormModal from '../components/LeadFormModal.jsx';
 import { ImageHeroVisual, SocDashboardSvg } from '../components/HeroVisual.jsx';
 import ModuleFlow from '../components/ModuleFlow.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import { rolesForCourse } from '../data/roleCourses/index.js';
 import { monthsToIso8601, parseRupeeAmounts } from '../lib/schema.js';
 
-const COUNSEL_TEL = 'tel:' + PHONE.replace(/ /g, '');
-
-function CounselButton({ href }) {
+function CounselButton({ onClick }) {
   return (
-    <a className="btn btn-primary" href={href || COUNSEL_TEL}>
+    <button type="button" className="btn btn-primary" onClick={onClick}>
       Book Career Counselling
-    </a>
+    </button>
   );
 }
 
 export default function CourseHomePage({ course }) {
   const { SITE, MODULES, CAREER_TRACKS, CERTIFICATIONS, WHY_COURSE, COPY, routeBase } = course;
+  const [leadModalOpen, setLeadModalOpen] = useState(false);
   const canonicalUrl = DOMAIN + routeBase;
   const ogImage = COPY.ogImageFile ? DOMAIN + '/img/' + COPY.ogImageFile : undefined;
 
@@ -133,10 +134,10 @@ export default function CourseHomePage({ course }) {
                 <a className="btn btn-outline" href="#roadmap">
                   View Module Roadmap
                 </a>
-                <a className="btn btn-outline" href="#get-details-form">
+                <button type="button" className="btn btn-outline" onClick={() => setLeadModalOpen(true)}>
                   Download Brochure
-                </a>
-                <CounselButton href="#get-details-form" />
+                </button>
+                <CounselButton onClick={() => setLeadModalOpen(true)} />
               </div>
             </div>
             <div className="hero-meta">
@@ -397,7 +398,7 @@ export default function CourseHomePage({ course }) {
             <a className="btn btn-outline" href="#roadmap">
               Full Roadmap
             </a>
-            <CounselButton />
+            <CounselButton onClick={() => setLeadModalOpen(true)} />
           </div>
         </div>
       </section>
@@ -413,6 +414,8 @@ export default function CourseHomePage({ course }) {
           />
         </div>
       </section>
+
+      <LeadFormModal open={leadModalOpen} onClose={() => setLeadModalOpen(false)} course={course} />
     </main>
   );
 }

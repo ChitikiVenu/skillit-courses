@@ -55,7 +55,7 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
                 </select>
               </div>
               <button type="submit" className="btn btn-primary form-submit">
-                Request a Callback
+                Submit
               </button>
             </div>
             <div className="form-note">Our admissions team will call you back within 90 minutes.</div>

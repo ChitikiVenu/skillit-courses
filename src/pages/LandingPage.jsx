@@ -183,7 +183,7 @@ export default function LandingPage() {
               <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
                 Talk to Counsellor
               </button>
-              <a className="btn btn-outline" href="#our-programmes">
+              <a className="btn btn-primary" href="#our-programmes">
                 Explore Our Programmes
               </a>
             </div>

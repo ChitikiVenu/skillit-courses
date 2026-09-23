@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { DOMAIN, PHONE } from '../constants.js';
+import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import H1Wave from '../components/H1Wave.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import ToolCard from '../components/ToolCard.jsx';
+import LeadFormModal from '../components/LeadFormModal.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 
 function truncate(s, limit) {
@@ -15,19 +17,18 @@ function truncate(s, limit) {
   return safe.replace(/[,.;—-]+$/, '') + '…';
 }
 
-const COUNSEL_TEL = 'tel:' + PHONE.replace(/ /g, '');
-
-function CounselButton() {
+function CounselButton({ onClick }) {
   return (
-    <a className="btn btn-primary" href={COUNSEL_TEL}>
+    <button type="button" className="btn btn-primary" onClick={onClick}>
       Book Career Counselling
-    </a>
+    </button>
   );
 }
 
 export default function CourseModulePage({ course }) {
   const { slug } = useParams();
   const { MODULES, SITE, COPY, routeBase } = course;
+  const [leadModalOpen, setLeadModalOpen] = useState(false);
   const index = MODULES.findIndex((m) => m.slug === slug);
   if (index === -1) return <NotFoundPage />;
 
@@ -106,7 +107,7 @@ export default function CourseModulePage({ course }) {
             <a className="btn btn-outline" href="#labs">
               View Hands-On Labs
             </a>
-            <CounselButton />
+            <CounselButton onClick={() => setLeadModalOpen(true)} />
           </div>
         </div>
       </section>
@@ -269,10 +270,12 @@ export default function CourseModulePage({ course }) {
             <Link className="btn btn-outline" to={`${routeBase}#roadmap`}>
               Full Roadmap
             </Link>
-            <CounselButton />
+            <CounselButton onClick={() => setLeadModalOpen(true)} />
           </div>
         </div>
       </section>
+
+      <LeadFormModal open={leadModalOpen} onClose={() => setLeadModalOpen(false)} course={course} />
     </main>
   );
 }

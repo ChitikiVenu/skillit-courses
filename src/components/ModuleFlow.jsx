@@ -4,7 +4,7 @@ import Tablet from './Tablet.jsx';
 import { DUB_LAG, Packet, Ripple, STAGGER, TRAVEL, TailGradients, cablePath, usePrefersReducedMotion } from './flowPulse.jsx';
 import { blogPostForCourse } from '../data/blogPosts.js';
 
-const ROW_HEIGHT = 118;
+const ROW_HEIGHT = 92;
 const MODULE_X1 = 43;
 const MODULE_X2 = 95;
 const TABLET_X = 16;
