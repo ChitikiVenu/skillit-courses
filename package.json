@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm run sitemap && vite build",
+    "build": "npm run sitemap && vite build && node scripts/prerender-meta.mjs",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "seo:audit": "npm run sitemap --silent && node scripts/seo-audit.mjs"

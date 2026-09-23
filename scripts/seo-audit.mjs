@@ -9,59 +9,12 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { getSitePages } from './lib/site-pages.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 
-const cyberSecurity = (await import('../src/data/cyberSecurity.js')).default;
-const aiMl = (await import('../src/data/aiMl.js')).default;
-const dataScience = (await import('../src/data/dataScience.js')).default;
-const socAnalyst = (await import('../src/data/socAnalyst.js')).default;
-const dataAnalyst = (await import('../src/data/dataAnalyst.js')).default;
-const { ROLE_COURSES } = await import('../src/data/roleCourses/index.js');
-const { BLOG_POSTS } = await import('../src/data/blogPosts.js');
-const { PRIVACY_POLICY, DATA_COMPLIANCE_POLICY } = await import('../src/data/policies.js');
-const { CAREERS } = await import('../src/data/careers.js');
-
-const COURSES = [cyberSecurity, aiMl, dataScience, socAnalyst, dataAnalyst];
-
-// Mirrors BlogPostPage.jsx's own fallback exactly, so this audit reports what actually ships, not the
-// raw (often much longer) lede.
-function truncate(s, limit) {
-  const trimmed = s.trim();
-  if (trimmed.length <= limit) return trimmed;
-  const cut = trimmed.slice(0, limit);
-  const lastSpace = cut.lastIndexOf(' ');
-  const safe = lastSpace > 0 ? cut.slice(0, lastSpace) : cut;
-  return safe.replace(/[,.;—-]+$/, '') + '…';
-}
-
-const pages = [
-  { path: '/', title: 'Cyber Security, AI & Data Courses in Hyderabad | Skill IT Education', description: 'set in LandingPage.jsx' },
-  { path: '/blog', title: 'Career Insights | Skill IT Education Blog', description: 'set in BlogIndexPage.jsx' },
-  { path: '/faqs', title: 'FAQs — Courses, Fees, Internships & Placement | Skill IT Education', description: 'set in FaqPage.jsx' },
-  { path: '/careers', title: 'Careers at Skill IT Education | Join Our Team in Hyderabad', description: 'set in CareersPage.jsx' },
-  ...CAREERS.map((c) => ({ path: `/careers/${c.slug}`, title: `${c.title} | Careers at Skill IT Education`, description: c.summary })),
-  { path: '/privacy-policy', title: PRIVACY_POLICY.metaTitle, description: PRIVACY_POLICY.metaDescription },
-  { path: '/data-compliance-policy', title: DATA_COMPLIANCE_POLICY.metaTitle, description: DATA_COMPLIANCE_POLICY.metaDescription },
-  ...COURSES.map((c) => ({ path: c.routeBase, title: c.COPY.metaTitle, description: c.COPY.metaDesc })),
-  ...COURSES.flatMap((c) =>
-    c.MODULES.map((m) => {
-      const descPrefix = `Module ${m.number} — ${c.COPY.courseShortName} (${m.duration}): `;
-      return {
-        path: `${c.routeBase}/${m.slug}`,
-        title: `${m.title} — ${c.COPY.courseShortName} | Skill IT Education`,
-        description: descPrefix + truncate(m.hero, 160 - descPrefix.length),
-      };
-    }),
-  ),
-  ...ROLE_COURSES.map((r) => ({ path: r.href, title: r.metaTitle, description: r.metaDescription })),
-  ...BLOG_POSTS.map((p) => ({
-    path: `/blog/${p.slug}`,
-    title: p.metaTitle ?? `${p.question} | Skill IT Education`,
-    description: p.metaDescription ?? truncate(p.lede, 158),
-  })),
-];
+const pages = await getSitePages();
 
 const errors = [];
 const warnings = [];
@@ -128,7 +81,9 @@ try {
   errors.push('public/sitemap.xml not found — run `npm run sitemap` first.');
 }
 if (sitemapUrls.length) {
-  const pagePaths = new Set(pages.map((p) => p.path));
+  // noindex pages (About Us, Refund Policy — still placeholders) are deliberately left out of the
+  // sitemap by scripts/generate-sitemap.mjs, so they're excluded from this comparison too.
+  const pagePaths = new Set(pages.filter((p) => !p.noindex).map((p) => p.path));
   const sitemapSet = new Set(sitemapUrls);
   for (const p of pagePaths) {
     if (!sitemapSet.has(p)) warnings.push(`In page list but missing from sitemap.xml: ${p}`);

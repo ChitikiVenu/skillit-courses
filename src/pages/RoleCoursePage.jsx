@@ -63,7 +63,9 @@ export default function RoleCoursePage() {
 
   return (
     <main>
-      <Seo title={role.metaTitle} description={role.metaDescription} path={role.href} ogImage={DOMAIN + HERO_IMAGE} jsonLd={jsonLd} />
+      {/* No ogImage here — falls back to the default logo (Seo.jsx). role-course-hero.svg is an SVG,
+          and most link-preview crawlers (Facebook, LinkedIn included) don't render SVG for og:image. */}
+      <Seo title={role.metaTitle} description={role.metaDescription} path={role.href} jsonLd={jsonLd} />
 
       <section className="hero role-hero">
         <div className="wrap">
