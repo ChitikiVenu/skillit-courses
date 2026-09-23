@@ -71,26 +71,11 @@ export default function CareersPage() {
             <span aria-current="page">Careers</span>
           </nav>
 
-          {/* Confined to the right-hand margin and the very top edge so nothing ever sits over the
-              breadcrumb, ribbon or heading text on the left. */}
-          <svg className="career-confetti" viewBox="0 0 900 260" aria-hidden="true" focusable="false">
-            <Balloon cx={830} cy={60} r={26} color="#2450d6" delay={0} />
-            <Balloon cx={760} cy={120} r={20} color="#7c3aed" delay={0.6} />
-            <Balloon cx={870} cy={150} r={22} color="#0c9a83" delay={0.3} />
-            <Balloon cx={700} cy={70} r={17} color="#c2410c" delay={0.9} />
-            {[...Array(10)].map((_, i) => (
-              <rect
-                key={i}
-                x={640 + ((i * 29) % 260)}
-                y={8 + ((i * 41) % 40)}
-                width="7"
-                height="7"
-                rx="1.5"
-                fill={['#2450d6', '#7c3aed', '#0c9a83', '#c2410c', '#a16207'][i % 5]}
-                opacity="0.5"
-                transform={`rotate(${(i * 47) % 360} ${644 + ((i * 29) % 260)} ${12 + ((i * 41) % 40)})`}
-              />
-            ))}
+          {/* A small corner accent, not a full banner — the listing itself should read like an
+              actual job board, not a poster. */}
+          <svg className="career-corner-balloons" viewBox="0 0 120 90" aria-hidden="true" focusable="false">
+            <Balloon cx={30} cy={22} r={16} color="#2450d6" delay={0} />
+            <Balloon cx={64} cy={14} r={12} color="#c2410c" delay={0.7} />
           </svg>
 
           <Ribbon>We&rsquo;re Hiring</Ribbon>

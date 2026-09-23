@@ -101,7 +101,7 @@ for (const p of pages) {
 }
 
 // --- hard-coded domain anywhere in src/ (should only ever come from src/config/site.js) ---
-const HARDCODED_DOMAIN_RE = /https?:\/\/(skillit-courses\.vercel\.app|skilliteducation\.com)/;
+const HARDCODED_DOMAIN_RE = /https?:\/\/(www\.)?(skillit\.education|skillit-courses\.vercel\.app|skilliteducation\.com)/;
 function walk(dir) {
   const out = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {

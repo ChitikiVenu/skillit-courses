@@ -5,7 +5,7 @@
 //
 // Falls back to the domain the site is actually deployed to today (not an aspirational future one) if
 // the env var isn't set, so a build without it configured still produces correct, working URLs.
-const FALLBACK_SITE_URL = 'https://skillit-courses.vercel.app';
+const FALLBACK_SITE_URL = 'https://www.skillit.education';
 
 export const SITE_URL = (import.meta.env.VITE_SITE_URL || FALLBACK_SITE_URL).replace(/\/+$/, '');
 

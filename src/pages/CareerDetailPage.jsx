@@ -1,11 +1,68 @@
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { DOMAIN } from '../constants.js';
 import { SITE_LOGO } from '../config/site.js';
 import Seo from '../components/Seo.jsx';
+import FitHeading from '../components/FitHeading.jsx';
 import { CAREERS, getCareerBySlug } from '../data/careers.js';
 import NotFoundPage from './NotFoundPage.jsx';
 
 const EMPLOYMENT_TYPE_SCHEMA = { 'Full-time': 'FULL_TIME', 'Part-time': 'PART_TIME', Contract: 'CONTRACTOR', Internship: 'INTERN' };
+
+const POSTED_DATE_FORMAT = new Intl.DateTimeFormat('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+
+// `new Date('2026-09-23')` parses as UTC midnight, so formatting it in a timezone behind UTC (most
+// of the Americas) rolls it back to the 22nd. Parsing the y/m/d parts and building a local-midnight
+// Date instead sidesteps that entirely, so the posted date reads the same everywhere.
+function formatPostedDate(isoDate) {
+  const [y, m, d] = isoDate.split('-').map(Number);
+  return POSTED_DATE_FORMAT.format(new Date(y, m - 1, d));
+}
+
+// Small "job portal" style share row — WhatsApp and LinkedIn open their own share dialog in a new
+// tab, Copy Link uses the clipboard with a brief confirmation. No follower counts or share counts
+// are shown, since we don't track any.
+function ShareBar({ url, title }) {
+  const [copied, setCopied] = useState(false);
+  const shareText = `${title} — open role at Skill IT Education`;
+  const whatsappHref = `https://wa.me/?text=${encodeURIComponent(`${shareText}\n${url}`)}`;
+  const linkedinHref = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Clipboard API can be unavailable (older browsers, non-HTTPS); the link is still selectable text.
+    }
+  };
+
+  return (
+    <div className="career-share">
+      <span className="career-share-label">Share:</span>
+      <a className="career-share-btn career-share-whatsapp" href={whatsappHref} target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.35A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.07-1.11l-.29-.17-3 .8.8-2.92-.19-.3A8 8 0 1 1 12 20Zm4.38-5.85c-.24-.12-1.43-.7-1.65-.78s-.38-.12-.55.12-.63.78-.78.94-.29.18-.53.06a6.6 6.6 0 0 1-1.94-1.2 7.3 7.3 0 0 1-1.34-1.67c-.14-.24 0-.37.1-.49s.24-.29.36-.43a1.6 1.6 0 0 0 .24-.4.44.44 0 0 0 0-.42c-.06-.12-.55-1.33-.76-1.82s-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.75 2.75 0 0 0-.86 2.05 4.8 4.8 0 0 0 1 2.53 10.9 10.9 0 0 0 4.19 3.71c.58.25 1.04.4 1.4.51a3.37 3.37 0 0 0 1.54.1 2.52 2.52 0 0 0 1.65-1.17 2 2 0 0 0 .14-1.17c-.06-.1-.22-.16-.46-.28Z" />
+        </svg>
+        WhatsApp
+      </a>
+      <a className="career-share-btn career-share-linkedin" href={linkedinHref} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.66 4.78 6.11V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z" />
+        </svg>
+        LinkedIn
+      </a>
+      <button type="button" className="career-share-btn career-share-copy" onClick={copyLink}>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" strokeWidth="1.7" />
+          <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" stroke="currentColor" strokeWidth="1.7" />
+        </svg>
+        {copied ? 'Copied!' : 'Copy Link'}
+      </button>
+    </div>
+  );
+}
 
 export default function CareerDetailPage() {
   const { slug } = useParams();
@@ -16,6 +73,7 @@ export default function CareerDetailPage() {
   const canonicalUrl = DOMAIN + path;
   const mailto = `mailto:${career.howToApply.email}?subject=${encodeURIComponent(career.howToApply.subject)}`;
   const telHref = 'tel:' + career.howToApply.phone.replace(/\s+/g, '');
+  const postedLabel = formatPostedDate(career.postedDate);
 
   const description = [
     career.summary,
@@ -70,7 +128,7 @@ export default function CareerDetailPage() {
         jsonLd={jsonLd}
       />
 
-      <header className="career-detail-hero">
+      <header className="career-post-header">
         <div className="wrap">
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
@@ -79,44 +137,54 @@ export default function CareerDetailPage() {
             <span className="sep">/</span>
             <span aria-current="page">{career.title}</span>
           </nav>
-          <span className="career-ribbon career-ribbon-small">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="m12 2 2.6 5.3 5.8.85-4.2 4.1 1 5.75L12 15.2l-5.2 2.8 1-5.75-4.2-4.1 5.8-.85Z" fill="currentColor" />
+
+          <div className="career-post-card">
+            <span className="career-ribbon career-ribbon-corner">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m12 2 2.6 5.3 5.8.85-4.2 4.1 1 5.75L12 15.2l-5.2 2.8 1-5.75-4.2-4.1 5.8-.85Z" fill="currentColor" />
+              </svg>
+              We&rsquo;re Hiring
+            </span>
+            <svg className="career-post-balloons" viewBox="0 0 120 90" aria-hidden="true" focusable="false">
+              <g className="career-balloon" style={{ '--bob-delay': '0s' }}>
+                <line x1="26" y1="30" x2="26" y2="58" stroke="var(--border)" strokeWidth="1.2" />
+                <ellipse cx="26" cy="18" rx="13" ry="16" fill="#2450d6" />
+              </g>
+              <g className="career-balloon" style={{ '--bob-delay': '0.7s' }}>
+                <line x1="58" y1="20" x2="58" y2="44" stroke="var(--border)" strokeWidth="1.2" />
+                <ellipse cx="58" cy="10" rx="10" ry="12" fill="#c2410c" />
+              </g>
             </svg>
-            We&rsquo;re Hiring
-          </span>
-          <h1>{career.title}</h1>
-          <div className="career-chips career-chips-hero">
-            <span className="career-chip">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
-                <circle cx="12" cy="10" r="2.6" stroke="currentColor" strokeWidth="1.7" />
-              </svg>
-              {career.location}
-            </span>
-            <span className="career-chip">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 8h16v11H4z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
-                <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="1.7" />
-              </svg>
-              {career.workMode}
-            </span>
-            <span className="career-chip">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.7" />
-                <path d="M12 7v5l3.5 2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-              </svg>
-              {career.employmentType}
-            </span>
-            <span className="career-chip">{career.company}</span>
-          </div>
-          <div className="hero-ctas">
-            <a className="btn btn-primary" href={mailto}>
-              Apply Now
-            </a>
-            <a className="btn btn-outline" href={telHref}>
-              Call to Apply
-            </a>
+
+            <div className="career-post-top">
+              <img className="career-post-logo" src="/img/favicon-512.png" alt="" width="52" height="52" loading="lazy" />
+              <div className="career-post-titlewrap">
+                <FitHeading className="career-post-title" maxLines={1} minPx={15}>
+                  {career.title}
+                </FitHeading>
+                <p className="career-post-company">{career.company}</p>
+              </div>
+            </div>
+
+            <div className="career-post-meta">
+              <span>{career.location}</span>
+              <span className="sep">&middot;</span>
+              <span>{career.workMode}</span>
+              <span className="sep">&middot;</span>
+              <span>{career.employmentType}</span>
+              <span className="sep">&middot;</span>
+              <span>Posted {postedLabel}</span>
+            </div>
+
+            <div className="career-post-actions">
+              <a className="btn btn-primary" href={mailto}>
+                Apply Now
+              </a>
+              <a className="btn btn-outline" href={telHref}>
+                Call to Apply
+              </a>
+              <ShareBar url={canonicalUrl} title={career.title} />
+            </div>
           </div>
         </div>
       </header>
@@ -132,14 +200,13 @@ export default function CareerDetailPage() {
 
           <section>
             <h2>What You&rsquo;ll Own</h2>
-            <div className="career-own-grid">
+            <ul className="check-list">
               {career.responsibilities.map((r) => (
-                <div className="career-own-item" key={r.title}>
-                  <h3>{r.title}</h3>
-                  <p>{r.text}</p>
-                </div>
+                <li key={r.title}>
+                  <strong>{r.title}</strong> &mdash; {r.text}
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
 
           <section>
@@ -167,6 +234,7 @@ export default function CareerDetailPage() {
               <a className="btn btn-primary" href={mailto}>
                 Apply Now
               </a>
+              <ShareBar url={canonicalUrl} title={career.title} />
             </div>
           </section>
         </div>

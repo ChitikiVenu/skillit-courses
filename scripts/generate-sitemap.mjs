@@ -23,7 +23,7 @@ if (!process.env.VITE_SITE_URL && typeof process.loadEnvFile === 'function') {
     // no .env file — fine, fall through to the hard-coded fallback below
   }
 }
-const FALLBACK_SITE_URL = 'https://skillit-courses.vercel.app';
+const FALLBACK_SITE_URL = 'https://www.skillit.education';
 const DOMAIN = (process.env.VITE_SITE_URL || FALLBACK_SITE_URL).replace(/\/+$/, '');
 
 const cyberSecurity = (await import('../src/data/cyberSecurity.js')).default;

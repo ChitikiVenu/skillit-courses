@@ -1,1177 +1,1177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://skillit-courses.vercel.app/</loc>
+    <loc>https://www.skillit.education/</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog</loc>
+    <loc>https://www.skillit.education/blog</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/faqs</loc>
+    <loc>https://www.skillit.education/faqs</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/careers</loc>
+    <loc>https://www.skillit.education/careers</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/careers/head-of-channel-partnerships</loc>
+    <loc>https://www.skillit.education/careers/head-of-channel-partnerships</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/privacy-policy</loc>
+    <loc>https://www.skillit.education/privacy-policy</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-compliance-policy</loc>
+    <loc>https://www.skillit.education/data-compliance-policy</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/cyber-security</loc>
+    <loc>https://www.skillit.education/cyber-security</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/ai-ml</loc>
+    <loc>https://www.skillit.education/ai-ml</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science</loc>
+    <loc>https://www.skillit.education/data-science</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/soc-analyst</loc>
+    <loc>https://www.skillit.education/soc-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst</loc>
+    <loc>https://www.skillit.education/data-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/cyber-security/module-1-cybersecurity-foundations</loc>
+    <loc>https://www.skillit.education/cyber-security/module-1-cybersecurity-foundations</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/cyber-security/module-2-reconnaissance-scanning-enumeration</loc>
+    <loc>https://www.skillit.education/cyber-security/module-2-reconnaissance-scanning-enumeration</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/cyber-security/module-3-system-hacking-malware-social-engineering</loc>
+    <loc>https://www.skillit.education/cyber-security/module-3-system-hacking-malware-social-engineering</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/cyber-security/module-4-penetration-testing-web-exploitation</loc>
+    <loc>https://www.skillit.education/cyber-security/module-4-penetration-testing-web-exploitation</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/cyber-security/module-5-advanced-exploitation-cryptography-mobile-security</loc>
+    <loc>https://www.skillit.education/cyber-security/module-5-advanced-exploitation-cryptography-mobile-security</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/cyber-security/module-6-security-operations-cyber-defense</loc>
+    <loc>https://www.skillit.education/cyber-security/module-6-security-operations-cyber-defense</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/ai-ml/module-1-python-technical-foundations</loc>
+    <loc>https://www.skillit.education/ai-ml/module-1-python-technical-foundations</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/ai-ml/module-2-python-backend-development-with-ai</loc>
+    <loc>https://www.skillit.education/ai-ml/module-2-python-backend-development-with-ai</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/ai-ml/module-3-machine-learning-engineering</loc>
+    <loc>https://www.skillit.education/ai-ml/module-3-machine-learning-engineering</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/ai-ml/module-4-generative-ai-llm-application-engineering</loc>
+    <loc>https://www.skillit.education/ai-ml/module-4-generative-ai-llm-application-engineering</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/ai-ml/module-5-agentic-ai-engineering</loc>
+    <loc>https://www.skillit.education/ai-ml/module-5-agentic-ai-engineering</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/ai-ml/module-6-mlops-llmops-ai-platform-engineering</loc>
+    <loc>https://www.skillit.education/ai-ml/module-6-mlops-llmops-ai-platform-engineering</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/ai-ml/module-7-ai-solutions-engineering</loc>
+    <loc>https://www.skillit.education/ai-ml/module-7-ai-solutions-engineering</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science/module-1-mathematics-for-data-science</loc>
+    <loc>https://www.skillit.education/data-science/module-1-mathematics-for-data-science</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science/module-2-python-programming</loc>
+    <loc>https://www.skillit.education/data-science/module-2-python-programming</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science/module-3-data-wrangling-sql-cleaning</loc>
+    <loc>https://www.skillit.education/data-science/module-3-data-wrangling-sql-cleaning</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science/module-4-exploratory-data-analysis</loc>
+    <loc>https://www.skillit.education/data-science/module-4-exploratory-data-analysis</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science/module-5-data-visualization</loc>
+    <loc>https://www.skillit.education/data-science/module-5-data-visualization</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science/module-6-business-intelligence-tools</loc>
+    <loc>https://www.skillit.education/data-science/module-6-business-intelligence-tools</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science/module-7-machine-learning-fundamentals</loc>
+    <loc>https://www.skillit.education/data-science/module-7-machine-learning-fundamentals</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-science/module-8-model-deployment</loc>
+    <loc>https://www.skillit.education/data-science/module-8-model-deployment</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/soc-analyst/module-1-foundations-it-networking-operating-systems</loc>
+    <loc>https://www.skillit.education/soc-analyst/module-1-foundations-it-networking-operating-systems</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/soc-analyst/module-2-the-cyber-threat-landscape</loc>
+    <loc>https://www.skillit.education/soc-analyst/module-2-the-cyber-threat-landscape</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/soc-analyst/module-3-inside-a-security-operations-center</loc>
+    <loc>https://www.skillit.education/soc-analyst/module-3-inside-a-security-operations-center</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/soc-analyst/module-4-siem-platforms-security-monitoring</loc>
+    <loc>https://www.skillit.education/soc-analyst/module-4-siem-platforms-security-monitoring</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/soc-analyst/module-5-incident-response-threat-hunting</loc>
+    <loc>https://www.skillit.education/soc-analyst/module-5-incident-response-threat-hunting</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-1-fundamentals-of-data-analytics</loc>
+    <loc>https://www.skillit.education/data-analyst/module-1-fundamentals-of-data-analytics</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-2-excel-for-data-analysis</loc>
+    <loc>https://www.skillit.education/data-analyst/module-2-excel-for-data-analysis</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-3-sql-for-data-analysis</loc>
+    <loc>https://www.skillit.education/data-analyst/module-3-sql-for-data-analysis</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-4-exploratory-data-analysis</loc>
+    <loc>https://www.skillit.education/data-analyst/module-4-exploratory-data-analysis</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-5-data-visualization</loc>
+    <loc>https://www.skillit.education/data-analyst/module-5-data-visualization</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-6-business-intelligence-tools</loc>
+    <loc>https://www.skillit.education/data-analyst/module-6-business-intelligence-tools</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-7-business-reporting-dashboards</loc>
+    <loc>https://www.skillit.education/data-analyst/module-7-business-reporting-dashboards</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-8-kpi-tracking-business-metrics</loc>
+    <loc>https://www.skillit.education/data-analyst/module-8-kpi-tracking-business-metrics</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/data-analyst/module-9-domain-knowledge-capstone</loc>
+    <loc>https://www.skillit.education/data-analyst/module-9-domain-knowledge-capstone</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/cyber-security/penetration-tester</loc>
-    <lastmod>2026-09-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://skillit-courses.vercel.app/courses/cyber-security/security-analyst</loc>
+    <loc>https://www.skillit.education/courses/cyber-security/penetration-tester</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/cyber-security/ethical-hacker</loc>
+    <loc>https://www.skillit.education/courses/cyber-security/security-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/cyber-security/incident-response-analyst</loc>
+    <loc>https://www.skillit.education/courses/cyber-security/ethical-hacker</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/cyber-security/cloud-security-engineer</loc>
+    <loc>https://www.skillit.education/courses/cyber-security/incident-response-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/soc-analyst/soc-analyst</loc>
+    <loc>https://www.skillit.education/courses/cyber-security/cloud-security-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/soc-analyst/incident-response-analyst</loc>
+    <loc>https://www.skillit.education/courses/soc-analyst/soc-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/soc-analyst/threat-hunter</loc>
+    <loc>https://www.skillit.education/courses/soc-analyst/incident-response-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/soc-analyst/siem-engineer</loc>
+    <loc>https://www.skillit.education/courses/soc-analyst/threat-hunter</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/soc-analyst/security-monitoring-analyst</loc>
+    <loc>https://www.skillit.education/courses/soc-analyst/siem-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/soc-analyst/threat-intelligence-analyst</loc>
+    <loc>https://www.skillit.education/courses/soc-analyst/security-monitoring-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/ai-ml/ai-engineer</loc>
+    <loc>https://www.skillit.education/courses/soc-analyst/threat-intelligence-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/ai-ml/machine-learning-engineer</loc>
+    <loc>https://www.skillit.education/courses/ai-ml/ai-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/ai-ml/generative-ai-engineer</loc>
+    <loc>https://www.skillit.education/courses/ai-ml/machine-learning-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/ai-ml/mlops-engineer</loc>
+    <loc>https://www.skillit.education/courses/ai-ml/generative-ai-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/ai-ml/ai-solutions-engineer</loc>
+    <loc>https://www.skillit.education/courses/ai-ml/mlops-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/ai-ml/backend-developer</loc>
+    <loc>https://www.skillit.education/courses/ai-ml/ai-solutions-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-science/data-scientist</loc>
+    <loc>https://www.skillit.education/courses/ai-ml/backend-developer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-science/ml-engineer</loc>
+    <loc>https://www.skillit.education/courses/data-science/data-scientist</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-science/data-analyst</loc>
+    <loc>https://www.skillit.education/courses/data-science/ml-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-science/bi-analyst</loc>
+    <loc>https://www.skillit.education/courses/data-science/data-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-science/data-engineer</loc>
+    <loc>https://www.skillit.education/courses/data-science/bi-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-science/analytics-consultant</loc>
+    <loc>https://www.skillit.education/courses/data-science/data-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-analyst/data-analyst</loc>
+    <loc>https://www.skillit.education/courses/data-science/analytics-consultant</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-analyst/bi-analyst</loc>
+    <loc>https://www.skillit.education/courses/data-analyst/data-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-analyst/business-analyst</loc>
+    <loc>https://www.skillit.education/courses/data-analyst/bi-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-analyst/reporting-analyst</loc>
+    <loc>https://www.skillit.education/courses/data-analyst/business-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-analyst/analytics-consultant</loc>
+    <loc>https://www.skillit.education/courses/data-analyst/reporting-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/courses/data-analyst/dashboard-developer</loc>
+    <loc>https://www.skillit.education/courses/data-analyst/analytics-consultant</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-a-cyber-security-professional</loc>
+    <loc>https://www.skillit.education/courses/data-analyst/dashboard-developer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.skillit.education/blog/how-to-become-a-cyber-security-professional</loc>
+    <lastmod>2026-09-23</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-an-ai-ml-engineer</loc>
+    <loc>https://www.skillit.education/blog/how-to-become-an-ai-ml-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-a-data-scientist</loc>
+    <loc>https://www.skillit.education/blog/how-to-become-a-data-scientist</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-a-soc-analyst</loc>
+    <loc>https://www.skillit.education/blog/how-to-become-a-soc-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-a-data-analyst</loc>
+    <loc>https://www.skillit.education/blog/how-to-become-a-data-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/best-cyber-security-course-in-hyderabad-for-freshers</loc>
+    <loc>https://www.skillit.education/blog/best-cyber-security-course-in-hyderabad-for-freshers</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/do-i-need-maths-to-learn-ai-and-machine-learning</loc>
+    <loc>https://www.skillit.education/blog/do-i-need-maths-to-learn-ai-and-machine-learning</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-scientist-vs-data-analyst-vs-ml-engineer</loc>
+    <loc>https://www.skillit.education/blog/data-scientist-vs-data-analyst-vs-ml-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-a-soc-analyst-does-during-a-shift</loc>
+    <loc>https://www.skillit.education/blog/what-a-soc-analyst-does-during-a-shift</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/tools-a-data-analyst-should-learn-excel-sql-power-bi-python</loc>
+    <loc>https://www.skillit.education/blog/tools-a-data-analyst-should-learn-excel-sql-power-bi-python</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-career-without-coding-background</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-career-without-coding-background</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/programming-languages-and-tools-for-ai-ml</loc>
+    <loc>https://www.skillit.education/blog/programming-languages-and-tools-for-ai-ml</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/skills-a-data-scientist-needs-to-get-hired</loc>
+    <loc>https://www.skillit.education/blog/skills-a-data-scientist-needs-to-get-hired</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/soc-analyst-l1-l2-l3-levels-and-career-growth</loc>
+    <loc>https://www.skillit.education/blog/soc-analyst-l1-l2-l3-levels-and-career-growth</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/can-i-become-a-data-analyst-without-a-technical-degree</loc>
+    <loc>https://www.skillit.education/blog/can-i-become-a-data-analyst-without-a-technical-degree</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-ethical-hacking-and-how-to-learn-it</loc>
+    <loc>https://www.skillit.education/blog/what-is-ethical-hacking-and-how-to-learn-it</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/difference-between-ai-machine-learning-and-deep-learning</loc>
+    <loc>https://www.skillit.education/blog/difference-between-ai-machine-learning-and-deep-learning</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/learn-statistics-and-python-for-data-science-step-by-step</loc>
+    <loc>https://www.skillit.education/blog/learn-statistics-and-python-for-data-science-step-by-step</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-a-siem-and-which-siem-tools-to-learn</loc>
+    <loc>https://www.skillit.education/blog/what-is-a-siem-and-which-siem-tools-to-learn</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-a-data-analyst-does-on-a-typical-working-day</loc>
+    <loc>https://www.skillit.education/blog/what-a-data-analyst-does-on-a-typical-working-day</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-penetration-testing-and-how-to-become-a-pentester</loc>
+    <loc>https://www.skillit.education/blog/what-is-penetration-testing-and-how-to-become-a-pentester</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/ai-ml-projects-to-build-to-get-hired</loc>
+    <loc>https://www.skillit.education/blog/ai-ml-projects-to-build-to-get-hired</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-science-project-lifecycle-from-start-to-finish</loc>
+    <loc>https://www.skillit.education/blog/data-science-project-lifecycle-from-start-to-finish</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-get-your-first-soc-analyst-job-as-a-fresher</loc>
+    <loc>https://www.skillit.education/blog/how-to-get-your-first-soc-analyst-job-as-a-fresher</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-analyst-projects-that-impress-recruiters</loc>
+    <loc>https://www.skillit.education/blog/data-analyst-projects-that-impress-recruiters</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-certifications-ceh-security-plus-oscp</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-certifications-ceh-security-plus-oscp</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/can-a-non-it-graduate-switch-to-ai-and-machine-learning</loc>
+    <loc>https://www.skillit.education/blog/can-a-non-it-graduate-switch-to-ai-and-machine-learning</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-portfolio-projects-to-build</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-portfolio-projects-to-build</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/can-a-fresher-become-a-data-scientist</loc>
+    <loc>https://www.skillit.education/blog/can-a-fresher-become-a-data-scientist</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-incident-response-and-how-it-is-done</loc>
+    <loc>https://www.skillit.education/blog/what-is-incident-response-and-how-it-is-done</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-learn-sql-for-data-analysis-step-by-step</loc>
+    <loc>https://www.skillit.education/blog/how-to-learn-sql-for-data-analysis-step-by-step</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-get-placed-after-a-cyber-security-course</loc>
+    <loc>https://www.skillit.education/blog/how-to-get-placed-after-a-cyber-security-course</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/ai-ml-engineer-salary-in-india-and-career-growth</loc>
+    <loc>https://www.skillit.education/blog/ai-ml-engineer-salary-in-india-and-career-growth</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-science-resume-github-and-linkedin-profile</loc>
+    <loc>https://www.skillit.education/blog/data-science-resume-github-and-linkedin-profile</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/soc-analyst-vs-penetration-tester-which-career-to-choose</loc>
+    <loc>https://www.skillit.education/blog/soc-analyst-vs-penetration-tester-which-career-to-choose</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-analyst-salary-in-india-and-career-growth</loc>
+    <loc>https://www.skillit.education/blog/data-analyst-salary-in-india-and-career-growth</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-analyst-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-analyst-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-a-real-time-internship-helps-you-land-an-ai-ml-job</loc>
+    <loc>https://www.skillit.education/blog/how-a-real-time-internship-helps-you-land-an-ai-ml-job</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-prepare-for-a-data-science-interview</loc>
+    <loc>https://www.skillit.education/blog/how-to-prepare-for-a-data-science-interview</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-prepare-for-a-soc-analyst-interview</loc>
+    <loc>https://www.skillit.education/blog/how-to-prepare-for-a-soc-analyst-interview</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-switch-from-a-non-it-job-to-data-analytics</loc>
+    <loc>https://www.skillit.education/blog/how-to-switch-from-a-non-it-job-to-data-analytics</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-fresher-starting-salary</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-fresher-starting-salary</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-an-ai-engineer-and-what-does-an-ai-engineer-do</loc>
+    <loc>https://www.skillit.education/blog/what-is-an-ai-engineer-and-what-does-an-ai-engineer-do</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-data-science-and-what-does-a-data-scientist-do</loc>
+    <loc>https://www.skillit.education/blog/what-is-data-science-and-what-does-a-data-scientist-do</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-a-soc-analyst-and-what-does-a-soc-analyst-do</loc>
+    <loc>https://www.skillit.education/blog/what-is-a-soc-analyst-and-what-does-a-soc-analyst-do</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-data-analytics-and-what-does-a-data-analyst-do</loc>
+    <loc>https://www.skillit.education/blog/what-is-data-analytics-and-what-does-a-data-analyst-do</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/average-cyber-security-salary-in-hyderabad</loc>
+    <loc>https://www.skillit.education/blog/average-cyber-security-salary-in-hyderabad</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/ai-engineer-vs-ai-ml-engineer-vs-data-scientist</loc>
+    <loc>https://www.skillit.education/blog/ai-engineer-vs-ai-ml-engineer-vs-data-scientist</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-fresher-salary-in-hyderabad</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-fresher-salary-in-hyderabad</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/difference-between-data-scientist-data-analyst-and-data-engineer</loc>
+    <loc>https://www.skillit.education/blog/difference-between-data-scientist-data-analyst-and-data-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-does-a-soc-analyst-do-on-a-daily-basis</loc>
+    <loc>https://www.skillit.education/blog/what-does-a-soc-analyst-do-on-a-daily-basis</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/programming-languages-required-for-data-analytics</loc>
+    <loc>https://www.skillit.education/blog/programming-languages-required-for-data-analytics</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-jobs-pay-without-experience</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-jobs-pay-without-experience</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/skills-required-to-become-an-ai-engineer</loc>
+    <loc>https://www.skillit.education/blog/skills-required-to-become-an-ai-engineer</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/programming-languages-required-for-data-science</loc>
+    <loc>https://www.skillit.education/blog/programming-languages-required-for-data-science</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/tools-and-technologies-used-by-soc-analysts</loc>
+    <loc>https://www.skillit.education/blog/tools-and-technologies-used-by-soc-analysts</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/tools-and-technologies-used-by-data-analysts</loc>
+    <loc>https://www.skillit.education/blog/tools-and-technologies-used-by-data-analysts</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/soc-analyst-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/soc-analyst-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/programming-languages-required-for-ai-ml</loc>
+    <loc>https://www.skillit.education/blog/programming-languages-required-for-ai-ml</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/tools-and-technologies-used-by-data-scientists</loc>
+    <loc>https://www.skillit.education/blog/tools-and-technologies-used-by-data-scientists</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/what-is-siem-and-why-is-it-important-for-soc-analysts</loc>
+    <loc>https://www.skillit.education/blog/what-is-siem-and-why-is-it-important-for-soc-analysts</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/is-excel-enough-to-become-a-data-analyst</loc>
+    <loc>https://www.skillit.education/blog/is-excel-enough-to-become-a-data-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/soc-l1-analyst-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/soc-l1-analyst-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/tools-and-technologies-used-by-ai-engineers</loc>
+    <loc>https://www.skillit.education/blog/tools-and-technologies-used-by-ai-engineers</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/difference-between-data-science-machine-learning-and-ai</loc>
+    <loc>https://www.skillit.education/blog/difference-between-data-science-machine-learning-and-ai</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/difference-between-soc-l1-l2-and-l3</loc>
+    <loc>https://www.skillit.education/blog/difference-between-soc-l1-l2-and-l3</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/is-sql-required-for-a-data-analyst-job</loc>
+    <loc>https://www.skillit.education/blog/is-sql-required-for-a-data-analyst-job</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/soc-l2-analyst-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/soc-l2-analyst-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/ai-engineer-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/ai-engineer-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-scientist-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/data-scientist-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/soc-analyst-salary-in-india-by-level</loc>
+    <loc>https://www.skillit.education/blog/soc-analyst-salary-in-india-by-level</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-analyst-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/data-analyst-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/soc-analyst-vs-cyber-security-analyst-salary</loc>
+    <loc>https://www.skillit.education/blog/soc-analyst-vs-cyber-security-analyst-salary</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/ai-ml-engineer-fresher-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/ai-ml-engineer-fresher-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-engineer-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-engineer-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-scientist-fresher-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/data-scientist-fresher-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/soc-analyst-fresher-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/soc-analyst-fresher-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/data-analyst-fresher-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/data-analyst-fresher-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/highest-paying-cyber-security-job</loc>
+    <loc>https://www.skillit.education/blog/highest-paying-cyber-security-job</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/scope-of-ai-and-machine-learning-in-india</loc>
+    <loc>https://www.skillit.education/blog/scope-of-ai-and-machine-learning-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/is-data-science-a-good-career-for-freshers</loc>
+    <loc>https://www.skillit.education/blog/is-data-science-a-good-career-for-freshers</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/is-soc-analyst-a-good-career-for-freshers</loc>
+    <loc>https://www.skillit.education/blog/is-soc-analyst-a-good-career-for-freshers</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/is-data-analytics-a-good-career-for-freshers</loc>
+    <loc>https://www.skillit.education/blog/is-data-analytics-a-good-career-for-freshers</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/ethical-hacker-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/ethical-hacker-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/is-ai-engineering-a-good-career-for-freshers</loc>
+    <loc>https://www.skillit.education/blog/is-ai-engineering-a-good-career-for-freshers</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/career-opportunities-after-a-data-science-course</loc>
+    <loc>https://www.skillit.education/blog/career-opportunities-after-a-data-science-course</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/difference-between-soc-analyst-and-cybersecurity-analyst</loc>
+    <loc>https://www.skillit.education/blog/difference-between-soc-analyst-and-cybersecurity-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/difference-between-a-data-analyst-and-a-data-scientist</loc>
+    <loc>https://www.skillit.education/blog/difference-between-a-data-analyst-and-a-data-scientist</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-manager-salary-in-india</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-manager-salary-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/career-opportunities-after-an-ai-ml-course</loc>
+    <loc>https://www.skillit.education/blog/career-opportunities-after-an-ai-ml-course</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/scope-of-data-science-in-india</loc>
+    <loc>https://www.skillit.education/blog/scope-of-data-science-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/career-opportunities-after-a-soc-analyst-course</loc>
+    <loc>https://www.skillit.education/blog/career-opportunities-after-a-soc-analyst-course</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/career-opportunities-after-a-data-analytics-course</loc>
+    <loc>https://www.skillit.education/blog/career-opportunities-after-a-data-analytics-course</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-salary-after-2-years</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-salary-after-2-years</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-an-ai-engineer-in-india</loc>
+    <loc>https://www.skillit.education/blog/how-to-become-an-ai-engineer-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-salary-after-5-years</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-salary-after-5-years</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-a-data-scientist-in-india</loc>
+    <loc>https://www.skillit.education/blog/how-to-become-a-data-scientist-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-a-soc-analyst-in-india</loc>
+    <loc>https://www.skillit.education/blog/how-to-become-a-soc-analyst-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-to-become-a-data-analyst-in-india</loc>
+    <loc>https://www.skillit.education/blog/how-to-become-a-data-analyst-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/is-cyber-security-a-high-paying-career-in-india</loc>
+    <loc>https://www.skillit.education/blog/is-cyber-security-a-high-paying-career-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/best-ai-ml-course-for-beginners</loc>
+    <loc>https://www.skillit.education/blog/best-ai-ml-course-for-beginners</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/skills-required-to-become-a-data-scientist</loc>
+    <loc>https://www.skillit.education/blog/skills-required-to-become-a-data-scientist</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/skills-required-to-become-a-soc-analyst</loc>
+    <loc>https://www.skillit.education/blog/skills-required-to-become-a-soc-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/skills-required-to-become-a-data-analyst</loc>
+    <loc>https://www.skillit.education/blog/skills-required-to-become-a-data-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/qualifications-for-a-high-paying-cyber-security-job</loc>
+    <loc>https://www.skillit.education/blog/qualifications-for-a-high-paying-cyber-security-job</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/eligibility-for-an-ai-engineering-course</loc>
+    <loc>https://www.skillit.education/blog/eligibility-for-an-ai-engineering-course</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/eligibility-requirements-for-a-data-science-course</loc>
+    <loc>https://www.skillit.education/blog/eligibility-requirements-for-a-data-science-course</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/eligibility-requirements-for-a-soc-analyst-job</loc>
+    <loc>https://www.skillit.education/blog/eligibility-requirements-for-a-soc-analyst-job</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/eligibility-requirements-for-a-data-analytics-course</loc>
+    <loc>https://www.skillit.education/blog/eligibility-requirements-for-a-data-analytics-course</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-certifications-that-increase-salary</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-certifications-that-increase-salary</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-long-does-it-take-to-learn-ai-and-machine-learning</loc>
+    <loc>https://www.skillit.education/blog/how-long-does-it-take-to-learn-ai-and-machine-learning</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/best-data-science-course-for-beginners</loc>
+    <loc>https://www.skillit.education/blog/best-data-science-course-for-beginners</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/best-soc-analyst-course-for-beginners</loc>
+    <loc>https://www.skillit.education/blog/best-soc-analyst-course-for-beginners</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/best-data-analytics-course-for-beginners</loc>
+    <loc>https://www.skillit.education/blog/best-data-analytics-course-for-beginners</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/cyber-security-job-after-graduation</loc>
+    <loc>https://www.skillit.education/blog/cyber-security-job-after-graduation</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/difference-between-ai-machine-learning-deep-learning-and-generative-ai</loc>
+    <loc>https://www.skillit.education/blog/difference-between-ai-machine-learning-deep-learning-and-generative-ai</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-long-does-it-take-to-learn-data-science</loc>
+    <loc>https://www.skillit.education/blog/how-long-does-it-take-to-learn-data-science</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-long-does-it-take-to-become-a-soc-analyst</loc>
+    <loc>https://www.skillit.education/blog/how-long-does-it-take-to-become-a-soc-analyst</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/how-long-does-it-take-to-learn-data-analytics</loc>
+    <loc>https://www.skillit.education/blog/how-long-does-it-take-to-learn-data-analytics</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://skillit-courses.vercel.app/blog/is-cyber-security-a-good-career-for-freshers-in-india</loc>
+    <loc>https://www.skillit.education/blog/is-cyber-security-a-good-career-for-freshers-in-india</loc>
     <lastmod>2026-09-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
