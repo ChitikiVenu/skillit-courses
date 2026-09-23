@@ -21,6 +21,7 @@ const dataAnalyst = (await import('../src/data/dataAnalyst.js')).default;
 const { ROLE_COURSES } = await import('../src/data/roleCourses/index.js');
 const { BLOG_POSTS } = await import('../src/data/blogPosts.js');
 const { PRIVACY_POLICY, DATA_COMPLIANCE_POLICY } = await import('../src/data/policies.js');
+const { CAREERS } = await import('../src/data/careers.js');
 
 const COURSES = [cyberSecurity, aiMl, dataScience, socAnalyst, dataAnalyst];
 
@@ -39,6 +40,8 @@ const pages = [
   { path: '/', title: 'Cyber Security, AI & Data Courses in Hyderabad | Skill IT Education', description: 'set in LandingPage.jsx' },
   { path: '/blog', title: 'Career Insights | Skill IT Education Blog', description: 'set in BlogIndexPage.jsx' },
   { path: '/faqs', title: 'FAQs — Courses, Fees, Internships & Placement | Skill IT Education', description: 'set in FaqPage.jsx' },
+  { path: '/careers', title: 'Careers at Skill IT Education | Join Our Team in Hyderabad', description: 'set in CareersPage.jsx' },
+  ...CAREERS.map((c) => ({ path: `/careers/${c.slug}`, title: `${c.title} | Careers at Skill IT Education`, description: c.summary })),
   { path: '/privacy-policy', title: PRIVACY_POLICY.metaTitle, description: PRIVACY_POLICY.metaDescription },
   { path: '/data-compliance-policy', title: DATA_COMPLIANCE_POLICY.metaTitle, description: DATA_COMPLIANCE_POLICY.metaDescription },
   ...COURSES.map((c) => ({ path: c.routeBase, title: c.COPY.metaTitle, description: c.COPY.metaDesc })),

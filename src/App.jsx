@@ -26,6 +26,8 @@ const PolicyPage = lazy(() => import('./pages/PolicyPage.jsx'));
 const FaqPage = lazy(() => import('./pages/FaqPage.jsx'));
 const PlaceholderPage = lazy(() => import('./pages/PlaceholderPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
+const CareersPage = lazy(() => import('./pages/CareersPage.jsx'));
+const CareerDetailPage = lazy(() => import('./pages/CareerDetailPage.jsx'));
 
 const COURSES = [cyberSecurity, aiMl, socAnalyst, dataScience, dataAnalyst];
 
@@ -44,6 +46,8 @@ export default function App() {
           <Route path="/privacy-policy" element={<PolicyPage policy={PRIVACY_POLICY} related={{ to: '/data-compliance-policy', label: 'Data Compliance Policy' }} />} />
           <Route path="/data-compliance-policy" element={<PolicyPage policy={DATA_COMPLIANCE_POLICY} related={{ to: '/privacy-policy', label: 'Privacy Policy' }} />} />
           <Route path="/faqs" element={<FaqPage />} />
+          <Route path="/careers" element={<CareersPage />} />
+          <Route path="/careers/:slug" element={<CareerDetailPage />} />
           {/* linked from the footer; content to be added */}
           <Route path="/about-us" element={<PlaceholderPage title="About Us" path="/about-us" />} />
           <Route path="/refund-policy" element={<PlaceholderPage title="Refund Policy" path="/refund-policy" />} />

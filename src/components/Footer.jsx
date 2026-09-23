@@ -17,6 +17,7 @@ const SITE_LINKS = [
   { label: 'Privacy Policy', to: '/privacy-policy' },
   { label: 'Data Compliance Policy', to: '/data-compliance-policy' },
   { label: 'Refund Policy', to: '/refund-policy' },
+  { label: 'Careers', to: '/careers' },
 ];
 
 // The five programmes side by side across the footer, each with its role courses under it, and the logo and site links on

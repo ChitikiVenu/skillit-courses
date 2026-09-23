@@ -34,6 +34,7 @@ const dataAnalyst = (await import('../src/data/dataAnalyst.js')).default;
 const { ROLE_GROUPS, ROLE_COURSES } = await import('../src/data/roleCourses/index.js');
 const { BLOG_POSTS } = await import('../src/data/blogPosts.js');
 const { BLOG_COURSES } = await import('../src/data/blogCourses.js');
+const { CAREERS } = await import('../src/data/careers.js');
 
 // blogCourses.js hand-keeps a per-programme article count (so the header doesn't have to import
 // every full article body just to show "23 articles"). Cross-check it against the real BLOG_POSTS
@@ -61,6 +62,8 @@ const urls = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },
   { path: '/blog', changefreq: 'weekly', priority: '0.8' },
   { path: '/faqs', changefreq: 'weekly', priority: '0.8' },
+  { path: '/careers', changefreq: 'weekly', priority: '0.6' },
+  ...CAREERS.map((c) => ({ path: `/careers/${c.slug}`, changefreq: 'weekly', priority: '0.5' })),
   { path: '/privacy-policy', changefreq: 'yearly', priority: '0.3' },
   { path: '/data-compliance-policy', changefreq: 'yearly', priority: '0.3' },
   ...COURSES.map((c) => ({ path: c.routeBase, changefreq: 'weekly', priority: '1.0' })),
