@@ -63,7 +63,12 @@ export async function getSitePages() {
     })),
     { path: '/privacy-policy', title: PRIVACY_POLICY.metaTitle, description: PRIVACY_POLICY.metaDescription },
     { path: '/data-compliance-policy', title: DATA_COMPLIANCE_POLICY.metaTitle, description: DATA_COMPLIANCE_POLICY.metaDescription },
-    { path: '/about-us', title: 'About Us | Skill IT Education', description: 'About Us at Skill IT Education.', noindex: true },
+    {
+      path: '/about-us',
+      title: 'About Us | Skill IT Education',
+      description:
+        'Skill IT Education is an upskilling academy in Madhapur, Hyderabad, training graduates and professionals in future technologies through hands-on labs, real projects, a real-time internship and honest placement assistance.',
+    },
     { path: '/refund-policy', title: 'Refund Policy | Skill IT Education', description: 'Refund Policy at Skill IT Education.', noindex: true },
     ...COURSES.map((c) => ({
       path: c.routeBase,

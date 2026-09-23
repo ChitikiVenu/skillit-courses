@@ -7,7 +7,7 @@ import { DESKTOP_HEADER, useMediaQuery } from '../useMediaQuery.js';
 import { WHATSAPP_URL } from '../constants.js';
 import WhatsAppIcon from './WhatsAppIcon.jsx';
 
-// Under the logo: the site links, one by one. About Us and Refund Policy are pages whose content is still to come.
+// Under the logo: the site links, one by one. Refund Policy is a page whose content is still to come.
 const SITE_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about-us' },

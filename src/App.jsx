@@ -28,6 +28,7 @@ const PlaceholderPage = lazy(() => import('./pages/PlaceholderPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 const CareersPage = lazy(() => import('./pages/CareersPage.jsx'));
 const CareerDetailPage = lazy(() => import('./pages/CareerDetailPage.jsx'));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage.jsx'));
 
 const COURSES = [cyberSecurity, aiMl, socAnalyst, dataScience, dataAnalyst];
 
@@ -48,8 +49,8 @@ export default function App() {
           <Route path="/faqs" element={<FaqPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/careers/:slug" element={<CareerDetailPage />} />
-          {/* linked from the footer; content to be added */}
-          <Route path="/about-us" element={<PlaceholderPage title="About Us" path="/about-us" />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
+          {/* linked from the footer; content still to come */}
           <Route path="/refund-policy" element={<PlaceholderPage title="Refund Policy" path="/refund-policy" />} />
           {COURSES.map((course) => (
             <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage key={course.routeBase} course={course} />} />
