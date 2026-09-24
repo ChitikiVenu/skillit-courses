@@ -1909,3 +1909,22 @@ section[id]{scroll-margin-top:92px;}
 .showcase-box .testimonial-card{border-top-color:var(--logo-blue,#0148fa);box-shadow:0 18px 34px -18px rgba(3,14,80,.7);}
 .showcase-box .partner-chip{border-color:transparent;box-shadow:0 10px 22px -12px rgba(3,14,80,.6);}
 @media (max-width:799px){.showcase-box{border-radius:22px;padding:28px 0 24px;}}
+
+/* Two student photos in the space above the hero text, so the text starts level with the form's
+   "Full Name" field (the countdown and form heading sit above that field). Desktop layout only. */
+.hero-students{display:none;}
+@media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
+  .home-hero-grid{align-items:flex-start;}
+  .hero-students{display:flex;align-items:flex-end;justify-content:center;gap:0;height:181px;margin-bottom:0;}
+  .hero-student{position:relative;display:flex;align-items:flex-end;justify-content:center;height:100%;padding:0 6px;}
+  .hero-student::before{content:"";position:absolute;left:50%;bottom:0;width:150px;height:150px;transform:translateX(-50%);border-radius:50%;background:var(--tint);}
+  .hero-student img{position:relative;height:100%;width:auto;max-width:none;object-fit:contain;object-position:bottom;}
+  .hero-student + .hero-student{margin-left:-14px;}
+}
+
+/* Smooth page loads and page-to-page changes: content fades in instead of popping in. */
+@keyframes page-in{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+@keyframes app-in{from{opacity:0;}to{opacity:1;}}
+#root{animation:app-in .4s ease both;}
+main{animation:page-in .45s cubic-bezier(.22,1,.36,1) both;}
+@media (prefers-reduced-motion: reduce){#root,main{animation:none;}}

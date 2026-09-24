@@ -146,6 +146,14 @@ export default function LandingPage() {
       <section id="programmes" className="programmes-hero">
         <div className="wrap home-hero-grid">
           <div className="home-hero-left">
+            <div className="hero-students" aria-hidden="true">
+              <span className="hero-student" style={{ '--tint': '#e9f0ff' }}>
+                <img src="/img/fit-photos/hero-cyber-security.webp" alt="" width="640" height="691" />
+              </span>
+              <span className="hero-student" style={{ '--tint': '#f2edff' }}>
+                <img src="/img/fit-photos/hero-ai-ml.webp" alt="" width="640" height="768" />
+              </span>
+            </div>
             <a className="hero-mode-badge" href="#our-programmes">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
