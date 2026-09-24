@@ -9,6 +9,7 @@ import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import CertStrip from '../components/CertStrip.jsx';
 import Testimonials from '../components/Testimonials.jsx';
+import PlacementPartners from '../components/PlacementPartners.jsx';
 import { usePrefersReducedMotion } from '../components/flowPulse.jsx';
 import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
 import { rolesForCourse } from '../data/roleCourses/index.js';
@@ -264,6 +265,8 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      <PlacementPartners />
 
       <Testimonials />
 
