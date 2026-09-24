@@ -212,21 +212,23 @@ export default function LandingPage() {
       <CertStrip />
 
       <section id="fit-finder">
-        <div className="wrap">
-          <div className="section-head">
+        <div className="wrap fit-layout">
+          <div className="fit-intro">
             <span className="eyebrow">Not Sure Which One?</span>
             <h2>Choose a Program Based on Your Career Goal</h2>
             <p>A quick way to match what you enjoy to the programme built around it.</p>
           </div>
           <div className="fit-panel">
-            <div className={`fit-track ${reducedMotion ? 'is-static' : ''}`}>
-              <div className="fit-row">
-                {/* duplicated once so the marquee can scroll from 0 to -50% and loop with no visible seam */}
+            <div className={`fit-vtrack ${reducedMotion ? 'is-static' : ''}`}>
+              <div className="fit-col">
+                {/* duplicated once so the column can scroll a half-height loop with no visible seam */}
                 {[...FIT_FINDER, ...FIT_FINDER].map(({ interest, course, image, w, h, tint, tintText }, i) => (
                   <Link
                     className="fit-card"
                     to={course.routeBase}
                     key={`${course.routeBase}-${i}`}
+                    aria-hidden={i >= FIT_FINDER.length ? 'true' : undefined}
+                    tabIndex={i >= FIT_FINDER.length ? -1 : undefined}
                     style={{ '--fit-tint': tint, '--fit-tint-text': tintText }}
                   >
                     <span className="fit-card-visual">
