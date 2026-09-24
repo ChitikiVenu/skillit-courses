@@ -8,10 +8,12 @@ export default function PlacementPartners() {
 
   return (
     <section id="placement-partners" className="partners-section" aria-label="Companies where our students got hired">
-      <div className="wrap partners-head">
-        <h2>Where Our Students Got Hired</h2>
-      </div>
-      <div className={`partners-track ${reducedMotion ? 'is-static' : ''}`}>
+      <div className="wrap">
+       <div className="showcase-box">
+        <div className="partners-head">
+          <h2>Where Our Students Got Hired</h2>
+        </div>
+        <div className={`partners-track ${reducedMotion ? 'is-static' : ''}`}>
         <div className="partners-row">
           {track.map((p, i) => (
             <span className="partner-chip" key={`${p.name}-${i}`} aria-hidden={i >= PLACEMENT_PARTNERS.length ? 'true' : undefined}>
@@ -19,6 +21,8 @@ export default function PlacementPartners() {
             </span>
           ))}
         </div>
+        </div>
+       </div>
       </div>
     </section>
   );

@@ -8,11 +8,13 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="testimonials-section">
-      <div className="wrap testimonials-head">
-        <h2>Hear From Our Alumni</h2>
-        <p>Scroll through reflections from learners who turned structured practice into confident next steps.</p>
-      </div>
-      <div className={`testimonial-track ${reducedMotion ? 'is-static' : ''}`}>
+      <div className="wrap">
+       <div className="showcase-box">
+        <div className="testimonials-head">
+          <h2>Hear From Our Alumni</h2>
+          <p>Scroll through reflections from learners who turned structured practice into confident next steps.</p>
+        </div>
+        <div className={`testimonial-track ${reducedMotion ? 'is-static' : ''}`}>
         <ul className="testimonial-row">
           {track.map((t, i) => {
             const isCopy = i >= TESTIMONIALS.length;
@@ -29,6 +31,8 @@ export default function Testimonials() {
             );
           })}
         </ul>
+        </div>
+       </div>
       </div>
     </section>
   );
