@@ -156,6 +156,9 @@ export default function LandingPage() {
               {HERO_TITLE}
             </FitHeading>
             <p className="home-positioning">{HERO_POSITIONING}</p>
+            <p className="hero-eligibility-box">
+              <strong>{ELIGIBILITY_LABEL}</strong> {ELIGIBILITY_TEXT}
+            </p>
             <div className="hero-ctas">
               <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
                 Talk to Counsellor
@@ -178,9 +181,6 @@ export default function LandingPage() {
                   </ul>
                 </div>
               </div>
-              <p className="hero-eligibility-note">
-                <strong>{ELIGIBILITY_LABEL}</strong> {ELIGIBILITY_TEXT}
-              </p>
             </div>
           </div>
           <div className="home-hero-form">
