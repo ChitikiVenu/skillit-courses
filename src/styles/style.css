@@ -794,18 +794,10 @@ a.footer-course:hover{color:var(--accent-2);}
    once the copy grew to mention working professionals and career switchers too — a tinted rectangular
    card is fine here, it's running headline/paragraph text that must stay black, not small badge/card
    UI like this (see .fit-card-programme for the same pattern). */
-.hero-eligibility{
-  display:inline-flex;align-items:flex-start;gap:10px;max-width:480px;margin:0 0 16px;text-align:left;
-  font-size:13.5px;line-height:1.55;color:var(--text-dim);
-  background:rgba(12,154,131,.07);border:1px solid rgba(12,154,131,.25);border-left:3px solid var(--accent);
-  border-radius:10px;padding:13px 16px;
-}
-.hero-eligibility-icon{flex:none;width:19px;height:19px;margin-top:1px;color:var(--accent);}
-.hero-eligibility-label{display:block;font-weight:800;color:var(--text);margin-bottom:2px;}
 /* "Offline / Online — Hyderabad" note, moved above the skills marquee (owner-requested 2026-09-22 —
    it was one of the hero CTA buttons, now a small badge instead). */
 .hero-mode-badge{
-  display:inline-flex;align-items:center;gap:7px;margin:2px 0 4px;
+  display:inline-flex;align-items:center;align-self:center;gap:7px;margin:2px 0 4px;
   font-size:13px;font-weight:700;color:var(--text);background:var(--surface);
   border:1px solid var(--border);border-radius:100px;padding:7px 15px;
   transition:border-color .2s,box-shadow .2s,transform .15s;
@@ -826,8 +818,9 @@ a.footer-course:hover{color:var(--accent-2);}
 }
 .home-tagline{margin-bottom:10px;}
 .home-positioning{margin:0 auto 14px;max-width:560px;text-align:center;font-size:15px;line-height:1.5;color:var(--text-dim);}
-.home-hero-rest{display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 0 8px;text-align:center;}
-.home-intro{margin:0;max-width:86ch;font-size:15px;line-height:1.6;color:var(--text-dim);}
+.home-hero-rest{display:flex;flex-direction:column;align-items:center;gap:18px;padding:26px 0 8px;text-align:center;}
+.hero-eligibility-note{margin:0;max-width:52ch;font-size:13px;line-height:1.55;color:var(--text-faint);}
+.hero-eligibility-note strong{color:var(--text-dim);font-weight:700;}
 /* Hero lead form: same "best" card treatment as the enquiry box lower on the page (surface, top
    accent border, soft shadow), just narrower and with its fields stacked for the tighter column. */
 .home-hero-form{
@@ -878,11 +871,12 @@ a.footer-course:hover{color:var(--accent-2);}
   .home-hero-grid{flex-direction:row;align-items:center;gap:48px;}
   .home-hero-left{flex:1 1 auto;}
   /* the headline sits 1 cm under the header, on up to two lines (see the two-line-headline rule; FitHeading enforces it) */
-  .home-tagline{max-width:none;margin:calc(1cm - 14px) 0 6px;text-align:left;font-size:clamp(24px,2.6vw,40px);letter-spacing:-.02em;}
-  .home-positioning{max-width:none;margin:0 0 14px;text-align:left;}
+  .home-tagline{max-width:none;margin:14px 0 12px;text-align:left;font-size:clamp(28px,3.1vw,46px);line-height:1.18;letter-spacing:-.02em;}
+  .home-positioning{max-width:46ch;margin:0 0 4px;text-align:left;font-size:17px;}
+  .hero-ctas{margin-top:20px;}
+  .hero-mode-badge{align-self:flex-start;}
   .home-hero-rest{align-items:flex-start;text-align:left;justify-content:flex-start;}
   .home-skills{align-items:flex-start;}
-  .home-intro{font-size:16.5px;}
   .home-hero-form{flex:0 0 380px;max-width:380px;margin:0;}
 }
 @media (min-width: 800px) and (max-width: 1150px){
@@ -892,19 +886,16 @@ a.footer-course:hover{color:var(--accent-2);}
 @media (max-width: 799px){
   /* The mobile hero was too cramped (owner: "clumsy... give me some space") — a bit more room between
      the eligibility box, headline, intro, mode badge, marquee and buttons, and before the form. */
-  .hero-eligibility{margin-bottom:20px;}
   .home-tagline{margin-bottom:16px;}
-  .home-hero-rest{gap:18px;padding:0 0 10px;}
+  .home-hero-rest{gap:18px;padding:22px 0 10px;}
   .hero-mode-badge{margin:2px 0 6px;}
   .home-skills-label{display:none;}
   .home-skills-track{max-width:100%;}
   .home-skills-row{animation-duration:16s;}
   .home-skills-row a{font-size:12.5px;padding:4px 10px;}
-  .home-intro{font-size:14px;line-height:1.55;}
   .home-hero-grid{gap:30px;}
   .hero-ctas{margin-top:26px;}
   .home-hero-form{padding:18px 16px;max-width:420px;}
-  .hero-eligibility{font-size:12px;padding:11px 14px;text-align:left;}
 }
 .flow-wrap{
   position:relative;width:100%;max-width:1400px;height:680px;

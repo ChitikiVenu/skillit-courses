@@ -146,28 +146,25 @@ export default function LandingPage() {
       <section id="programmes" className="programmes-hero">
         <div className="wrap home-hero-grid">
           <div className="home-hero-left">
-            <p className="hero-eligibility">
-              <svg className="hero-eligibility-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 3 2 8l10 5 10-5-10-5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-                <path d="M6 10.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            <a className="hero-mode-badge" href="#our-programmes">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
               </svg>
-              <span>
-                <span className="hero-eligibility-label">{ELIGIBILITY_LABEL}</span>
-                {ELIGIBILITY_TEXT}
-              </span>
-            </p>
+              Offline / Online &mdash; Hyderabad
+            </a>
             <FitHeading className="home-tagline" maxLines={2} minPx={21}>
               {HERO_TITLE}
             </FitHeading>
             <p className="home-positioning">{HERO_POSITIONING}</p>
-            <div className="home-hero-rest">
-              <p className="home-intro">{HERO_INTRO}</p>
-              <a className="hero-mode-badge" href="#our-programmes">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-                </svg>
-                Offline / Online &mdash; Hyderabad
+            <div className="hero-ctas">
+              <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
+                Talk to Counsellor
+              </button>
+              <a className="btn btn-primary" href="#our-programmes">
+                Explore Our Programmes
               </a>
+            </div>
+            <div className="home-hero-rest">
               <div className="home-skills">
                 <span className="home-skills-label">Key Skills You Can Learn</span>
                 <div className={`home-skills-track ${reducedMotion ? 'is-static' : ''}`}>
@@ -181,14 +178,9 @@ export default function LandingPage() {
                   </ul>
                 </div>
               </div>
-            </div>
-            <div className="hero-ctas">
-              <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
-                Talk to Counsellor
-              </button>
-              <a className="btn btn-primary" href="#our-programmes">
-                Explore Our Programmes
-              </a>
+              <p className="hero-eligibility-note">
+                <strong>{ELIGIBILITY_LABEL}</strong> {ELIGIBILITY_TEXT}
+              </p>
             </div>
           </div>
           <div className="home-hero-form">
