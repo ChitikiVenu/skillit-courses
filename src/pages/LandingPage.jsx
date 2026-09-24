@@ -211,24 +211,6 @@ export default function LandingPage() {
 
       <CertStrip />
 
-      <section id="how-you-learn">
-        <div className="wrap">
-          <div className="section-head">
-            <span className="eyebrow">How Training Works</span>
-            <h2>Learn Through Practical Projects and Labs</h2>
-            <p>Every programme is built around doing the work, not just watching it explained.</p>
-          </div>
-          <ul className="check-list grid-2">
-            <li>Hands-on labs in every module, run in your own practice environment</li>
-            <li>Real, portfolio-ready projects you can show in interviews</li>
-            <li>Industry-standard tools and platforms used on the job, not simplified substitutes</li>
-            <li>A knowledge quiz and a practical assessment at the end of every module</li>
-            <li>A real-time internship phase after the core curriculum</li>
-            <li>Placement assistance — resume support, mock interviews and interview opportunities with hiring partners</li>
-          </ul>
-        </div>
-      </section>
-
       <section id="fit-finder">
         <div className="wrap">
           <div className="section-head">
@@ -265,6 +247,24 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="how-you-learn">
+        <div className="wrap">
+          <div className="section-head">
+            <span className="eyebrow">How Training Works</span>
+            <h2>Learn Through Practical Projects and Labs</h2>
+            <p>Every programme is built around doing the work, not just watching it explained.</p>
+          </div>
+          <ul className="check-list grid-2">
+            <li>Hands-on labs in every module, run in your own practice environment</li>
+            <li>Real, portfolio-ready projects you can show in interviews</li>
+            <li>Industry-standard tools and platforms used on the job, not simplified substitutes</li>
+            <li>A knowledge quiz and a practical assessment at the end of every module</li>
+            <li>A real-time internship phase after the core curriculum</li>
+            <li>Placement assistance — resume support, mock interviews and interview opportunities with hiring partners</li>
+          </ul>
         </div>
       </section>
 
