@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { DOMAIN, EMAIL, PHONE, WHATSAPP_URL, LEGAL_NAME, LEGAL_ADDRESS } from '../constants.js';
 import Seo from '../components/Seo.jsx';
-import FitHeading from '../components/FitHeading.jsx';
 import LeadForm from '../components/LeadForm.jsx';
+import BatchCountdown from '../components/BatchCountdown.jsx';
 import WhatsAppIcon from '../components/WhatsAppIcon.jsx';
 
 // Contact / location page: full name-address-phone details, a map, and an enquiry form. Only facts
@@ -57,7 +57,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main>
+    <main className="contact-page">
       <Seo
         title="Contact Skill IT Education | Madhapur, Hyderabad"
         description="Visit or contact Skill IT Education in Madhapur, Hyderabad: address, phone, WhatsApp, email and map, plus a form to book a free counselling session."
@@ -72,21 +72,43 @@ export default function ContactPage() {
             <span className="sep">/</span>
             <span aria-current="page">Contact</span>
           </nav>
-          <figure className="contact-quote">
-            <blockquote>&ldquo;The best way to find yourself is to lose yourself in the service of others.&rdquo;</blockquote>
-            <figcaption>&mdash; Mahatma Gandhi</figcaption>
-          </figure>
-          <FitHeading maxLines={1} minPx={26}>
-            Contact Us
-          </FitHeading>
-          <p className="hero-lede">Talk to our admissions team about courses, batches and fees, or visit us in Madhapur.</p>
+          <div className="home-hero-grid contact-hero-grid">
+            <div className="contact-hero-left">
+              <figure className="contact-quote">
+                <blockquote>&ldquo;The best way to find yourself is to lose yourself in the service of others.&rdquo;</blockquote>
+                <figcaption>&mdash; Mahatma Gandhi</figcaption>
+              </figure>
+              <h1 className="contact-title">Contact Us</h1>
+            </div>
+            <div className="home-hero-form">
+              <BatchCountdown />
+              <LeadForm bare formId="contact-form" heading="Get Free Career Guidance" />
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="contact-details">
+      <section id="contact-details" className="contact-waves-section">
+        <svg className="contact-waves" viewBox="0 0 1440 700" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="cw-blue" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stopColor="#2a5cff" />
+              <stop offset="1" stopColor="#0a1e8c" />
+            </linearGradient>
+            <linearGradient id="cw-orange" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stopColor="#ff9a3c" />
+              <stop offset="1" stopColor="#f26a1b" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#cw-orange)" d="M0 70C220 10 430 150 700 100C980 48 1200 -10 1440 70L1440 175C1200 105 980 168 700 225C430 275 220 135 0 195Z" />
+          <path fill="url(#cw-blue)" d="M0 195C220 135 430 275 700 225C980 168 1200 105 1440 175L1440 700L0 700Z" />
+        </svg>
         <div className="wrap contact-grid">
+          <div className="contact-map">
+            <iframe title="Skill IT Education location map, Madhapur, Hyderabad" src={MAP_EMBED} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+          </div>
           <div className="contact-panel">
-            <h2>Skill IT Education</h2>
+            <img className="contact-logo" src="/img/skill-it-logo.png" alt="Skill IT Education" width="152" height="156" />
             <ul className="contact-rows">
               <li>
                 <Icon>
@@ -99,22 +121,13 @@ export default function ContactPage() {
                 </div>
               </li>
               <li>
-                <Icon>
-                  <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
-                </Icon>
-                <div>
-                  <span className="contact-label">Phone</span>
-                  <a href={TEL}>{PHONE}</a>
-                </div>
-              </li>
-              <li>
                 <span className="contact-icon contact-icon-wa">
                   <WhatsAppIcon />
                 </span>
                 <div>
                   <span className="contact-label">WhatsApp</span>
                   <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    WhatsApp Us
+                    WhatsApp Us &middot; {PHONE}
                   </a>
                 </div>
               </li>
@@ -151,15 +164,6 @@ export default function ContactPage() {
               </a>
             </div>
           </div>
-          <div className="contact-map">
-            <iframe title="Skill IT Education location map, Madhapur, Hyderabad" src={MAP_EMBED} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
-          </div>
-        </div>
-      </section>
-
-      <section className="lead-form-section" id="enquire">
-        <div className="wrap">
-          <LeadForm formId="contact-form" heading="Book a Free Counselling Session" subheading="Share a few details and our admissions team will call you back." />
         </div>
       </section>
     </main>
