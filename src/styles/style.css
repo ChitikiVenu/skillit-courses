@@ -873,7 +873,7 @@ a.footer-course:hover{color:var(--accent-2);}
   /* the headline sits 1 cm under the header, on up to two lines (see the two-line-headline rule; FitHeading enforces it) */
   .home-tagline{max-width:none;margin:14px 0 12px;text-align:left;font-size:clamp(28px,3.1vw,46px);line-height:1.18;letter-spacing:-.02em;}
   .home-positioning{max-width:46ch;margin:0 0 4px;text-align:left;font-size:17px;}
-  .hero-ctas{margin-top:20px;}
+  .home-hero-left .hero-ctas{margin-top:20px;justify-content:center;}
   .hero-mode-badge{align-self:flex-start;}
   .home-hero-rest{align-items:flex-start;text-align:left;justify-content:flex-start;}
   .home-skills{align-items:flex-start;}
