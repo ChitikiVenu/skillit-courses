@@ -820,7 +820,8 @@ a.footer-course:hover{color:var(--accent-2);}
 .home-positioning{margin:0 auto 14px;max-width:560px;text-align:center;font-size:15px;line-height:1.5;color:var(--text-dim);}
 .home-hero-rest{display:flex;flex-direction:column;align-items:center;gap:18px;padding:18px 0 0;text-align:center;}
 .hero-action-stack{display:flex;flex-direction:column;align-self:stretch;max-width:100%;}
-.hero-action-stack .hero-eligibility-box{width:0;min-width:100%;max-width:none;margin:16px 0 0;box-sizing:border-box;}
+.hero-action-stack .hero-eligibility-box{width:fit-content;max-width:100%;margin:16px 0 0;box-sizing:border-box;}
+@media (min-width:800px){.hero-action-stack .hero-eligibility-box{white-space:nowrap;font-size:clamp(10px,1.8cqw,14px);padding:10px 14px;}}
 .hero-eligibility-box{margin:14px 0 0;max-width:520px;padding:12px 16px;font-size:14px;line-height:1.55;color:var(--text-dim);text-align:left;background:rgba(1,72,250,.05);border:1.5px solid var(--logo-blue,#0148fa);border-radius:12px;}
 .hero-eligibility-box strong{color:var(--text);font-weight:800;}
 /* Hero lead form: same "best" card treatment as the enquiry box lower on the page (surface, top

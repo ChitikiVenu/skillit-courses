@@ -89,7 +89,7 @@ const HERO_INTRO =
 
 // One-line "who can join" note shown above the h1 — owner-supplied (2026-09-22).
 const ELIGIBILITY_LABEL = 'For Whom:';
-const ELIGIBILITY_TEXT = '2025, 2026 & 2027 graduates, Any Branch or Degree — also working professionals and career switchers.';
+const ELIGIBILITY_TEXT = '2026 & 2027 graduates, Any Branch or Degree — also working professionals and career switchers.';
 
 export default function LandingPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
