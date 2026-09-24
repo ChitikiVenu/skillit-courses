@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 export default function PromoBar() {
   return (
     <Link className="promo-bar" to="/#enquire">
-      <span className="promo-bar-badge">Limited-Time Offer</span>
+      <span className="promo-bar-badge">Festival Session Offer</span>
       <span className="promo-bar-text">
-        <strong>15% off</strong> on all our courses — claim it before you enrol
+        <strong>15% off</strong> on all our programmes — claim it before you enrol
       </span>
       <span className="promo-bar-arrow" aria-hidden="true">
         &rarr;
