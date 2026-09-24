@@ -10,12 +10,6 @@ import WhatsAppIcon from '../components/WhatsAppIcon.jsx';
 // transport details, because none have been supplied.
 const SITE_HOST = DOMAIN.replace(/^https?:\/\//, '');
 
-const Icon = ({ children }) => (
-  <svg className="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    {children}
-  </svg>
-);
-
 const MAP_QUERY = 'Skill IT Education, LR Towers, 100 Feet Road, Ayyappa Society, Madhapur, Hyderabad 500081';
 const MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&output=embed`;
 const MAP_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`;
@@ -98,49 +92,27 @@ export default function ContactPage() {
 
             <div className="contact-panel">
               <img className="contact-logo" src="/img/skill-it-logo.png" alt="Skill IT Education" width="152" height="156" />
-              <ul className="contact-rows">
-                <li>
-                  <Icon>
-                    <path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z" />
-                    <circle cx="12" cy="10" r="2.6" />
-                  </Icon>
-                  <div>
-                    <span className="contact-label">Address</span>
-                    <address>{LEGAL_ADDRESS}</address>
-                  </div>
-                </li>
-                <li>
-                  <span className="contact-icon contact-icon-wa">
-                    <WhatsAppIcon />
-                  </span>
-                  <div>
-                    <span className="contact-label">WhatsApp</span>
-                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                      WhatsApp Us &middot; {PHONE}
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <Icon>
+              <span className="contact-label">Address</span>
+              <address>{LEGAL_ADDRESS}</address>
+              <div className="contact-buttons">
+                <a className="btn btn-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  <WhatsAppIcon fill="#fff" /> WhatsApp Us &middot; {PHONE}
+                </a>
+                <a className="btn btn-primary" href={`mailto:${EMAIL}`}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <rect x="3" y="5" width="18" height="14" rx="2" />
                     <path d="m3 7 9 6 9-6" />
-                  </Icon>
-                  <div>
-                    <span className="contact-label">Email</span>
-                    <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                  </div>
-                </li>
-                <li>
-                  <Icon>
+                  </svg>
+                  {EMAIL}
+                </a>
+                <a className="btn btn-primary" href={DOMAIN}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="9" />
                     <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
-                  </Icon>
-                  <div>
-                    <span className="contact-label">Website</span>
-                    <a href={DOMAIN}>{SITE_HOST}</a>
-                  </div>
-                </li>
-              </ul>
+                  </svg>
+                  {SITE_HOST}
+                </a>
+              </div>
             </div>
 
             <div className="contact-map">

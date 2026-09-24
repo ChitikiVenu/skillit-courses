@@ -1981,41 +1981,31 @@ section[id]{scroll-margin-top:92px;}
 .contact-content{position:relative;}
 .contact-content .breadcrumb{margin-bottom:8px;}
 .contact-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-areas:"intro stack" "info stack" "map stack";column-gap:44px;row-gap:14px;align-items:start;}
-.contact-intro{grid-area:intro;min-width:0;}
+.contact-intro{grid-area:intro;min-width:0;text-align:center;}
 .contact-stack{grid-area:stack;position:relative;width:100%;}
-.contact-panel{grid-area:info;}
-.contact-map{grid-area:map;height:128px;border-radius:16px;overflow:hidden;border:3px solid #fff;box-shadow:0 18px 36px -22px rgba(3,14,80,.55);}
+.contact-panel{grid-area:info;text-align:center;}
+.contact-logo{display:block;height:40px;width:auto;margin:0 auto 6px;}
+.contact-panel address{font-style:normal;font-size:14px;line-height:1.45;color:var(--text);font-weight:500;max-width:46ch;margin:0 auto;}
+.contact-buttons{display:grid;gap:8px;width:min(100%,380px);margin:12px auto 0;}
+.contact-buttons .btn{width:100%;justify-content:center;gap:9px;padding:9px 12px;font-size:14px;box-sizing:border-box;}
+.contact-buttons .btn svg{width:17px;height:17px;flex:none;}
+.contact-map{grid-area:map;height:112px;border-radius:16px;overflow:hidden;border:3px solid #fff;box-shadow:0 18px 36px -22px rgba(3,14,80,.55);}
 .contact-map iframe{width:100%;height:100%;border:0;display:block;}
 .contact-quote{margin:0 0 8px;}
 .contact-quote blockquote{margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(16px,1.7vw,21px);line-height:1.4;color:var(--text);}
 .contact-quote figcaption{margin-top:4px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--logo-blue,#0148fa);}
 .contact-title{margin:0 0 2px;font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-.02em;}
-.contact-tagline{margin:0;max-width:60ch;font-size:14px;line-height:1.55;color:var(--text-dim);}
+.contact-tagline{margin:0 auto;max-width:60ch;font-size:14px;line-height:1.55;color:var(--text-dim);}
 /* one cloud each side of the form, both touching it */
 .cs-blob{position:absolute;z-index:-1;pointer-events:none;width:230px;height:210px;}
 .cs-blob-left{right:calc(100% - 60px);top:40%;background:#b9ceff;border-radius:58% 42% 61% 39% / 46% 57% 43% 54%;}
 .cs-blob-right{left:calc(100% - 60px);top:10%;background:#ffc994;border-radius:42% 58% 45% 55% / 57% 44% 56% 43%;}
-.contact-panel{padding:12px 18px 14px;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--logo-blue,#0148fa);border-radius:16px;box-shadow:0 18px 36px -24px rgba(3,14,80,.55),0 6px 14px -10px rgba(16,21,31,.25);}
-.contact-logo{display:block;height:40px;width:auto;margin:0 0 10px;}
-.contact-rows{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;}
-.contact-rows li:nth-child(-n+2){grid-column:1 / -1;}
-.contact-rows li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;min-width:0;}
-.contact-icon{width:34px;height:34px;padding:8px;border-radius:12px;background:rgba(1,72,250,.08);color:var(--logo-blue,#0148fa);box-sizing:border-box;}
-.contact-icon-wa{display:flex;align-items:center;justify-content:center;background:rgba(37,211,102,.14);}
-.contact-icon-wa svg{width:19px;height:19px;}
 .contact-label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:2px;}
-.contact-rows address{font-style:normal;line-height:1.45;color:var(--text);font-weight:500;font-size:14px;}
-.contact-rows a{color:var(--text);font-weight:600;font-size:14px;word-break:break-word;}
-.contact-rows a:hover{color:var(--accent-2);}
-.contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.contact-actions .btn{justify-content:center;text-align:center;white-space:nowrap;padding:8px 10px;font-size:13.5px;}
-.contact-actions .btn svg{width:17px;height:17px;flex:none;}
 @media (max-width:899px){
   .contact-layout{grid-template-columns:1fr;grid-template-areas:"intro" "stack" "info" "map";row-gap:22px;}
   .contact-stack{max-width:420px;margin:0 auto;}
   .contact-panel{max-width:420px;margin:0 auto;width:100%;box-sizing:border-box;}
-  .contact-rows{grid-template-columns:1fr;}
-  .contact-map{max-width:420px;margin:0 auto;width:100%;box-sizing:border-box;height:220px;}
+    .contact-map{max-width:420px;margin:0 auto;width:100%;box-sizing:border-box;height:220px;}
   .contact-one{padding:16px 0 60px;}
   .cs-blob{width:150px;height:135px;}
   .cs-blob-left{right:calc(100% - 40px);}
