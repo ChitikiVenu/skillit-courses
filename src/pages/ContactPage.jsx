@@ -66,20 +66,16 @@ export default function ContactPage() {
       />
 
       <section id="contact-details" className="contact-one">
-        <svg className="contact-waves" viewBox="0 0 1440 700" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="cw-blue" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stopColor="#2a5cff" />
-              <stop offset="1" stopColor="#0a1e8c" />
-            </linearGradient>
-            <linearGradient id="cw-orange" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stopColor="#ff9a3c" />
-              <stop offset="1" stopColor="#f26a1b" />
-            </linearGradient>
-          </defs>
-          <path fill="url(#cw-orange)" d="M0 70C220 10 430 150 700 100C980 48 1200 -10 1440 70L1440 175C1200 105 980 168 700 225C430 275 220 135 0 195Z" />
-          <path fill="url(#cw-blue)" d="M0 195C220 135 430 275 700 225C980 168 1200 105 1440 175L1440 700L0 700Z" />
-        </svg>
+        <div className="contact-blobs" aria-hidden="true">
+          <span className="cb cb-blue cb-1" />
+          <span className="cb cb-orange cb-2" />
+          <span className="cb cb-blue cb-3" />
+          <span className="cb cb-orange cb-4" />
+          <span className="cb cb-blue cb-5" />
+          <span className="cb cb-orange cb-6" />
+          <span className="cb cb-blue cb-7" />
+          <span className="cb cb-orange cb-8" />
+        </div>
         <div className="wrap contact-content">
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
