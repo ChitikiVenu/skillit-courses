@@ -745,13 +745,22 @@ a.footer-course:hover{color:var(--accent-2);}
 .fit-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center;}
 .fit-intro h2{margin:6px 0 12px;}
 .fit-intro p{margin:0;max-width:44ch;color:var(--text-dim);}
-.fit-layout .fit-panel{padding:20px;}
-.fit-vtrack{height:540px;overflow:hidden;-webkit-mask-image:linear-gradient(180deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(180deg,transparent,#000 6%,#000 94%,transparent);}
-.fit-col{display:flex;flex-direction:column;gap:16px;padding:4px 2px;animation:fit-down 46s linear infinite;}
+.fit-layout .fit-panel{padding:18px;}
+#fit-finder{padding-top:44px;padding-bottom:44px;}
+.fit-vtrack{--step:212px;height:204px;overflow:hidden;}
+.fit-col{display:flex;flex-direction:column;gap:16px;padding:4px 2px;animation:fit-down 22s cubic-bezier(.65,0,.35,1) infinite;}
 .fit-vtrack:hover .fit-col,.fit-vtrack:focus-within .fit-col{animation-play-state:paused;}
 .fit-vtrack.is-static{overflow-y:auto;-webkit-mask-image:none;mask-image:none;}
 .fit-vtrack.is-static .fit-col{animation:none;}
-@keyframes fit-down{from{transform:translateY(-50%);}to{transform:translateY(0);}}
+/* one student at a time: hold each card, then slide the next one in from the top (5 cards, list duplicated) */
+@keyframes fit-down{
+  0%,16%{transform:translateY(calc(var(--step) * -5));}
+  20%,36%{transform:translateY(calc(var(--step) * -4));}
+  40%,56%{transform:translateY(calc(var(--step) * -3));}
+  60%,76%{transform:translateY(calc(var(--step) * -2));}
+  80%,96%{transform:translateY(calc(var(--step) * -1));}
+  100%{transform:translateY(0);}
+}
 .fit-col .fit-card{flex:none;flex-direction:row;height:196px;}
 .fit-col .fit-card-visual{flex:0 0 42%;aspect-ratio:auto;height:100%;padding-top:10px;}
 .fit-col .fit-card-body{justify-content:center;padding:16px 18px;}
@@ -759,7 +768,7 @@ a.footer-course:hover{color:var(--accent-2);}
 .fit-col .fit-card-interest{flex:none;font-size:14px;}
 @media (max-width:899px){
   .fit-layout{grid-template-columns:1fr;gap:26px;}
-  .fit-vtrack{height:460px;}
+  .fit-vtrack{--step:192px;height:184px;}
   .fit-layout .fit-panel{padding:14px;}
   .fit-col .fit-card{height:176px;}
   .fit-col .fit-card-body{padding:12px 14px;gap:5px;}
