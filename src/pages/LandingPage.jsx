@@ -88,7 +88,7 @@ const HERO_INTRO =
   'Skill IT Education provides career-focused training in Cyber Security, SOC Analysis, AI & Machine Learning, Data Science and Data Analytics for graduates, IT professionals and career switchers in Madhapur, Hyderabad. Every programme brings hands-on labs, real projects and a real-time internship, so classroom learning turns into skills employers look for.';
 
 // One-line "who can join" note shown above the h1 — owner-supplied (2026-09-22).
-const ELIGIBILITY_LABEL = 'Who can learn these programmes:';
+const ELIGIBILITY_LABEL = 'For Whom:';
 const ELIGIBILITY_TEXT = '2025, 2026 & 2027 graduates, Any Branch or Degree — also working professionals and career switchers.';
 
 export default function LandingPage() {
