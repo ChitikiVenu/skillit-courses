@@ -742,30 +742,32 @@ a.footer-course:hover{color:var(--accent-2);}
 
 /* Fit-finder layout (owner-requested 2026-09-25): heading text on the left, one shadowed box on the right
    with the student cards scrolling top to bottom, one after another. */
-.fit-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:56px;align-items:center;}
+.fit-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:56px;align-items:center;}
 .fit-intro h2{margin:6px 0 12px;}
 .fit-intro p{margin:0;max-width:44ch;color:var(--text-dim);}
-.fit-layout .fit-panel{padding:18px;}
-#fit-finder{padding-top:44px;padding-bottom:44px;}
-.fit-vtrack{--step:212px;height:204px;overflow:hidden;}
+.fit-layout .fit-panel{padding:12px;border-radius:20px;}
+#fit-finder{padding-top:36px;padding-bottom:36px;}
+.fit-vtrack{--step:162px;height:154px;overflow:hidden;}
 .fit-col{display:flex;flex-direction:column;gap:16px;padding:4px 2px;animation:fit-down 30s linear infinite;}
 .fit-vtrack:hover .fit-col,.fit-vtrack:focus-within .fit-col{animation-play-state:paused;}
 .fit-vtrack.is-static{overflow-y:auto;-webkit-mask-image:none;mask-image:none;}
 .fit-vtrack.is-static .fit-col{animation:none;}
 /* smooth, continuous top-to-bottom scroll through the five cards (list duplicated for a seamless loop) */
 @keyframes fit-down{from{transform:translateY(calc(var(--step) * -5));}to{transform:translateY(0);}}
-.fit-col .fit-card{flex:none;flex-direction:row;height:196px;}
-.fit-col .fit-card-visual{flex:0 0 42%;aspect-ratio:auto;height:100%;padding-top:10px;}
-.fit-col .fit-card-body{justify-content:center;padding:16px 18px;}
+.fit-col .fit-card{flex:none;flex-direction:row;height:146px;}
+.fit-col .fit-card-visual{flex:0 0 36%;aspect-ratio:auto;height:100%;padding-top:10px;}
+.fit-col .fit-card-body{justify-content:center;padding:10px 14px;gap:4px;}
 .fit-col .fit-card-programme{margin-top:0;}
-.fit-col .fit-card-interest{flex:none;font-size:14px;}
+.fit-col .fit-card-interest{flex:none;font-size:12.5px;line-height:1.35;}
+.fit-col .fit-card-programme{font-size:9.5px;padding:3px 9px;}
+.fit-col .fit-card-cta{font-size:12px;margin-top:2px;}
 @media (max-width:899px){
   .fit-layout{grid-template-columns:1fr;gap:26px;}
-  .fit-vtrack{--step:192px;height:184px;}
+  .fit-vtrack{--step:150px;height:142px;}
   .fit-layout .fit-panel{padding:14px;}
-  .fit-col .fit-card{height:176px;}
-  .fit-col .fit-card-body{padding:12px 14px;gap:5px;}
-  .fit-col .fit-card-interest{font-size:13px;}
+  .fit-col .fit-card{height:134px;}
+  .fit-col .fit-card-body{padding:8px 12px;gap:3px;}
+  .fit-col .fit-card-interest{font-size:12px;}
 }
 @media (prefers-reduced-motion: reduce){.fit-col{animation:none;}}
 
