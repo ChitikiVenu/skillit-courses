@@ -1940,12 +1940,6 @@ section[id]{scroll-margin-top:92px;}
 
 /* Contact page */
 .contact-page{overflow-x:clip;}
-.contact-hero-grid{align-items:center;}
-.contact-hero-left{flex:1 1 auto;min-width:0;}
-.contact-quote{margin:0 0 22px;}
-.contact-quote blockquote{margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(26px,3.3vw,44px);line-height:1.3;color:var(--text);}
-.contact-quote figcaption{margin-top:14px;font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--logo-blue,#0148fa);}
-.contact-title{margin:0;font-size:clamp(30px,4vw,48px);font-weight:800;letter-spacing:-.02em;}
 /* One continuous page background of large cloud-shaped blobs (the same shapes as the student photos on the
    home hero), blue and orange in touching pairs, spread over the whole page. */
 .contact-one{position:relative;padding:22px 0 90px;background:#f6f8ff;isolation:isolate;overflow:hidden;}
@@ -1955,18 +1949,25 @@ section[id]{scroll-margin-top:92px;}
 .cb-orange{background:#ffd6b0;}
 .cb-1{left:-9%;top:1%;border-radius:58% 42% 61% 39% / 46% 57% 43% 54%;}
 .cb-2{left:24%;top:7%;width:clamp(200px,28vw,420px);height:clamp(180px,24vw,360px);border-radius:42% 58% 45% 55% / 57% 44% 56% 43%;}
-.cb-3{right:-8%;top:16%;border-radius:45% 55% 40% 60% / 55% 45% 55% 45%;}
-.cb-4{right:20%;top:38%;width:clamp(180px,24vw,340px);height:clamp(160px,21vw,300px);border-radius:60% 40% 52% 48% / 44% 58% 42% 56%;}
 .cb-5{left:-8%;top:50%;border-radius:52% 48% 58% 42% / 50% 46% 54% 50%;}
 .cb-6{left:22%;top:70%;width:clamp(220px,30vw,440px);height:clamp(190px,26vw,380px);border-radius:40% 60% 46% 54% / 58% 42% 58% 42%;}
-.cb-7{right:-9%;top:62%;border-radius:57% 43% 50% 50% / 44% 56% 44% 56%;}
-.cb-8{right:18%;top:84%;width:clamp(200px,26vw,380px);height:clamp(170px,22vw,320px);border-radius:48% 52% 60% 40% / 52% 42% 58% 48%;}
 .contact-content{position:relative;}
 .contact-content .breadcrumb{margin-bottom:8px;}
-.contact-grid{margin-top:56px;display:grid;grid-template-columns:1.25fr 1fr;align-items:stretch;}
-.contact-map{min-height:460px;border-radius:20px;overflow:hidden;border:4px solid #fff;box-shadow:0 26px 50px -24px rgba(3,14,80,.6);}
-.contact-map iframe{width:100%;height:100%;min-height:460px;border:0;display:block;}
-.contact-panel{align-self:center;margin-left:-56px;padding:26px 28px;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--logo-blue,#0148fa);border-radius:18px;box-shadow:0 28px 54px -26px rgba(3,14,80,.6),0 8px 18px -12px rgba(16,21,31,.25);}
+.contact-layout{display:grid;grid-template-columns:1fr 380px;grid-template-areas:"intro stack" "map stack";column-gap:48px;row-gap:26px;align-items:start;}
+.contact-intro{grid-area:intro;align-self:center;min-width:0;}
+.contact-stack{grid-area:stack;position:relative;display:flex;flex-direction:column;gap:22px;width:100%;}
+.contact-map{grid-area:map;align-self:end;height:280px;max-width:520px;border-radius:18px;overflow:hidden;border:4px solid #fff;box-shadow:0 22px 44px -24px rgba(3,14,80,.55);}
+.contact-map iframe{width:100%;height:100%;border:0;display:block;}
+.contact-quote{margin:0 0 14px;}
+.contact-quote blockquote{margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(18px,2vw,24px);line-height:1.4;color:var(--text);}
+.contact-quote figcaption{margin-top:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--logo-blue,#0148fa);}
+.contact-title{margin:0 0 6px;font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.02em;}
+.contact-tagline{margin:0;max-width:44ch;font-size:15px;line-height:1.55;color:var(--text-dim);}
+/* one cloud each side of the form, both touching it */
+.cs-blob{position:absolute;z-index:-1;pointer-events:none;width:230px;height:210px;}
+.cs-blob-left{right:calc(100% - 60px);top:40%;background:#b9ceff;border-radius:58% 42% 61% 39% / 46% 57% 43% 54%;}
+.cs-blob-right{left:calc(100% - 60px);top:10%;background:#ffc994;border-radius:42% 58% 45% 55% / 57% 44% 56% 43%;}
+.contact-panel{padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-top:3px solid var(--logo-blue,#0148fa);border-radius:18px;box-shadow:0 22px 44px -26px rgba(3,14,80,.55),0 8px 18px -12px rgba(16,21,31,.25);}
 .contact-logo{display:block;height:64px;width:auto;margin:0 0 18px;}
 .contact-rows{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:16px;}
 .contact-rows li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:center;}
@@ -1977,15 +1978,15 @@ section[id]{scroll-margin-top:92px;}
 .contact-rows address{font-style:normal;line-height:1.55;color:var(--text);font-weight:500;}
 .contact-rows a{color:var(--text);font-weight:600;word-break:break-word;}
 .contact-rows a:hover{color:var(--accent-2);}
-.contact-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.contact-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .contact-actions .btn{justify-content:center;text-align:center;white-space:nowrap;padding-left:10px;padding-right:10px;}
 .contact-actions .btn svg{width:17px;height:17px;flex:none;}
-@media (max-width:1100px){.contact-actions{grid-template-columns:1fr;}}
 @media (max-width:899px){
-  .contact-grid{grid-template-columns:1fr;gap:0;}
-  .contact-map{min-height:300px;}
-  .contact-map iframe{min-height:300px;}
-  .contact-panel{margin:-40px 14px 0;}
+  .contact-layout{grid-template-columns:1fr;grid-template-areas:"intro" "stack" "map";row-gap:26px;}
+  .contact-stack{max-width:420px;margin:0 auto;}
+  .contact-map{max-width:none;height:240px;}
   .contact-one{padding:16px 0 70px;}
-  .contact-grid{margin-top:34px;}
+  .cs-blob{width:150px;height:135px;}
+  .cs-blob-left{right:calc(100% - 40px);}
+  .cs-blob-right{left:calc(100% - 40px);}
 }

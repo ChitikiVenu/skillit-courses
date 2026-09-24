@@ -69,12 +69,8 @@ export default function ContactPage() {
         <div className="contact-blobs" aria-hidden="true">
           <span className="cb cb-blue cb-1" />
           <span className="cb cb-orange cb-2" />
-          <span className="cb cb-blue cb-3" />
-          <span className="cb cb-orange cb-4" />
           <span className="cb cb-blue cb-5" />
           <span className="cb cb-orange cb-6" />
-          <span className="cb cb-blue cb-7" />
-          <span className="cb cb-orange cb-8" />
         </div>
         <div className="wrap contact-content">
           <nav className="breadcrumb" aria-label="Breadcrumb">
@@ -82,80 +78,82 @@ export default function ContactPage() {
             <span className="sep">/</span>
             <span aria-current="page">Contact</span>
           </nav>
-          <div className="home-hero-grid contact-hero-grid">
-            <div className="contact-hero-left">
+          <div className="contact-layout">
+            <div className="contact-intro">
               <figure className="contact-quote">
                 <blockquote>&ldquo;The best way to find yourself is to lose yourself in the service of others.&rdquo;</blockquote>
                 <figcaption>&mdash; Mahatma Gandhi</figcaption>
               </figure>
               <h1 className="contact-title">Contact Us</h1>
+              <p className="contact-tagline">Talk to our admissions team about courses, batches and fees, or visit us in Madhapur.</p>
             </div>
-            <div className="home-hero-form">
-              <BatchCountdown />
-              <LeadForm bare formId="contact-form" heading="Get Free Career Guidance" />
-            </div>
-          </div>
-          <div className="contact-grid">
-          <div className="contact-map">
-            <iframe title="Skill IT Education location map, Madhapur, Hyderabad" src={MAP_EMBED} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
-          </div>
-          <div className="contact-panel">
-            <img className="contact-logo" src="/img/skill-it-logo.png" alt="Skill IT Education" width="152" height="156" />
-            <ul className="contact-rows">
-              <li>
-                <Icon>
-                  <path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z" />
-                  <circle cx="12" cy="10" r="2.6" />
-                </Icon>
-                <div>
-                  <span className="contact-label">Address</span>
-                  <address>{LEGAL_ADDRESS}</address>
-                </div>
-              </li>
-              <li>
-                <span className="contact-icon contact-icon-wa">
-                  <WhatsAppIcon />
-                </span>
-                <div>
-                  <span className="contact-label">WhatsApp</span>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                    WhatsApp Us &middot; {PHONE}
+
+            <div className="contact-stack">
+              <span className="cs-blob cs-blob-left" aria-hidden="true" />
+              <span className="cs-blob cs-blob-right" aria-hidden="true" />
+              <div className="home-hero-form">
+                <BatchCountdown />
+                <LeadForm bare formId="contact-form" heading="Get Free Career Guidance" />
+              </div>
+              <div className="contact-panel">
+                <img className="contact-logo" src="/img/skill-it-logo.png" alt="Skill IT Education" width="152" height="156" />
+                <ul className="contact-rows">
+                  <li>
+                    <Icon>
+                      <path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11Z" />
+                      <circle cx="12" cy="10" r="2.6" />
+                    </Icon>
+                    <div>
+                      <span className="contact-label">Address</span>
+                      <address>{LEGAL_ADDRESS}</address>
+                    </div>
+                  </li>
+                  <li>
+                    <span className="contact-icon contact-icon-wa">
+                      <WhatsAppIcon />
+                    </span>
+                    <div>
+                      <span className="contact-label">WhatsApp</span>
+                      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                        WhatsApp Us &middot; {PHONE}
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <Icon>
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <path d="m3 7 9 6 9-6" />
+                    </Icon>
+                    <div>
+                      <span className="contact-label">Email</span>
+                      <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                    </div>
+                  </li>
+                  <li>
+                    <Icon>
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+                    </Icon>
+                    <div>
+                      <span className="contact-label">Website</span>
+                      <a href={DOMAIN}>{SITE_HOST}</a>
+                    </div>
+                  </li>
+                </ul>
+                <div className="contact-actions">
+                  <a className="btn btn-primary" href={TEL}>
+                    Call Now
+                  </a>
+                  <a className="btn btn-primary" href={MAP_LINK} target="_blank" rel="noopener noreferrer">
+                    Get Directions
                   </a>
                 </div>
-              </li>
-              <li>
-                <Icon>
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </Icon>
-                <div>
-                  <span className="contact-label">Email</span>
-                  <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-                </div>
-              </li>
-              <li>
-                <Icon>
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
-                </Icon>
-                <div>
-                  <span className="contact-label">Website</span>
-                  <a href={DOMAIN}>{SITE_HOST}</a>
-                </div>
-              </li>
-            </ul>
-            <div className="contact-actions">
-              <a className="btn btn-primary" href={TEL}>
-                Call Now
-              </a>
-              <a className="btn btn-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                <WhatsAppIcon fill="#fff" /> WhatsApp Us
-              </a>
-              <a className="btn btn-primary" href={MAP_LINK} target="_blank" rel="noopener noreferrer">
-                Get Directions
-              </a>
+              </div>
             </div>
-          </div>
+
+            <div className="contact-map">
+              <iframe title="Skill IT Education location map, Madhapur, Hyderabad" src={MAP_EMBED} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+            </div>
           </div>
         </div>
       </section>
