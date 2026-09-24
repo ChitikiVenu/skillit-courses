@@ -743,10 +743,13 @@ a.footer-course:hover{color:var(--accent-2);}
 /* Fit-finder layout (owner-requested 2026-09-25): heading text on the left, one shadowed box on the right
    with the student cards scrolling top to bottom, one after another. */
 .fit-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,540px);gap:48px;align-items:center;}
+.fit-intro{position:relative;isolation:isolate;}
+/* soft blue cloud layer behind the heading text */
+.fit-intro::before{content:"";position:absolute;z-index:-1;left:-110px;top:-64px;right:-44px;bottom:-64px;background:#cddcff;border-radius:38% 62% 58% 42% / 50% 44% 56% 50%;}
 .fit-intro h2{margin:6px 0 12px;}
 .fit-intro p{margin:0;max-width:44ch;color:var(--text-dim);}
 .fit-layout .fit-panel{padding:20px;border-radius:28px;}
-#fit-finder{padding-top:56px;padding-bottom:56px;}
+#fit-finder{padding-top:56px;padding-bottom:56px;overflow-x:clip;}
 .fit-vtrack{--step:366px;height:358px;overflow:hidden;}
 .fit-col{display:flex;flex-direction:column;gap:16px;padding:4px 2px;animation:fit-down 30s linear infinite;}
 .fit-vtrack:hover .fit-col,.fit-vtrack:focus-within .fit-col{animation-play-state:paused;}
