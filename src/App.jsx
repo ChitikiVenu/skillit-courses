@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import { getHome } from './homeModule.js';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import cyberSecurity from './data/cyberSecurity.js';
 import aiMl from './data/aiMl.js';
@@ -17,6 +18,10 @@ import { DATA_COMPLIANCE_POLICY, PRIVACY_POLICY, REFUND_POLICY } from './data/po
 // listing (Footer.jsx -> roleCourses/index.js) needs all five on every page anyway, so deferring them
 // per-route would just add complexity for no real saving.
 const LandingPage = lazy(() => import('./pages/LandingPage.jsx'));
+function HomeRoute() {
+  const Home = getHome();
+  return Home ? <Home /> : <LandingPage />;
+}
 const CourseHomePage = lazy(() => import('./pages/CourseHomePage.jsx'));
 const CourseModulePage = lazy(() => import('./pages/CourseModulePage.jsx'));
 const BlogIndexPage = lazy(() => import('./pages/BlogIndexPage.jsx'));
@@ -37,7 +42,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<HomeRoute />} />
           {/* the programmes page is now the home page; keep old /programmes links working */}
           <Route path="/programmes" element={<Navigate to="/" replace />} />
           <Route path="/blog" element={<BlogIndexPage />} />
