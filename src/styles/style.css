@@ -1979,8 +1979,8 @@ section[id]{scroll-margin-top:92px;}
 .cb-1{left:-9%;top:6%;border-radius:58% 42% 61% 39% / 46% 57% 43% 54%;}
 .contact-content{position:relative;}
 .contact-content .breadcrumb{margin-bottom:8px;}
-.contact-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-areas:"intro stack" "info stack" "map stack";column-gap:44px;row-gap:14px;align-items:start;}
-.contact-intro{grid-area:intro;min-width:0;text-align:center;}
+.contact-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-areas:"intro stack" "info stack" "map stack";grid-template-rows:1fr auto auto;column-gap:44px;row-gap:18px;align-items:start;}
+.contact-intro{grid-area:intro;align-self:end;min-width:0;text-align:center;}
 .contact-stack{grid-area:stack;position:relative;width:100%;}
 .contact-panel{grid-area:info;justify-self:center;width:fit-content;max-width:100%;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 16px;text-align:center;background:rgba(255,255,255,.4);border:1.5px solid rgba(1,72,250,.4);border-radius:12px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
 .contact-panel address{width:0;min-width:100%;font-style:normal;font-size:13px;line-height:1.45;color:var(--text);font-weight:500;text-wrap:balance;}
@@ -1989,10 +1989,11 @@ section[id]{scroll-margin-top:92px;}
 .contact-line a:hover{color:var(--accent-2);text-decoration:underline;}
 .contact-map{grid-area:map;height:150px;border-radius:16px;overflow:hidden;border:3px solid #fff;box-shadow:0 18px 36px -22px rgba(3,14,80,.55);}
 .contact-map iframe{width:100%;height:100%;border:0;display:block;}
-.contact-quote{margin:0 0 26px;}
-.contact-quote blockquote{margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(16px,1.7vw,21px);line-height:1.4;color:var(--text);}
+.contact-quote{margin:0 0 22px;}
+.contact-quote blockquote{margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(20px,2.3vw,30px);line-height:1.4;color:var(--text);}
 .contact-quote figcaption{margin-top:4px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--logo-blue,#0148fa);}
-.contact-title{margin:0 0 2px;font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-.02em;}
+
+.contact-title{margin:0 0 4px;font-size:clamp(34px,3.7vw,48px);font-weight:800;letter-spacing:-.02em;}
 .contact-tagline{margin:0 auto;max-width:60ch;font-size:14px;line-height:1.55;color:var(--text-dim);}
 /* one cloud each side of the form, both touching it */
 .cs-blob{position:absolute;z-index:-1;pointer-events:none;width:230px;height:210px;}
