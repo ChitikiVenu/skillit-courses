@@ -3,7 +3,6 @@ import { DOMAIN, EMAIL, PHONE, WHATSAPP_URL, LEGAL_NAME, LEGAL_ADDRESS } from '.
 import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import BatchCountdown from '../components/BatchCountdown.jsx';
-import WhatsAppIcon from '../components/WhatsAppIcon.jsx';
 
 // Contact / location page: full name-address-phone details, a map, and an enquiry form. Only facts
 // already published elsewhere on the site (address, phone, email) — no opening hours, coordinates or
@@ -61,9 +60,6 @@ export default function ContactPage() {
       <section id="contact-details" className="contact-one">
         <div className="contact-blobs" aria-hidden="true">
           <span className="cb cb-blue cb-1" />
-          <span className="cb cb-orange cb-2" />
-          <span className="cb cb-blue cb-5" />
-          <span className="cb cb-orange cb-6" />
         </div>
         <div className="wrap contact-content">
           <nav className="breadcrumb" aria-label="Breadcrumb">
@@ -82,7 +78,6 @@ export default function ContactPage() {
             </div>
 
             <div className="contact-stack">
-              <span className="cs-blob cs-blob-left" aria-hidden="true" />
               <span className="cs-blob cs-blob-right" aria-hidden="true" />
               <div className="home-hero-form">
                 <BatchCountdown />
@@ -91,28 +86,12 @@ export default function ContactPage() {
             </div>
 
             <div className="contact-panel">
-              <img className="contact-logo" src="/img/skill-it-logo.png" alt="Skill IT Education" width="152" height="156" />
-              <span className="contact-label">Address</span>
               <address>{LEGAL_ADDRESS}</address>
-              <div className="contact-buttons">
-                <a className="btn btn-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <WhatsAppIcon fill="#fff" /> WhatsApp Us &middot; {PHONE}
-                </a>
-                <a className="btn btn-primary" href={`mailto:${EMAIL}`}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="3" y="5" width="18" height="14" rx="2" />
-                    <path d="m3 7 9 6 9-6" />
-                  </svg>
-                  {EMAIL}
-                </a>
-                <a className="btn btn-primary" href={DOMAIN}>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9" />
-                    <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
-                  </svg>
-                  {SITE_HOST}
-                </a>
-              </div>
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                WhatsApp Us &middot; {PHONE}
+              </a>
+              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              <a href={DOMAIN}>{SITE_HOST}</a>
             </div>
 
             <div className="contact-map">

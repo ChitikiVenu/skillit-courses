@@ -1974,22 +1974,17 @@ section[id]{scroll-margin-top:92px;}
 .cb{position:absolute;display:block;width:clamp(260px,40vw,600px);height:clamp(230px,34vw,500px);}
 .cb-blue{background:#cddcff;}
 .cb-orange{background:#ffd6b0;}
-.cb-1{left:-9%;top:1%;border-radius:58% 42% 61% 39% / 46% 57% 43% 54%;}
-.cb-2{left:24%;top:7%;width:clamp(200px,28vw,420px);height:clamp(180px,24vw,360px);border-radius:42% 58% 45% 55% / 57% 44% 56% 43%;}
-.cb-5{left:-8%;top:50%;border-radius:52% 48% 58% 42% / 50% 46% 54% 50%;}
-.cb-6{left:22%;top:70%;width:clamp(220px,30vw,440px);height:clamp(190px,26vw,380px);border-radius:40% 60% 46% 54% / 58% 42% 58% 42%;}
+.cb-1{left:-9%;top:6%;border-radius:58% 42% 61% 39% / 46% 57% 43% 54%;}
 .contact-content{position:relative;}
 .contact-content .breadcrumb{margin-bottom:8px;}
 .contact-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;grid-template-areas:"intro stack" "info stack" "map stack";column-gap:44px;row-gap:14px;align-items:start;}
 .contact-intro{grid-area:intro;min-width:0;text-align:center;}
 .contact-stack{grid-area:stack;position:relative;width:100%;}
-.contact-panel{grid-area:info;text-align:center;}
-.contact-logo{display:block;height:40px;width:auto;margin:0 auto 6px;}
-.contact-panel address{font-style:normal;font-size:14px;line-height:1.45;color:var(--text);font-weight:500;max-width:46ch;margin:0 auto;}
-.contact-buttons{display:grid;gap:8px;width:min(100%,380px);margin:12px auto 0;}
-.contact-buttons .btn{width:100%;justify-content:center;gap:9px;padding:9px 12px;font-size:14px;box-sizing:border-box;}
-.contact-buttons .btn svg{width:17px;height:17px;flex:none;}
-.contact-map{grid-area:map;height:112px;border-radius:16px;overflow:hidden;border:3px solid #fff;box-shadow:0 18px 36px -22px rgba(3,14,80,.55);}
+.contact-panel{grid-area:info;display:flex;flex-direction:column;align-items:center;gap:5px;padding:16px 20px;text-align:center;background:rgba(255,255,255,.4);border:1.5px solid rgba(1,72,250,.4);border-radius:14px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+.contact-panel address{font-style:normal;font-size:14px;line-height:1.5;color:var(--text);font-weight:500;max-width:48ch;margin:0 0 4px;}
+.contact-panel a{font-size:14px;font-weight:600;color:var(--text);word-break:break-word;}
+.contact-panel a:hover{color:var(--accent-2);text-decoration:underline;}
+.contact-map{grid-area:map;height:150px;border-radius:16px;overflow:hidden;border:3px solid #fff;box-shadow:0 18px 36px -22px rgba(3,14,80,.55);}
 .contact-map iframe{width:100%;height:100%;border:0;display:block;}
 .contact-quote{margin:0 0 8px;}
 .contact-quote blockquote{margin:0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:clamp(16px,1.7vw,21px);line-height:1.4;color:var(--text);}
@@ -1998,9 +1993,7 @@ section[id]{scroll-margin-top:92px;}
 .contact-tagline{margin:0 auto;max-width:60ch;font-size:14px;line-height:1.55;color:var(--text-dim);}
 /* one cloud each side of the form, both touching it */
 .cs-blob{position:absolute;z-index:-1;pointer-events:none;width:230px;height:210px;}
-.cs-blob-left{right:calc(100% - 60px);top:40%;background:#b9ceff;border-radius:58% 42% 61% 39% / 46% 57% 43% 54%;}
-.cs-blob-right{left:calc(100% - 60px);top:10%;background:#ffc994;border-radius:42% 58% 45% 55% / 57% 44% 56% 43%;}
-.contact-label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-faint);margin-bottom:2px;}
+.cs-blob-right{left:calc(100% - 110px);top:24%;width:280px;height:250px;background:#ffc994;border-radius:42% 58% 45% 55% / 57% 44% 56% 43%;}
 @media (max-width:899px){
   .contact-layout{grid-template-columns:1fr;grid-template-areas:"intro" "stack" "info" "map";row-gap:22px;}
   .contact-stack{max-width:420px;margin:0 auto;}
@@ -2008,6 +2001,5 @@ section[id]{scroll-margin-top:92px;}
     .contact-map{max-width:420px;margin:0 auto;width:100%;box-sizing:border-box;height:220px;}
   .contact-one{padding:16px 0 60px;}
   .cs-blob{width:150px;height:135px;}
-  .cs-blob-left{right:calc(100% - 40px);}
-  .cs-blob-right{left:calc(100% - 40px);}
+    .cs-blob-right{left:calc(100% - 40px);}
 }
