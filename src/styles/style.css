@@ -742,23 +742,23 @@ a.footer-course:hover{color:var(--accent-2);}
 
 /* Fit-finder layout (owner-requested 2026-09-25): heading text on the left, one shadowed box on the right
    with the student cards scrolling top to bottom, one after another. */
-.fit-layout{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:48px;align-items:center;}
+.fit-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,540px);gap:48px;align-items:center;}
 .fit-intro h2{margin:6px 0 12px;}
 .fit-intro p{margin:0;max-width:44ch;color:var(--text-dim);}
 .fit-layout .fit-panel{padding:20px;border-radius:28px;}
 #fit-finder{padding-top:56px;padding-bottom:56px;}
-.fit-vtrack{--step:306px;height:298px;overflow:hidden;}
+.fit-vtrack{--step:366px;height:358px;overflow:hidden;}
 .fit-col{display:flex;flex-direction:column;gap:16px;padding:4px 2px;animation:fit-down 30s linear infinite;}
 .fit-vtrack:hover .fit-col,.fit-vtrack:focus-within .fit-col{animation-play-state:paused;}
 .fit-vtrack.is-static{overflow-y:auto;-webkit-mask-image:none;mask-image:none;}
 .fit-vtrack.is-static .fit-col{animation:none;}
 /* smooth, continuous top-to-bottom scroll through the five cards (list duplicated for a seamless loop) */
 @keyframes fit-down{from{transform:translateY(calc(var(--step) * -5));}to{transform:translateY(0);}}
-.fit-col .fit-card{flex:none;flex-direction:row;height:290px;}
-.fit-col .fit-card-visual{flex:0 0 38%;aspect-ratio:auto;height:100%;padding-top:10px;}
-.fit-col .fit-card-body{justify-content:center;padding:22px 30px;gap:12px;}
+.fit-col .fit-card{flex:none;flex-direction:row;height:350px;}
+.fit-col .fit-card-visual{flex:0 0 44%;aspect-ratio:auto;height:100%;padding-top:10px;}
+.fit-col .fit-card-body{justify-content:center;padding:20px 22px;gap:12px;}
 .fit-col .fit-card-programme{margin-top:0;}
-.fit-col .fit-card-interest{flex:none;font-size:21px;line-height:1.35;}
+.fit-col .fit-card-interest{flex:none;font-size:19px;line-height:1.35;}
 .fit-col .fit-card-programme{font-size:12px;padding:5px 13px;}
 .fit-col .fit-card-cta{font-size:16px;margin-top:6px;}
 @media (max-width:899px){
