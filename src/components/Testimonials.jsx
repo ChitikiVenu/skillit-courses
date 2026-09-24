@@ -9,7 +9,7 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="testimonials-section">
       <div className="wrap testimonials-head">
-        <h2>Every course. Real learner momentum.</h2>
+        <h2>Hear From Our Alumni</h2>
         <p>Scroll through reflections from learners who turned structured practice into confident next steps.</p>
       </div>
       <div className={`testimonial-track ${reducedMotion ? 'is-static' : ''}`}>

@@ -10,7 +10,6 @@ export const PLACEMENT_PARTNERS = [
   P('Darwinbox', 'darwinbox.svg'),
   P('ZenQ', 'zenq.jpg'),
   P('Happiest Minds', 'happiest-minds.png'),
-  P('Google', 'google.svg'),
   P('Cisco', 'cisco.svg'),
   P('Stacknex', 'stacknex.png'),
   P('Intel', 'intel.svg'),
