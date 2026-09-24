@@ -70,7 +70,7 @@ export default function ContactPage() {
           <div className="contact-layout">
             <div className="contact-intro">
               <figure className="contact-quote">
-                <blockquote>&ldquo;The best way to find yourself is to lose yourself in the service of others.&rdquo;</blockquote>
+                <blockquote>&ldquo;The future depends on what you do today.&rdquo;</blockquote>
                 <figcaption>&mdash; Mahatma Gandhi</figcaption>
               </figure>
               <h1 className="contact-title">Contact Us</h1>
