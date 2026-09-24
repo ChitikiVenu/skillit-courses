@@ -148,7 +148,7 @@ export default function LandingPage() {
           <div className="home-hero-left">
             <div className="hero-students" aria-hidden="true">
               <span className="hero-student" style={{ '--tint': '#e9f0ff' }}>
-                <img src="/img/fit-photos/hero-cyber-security.webp" alt="" width="640" height="691" />
+                <img src="/img/fit-photos/hero-plaid-girl.webp" alt="" width="640" height="691" />
               </span>
               <span className="hero-student" style={{ '--tint': '#f2edff' }}>
                 <img src="/img/fit-photos/hero-ai-ml.webp" alt="" width="640" height="768" />
