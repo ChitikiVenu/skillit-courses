@@ -617,8 +617,8 @@ const TOOL_LIBRARY = {
 // separate from the structural MODULES/CAREER_TRACKS data so CourseHomePage/CourseModulePage stay
 // identical across every course.
 const COPY = {
-  "metaTitle": "Best Cyber Security Academy in Hyderabad | Skill IT Education",
-  "metaDesc": "The Best Cyber Security Academy in Hyderabad — a 5-month Cyber Security Certification Program: ethical hacking, penetration testing, SOC training and internship.",
+  "metaTitle": "Cyber Security Course in Hyderabad | Practical Training | Skill IT Education",
+  "metaDesc": "Cyber Security course in Hyderabad: ethical hacking, penetration testing and SOC fundamentals with hands-on labs, projects and a real-time internship.",
   "breadcrumbProgramName": "Cybersecurity Program",
   "courseShortName": "Cyber Security",
   "ogImageFile": "cybersecurity-program-diagram.png",

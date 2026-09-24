@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { track } from '../utils/analytics.js';
 import { Link } from 'react-router-dom';
 import { DOMAIN } from '../constants.js';
 import Seo from '../components/Seo.jsx';
@@ -23,6 +24,9 @@ function CounselButton({ onClick }) {
 export default function CourseHomePage({ course }) {
   const { SITE, MODULES, CAREER_TRACKS, CERTIFICATIONS, WHY_COURSE, COPY, routeBase } = course;
   const [leadModalOpen, setLeadModalOpen] = useState(false);
+  useEffect(() => {
+    track('course_view', { course: COPY.courseShortName });
+  }, [COPY.courseShortName]);
   const canonicalUrl = DOMAIN + routeBase;
   const ogImage = COPY.ogImageFile ? DOMAIN + '/img/' + COPY.ogImageFile : undefined;
 

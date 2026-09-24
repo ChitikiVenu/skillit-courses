@@ -35,9 +35,9 @@ export async function getSitePages() {
   return [
     {
       path: '/',
-      title: 'Cyber Security, AI & Data Courses in Hyderabad | Skill IT Education',
+      title: 'Cyber Security, AI & Data Science Courses in Hyderabad | Skill IT Education',
       description:
-        'Cutting-edge upskilling in Hyderabad: Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics, with hands-on labs, projects and an internship.',
+        'Build job-ready technology skills with practical Cyber Security, SOC, AI Engineering, Data Science and analytics training at Skill IT Education in Hyderabad.',
       ogImage: '/img/our-programmes-diagram.png',
     },
     {
@@ -68,6 +68,11 @@ export async function getSitePages() {
       title: 'About Us | Skill IT Education',
       description:
         'Skill IT Education is an upskilling academy in Madhapur, Hyderabad, training graduates and professionals in future technologies through hands-on labs, real projects, a real-time internship and honest placement assistance.',
+    },
+    {
+      path: '/contact',
+      title: 'Contact Skill IT Education | Madhapur, Hyderabad',
+      description: 'Visit or contact Skill IT Education in Madhapur, Hyderabad: address, phone, WhatsApp, email and map, plus a form to book a free counselling session.',
     },
     { path: '/refund-policy', title: REFUND_POLICY.metaTitle, description: REFUND_POLICY.metaDescription },
     ...COURSES.map((c) => ({

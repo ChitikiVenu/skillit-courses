@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { COURSE_BROCHURES } from '../data/courseBrochures.js';
+import { track } from '../utils/analytics.js';
 
 const COURSE_OPTIONS = ['Cyber Security', 'SOC (Security Operations Center)', 'AI/ML', 'Data Science', 'Data Analyst'];
 
@@ -18,6 +19,7 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
       const selectedCourse = e.target.elements.course?.value;
       setResolvedBrochure(COURSE_BROCHURES[selectedCourse]);
     }
+    track('form_submit', { form_id: formId, course: e.target.elements.course?.value, profession: e.target.elements.profession?.value });
     setSubmitted(true);
   };
 

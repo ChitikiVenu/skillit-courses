@@ -736,8 +736,8 @@ const TOOL_LIBRARY = {
 // separate from the structural MODULES/CAREER_TRACKS data so CourseHomePage/CourseModulePage stay
 // identical across every course.
 const COPY = {
-  "metaTitle": "Best AI & ML Training Institute in Hyderabad | Skill IT Education",
-  "metaDesc": "The Best AI & ML Training Institute in Hyderabad — a 7-month AI Engineering Certification Program: Python Full Stack, ML, Generative AI, Agentic AI and MLOps.",
+  "metaTitle": "AI Engineering Course in Hyderabad | GenAI, RAG & AI Agents | Skill IT Education",
+  "metaDesc": "AI Engineering course in Hyderabad: Python, machine learning, Generative AI, RAG, AI agents and MLOps, taught through hands-on projects and a real-time internship.",
   "breadcrumbProgramName": "AI & ML Program",
   "courseShortName": "AI & ML",
   "ogImageFile": "ai-ml-program-diagram.png",

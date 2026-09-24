@@ -136,8 +136,8 @@ export default function LandingPage() {
   return (
     <main>
       <Seo
-        title="Cyber Security, AI & Data Courses in Hyderabad | Skill IT Education"
-        description="Cutting-edge upskilling in Hyderabad: Cyber Security, SOC Analyst, AI & ML, Data Science and Data Analytics, with hands-on labs, projects and an internship."
+        title="Cyber Security, AI & Data Science Courses in Hyderabad | Skill IT Education"
+        description="Build job-ready technology skills with practical Cyber Security, SOC, AI Engineering, Data Science and analytics training at Skill IT Education in Hyderabad."
         path="/"
         ogImage={`${DOMAIN}/img/our-programmes-diagram.png`}
         jsonLd={jsonLd}

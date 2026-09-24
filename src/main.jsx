@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 import { setHome } from './homeModule.js';
+import { initAnalytics } from './utils/analytics.js';
 import './styles/style.css';
 
 // scripts/prerender-meta.mjs bakes a real, route-specific <title>/description/canonical/OG tag set
@@ -12,6 +13,8 @@ import './styles/style.css';
 // its own copies of those tags, drop the prerendered ones. Otherwise every hydrated page would carry
 // two of each meta/link tag: the static one and Helmet's.
 document.querySelectorAll('[data-prerendered]').forEach((el) => el.remove());
+
+initAnalytics();
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const isHome = window.location.pathname === '/';

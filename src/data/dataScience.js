@@ -609,8 +609,8 @@ const TOOL_LIBRARY = {};
 // separate from the structural MODULES/CAREER_TRACKS data so CourseHomePage/CourseModulePage stay
 // identical across every course.
 const COPY = {
-  "metaTitle": "Best Data Science Training Institute in Hyderabad | Skill IT Education",
-  "metaDesc": "The Best Data Science Training Institute in Hyderabad — a 7-month Data Science Certification Program: Python, SQL, machine learning, BI dashboards and model deployment.",
+  "metaTitle": "Data Science Course in Hyderabad | Python, SQL & ML | Skill IT Education",
+  "metaDesc": "Data Science course in Hyderabad: Python, SQL, machine learning, Power BI and Tableau dashboards and model deployment, with real projects and an internship.",
   "breadcrumbProgramName": "Data Science Program",
   "courseShortName": "Data Science",
   "ogImageFile": "data-science-program-diagram.png",

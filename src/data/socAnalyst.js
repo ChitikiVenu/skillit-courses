@@ -492,8 +492,8 @@ const TOOL_LIBRARY = {
 // separate from the structural MODULES/CAREER_TRACKS data so CourseHomePage/CourseModulePage stay
 // identical across every course.
 const COPY = {
-  "metaTitle": "Best SOC Analyst Training Institute in Hyderabad | Skill IT Education",
-  "metaDesc": "The Best SOC Analyst Training Institute in Hyderabad — a 5-month SOC Analyst Program: networking, SOC operations, IBM QRadar/Splunk SIEM and incident response.",
+  "metaTitle": "SOC Analyst Course in Hyderabad | SIEM & Security Operations | Skill IT Education",
+  "metaDesc": "SOC Analyst course in Hyderabad covering security operations, SIEM (IBM QRadar, Splunk) and incident response, with hands-on labs, projects and an internship.",
   "breadcrumbProgramName": "SOC Analyst Program",
   "courseShortName": "SOC Analyst",
   "ogImageFile": "soc-analyst-og-card.png",

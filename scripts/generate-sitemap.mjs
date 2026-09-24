@@ -65,6 +65,7 @@ const urls = [
   { path: '/careers', changefreq: 'weekly', priority: '0.6' },
   ...CAREERS.map((c) => ({ path: `/careers/${c.slug}`, changefreq: 'weekly', priority: '0.5' })),
   { path: '/about-us', changefreq: 'monthly', priority: '0.5' },
+  { path: '/contact', changefreq: 'monthly', priority: '0.6' },
   { path: '/refund-policy', changefreq: 'yearly', priority: '0.3' },
   { path: '/privacy-policy', changefreq: 'yearly', priority: '0.3' },
   { path: '/data-compliance-policy', changefreq: 'yearly', priority: '0.3' },

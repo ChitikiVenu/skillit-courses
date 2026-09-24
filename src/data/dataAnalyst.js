@@ -647,8 +647,8 @@ const TOOL_LIBRARY = {};
 // separate from the structural MODULES/CAREER_TRACKS data so CourseHomePage/CourseModulePage stay
 // identical across every course.
 const COPY = {
-  "metaTitle": "Best Data Analytics Training Institute in Hyderabad | Skill IT Education",
-  "metaDesc": "The Best Data Analytics Training Institute in Hyderabad — a 5-month Data Analytics Certification Program: Excel, SQL, data visualization, BI dashboards and business reporting.",
+  "metaTitle": "Data Analytics Course in Hyderabad | SQL, Power BI & Tableau | Skill IT Education",
+  "metaDesc": "Data Analytics course in Hyderabad: Excel, SQL, Power BI and Tableau dashboards and business reporting, with hands-on projects and a real-time internship.",
   "breadcrumbProgramName": "Data Analytics Program",
   "courseShortName": "Data Analytics",
   "ogImageFile": "data-analytics-program-diagram.png",

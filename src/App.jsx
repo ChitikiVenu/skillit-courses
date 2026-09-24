@@ -33,6 +33,7 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 const CareersPage = lazy(() => import('./pages/CareersPage.jsx'));
 const CareerDetailPage = lazy(() => import('./pages/CareerDetailPage.jsx'));
 const AboutUsPage = lazy(() => import('./pages/AboutUsPage.jsx'));
+const ContactPage = lazy(() => import('./pages/ContactPage.jsx'));
 
 const COURSES = [cyberSecurity, aiMl, socAnalyst, dataScience, dataAnalyst];
 
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/careers/:slug" element={<CareerDetailPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/refund-policy" element={<PolicyPage policy={REFUND_POLICY} related={{ to: '/faqs', label: 'FAQs' }} />} />
           {COURSES.map((course) => (
             <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage key={course.routeBase} course={course} />} />

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { COURSE_BROCHURES } from '../data/courseBrochures.js';
+import { track } from '../utils/analytics.js';
 
 const COURSE_OPTIONS = ['Cyber Security', 'AI & ML', 'Data Science', 'SOC (Security Operations Center)', 'Data Analyst'];
 
@@ -31,6 +32,7 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
   const handleSubmit = (e) => {
     e.preventDefault();
     setBrochureFile(COURSE_BROCHURES[e.target.elements.course?.value]);
+    track('form_submit', { form_id: 'advisor-modal', course: e.target.elements.course?.value });
     setSubmitted(true);
   };
 

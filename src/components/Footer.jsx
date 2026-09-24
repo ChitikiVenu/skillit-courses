@@ -12,7 +12,7 @@ const SITE_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about-us' },
   { label: 'Our Programmes', to: '/#programmes' },
-  { label: 'Contact', to: '/#enquire' },
+  { label: 'Contact', to: '/contact' },
   { label: 'FAQs', to: '/faqs' },
   { label: 'Privacy Policy', to: '/privacy-policy' },
   { label: 'Data Compliance Policy', to: '/data-compliance-policy' },
