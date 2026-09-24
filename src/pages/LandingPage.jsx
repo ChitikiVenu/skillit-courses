@@ -150,7 +150,7 @@ export default function LandingPage() {
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
               </svg>
-              Offline / Online &mdash; Hyderabad
+              Offline / Online &mdash; Madhapur, Hyderabad
             </a>
             <FitHeading className="home-tagline" maxLines={2} minPx={21}>
               {HERO_TITLE}
