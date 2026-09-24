@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { DOMAIN, EMAIL, PHONE } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
+import BatchCountdown from '../components/BatchCountdown.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
 import FitHeading from '../components/FitHeading.jsx';
@@ -189,6 +190,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="home-hero-form">
+            <BatchCountdown />
             <LeadForm bare formId="hero-form" heading="Get Free Career Guidance" />
           </div>
         </div>
