@@ -7,9 +7,9 @@ export default function PlacementPartners() {
   const track = [...PLACEMENT_PARTNERS, ...PLACEMENT_PARTNERS];
 
   return (
-    <section id="placement-partners" className="partners-section" aria-label="Our placement partners">
+    <section id="placement-partners" className="partners-section" aria-label="Companies where our students got hired">
       <div className="wrap partners-head">
-        <h2>Our Placement Partners</h2>
+        <h2>Where Our Students Got Hired</h2>
       </div>
       <div className={`partners-track ${reducedMotion ? 'is-static' : ''}`}>
         <div className="partners-row">
