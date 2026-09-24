@@ -171,16 +171,18 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <p className="hero-eligibility-box">
-              <strong>{ELIGIBILITY_LABEL}</strong> {ELIGIBILITY_TEXT}
-            </p>
-            <div className="hero-ctas">
-              <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
-                Talk to Counsellor
-              </button>
-              <a className="btn btn-primary" href="#our-programmes">
-                Explore Our Programmes
-              </a>
+            <div className="hero-action-stack">
+              <p className="hero-eligibility-box">
+                <strong>{ELIGIBILITY_LABEL}</strong> {ELIGIBILITY_TEXT}
+              </p>
+              <div className="hero-ctas">
+                <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
+                  Talk to Counsellor
+                </button>
+                <a className="btn btn-primary" href="#our-programmes">
+                  Explore Our Programmes
+                </a>
+              </div>
             </div>
           </div>
           <div className="home-hero-form">
