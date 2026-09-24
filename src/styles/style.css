@@ -1915,11 +1915,12 @@ section[id]{scroll-margin-top:92px;}
 .hero-students{display:none;}
 @media (min-width: 1151px), (min-width: 800px) and (pointer: fine){
   .home-hero-grid{align-items:flex-start;}
-  .hero-students{display:flex;align-items:flex-end;justify-content:center;gap:0;height:181px;margin-bottom:0;}
+  .hero-students{display:flex;align-items:flex-end;justify-content:center;gap:0;height:229px;margin-bottom:-48px;}
   .hero-student{position:relative;display:flex;align-items:flex-end;justify-content:center;height:100%;padding:0 6px;}
-  .hero-student::before{content:"";position:absolute;left:50%;bottom:0;width:150px;height:150px;transform:translateX(-50%);border-radius:50%;background:var(--tint);}
+  .hero-student::before{content:"";position:absolute;left:50%;bottom:0;width:180px;height:180px;transform:translateX(-50%);border-radius:50%;background:var(--tint);}
   .hero-student img{position:relative;height:100%;width:auto;max-width:none;object-fit:contain;object-position:bottom;}
   .hero-student + .hero-student{margin-left:-14px;}
+  .hero-students + .hero-mode-badge{position:relative;z-index:2;background:#fff;}
 }
 
 /* Smooth page loads and page-to-page changes: content fades in instead of popping in. */
