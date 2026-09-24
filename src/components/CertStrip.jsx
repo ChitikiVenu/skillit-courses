@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { CERTIFICATION_BADGES } from '../data/certifications.js';
 import { usePrefersReducedMotion } from './flowPulse.jsx';
 
-// Four generic badge icons (shield, target, cloud, radar/chart) — plain shapes drawn for this site, never a
-// certification body's own logo. See the design-rules memory for why the real logos are not used here.
+// Generic badge icons are the fallback for certifications with no official badge image (see LOGOS in
+// data/certifications.js).
 const ICONS = {
   shield: (
     <path d="M12 2.5 4.5 5.5v6c0 5 3.2 8.6 7.5 10 4.3-1.4 7.5-5 7.5-10v-6L12 2.5Zm-1.1 12.4-3-3 1.4-1.4 1.6 1.6 4.6-4.6 1.4 1.4-6 6Z" />
@@ -50,7 +50,7 @@ function Badge({ badge, glareEnabled }) {
 
   return (
     <Link
-      className="cert-badge"
+      className={`cert-badge${badge.logo ? ' has-logo' : ''}`}
       to={to}
       ref={ref}
       onPointerMove={handleMove}
@@ -60,20 +60,28 @@ function Badge({ badge, glareEnabled }) {
       onBlur={handleLeave}
     >
       <span className="cert-badge-sheen" aria-hidden="true" />
-      <svg className="cert-badge-icon" viewBox="0 0 24 24" aria-hidden="true">
-        {ICONS[badge.icon]}
-      </svg>
-      <span className="cert-badge-text">
-        <strong>{badge.name}</strong>
-        <em>{badge.issuer}</em>
-      </span>
+      {badge.logo ? (
+        <>
+          <img className="cert-badge-logo" src={badge.logo} alt="" loading="lazy" decoding="async" />
+          <span className="sr-only">{badge.name}</span>
+        </>
+      ) : (
+        <>
+          <svg className="cert-badge-icon" viewBox="0 0 24 24" aria-hidden="true">
+            {ICONS[badge.icon]}
+          </svg>
+          <span className="cert-badge-text">
+            <strong>{badge.name}</strong>
+            <em>{badge.issuer}</em>
+          </span>
+        </>
+      )}
     </Link>
   );
 }
 
 // A left-to-right scrolling strip of certification badges, under the home intro. Each name is read
-// straight from a programme's own CERTIFICATIONS list ("prepares you for"), never invented, and the
-// icon is a generic shape, never a certification body's logo.
+// straight from a programme's own CERTIFICATIONS list ("prepares you for"), never invented.
 export default function CertStrip() {
   const reducedMotion = usePrefersReducedMotion();
   // Duplicated once so the CSS animation can scroll from 0 to -50% and loop with no visible seam.

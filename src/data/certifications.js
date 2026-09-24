@@ -5,9 +5,10 @@ import socAnalyst from './socAnalyst.js';
 import dataAnalyst from './dataAnalyst.js';
 
 // Every certification name here is copied verbatim from a programme's own CERTIFICATIONS array (never
-// invented), so "prepares you for" stays accurate. `icon` picks one of the generic badge shapes in
-// CertBadge.jsx — never a certification body's own logo (see the design-rules memory for why).
-// `issuer` is the plain-text organisation name shown on the badge; it is not that organisation's mark.
+// invented), so "prepares you for" stays accurate. `icon` picks a generic badge shape, used only for
+// certifications that have no official badge image in LOGOS below. Official badges were supplied by the
+// owner (2026-09-24), who confirmed with the compliance/legal team that they may be shown because the
+// institute provides exam vouchers for these certifications. `issuer` is the plain-text organisation name.
 const RAW = [
   { name: 'CEH — Certified Ethical Hacker', issuer: 'EC-Council', icon: 'shield', course: cyberSecurity },
   { name: 'CompTIA Security+', issuer: 'CompTIA', icon: 'shield', course: cyberSecurity },
@@ -38,13 +39,39 @@ const RAW = [
   { name: 'IBM Data Analyst Professional Certificate', issuer: 'IBM', icon: 'chart', course: dataAnalyst },
 ];
 
+const LOGOS = {
+  'CompTIA Security+': 'comptia-security-plus',
+  'ISC2 Certified in Cybersecurity (CC)': 'isc2-cc',
+  'Microsoft Security Operations Analyst': 'microsoft-sc-200',
+  'Microsoft Azure AI Engineer': 'azure-ai-engineer',
+  'AWS ML Engineer / Cloud Practitioner': 'aws-ml-engineer',
+  'Google Cloud Professional ML Engineer': 'google-cloud-ml-engineer',
+  'NVIDIA Generative AI & LLMs': 'nvidia-genai',
+  'Databricks ML / GenAI Engineer': 'databricks-ml',
+  'Oracle Cloud Infrastructure AI': 'oracle-oci-ai',
+  'IBM AI / Generative AI Engineering': 'ibm-ai',
+  'TensorFlow & Hugging Face Credentials': 'tensorflow-huggingface',
+  'Google Data Analytics Professional Certificate': 'google-data-analytics',
+  'IBM Data Science Professional Certificate': 'ibm-data-science',
+  'Microsoft Certified: Power BI Data Analyst Associate': 'power-bi-data-analyst',
+  'Tableau Desktop Specialist': 'tableau-desktop-specialist',
+  'AWS Certified Data Analytics – Specialty': 'aws-data-analytics',
+  'Microsoft Certified: Azure Data Scientist Associate': 'azure-data-scientist',
+  'EC-Council Certified SOC Analyst (CSA)': 'ec-council-csa',
+  'CompTIA CySA+': 'comptia-cysa-plus',
+  'IBM QRadar SIEM Certification': 'ibm-qradar',
+  'GIAC Certified Incident Handler (GCIH)': 'giac-gcih',
+  'Microsoft Excel Expert Certification': 'excel-expert',
+  'IBM Data Analyst Professional Certificate': 'ibm-data-analyst',
+};
+
 // A few names repeat across programmes (Security+, ISC2 CC, Power BI, Tableau); keep one badge per
 // name and remember every programme it links to.
 const byName = new Map();
 RAW.forEach(({ name, issuer, icon, course }) => {
   const existing = byName.get(name);
   if (existing) existing.courses.push(course);
-  else byName.set(name, { name, issuer, icon, courses: [course] });
+  else byName.set(name, { name, issuer, icon, logo: LOGOS[name] && `/img/certs/${LOGOS[name]}.png`, courses: [course] });
 });
 
 export const CERTIFICATION_BADGES = [...byName.values()];
