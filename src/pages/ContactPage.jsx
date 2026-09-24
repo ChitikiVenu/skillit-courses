@@ -87,11 +87,13 @@ export default function ContactPage() {
 
             <div className="contact-panel">
               <address>{LEGAL_ADDRESS}</address>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                WhatsApp Us &middot; {PHONE}
-              </a>
-              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-              <a href={DOMAIN}>{SITE_HOST}</a>
+              <div className="contact-line">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                  {PHONE}
+                </a>
+                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                <a href={DOMAIN}>{SITE_HOST}</a>
+              </div>
             </div>
 
             <div className="contact-map">
