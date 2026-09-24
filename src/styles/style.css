@@ -748,19 +748,12 @@ a.footer-course:hover{color:var(--accent-2);}
 .fit-layout .fit-panel{padding:18px;}
 #fit-finder{padding-top:44px;padding-bottom:44px;}
 .fit-vtrack{--step:212px;height:204px;overflow:hidden;}
-.fit-col{display:flex;flex-direction:column;gap:16px;padding:4px 2px;animation:fit-down 22s cubic-bezier(.65,0,.35,1) infinite;}
+.fit-col{display:flex;flex-direction:column;gap:16px;padding:4px 2px;animation:fit-down 30s linear infinite;}
 .fit-vtrack:hover .fit-col,.fit-vtrack:focus-within .fit-col{animation-play-state:paused;}
 .fit-vtrack.is-static{overflow-y:auto;-webkit-mask-image:none;mask-image:none;}
 .fit-vtrack.is-static .fit-col{animation:none;}
-/* one student at a time: hold each card, then slide the next one in from the top (5 cards, list duplicated) */
-@keyframes fit-down{
-  0%,16%{transform:translateY(calc(var(--step) * -5));}
-  20%,36%{transform:translateY(calc(var(--step) * -4));}
-  40%,56%{transform:translateY(calc(var(--step) * -3));}
-  60%,76%{transform:translateY(calc(var(--step) * -2));}
-  80%,96%{transform:translateY(calc(var(--step) * -1));}
-  100%{transform:translateY(0);}
-}
+/* smooth, continuous top-to-bottom scroll through the five cards (list duplicated for a seamless loop) */
+@keyframes fit-down{from{transform:translateY(calc(var(--step) * -5));}to{transform:translateY(0);}}
 .fit-col .fit-card{flex:none;flex-direction:row;height:196px;}
 .fit-col .fit-card-visual{flex:0 0 42%;aspect-ratio:auto;height:100%;padding-top:10px;}
 .fit-col .fit-card-body{justify-content:center;padding:16px 18px;}
