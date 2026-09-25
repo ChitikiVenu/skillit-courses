@@ -765,7 +765,9 @@ a.footer-course:hover{color:var(--accent-2);}
 .fit-col .fit-card-programme{font-size:12px;padding:5px 13px;}
 .fit-col .fit-card-cta{font-size:16px;margin-top:6px;}
 @media (max-width:899px){
-  .fit-layout{grid-template-columns:1fr;gap:26px;}
+  .fit-layout{grid-template-columns:1fr;gap:48px;}
+  .fit-intro{text-align:left;padding:6px 4px;}
+  .fit-intro::before{left:-40px;right:-40px;top:-30px;bottom:-30px;border-radius:38% 62% 46% 54% / 34% 40% 60% 66%;}
   .fit-vtrack{--step:216px;height:208px;}
   .fit-layout .fit-panel{padding:14px;}
   .fit-col .fit-card{height:200px;}
