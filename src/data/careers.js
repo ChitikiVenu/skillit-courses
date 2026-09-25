@@ -218,7 +218,7 @@ export const CAREERS = [
     location: 'Madhapur, Hyderabad',
     workMode: 'Onsite',
     employmentType: 'Full-time',
-    experience: '3–6 years',
+    experience: '1–3 years',
     company: 'Skill IT Education Pvt Ltd',
     postedDate: '2026-09-25',
     summary:
@@ -241,7 +241,7 @@ export const CAREERS = [
     ],
     requirements: [
       "Bachelor's or Master's degree in Computer Science, Data Science, AI, or a related field",
-      '3+ years of hands-on AI/ML experience, with at least 1 year in training or mentoring',
+      '1–3 years of hands-on AI/ML experience, with training or mentoring experience an advantage',
       'Strong Python skills and solid grounding in ML algorithms, model evaluation, and deep learning',
       'Practical exposure to generative AI, LLM APIs, and deployment (Flask/FastAPI, Docker, cloud platforms)',
       'Clear communication and the patience to teach learners from varied backgrounds',
