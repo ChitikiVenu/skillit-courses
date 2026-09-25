@@ -2055,3 +2055,25 @@ section[id]{scroll-margin-top:92px;}
 @media (max-width: 960px) and (not (pointer: fine)), (max-width: 799px){
   .scroll-top{left:22px;bottom:calc(14px + 54px + 14px + env(safe-area-inset-bottom));width:42px;height:42px;}
 }
+
+/* Offer strip as a scrolling ticker: the message repeats and the whole track slides left, looping
+   without a seam (two identical groups, translate 0 to -50%). */
+.promo-bar{display:block;overflow:hidden;padding:10px 0;text-align:left;font-size:16px;}
+.promo-track{display:flex;width:max-content;animation:promo-scroll 38s linear infinite;}
+.promo-bar:hover .promo-track{animation-play-state:paused;}
+.promo-group{display:flex;flex:none;}
+.promo-item{display:inline-flex;align-items:center;gap:12px;flex:none;padding-right:64px;white-space:nowrap;}
+.promo-bar-badge{font-size:12px;padding:4px 12px;}
+@keyframes promo-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@media (max-width: 640px){
+  .promo-bar{padding:9px 0;font-size:14px;}
+  .promo-bar-badge{font-size:10.5px;padding:3px 9px;}
+  .promo-item{gap:9px;padding-right:44px;}
+  .promo-track{animation-duration:30s;}
+}
+@media (prefers-reduced-motion: reduce){
+  .promo-track{animation:none;width:100%;justify-content:center;}
+  .promo-group + .promo-group{display:none;}
+  .promo-group .promo-item:not(:first-child){display:none;}
+  .promo-item{padding-right:0;}
+}
