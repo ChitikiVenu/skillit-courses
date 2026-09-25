@@ -2019,3 +2019,5 @@ section[id]{scroll-margin-top:92px;}
   .cs-blob{width:150px;height:135px;}
     .cs-blob-right{left:calc(100% - 40px);}
 }
+
+.career-post-tagline{margin:2px 0 2px;font-size:15px;font-weight:600;color:var(--text-dim);}

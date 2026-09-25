@@ -211,6 +211,52 @@ export const CAREERS = [
       phone: '+91 91777 15978',
     },
   },
+  {
+    slug: 'ai-ml-trainer',
+    title: 'AI/ML Trainer',
+    tagline: "Help Us Build India's Next Generation of AI Engineers",
+    location: 'Madhapur, Hyderabad',
+    workMode: 'Onsite',
+    employmentType: 'Full-time',
+    experience: '3–6 years',
+    company: 'Skill IT Education Pvt Ltd',
+    postedDate: '2026-09-25',
+    summary:
+      'Teach and mentor learners from Python basics to deploying real ML and generative AI solutions, and shape our AI Engineering and Data Science curriculum.',
+    about: [
+      "Skill IT Education is looking for an AI/ML Trainer who can take learners from Python fundamentals to deploying real machine learning and generative AI solutions. You'll teach, mentor, and shape the curriculum behind our AI Engineering and Data Science programs.",
+      'If you enjoy explaining complex ideas simply and seeing students land their first tech role, this is the job for you.',
+    ],
+    responsibilities: [
+      'Deliver classroom and live online sessions on Python, statistics, machine learning, deep learning, NLP, and generative AI',
+      'Teach hands-on work with core tools: NumPy, Pandas, Scikit-learn, TensorFlow/PyTorch, Hugging Face, and LangChain',
+      'Cover modern topics including LLMs, prompt engineering, RAG pipelines, vector databases, and AI agents',
+      'Design and update curriculum, lesson plans, assignments, and assessments in line with industry needs',
+      'Guide learners through capstone projects built on real-world datasets and business problems',
+      'Mentor students one-on-one, run doubt-clearing sessions, and track individual progress',
+      'Prepare learners for interviews through mock interviews, portfolio reviews, and GitHub project guidance',
+      'Conduct workshops, webinars, and demo sessions that support admissions and outreach',
+      'Work with the placement team to align training with hiring partner expectations',
+      'Stay current with AI/ML developments and bring them into the classroom',
+    ],
+    requirements: [
+      "Bachelor's or Master's degree in Computer Science, Data Science, AI, or a related field",
+      '3+ years of hands-on AI/ML experience, with at least 1 year in training or mentoring',
+      'Strong Python skills and solid grounding in ML algorithms, model evaluation, and deep learning',
+      'Practical exposure to generative AI, LLM APIs, and deployment (Flask/FastAPI, Docker, cloud platforms)',
+      'Clear communication and the patience to teach learners from varied backgrounds',
+      'Nice to have: industry certifications, published projects, or a public GitHub portfolio',
+    ],
+    whyJoin:
+      'Teach programs built around what the industry actually hires for. Shape curriculum, not just deliver it. Work with a growing team that values expertise and initiative. Competitive pay based on experience.',
+    applyNote:
+      'Send your resume and a link to your GitHub or portfolio to info@skilliteducation.com with the subject line "AI/ML Trainer Application." Shortlisted candidates will be invited for a demo session.',
+    howToApply: {
+      email: 'info@skilliteducation.com',
+      subject: 'AI/ML Trainer Application',
+      phone: '+91 91777 15978',
+    },
+  },
 ];
 
 export const getCareerBySlug = (slug) => CAREERS.find((c) => c.slug === slug);

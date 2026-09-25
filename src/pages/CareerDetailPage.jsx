@@ -90,7 +90,7 @@ export default function CareerDetailPage() {
   const description = [
     career.summary,
     ...career.about,
-    ...(hasResponsibilities ? ["What You'll Own:", ...career.responsibilities.map((r) => `${r.title} — ${r.text}`)] : []),
+    ...(hasResponsibilities ? ["What You'll Own:", ...career.responsibilities.map((r) => (typeof r === 'string' ? r : `${r.title} — ${r.text}`))] : []),
     ...(hasRequirements ? ["What We're Looking For:", ...career.requirements] : []),
     'Why Join Us:',
     career.whyJoin,
@@ -172,6 +172,7 @@ export default function CareerDetailPage() {
                 <FitHeading className="career-post-title" maxLines={1} minPx={15}>
                   {career.title}
                 </FitHeading>
+                {career.tagline && <p className="career-post-tagline">{career.tagline}</p>}
                 <p className="career-post-company">{career.company}</p>
               </div>
             </div>
@@ -182,6 +183,12 @@ export default function CareerDetailPage() {
               <span>{career.workMode}</span>
               <span className="sep">&middot;</span>
               <span>{career.employmentType}</span>
+              {career.experience && (
+                <>
+                  <span className="sep">&middot;</span>
+                  <span>Experience: {career.experience}</span>
+                </>
+              )}
               {career.openings > 1 && (
                 <>
                   <span className="sep">&middot;</span>
@@ -220,8 +227,14 @@ export default function CareerDetailPage() {
               <h2>What You&rsquo;ll Own</h2>
               <ul className="check-list">
                 {career.responsibilities.map((r) => (
-                  <li key={r.title}>
-                    <strong>{r.title}</strong> &mdash; {r.text}
+                  <li key={typeof r === 'string' ? r : r.title}>
+                    {typeof r === 'string' ? (
+                      r
+                    ) : (
+                      <>
+                        <strong>{r.title}</strong> &mdash; {r.text}
+                      </>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -252,6 +265,13 @@ export default function CareerDetailPage() {
             <h2>Why Join Us</h2>
             <p>{career.whyJoin}</p>
           </section>
+
+          {career.applyNote && (
+            <section>
+              <h2>How to Apply</h2>
+              <p>{career.applyNote}</p>
+            </section>
+          )}
         </div>
       </article>
 

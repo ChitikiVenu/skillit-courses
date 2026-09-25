@@ -120,6 +120,7 @@ export default function CareersPage() {
                       </svg>
                       {c.employmentType}
                     </span>
+                    {c.experience && <span className="career-chip">{c.experience} experience</span>}
                     {c.openings > 1 && <span className="career-chip career-chip-openings">{c.openings} openings</span>}
                   </div>
                 </div>
