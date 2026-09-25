@@ -257,6 +257,54 @@ export const CAREERS = [
       phone: '+91 91777 15978',
     },
   },
+  {
+    slug: 'cyber-security-trainer',
+    title: 'Cyber Security Trainer',
+    tagline: "Help Us Build India's Next Generation of Cyber Defenders",
+    location: 'Madhapur, Hyderabad',
+    workMode: 'Onsite',
+    employmentType: 'Full-time',
+    experience: '2–5 years',
+    company: 'Skill IT Education Pvt Ltd',
+    postedDate: '2026-09-25',
+    summary:
+      'Train learners in ethical hacking, penetration testing and SOC operations through hands-on labs, and shape our Cyber Security and SOC Analyst curriculum.',
+    about: [
+      'Skill IT Education is looking for a Cyber Security Trainer who can take learners from networking and security fundamentals to hands-on ethical hacking, penetration testing and security operations. You will teach, mentor and help shape the curriculum behind our Cyber Security and SOC Analyst programs.',
+      'If you enjoy running a live attack-and-defend lab, explaining how real breaches happen, and watching students land their first security role, this is the job for you.',
+    ],
+    responsibilities: [
+      'Deliver classroom and live online sessions on networking, operating systems, ethical hacking, penetration testing, vulnerability assessment, and SOC operations',
+      'Run hands-on labs with industry tools such as Kali Linux, Nmap, Wireshark, Burp Suite, Nessus, and SIEM platforms like Splunk and IBM QRadar',
+      'Teach reconnaissance, scanning and enumeration, system hacking, web application attacks, and reporting findings the way a professional tester would',
+      'Cover blue-team skills including log analysis, alert triage, incident response, threat hunting, and mapping detections to MITRE ATT&CK',
+      'Build and maintain safe practice labs where learners can attack and defend without risk',
+      'Design and update curriculum, lesson plans, lab guides, assignments, and assessments in line with industry needs',
+      'Guide learners through capstone projects and vulnerability assessment reports built on realistic scenarios',
+      'Mentor students one-on-one, run doubt-clearing sessions, and track individual progress',
+      'Prepare learners for interviews and certifications such as CEH, Security+, and CySA+ through mock interviews and portfolio guidance',
+      'Conduct workshops, webinars, and demo sessions that support admissions and outreach',
+      'Work with the placement team to align training with hiring partner expectations',
+      'Stay current with new threats, tools, and techniques and bring them into the classroom',
+    ],
+    requirements: [
+      "Bachelor's or Master's degree in Computer Science, Information Technology, Cyber Security, or a related field",
+      '2+ years of hands-on experience in cyber security (penetration testing, SOC, vulnerability management, or incident response), with training or mentoring experience an advantage',
+      'Solid grounding in networking, Linux and Windows internals, and common attack techniques',
+      'Practical command of tools such as Kali Linux, Nmap, Wireshark, Burp Suite, and at least one SIEM platform',
+      'Clear communication and the patience to teach learners from varied backgrounds',
+      'Nice to have: industry certifications (CEH, OSCP, Security+, CySA+ or similar), CTF or bug-bounty experience, or a public write-up portfolio',
+    ],
+    whyJoin:
+      'Teach programs built around what the industry actually hires for. Shape curriculum, not just deliver it. Work with a growing team that values expertise and initiative. Competitive pay based on experience.',
+    applyNote:
+      'Send your resume and a link to your GitHub, blog or portfolio to info@skilliteducation.com with the subject line "Cyber Security Trainer Application." Shortlisted candidates will be invited for a demo session.',
+    howToApply: {
+      email: 'info@skilliteducation.com',
+      subject: 'Cyber Security Trainer Application',
+      phone: '+91 91777 15978',
+    },
+  },
 ];
 
 export const getCareerBySlug = (slug) => CAREERS.find((c) => c.slug === slug);
