@@ -210,6 +210,8 @@ export default function LandingPage() {
         </div>
       </section>
 
+      <LearningHub />
+
       <CertStrip />
 
       <section id="fit-finder">
@@ -252,8 +254,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      <LearningHub />
 
       <section id="how-you-learn">
         <div className="wrap">
