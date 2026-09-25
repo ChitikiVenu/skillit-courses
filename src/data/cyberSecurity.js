@@ -623,7 +623,7 @@ const COPY = {
   "courseShortName": "Cyber Security",
   "ogImageFile": "cybersecurity-program-diagram.png",
   "heroVisual": "image",
-  "heroImageFile": "cybersecurity-program-diagram.png",
+  "heroImageFile": "cybersecurity-program-diagram.webp",
   "heroImageAlt": "Advanced Cyber Security Certification Program skill map — ethical hacking, penetration testing, vulnerability assessment, cloud security, digital forensics, Python for security, Linux administration, firewalls and SIEM, network security",
   "heroImageWidth": 900,
   "heroImageHeight": 877,

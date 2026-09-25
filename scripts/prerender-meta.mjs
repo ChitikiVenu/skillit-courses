@@ -20,7 +20,7 @@
 // mounts, before react-helmet-async inserts its own — otherwise a real browser would end up with two
 // of each meta/link tag (one static, one Helmet-managed) after hydration. This never affects bots,
 // since they never run the JS that would do that swap in the first place.
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { getSitePages } from './lib/site-pages.mjs';
@@ -81,11 +81,39 @@ function renderPage(page) {
     `<meta name="twitter:title" content="${title}" data-prerendered="true" />`,
     `<meta name="twitter:description" content="${description}" data-prerendered="true" />`,
     `<meta name="twitter:image" content="${image}" data-prerendered="true" />`,
-  ].join('\n    ');
+  ]
+    .concat(page.path === '/' ? homePreloadTags() : [])
+    .join('\n    ');
 
   return template
     .replace(/<title>[^<]*<\/title>/, '')
     .replace('</head>', `    ${head}\n  </head>`);
+}
+
+
+// The home page's own chunk (and the chunks it imports) is only discovered after the main bundle runs,
+// which puts a whole extra network round trip in front of the first paint. Listing them here as
+// modulepreload hints, in the home page's HTML only, lets the browser fetch them in parallel with the
+// main bundle instead. The hero photos are hinted the same way.
+function homePreloadTags() {
+  const assets = resolve(distDir, 'assets');
+  const entry = /src="\/assets\/([^"]+\.js)"/.exec(template)?.[1];
+  const files = readdirSync(assets);
+  const start = files.find((f) => /^LandingPage-.*\.js$/.test(f));
+  if (!start) return [];
+  const seen = new Set();
+  const walk = (f) => {
+    if (seen.has(f) || f === entry || !existsSync(resolve(assets, f))) return;
+    seen.add(f);
+    const code = readFileSync(resolve(assets, f), 'utf8');
+    for (const m of code.matchAll(/(?:from|import)\s*["']\.\/([^"']+\.js)["']/g)) walk(m[1]);
+  };
+  walk(start);
+  return [
+    ...[...seen].map((f) => `<link rel="modulepreload" crossorigin href="/assets/${f}" />`),
+    `<link rel="preload" as="image" href="/img/fit-photos/hero-plaid-girl.webp" />`,
+    `<link rel="preload" as="image" href="/img/fit-photos/hero-ai-ml.webp" />`,
+  ];
 }
 
 const pages = await getSitePages();

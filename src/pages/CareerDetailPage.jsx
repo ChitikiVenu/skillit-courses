@@ -167,7 +167,7 @@ export default function CareerDetailPage() {
             </svg>
 
             <div className="career-post-top">
-              <img className="career-post-logo" src="/img/favicon-512.png" alt="" width="52" height="52" loading="lazy" />
+              <img className="career-post-logo" src="/img/favicon-104.webp" alt="" width="52" height="52" loading="lazy" />
               <div className="career-post-titlewrap">
                 <FitHeading className="career-post-title" maxLines={1} minPx={15}>
                   {career.title}

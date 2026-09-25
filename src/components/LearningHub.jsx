@@ -132,7 +132,7 @@ export default function LearningHub() {
             <span className="hub-core-ring" />
             <span className="hub-core-ring hub-core-ring-2" />
             <span className="hub-core-disc">
-              <img src="/img/skill-it-logo.png" alt="" width="152" height="156" />
+              <img src="/img/skill-it-logo.webp" alt="" width="152" height="156" />
             </span>
           </div>
           <ul className="hub-nodes">

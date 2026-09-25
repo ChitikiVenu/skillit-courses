@@ -2,18 +2,15 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DOMAIN, EMAIL, PHONE } from '../constants.js';
 import Seo from '../components/Seo.jsx';
+import Deferred from '../components/Deferred.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import BatchCountdown from '../components/BatchCountdown.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import ProgrammeFlow from '../components/ProgrammeFlow.jsx';
 import FitHeading from '../components/FitHeading.jsx';
-import CertStrip from '../components/CertStrip.jsx';
-import Testimonials from '../components/Testimonials.jsx';
-import PlacementPartners from '../components/PlacementPartners.jsx';
-import LearningHub from '../components/LearningHub.jsx';
 import { usePrefersReducedMotion } from '../components/flowPulse.jsx';
 import { PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
-import { rolesForCourse } from '../data/roleCourses/index.js';
+import { rolesLiteForCourse as rolesForCourse } from '../data/roleLite.js';
 import cyberSecurity from '../data/cyberSecurity.js';
 import aiMl from '../data/aiMl.js';
 import dataScience from '../data/dataScience.js';
@@ -91,6 +88,13 @@ const HERO_INTRO =
 // One-line "who can join" note shown above the h1 — owner-supplied (2026-09-22).
 const ELIGIBILITY_LABEL = 'For Whom:';
 const ELIGIBILITY_TEXT = '2026 & 2027 graduates, Any Branch or Degree — also working professionals and career switchers.';
+
+// Below-the-fold sections load only as the visitor nears them (see Deferred.jsx). Defined once at module
+// level so each loader keeps a stable identity across renders.
+const loadLearningHub = () => import('../components/LearningHub.jsx');
+const loadCertStrip = () => import('../components/CertStrip.jsx');
+const loadPlacementPartners = () => import('../components/PlacementPartners.jsx');
+const loadTestimonials = () => import('../components/Testimonials.jsx');
 
 export default function LandingPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
@@ -210,9 +214,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <LearningHub />
+      <Deferred loader={loadLearningHub} minHeight={720} />
 
-      <CertStrip />
+      <Deferred loader={loadCertStrip} minHeight={280} />
 
       <section id="fit-finder">
         <div className="wrap fit-layout">
@@ -273,9 +277,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <PlacementPartners />
+      <Deferred loader={loadPlacementPartners} minHeight={280} />
 
-      <Testimonials />
+      <Deferred loader={loadTestimonials} minHeight={520} />
 
       <section id="home-faqs">
         <div className="wrap">

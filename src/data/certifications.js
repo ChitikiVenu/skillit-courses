@@ -71,7 +71,7 @@ const byName = new Map();
 RAW.forEach(({ name, issuer, icon, course }) => {
   const existing = byName.get(name);
   if (existing) existing.courses.push(course);
-  else byName.set(name, { name, issuer, icon, logo: LOGOS[name] && `/img/certs/${LOGOS[name]}.png`, courses: [course] });
+  else byName.set(name, { name, issuer, icon, logo: LOGOS[name] && `/img/certs/${LOGOS[name]}.webp`, courses: [course] });
 });
 
 export const CERTIFICATION_BADGES = [...byName.values()];

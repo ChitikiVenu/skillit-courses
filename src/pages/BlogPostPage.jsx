@@ -5,7 +5,7 @@ import Seo from '../components/Seo.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import ContactCard from '../components/ContactCard.jsx';
 import { BLOG_POSTS } from '../data/blogPosts.js';
-import { rolesForCourse } from '../data/roleCourses/index.js';
+import { rolesLiteForCourse as rolesForCourse } from '../data/roleLite.js';
 import NotFoundPage from './NotFoundPage.jsx';
 
 const WORDS_PER_MINUTE = 200;

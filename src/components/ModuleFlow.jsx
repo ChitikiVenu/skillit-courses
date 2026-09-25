@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Tablet from './Tablet.jsx';
 import { DUB_LAG, Packet, Ripple, STAGGER, TRAVEL, TailGradients, cablePath, usePrefersReducedMotion } from './flowPulse.jsx';
-import { blogPostForCourse } from '../data/blogPosts.js';
+import { BLOG_PRIMARY_LITE } from '../data/blogPrimaryLite.js';
 
 const ROW_SPACING = 105; // px between card centres — fixed regardless of module count, so a 9-module course isn't cramped while a 6-module course isn't overly spread out
 const TOP_PAD = 58; // px from the top of the flow to the first card's centre
@@ -82,7 +82,7 @@ export default function ModuleFlow({ course }) {
     };
   });
 
-  const post = blogPostForCourse(course);
+  const post = BLOG_PRIMARY_LITE[routeBase];
   const answerHref = post ? `/blog/${post.slug}` : '/blog';
   const gradId = `mf-grad-${uid}`;
   const tailArrowId = `mf-tail-a-${uid}`;

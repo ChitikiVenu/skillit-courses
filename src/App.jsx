@@ -1,11 +1,7 @@
-import { lazy } from 'react';
+import { lazy, use } from 'react';
+import { PROGRAMMES_LITE } from './data/programmesLite.js';
 import { getHome } from './homeModule.js';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import cyberSecurity from './data/cyberSecurity.js';
-import aiMl from './data/aiMl.js';
-import socAnalyst from './data/socAnalyst.js';
-import dataScience from './data/dataScience.js';
-import dataAnalyst from './data/dataAnalyst.js';
 import Layout from './components/Layout.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import { DATA_COMPLIANCE_POLICY, PRIVACY_POLICY, REFUND_POLICY } from './data/policies.js';
@@ -35,7 +31,24 @@ const CareerDetailPage = lazy(() => import('./pages/CareerDetailPage.jsx'));
 const AboutUsPage = lazy(() => import('./pages/AboutUsPage.jsx'));
 const ContactPage = lazy(() => import('./pages/ContactPage.jsx'));
 
-const COURSES = [cyberSecurity, aiMl, socAnalyst, dataScience, dataAnalyst];
+// The five full course files (~180KB) are no longer in the main bundle: a programme's data is fetched
+// the first time one of its pages is visited (the home page loads them all, as part of its own chunk).
+const COURSE_LOADERS = {
+  '/cyber-security': () => import('./data/cyberSecurity.js'),
+  '/ai-ml': () => import('./data/aiMl.js'),
+  '/data-science': () => import('./data/dataScience.js'),
+  '/soc-analyst': () => import('./data/socAnalyst.js'),
+  '/data-analyst': () => import('./data/dataAnalyst.js'),
+};
+const courseCache = new Map();
+function loadCourse(routeBase) {
+  if (!courseCache.has(routeBase)) courseCache.set(routeBase, COURSE_LOADERS[routeBase]().then((m) => m.default));
+  return courseCache.get(routeBase);
+}
+// Suspends (inside Layout's boundary) until the programme's data has arrived, then renders the page.
+function CourseRoute({ routeBase, Page }) {
+  return <Page course={use(loadCourse(routeBase))} />;
+}
 
 export default function App() {
   return (
@@ -57,11 +70,11 @@ export default function App() {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/refund-policy" element={<PolicyPage policy={REFUND_POLICY} related={{ to: '/faqs', label: 'FAQs' }} />} />
-          {COURSES.map((course) => (
-            <Route key={course.routeBase} path={course.routeBase} element={<CourseHomePage key={course.routeBase} course={course} />} />
+          {PROGRAMMES_LITE.map(({ routeBase }) => (
+            <Route key={routeBase} path={routeBase} element={<CourseRoute key={routeBase} routeBase={routeBase} Page={CourseHomePage} />} />
           ))}
-          {COURSES.map((course) => (
-            <Route key={`${course.routeBase}/:slug`} path={`${course.routeBase}/:slug`} element={<CourseModulePage course={course} />} />
+          {PROGRAMMES_LITE.map(({ routeBase }) => (
+            <Route key={`${routeBase}/:slug`} path={`${routeBase}/:slug`} element={<CourseRoute key={routeBase} routeBase={routeBase} Page={CourseModulePage} />} />
           ))}
           <Route path="*" element={<NotFoundPage />} />
         </Route>

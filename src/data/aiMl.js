@@ -742,7 +742,7 @@ const COPY = {
   "courseShortName": "AI & ML",
   "ogImageFile": "ai-ml-program-diagram.png",
   "heroVisual": "image",
-  "heroImageFile": "ai-ml-program-diagram.png",
+  "heroImageFile": "ai-ml-program-diagram.webp",
   "heroImageAlt": "Advanced AI & ML Certification Program skill map — AI Agents, Computer Vision, Machine Learning, Deep Learning, Real-World Projects, Data Science and Analytics, MLOps, Python for AI/ML, Generative AI, LLMs",
   "heroImageWidth": 900,
   "heroImageHeight": 881,

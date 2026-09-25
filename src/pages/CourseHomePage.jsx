@@ -10,7 +10,7 @@ import LeadFormModal from '../components/LeadFormModal.jsx';
 import { ImageHeroVisual, SocDashboardSvg } from '../components/HeroVisual.jsx';
 import ModuleFlow from '../components/ModuleFlow.jsx';
 import FitHeading from '../components/FitHeading.jsx';
-import { rolesForCourse } from '../data/roleCourses/index.js';
+import { rolesLiteForCourse as rolesForCourse } from '../data/roleLite.js';
 import { monthsToIso8601, parseRupeeAmounts } from '../lib/schema.js';
 
 function CounselButton({ onClick }) {
@@ -335,7 +335,7 @@ export default function CourseHomePage({ course }) {
               {roleCourses.map((r) => (
                 <Link className="role-sibling" to={r.href} key={r.href}>
                   <strong>{r.title}</strong>
-                  <span>{r.skills.slice(0, 3).join(' · ')}</span>
+                  <span>{r.skills.join(' · ')}</span>
                   <span className="role-sibling-more">View role course &rarr;</span>
                 </Link>
               ))}

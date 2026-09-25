@@ -12,23 +12,48 @@ export const ROLE_GROUPS_LITE = [
     "roles": [
       {
         "href": "/courses/cyber-security/penetration-tester",
-        "title": "Penetration Tester"
+        "title": "Penetration Tester",
+        "skills": [
+          "Nmap scanning",
+          "Burp Suite testing",
+          "SQL injection"
+        ]
       },
       {
         "href": "/courses/cyber-security/security-analyst",
-        "title": "Security Analyst"
+        "title": "Security Analyst",
+        "skills": [
+          "Network fundamentals",
+          "OpenVAS scanning",
+          "CVSS prioritisation"
+        ]
       },
       {
         "href": "/courses/cyber-security/ethical-hacker",
-        "title": "Ethical Hacker"
+        "title": "Ethical Hacker",
+        "skills": [
+          "Attacker mindset",
+          "OSINT reconnaissance",
+          "Privilege escalation"
+        ]
       },
       {
         "href": "/courses/cyber-security/incident-response-analyst",
-        "title": "Incident Response Analyst"
+        "title": "Incident Response Analyst",
+        "skills": [
+          "Incident response process",
+          "Response playbooks",
+          "Malware behaviour"
+        ]
       },
       {
         "href": "/courses/cyber-security/cloud-security-engineer",
-        "title": "Cloud Security Engineer"
+        "title": "Cloud Security Engineer",
+        "skills": [
+          "Cloud service models",
+          "Network fundamentals",
+          "Linux command line"
+        ]
       }
     ]
   },
@@ -39,27 +64,57 @@ export const ROLE_GROUPS_LITE = [
     "roles": [
       {
         "href": "/courses/soc-analyst/soc-analyst",
-        "title": "SOC Analyst"
+        "title": "SOC Analyst",
+        "skills": [
+          "Alert triage",
+          "IBM QRadar offenses",
+          "Splunk searches"
+        ]
       },
       {
         "href": "/courses/soc-analyst/incident-response-analyst",
-        "title": "Incident Response Analyst"
+        "title": "Incident Response Analyst",
+        "skills": [
+          "Response lifecycle",
+          "Playbooks and runbooks",
+          "Containment steps"
+        ]
       },
       {
         "href": "/courses/soc-analyst/threat-hunter",
-        "title": "Threat Hunter"
+        "title": "Threat Hunter",
+        "skills": [
+          "Threat hunting methods",
+          "MITRE ATT&CK",
+          "IOC and IOA"
+        ]
       },
       {
         "href": "/courses/soc-analyst/siem-engineer",
-        "title": "SIEM Engineer"
+        "title": "SIEM Engineer",
+        "skills": [
+          "IBM QRadar",
+          "Splunk searching",
+          "Log source onboarding"
+        ]
       },
       {
         "href": "/courses/soc-analyst/security-monitoring-analyst",
-        "title": "Security Monitoring Analyst"
+        "title": "Security Monitoring Analyst",
+        "skills": [
+          "Continuous monitoring",
+          "SIEM dashboards",
+          "Firewall log review"
+        ]
       },
       {
         "href": "/courses/soc-analyst/threat-intelligence-analyst",
-        "title": "Threat Intelligence Analyst"
+        "title": "Threat Intelligence Analyst",
+        "skills": [
+          "CTI lifecycle",
+          "IOC and IOA",
+          "MITRE ATT&CK"
+        ]
       }
     ]
   },
@@ -70,27 +125,57 @@ export const ROLE_GROUPS_LITE = [
     "roles": [
       {
         "href": "/courses/ai-ml/ai-engineer",
-        "title": "AI Engineer"
+        "title": "AI Engineer",
+        "skills": [
+          "Python development",
+          "FastAPI services",
+          "Machine learning models"
+        ]
       },
       {
         "href": "/courses/ai-ml/machine-learning-engineer",
-        "title": "Machine Learning Engineer"
+        "title": "Machine Learning Engineer",
+        "skills": [
+          "Feature engineering",
+          "Scikit-learn modelling",
+          "Model evaluation"
+        ]
       },
       {
         "href": "/courses/ai-ml/generative-ai-engineer",
-        "title": "Generative AI Engineer"
+        "title": "Generative AI Engineer",
+        "skills": [
+          "Prompt engineering",
+          "LLM API integration",
+          "Structured outputs"
+        ]
       },
       {
         "href": "/courses/ai-ml/mlops-engineer",
-        "title": "MLOps Engineer"
+        "title": "MLOps Engineer",
+        "skills": [
+          "Docker containers",
+          "GitHub Actions CI/CD",
+          "MLflow tracking"
+        ]
       },
       {
         "href": "/courses/ai-ml/ai-solutions-engineer",
-        "title": "AI Solutions Engineer"
+        "title": "AI Solutions Engineer",
+        "skills": [
+          "Requirement gathering",
+          "Workflow mapping",
+          "AI solution architecture"
+        ]
       },
       {
         "href": "/courses/ai-ml/backend-developer",
-        "title": "Backend Developer"
+        "title": "Backend Developer",
+        "skills": [
+          "Python programming",
+          "FastAPI development",
+          "REST API design"
+        ]
       }
     ]
   },
@@ -101,27 +186,57 @@ export const ROLE_GROUPS_LITE = [
     "roles": [
       {
         "href": "/courses/data-science/data-scientist",
-        "title": "Data Scientist"
+        "title": "Data Scientist",
+        "skills": [
+          "Statistical testing",
+          "Python and Pandas",
+          "SQL joins"
+        ]
       },
       {
         "href": "/courses/data-science/ml-engineer",
-        "title": "ML Engineer"
+        "title": "ML Engineer",
+        "skills": [
+          "Clean Python code",
+          "Scikit-learn models",
+          "Model validation"
+        ]
       },
       {
         "href": "/courses/data-science/data-analyst",
-        "title": "Data Analyst"
+        "title": "Data Analyst",
+        "skills": [
+          "SQL queries",
+          "Pandas cleaning",
+          "Hypothesis testing"
+        ]
       },
       {
         "href": "/courses/data-science/bi-analyst",
-        "title": "BI Analyst"
+        "title": "BI Analyst",
+        "skills": [
+          "Power BI dashboards",
+          "Tableau views",
+          "DAX basics"
+        ]
       },
       {
         "href": "/courses/data-science/data-engineer",
-        "title": "Data Engineer"
+        "title": "Data Engineer",
+        "skills": [
+          "SQL joins",
+          "Data cleaning",
+          "Pandas reshaping"
+        ]
       },
       {
         "href": "/courses/data-science/analytics-consultant",
-        "title": "Analytics Consultant"
+        "title": "Analytics Consultant",
+        "skills": [
+          "Hypothesis-driven analysis",
+          "Statistical inference",
+          "Exploratory analysis"
+        ]
       }
     ]
   },
@@ -132,27 +247,57 @@ export const ROLE_GROUPS_LITE = [
     "roles": [
       {
         "href": "/courses/data-analyst/data-analyst",
-        "title": "Data Analyst"
+        "title": "Data Analyst",
+        "skills": [
+          "Excel pivot tables",
+          "Lookup formulas",
+          "SQL joins"
+        ]
       },
       {
         "href": "/courses/data-analyst/bi-analyst",
-        "title": "BI Analyst"
+        "title": "BI Analyst",
+        "skills": [
+          "SQL reporting queries",
+          "Power BI reports",
+          "DAX measures"
+        ]
       },
       {
         "href": "/courses/data-analyst/business-analyst",
-        "title": "Business Analyst"
+        "title": "Business Analyst",
+        "skills": [
+          "Problem framing",
+          "KPI definition",
+          "Stakeholder requirements"
+        ]
       },
       {
         "href": "/courses/data-analyst/reporting-analyst",
-        "title": "Reporting Analyst"
+        "title": "Reporting Analyst",
+        "skills": [
+          "Report structuring",
+          "Report automation",
+          "Excel formulas"
+        ]
       },
       {
         "href": "/courses/data-analyst/analytics-consultant",
-        "title": "Analytics Consultant"
+        "title": "Analytics Consultant",
+        "skills": [
+          "Analytics lifecycle",
+          "Hypothesis-driven analysis",
+          "Data profiling"
+        ]
       },
       {
         "href": "/courses/data-analyst/dashboard-developer",
-        "title": "Dashboard Developer"
+        "title": "Dashboard Developer",
+        "skills": [
+          "Power BI dashboards",
+          "Tableau dashboards",
+          "DAX basics"
+        ]
       }
     ]
   }

@@ -31,7 +31,7 @@ export default function Footer({ onBook }) {
       <div className="footer-wide">
         <div className="footer-brand-row">
           <Link to="/" className="footer-brand" aria-label="Skill IT Education, home">
-            <img src="/img/skill-it-logo.png" alt="Skill IT Education" width="520" height="206" loading="lazy" />
+            <img src="/img/skill-it-logo.webp" alt="Skill IT Education" width="520" height="206" loading="lazy" />
           </Link>
           {/* Desktop only — phones already have these two as floating buttons (FloatingActions), so
               repeating them here would just be clutter. */}

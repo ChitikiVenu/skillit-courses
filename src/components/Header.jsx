@@ -153,9 +153,9 @@ export default function Header() {
   }));
   const insightItems = BLOG_COURSES.map((c) => ({ path: `/blog?course=${c.key}`, label: `${c.name} Insights` }));
   const programmeMenuItems = PROGRAMMES.map((p) => {
-    const course = BLOG_COURSES.find((c) => `/${c.key}` === p.path)?.course;
+    const lite = BLOG_COURSES.find((c) => `/${c.key}` === p.path);
     const roles = ROLE_GROUPS_LITE.find((g) => g.href === p.path)?.roles ?? [];
-    return { path: p.path, label: p.label, soon: !p.available, blurb: PROGRAMME_BLURBS[p.path], meta: course?.COPY.heroStats[0].value, current: pathname.startsWith(p.path), subItems: roles.map((r) => ({ path: r.href, label: `${r.title} Course` })) };
+    return { path: p.path, label: p.label, soon: !p.available, blurb: PROGRAMME_BLURBS[p.path], meta: lite?.duration, current: pathname.startsWith(p.path), subItems: roles.map((r) => ({ path: r.href, label: `${r.title} Course` })) };
   });
   const insightMenuItems = [
     { path: '/blog', label: 'All career insights', blurb: INSIGHT_BLURBS.all, arrow: true, divider: true, current: pathname === '/blog' && !search },
@@ -283,7 +283,7 @@ export default function Header() {
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} ref={headerRef}>
       <div className="wrap site-header-inner">
         <Link to="/" className="header-logo" aria-label="Skill IT Education, home" onClick={close}>
-          <img src="/img/skill-it-logo.png" alt="Skill IT Education" width="520" height="206" />
+          <img src="/img/skill-it-logo.webp" alt="Skill IT Education" width="520" height="206" />
         </Link>
 
         <nav className="header-nav" aria-label="Main">
