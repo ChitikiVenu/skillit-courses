@@ -1970,10 +1970,12 @@ section[id]{scroll-margin-top:92px;}
 
 /* Smooth loading: the app stays invisible until main.jsx has its first screen ready (page chunk,
    fonts, hero photos), then fades in once. After that, each page change fades the new page in. */
-@keyframes page-in{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+/* opacity only, and no fill-mode: a transform (even a held `none`) would make <main> the containing block for the
+   position:fixed popups inside it, pushing them off-screen. */
+@keyframes page-in{from{opacity:0;}to{opacity:1;}}
 #root{opacity:0;}
 #root.is-ready{opacity:1;transition:opacity .55s ease;}
-.app-loaded main{animation:page-in .4s cubic-bezier(.22,1,.36,1) both;}
+.app-loaded main{animation:page-in .4s ease;}
 @media (prefers-reduced-motion: reduce){#root.is-ready{transition:none;}.app-loaded main{animation:none;}}
 
 /* Contact page */
