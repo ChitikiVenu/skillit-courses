@@ -6,6 +6,7 @@ import { PROGRAMMES } from '../constants.js';
 import { BLOG_COURSES } from '../data/blogCourses.js';
 import { DESKTOP_HEADER } from '../useMediaQuery.js';
 import { INSIGHT_BLURBS, PROGRAMME_BLURBS } from '../data/programmeBlurbs.js';
+import { ROLE_GROUPS_LITE } from '../data/roleCoursesLite.js';
 
 // Time the menu stays open after the cursor leaves it, so a student can cross the small gap and
 // pick an item without it vanishing.
@@ -16,6 +17,11 @@ const CLOSE_DELAY = 320;
 // open state and the close timer live in Header.
 function NavMenu({ id, label, to, items, active, open, wide, onEnter, onLeave, onToggle, onOpen, onNavigate }) {
   const pointer = useRef('');
+  // Which programme's role courses are showing under it: opens on mouse hover, or on the caret (touch / keyboard).
+  const [expanded, setExpanded] = useState(null);
+  useEffect(() => {
+    if (!open) setExpanded(null);
+  }, [open]);
 
   // A click with a mouse keeps a menu that hover already opened; touch and keyboard toggle it.
   const handleClick = () => {
@@ -51,16 +57,40 @@ function NavMenu({ id, label, to, items, active, open, wide, onEnter, onLeave, o
       </div>
       {open && (
         <div className={`programmes-menu-panel${wide ? ' is-wide' : ''}`} role="menu">
-          {items.map((item) => (
-            <Link key={item.path} to={item.path} className={`programmes-menu-item${item.blurb ? ' has-desc' : ''}${item.divider ? ' has-divider' : ''}`} role="menuitem" aria-current={item.current ? 'page' : undefined} onClick={onNavigate}>
-              <span className="pm-main">
-                <span className="pm-name">{item.label}</span>
-                {item.blurb && <span className="pm-desc">{item.blurb}</span>}
-              </span>
-              {item.soon ? <span className="programmes-menu-soon">Coming soon</span> : item.meta && <span className="pm-meta">{item.meta}</span>}
-              {item.arrow && <span className="pm-arrow" aria-hidden="true">&rarr;</span>}
-            </Link>
-          ))}
+          {items.map((item) => {
+            const hasSub = item.subItems?.length > 0;
+            const isExpanded = hasSub && expanded === item.path;
+            const link = (
+              <Link key={item.path} to={item.path} className={`programmes-menu-item${item.blurb ? ' has-desc' : ''}${item.divider ? ' has-divider' : ''}`} role="menuitem" aria-current={item.current ? 'page' : undefined} onClick={onNavigate}>
+                <span className="pm-main">
+                  <span className="pm-name">{item.label}</span>
+                  {item.blurb && <span className="pm-desc">{item.blurb}</span>}
+                </span>
+                {item.soon ? <span className="programmes-menu-soon">Coming soon</span> : item.meta && <span className="pm-meta">{item.meta}</span>}
+                {item.arrow && <span className="pm-arrow" aria-hidden="true">&rarr;</span>}
+              </Link>
+            );
+            if (!hasSub) return link;
+            return (
+              <div key={item.path} className={`pm-group${isExpanded ? ' is-expanded' : ''}`} onPointerEnter={(e) => e.pointerType === 'mouse' && setExpanded(item.path)}>
+                <div className="pm-group-row">
+                  {link}
+                  <button type="button" className="pm-expand" aria-expanded={isExpanded} aria-label={`${isExpanded ? 'Hide' : 'Show'} ${item.label} courses`} onClick={() => setExpanded((v) => (v === item.path ? null : item.path))}>
+                    <span className="pm-expand-caret" aria-hidden="true">&#9662;</span>
+                  </button>
+                </div>
+                {isExpanded && (
+                  <div className="pm-sub" role="group" aria-label={`${item.label} courses`}>
+                    {item.subItems.map((sub) => (
+                      <Link key={sub.path} to={sub.path} className="pm-sub-item" role="menuitem" onClick={onNavigate}>
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
@@ -76,6 +106,7 @@ export default function Header() {
   const { pathname, search } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [group, setGroup] = useState(null);
+  const [subGroup, setSubGroup] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(null);
@@ -102,11 +133,17 @@ export default function Header() {
     setOpenMenu(null);
   };
 
-  const programmeItems = PROGRAMMES.map((p) => ({ path: p.path, label: p.label, soon: !p.available }));
+  const programmeItems = PROGRAMMES.map((p) => ({
+    path: p.path,
+    label: p.label,
+    soon: !p.available,
+    subItems: (ROLE_GROUPS_LITE.find((g) => g.href === p.path)?.roles ?? []).map((r) => ({ path: r.href, label: `${r.title} Course` })),
+  }));
   const insightItems = BLOG_COURSES.map((c) => ({ path: `/blog?course=${c.key}`, label: `${c.name} Insights` }));
   const programmeMenuItems = PROGRAMMES.map((p) => {
     const course = BLOG_COURSES.find((c) => `/${c.key}` === p.path)?.course;
-    return { path: p.path, label: p.label, soon: !p.available, blurb: PROGRAMME_BLURBS[p.path], meta: course?.COPY.heroStats[0].value, current: pathname.startsWith(p.path) };
+    const roles = ROLE_GROUPS_LITE.find((g) => g.href === p.path)?.roles ?? [];
+    return { path: p.path, label: p.label, soon: !p.available, blurb: PROGRAMME_BLURBS[p.path], meta: course?.COPY.heroStats[0].value, current: pathname.startsWith(p.path), subItems: roles.map((r) => ({ path: r.href, label: `${r.title} Course` })) };
   });
   const insightMenuItems = [
     { path: '/blog', label: 'All career insights', blurb: INSIGHT_BLURBS.all, arrow: true, divider: true, current: pathname === '/blog' && !search },
@@ -195,12 +232,36 @@ export default function Header() {
               {allLabel}
             </Link>
           )}
-          {items.map((item) => (
-            <Link key={item.path} to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
-              <span>{item.label}</span>
-              {item.soon && <span className="programmes-menu-soon">Coming soon</span>}
-            </Link>
-          ))}
+          {items.map((item) =>
+            item.subItems?.length ? (
+              <div key={item.path} className="mobile-menu-subgroup">
+                <div className="mobile-menu-subrow">
+                  <Link to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
+                    <span>{item.label}</span>
+                  </Link>
+                  <button type="button" className="mobile-menu-subcaret" aria-expanded={subGroup === item.path} aria-label={`${subGroup === item.path ? 'Hide' : 'Show'} ${item.label} courses`} onClick={() => setSubGroup((g) => (g === item.path ? null : item.path))}>
+                    <span className={`mobile-menu-caret${subGroup === item.path ? ' open' : ''}`} aria-hidden="true">
+                      &#9662;
+                    </span>
+                  </button>
+                </div>
+                {subGroup === item.path && (
+                  <div className="mobile-menu-roles">
+                    {item.subItems.map((sub) => (
+                      <Link key={sub.path} to={sub.path} className="mobile-menu-link mobile-menu-role" onClick={close}>
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link key={item.path} to={item.path} className="mobile-menu-link" aria-current={isCurrent(item.path) ? 'page' : undefined} onClick={close}>
+                <span>{item.label}</span>
+                {item.soon && <span className="programmes-menu-soon">Coming soon</span>}
+              </Link>
+            ),
+          )}
         </div>
       )}
     </div>
@@ -226,6 +287,7 @@ export default function Header() {
           aria-controls="mobile-menu"
           onClick={() => {
             setGroup(null);
+            setSubGroup(null);
             setMenuOpen((v) => !v);
           }}
         >
