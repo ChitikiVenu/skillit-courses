@@ -18,6 +18,7 @@ export default function PlacementPartners() {
           {track.map((p, i) => (
             <span className="partner-chip" key={`${p.name}-${i}`} aria-hidden={i >= PLACEMENT_PARTNERS.length ? 'true' : undefined}>
               <img src={p.logo} alt={i < PLACEMENT_PARTNERS.length ? `${p.name} logo` : ''} loading="lazy" decoding="async" />
+              <span className="partner-name">{p.name}</span>
             </span>
           ))}
         </div>

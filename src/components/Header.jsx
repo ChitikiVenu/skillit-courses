@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { PROGRAMMES } from '../constants.js';
 // Lightweight metadata only — see blogCourses.js for why this isn't imported from blogPosts.js
@@ -19,6 +19,18 @@ function NavMenu({ id, label, to, items, active, open, wide, onEnter, onLeave, o
   const pointer = useRef('');
   // Which programme's role courses are showing under it: opens on mouse hover, or on the caret (touch / keyboard).
   const [expanded, setExpanded] = useState(null);
+  // The course list opens to the right of its programme; where the panel sits too close to the right
+  // edge of the window it opens to the left instead.
+  const [flipLeft, setFlipLeft] = useState(false);
+  const subRef = useRef(null);
+  const showSub = (path) => {
+    setFlipLeft(false);
+    setExpanded(path);
+  };
+  // After the list renders on the right, move it to the left only if it would run past the window edge.
+  useLayoutEffect(() => {
+    if (expanded && subRef.current && subRef.current.getBoundingClientRect().right > window.innerWidth - 8) setFlipLeft(true);
+  }, [expanded]);
   useEffect(() => {
     if (!open) setExpanded(null);
   }, [open]);
@@ -72,15 +84,15 @@ function NavMenu({ id, label, to, items, active, open, wide, onEnter, onLeave, o
             );
             if (!hasSub) return link;
             return (
-              <div key={item.path} className={`pm-group${isExpanded ? ' is-expanded' : ''}`} onPointerEnter={(e) => e.pointerType === 'mouse' && setExpanded(item.path)}>
+              <div key={item.path} className={`pm-group${isExpanded ? ' is-expanded' : ''}`} onPointerEnter={(e) => e.pointerType === 'mouse' && showSub(item.path)}>
                 <div className="pm-group-row">
                   {link}
-                  <button type="button" className="pm-expand" aria-expanded={isExpanded} aria-label={`${isExpanded ? 'Hide' : 'Show'} ${item.label} courses`} onClick={() => setExpanded((v) => (v === item.path ? null : item.path))}>
+                  <button type="button" className="pm-expand" aria-expanded={isExpanded} aria-label={`${isExpanded ? 'Hide' : 'Show'} ${item.label} courses`} onClick={() => (expanded === item.path ? setExpanded(null) : showSub(item.path))}>
                     <span className="pm-expand-caret" aria-hidden="true">&#9662;</span>
                   </button>
                 </div>
                 {isExpanded && (
-                  <div className="pm-sub" role="group" aria-label={`${item.label} courses`}>
+                  <div ref={subRef} className={`pm-sub${flipLeft ? ' is-left' : ''}`} role="group" aria-label={`${item.label} courses`}>
                     {item.subItems.map((sub) => (
                       <Link key={sub.path} to={sub.path} className="pm-sub-item" role="menuitem" onClick={onNavigate}>
                         {sub.label}
