@@ -2073,3 +2073,40 @@ section[id]{scroll-margin-top:92px;}
 @media (prefers-reduced-motion: reduce){
   .promo-track{animation:none;width:100%;justify-content:center;}
 }
+
+/* ---------------------------------------------------------------- Learning arena (hub and spokes)
+   Tiles burst out from the centre logo when the section scrolls into view. The stage is a square size
+   container so the tiles' start offsets (--dx/--dy, in cqw) are exact at any width. */
+.hub-section{background:linear-gradient(180deg,#fff 0%,#f4f7ff 100%);overflow:hidden;}
+.hub-head{text-align:center;max-width:640px;margin:0 auto 12px;}
+.hub-head h2{margin:6px 0 8px;}
+.hub-head p{margin:0;color:var(--text-dim);}
+.hub-stage{position:relative;width:min(100%,680px);aspect-ratio:1/1;margin:0 auto;container-type:size;}
+.hub-stage::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(59,130,246,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.07) 1px,transparent 1px);background-size:9% 9%;-webkit-mask-image:radial-gradient(circle,#000 30%,transparent 72%);mask-image:radial-gradient(circle,#000 30%,transparent 72%);pointer-events:none;}
+.hub-lines{position:absolute;inset:0;width:100%;height:100%;}
+.hub-lines line{stroke:rgba(36,80,214,.3);stroke-dasharray:1;stroke-dashoffset:1;stroke-width:.45;transition:stroke-dashoffset .8s ease var(--d,.4s);}
+.hub-stage.is-in .hub-lines line{stroke-dashoffset:0;}
+.hub-core{position:absolute;left:50%;top:50%;width:25%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:2;animation:hub-float 5s ease-in-out infinite;}
+.hub-core-disc{position:absolute;inset:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 28%,#fff 0%,#eaf0ff 60%,#d5e1ff 100%);border:1px solid rgba(36,80,214,.25);box-shadow:0 30px 50px -22px rgba(1,72,250,.55),0 0 0 8px rgba(255,255,255,.7),0 0 0 9px rgba(36,80,214,.16),inset 0 -8px 18px rgba(36,80,214,.12);}
+.hub-core-disc img{width:64%;height:auto;}
+.hub-core-ring{position:absolute;inset:-8%;border-radius:50%;border:2px solid rgba(36,80,214,.22);animation:hub-ring 3.2s ease-out infinite;}
+.hub-core-ring-2{animation-delay:1.6s;}
+@keyframes hub-float{0%,100%{transform:translate(-50%,-50%);}50%{transform:translate(-50%,calc(-50% - 6px));}}
+@keyframes hub-ring{0%{transform:scale(.9);opacity:.8;}100%{transform:scale(1.5);opacity:0;}}
+.hub-nodes{list-style:none;margin:0;padding:0;}
+.hub-node{position:absolute;z-index:3;width:24%;transform:translate(-50%,-50%);text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;
+  opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.25);
+  transition:transform .95s cubic-bezier(.2,.9,.25,1.12) var(--delay,0s),opacity .45s ease var(--delay,0s);}
+.hub-stage.is-in .hub-node{opacity:1;transform:translate(-50%,-50%);}
+.hub-tile{display:flex;align-items:center;justify-content:center;width:clamp(48px,9.5cqw,84px);aspect-ratio:1;border-radius:24%;margin-bottom:4px;color:var(--logo-blue,#0148fa);
+  background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(214,228,255,.85));border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 18px 30px -14px rgba(1,72,250,.5),inset 0 1px 0 #fff,inset 0 -6px 12px rgba(36,80,214,.10);}
+.hub-tile svg{width:52%;height:52%;}
+.hub-node strong{font-size:clamp(11px,1.9cqw,16px);line-height:1.25;color:var(--accent-2,#2450d6);background:rgba(246,249,255,.94);padding:1px 6px;border-radius:6px;}
+.hub-desc{font-size:clamp(10px,1.5cqw,12.5px);line-height:1.3;color:var(--text-faint);background:rgba(246,249,255,.94);padding:0 6px;border-radius:6px;}
+@media (max-width:560px){.hub-desc{display:none;}.hub-node{width:26%;}}
+@media (prefers-reduced-motion: reduce){
+  .hub-core,.hub-core-ring{animation:none;}
+  .hub-node{transition:none;opacity:1;transform:translate(-50%,-50%);}
+  .hub-lines line{transition:none;stroke-dashoffset:0;}
+}
