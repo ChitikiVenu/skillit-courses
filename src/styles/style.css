@@ -1939,8 +1939,8 @@ section[id]{scroll-margin-top:92px;}
 
 /* Coloured showcase box (logo blue) that holds a scrolling strip: partners and testimonials. */
 .showcase-box{position:relative;overflow:hidden;padding:36px 0 30px;border-radius:28px;color:#fff;
-  background:radial-gradient(120% 140% at 0% 0%,#2f6bff 0%,rgba(47,107,255,0) 55%),linear-gradient(135deg,#0a1e8c 0%,var(--logo-blue,#0148fa) 55%,#2a5cff 100%);
-  box-shadow:0 34px 60px -24px rgba(1,72,250,.55),0 14px 28px -14px rgba(16,21,31,.35),inset 0 1px 0 rgba(255,255,255,.25);}
+  background:radial-gradient(120% 140% at 0% 0%,#7fa3ff 0%,rgba(127,163,255,0) 55%),linear-gradient(135deg,#3a63e6 0%,#5b86f5 55%,#82a6ff 100%);
+  box-shadow:0 30px 54px -26px rgba(58,99,230,.45),0 12px 24px -14px rgba(16,21,31,.3),inset 0 1px 0 rgba(255,255,255,.3);}
 .showcase-box .partners-head,.showcase-box .testimonials-head{padding:0 24px;}
 .showcase-box .partners-head h2,.showcase-box .testimonials-head h2{color:#fff;}
 .showcase-box .testimonials-head p{color:rgba(255,255,255,.85);}
