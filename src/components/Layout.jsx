@@ -5,6 +5,7 @@ import Footer from './Footer.jsx';
 import AdvisorModal from './AdvisorModal.jsx';
 import FloatingActions from './FloatingActions.jsx';
 import PromoBar from './PromoBar.jsx';
+import ScrollTopButton from './ScrollTopButton.jsx';
 
 // Every page in App.jsx is React.lazy()-loaded (its own chunk instead of the main bundle), so the
 // routed content needs one Suspense boundary. It sits here, around just the <Outlet/>, so the header
@@ -26,6 +27,7 @@ export default function Layout() {
       </Suspense>
       <Footer onBook={() => setBookingOpen(true)} />
       <FloatingActions onBook={() => setBookingOpen(true)} />
+      <ScrollTopButton />
       <AdvisorModal open={bookingOpen} onClose={() => setBookingOpen(false)} title="Book a free session" />
     </>
   );

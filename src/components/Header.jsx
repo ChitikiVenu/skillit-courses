@@ -275,6 +275,9 @@ export default function Header() {
         </Link>
 
         <nav className="header-nav" aria-label="Main">
+          <Link to="/" className={`header-home-link${pathname === '/' ? ' is-active' : ''}`} aria-current={pathname === '/' ? 'page' : undefined} onClick={closeMenus}>
+            Home
+          </Link>
           <NavMenu id="programmes" label="Our Programmes" items={programmeMenuItems} active={programmesActive} open={openMenu === 'programmes'} wide onEnter={openNow} onLeave={scheduleClose} onToggle={toggleMenu} onOpen={openNow} onNavigate={closeMenus} />
           <NavMenu id="insights" label="Career Insights" to="/blog" items={insightMenuItems} active={insightsActive} open={openMenu === 'insights'} wide onEnter={openNow} onLeave={scheduleClose} onToggle={toggleMenu} onOpen={openNow} onNavigate={closeMenus} />
         </nav>
