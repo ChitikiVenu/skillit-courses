@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 // #enquire section scrolls there directly (ScrollToTop.jsx handles the cross-page hash).
 export default function PromoBar() {
   return (
-    <Link className="promo-bar" to="/#enquire" aria-label="Festival session offer: 15% off on all our programmes. Claim it before you enrol.">
+    <Link className="promo-bar" to="/#enquire" aria-label="Festival season offer: 15% off on all our programmes. Claim it before you enrol.">
       <div className="promo-track">
         <span className="promo-item">
-          <span className="promo-bar-badge">Festival Session Offer</span>
+          <span className="promo-bar-badge">Festival Season Offer</span>
           <span className="promo-bar-text">
             <strong>15% off</strong> on all our programmes — claim it before you enrol
           </span>
