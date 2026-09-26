@@ -2405,3 +2405,18 @@ section[id]{scroll-margin-top:92px;}
   .about-bubble-boy.is-caption a{padding:8px 16px;}
 }
 @media (prefers-reduced-motion:reduce){.pose-ride .boy-wave,.boy-tie,.about-boy-wrap.pose-ride .about-boy{animation:none !important;}}
+
+
+/* ---- Site-wide: dots background, rope story and brush headlines on every page ---- */
+.site-story{position:relative;isolation:isolate;background:#fff;}
+.about-story.ab-story{isolation:auto;background:transparent;}
+.about-lane-inner{transform-origin:0 0;}
+@media (max-width:799px){.about-lane-inner{transform:none;} .about-story .wrap,.ab-enquire .wrap{padding-left:96px;}}
+.about-bubble{font-size:calc(13px * var(--inv,1));padding:calc(8px * var(--inv,1)) calc(12px * var(--inv,1));max-width:calc(190px * var(--inv,1));border-radius:calc(14px * var(--inv,1));}
+.about-bubble::before{border-width:calc(7px * var(--inv,1)) !important;}
+.about-bubble-boy.is-caption{font-size:calc(13.5px * var(--inv,1));max-width:none;}
+.about-bubble-boy.is-caption strong{font-size:calc(15px * var(--inv,1));}
+.about-bubble-boy.is-caption a{padding:calc(5px * var(--inv,1)) calc(12px * var(--inv,1));}
+.section-head h2{display:inline;padding:0 .18em;line-height:1.55;box-decoration-break:clone;-webkit-box-decoration-break:clone;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' preserveAspectRatio='none'%3E%3Cpath d='M3 24C14 9 58 15 98 10s100-5 150 2 44 3 49 13c-6 10-46 5-96 9S86 39 48 34 -6 36 3 24Z' fill='%23bcd6ff'/%3E%3C/svg%3E") no-repeat 0 92%/100% .62em;}
+.section-head h2 + p{margin-top:18px;}
+.section-head > .eyebrow{display:flex;width:fit-content;margin-bottom:12px;}

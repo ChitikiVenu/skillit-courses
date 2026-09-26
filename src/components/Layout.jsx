@@ -1,11 +1,14 @@
-import { Suspense, useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Suspense, useRef, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import AdvisorModal from './AdvisorModal.jsx';
 import FloatingActions from './FloatingActions.jsx';
 import PromoBar from './PromoBar.jsx';
 import ScrollTopButton from './ScrollTopButton.jsx';
+import AboutDots from './AboutDots.jsx';
+import AboutRope from './AboutRope.jsx';
+import { useSectionTint } from '../useSectionTint.js';
 
 // Every page in App.jsx is React.lazy()-loaded (its own chunk instead of the main bundle), so the
 // routed content needs one Suspense boundary. It sits here, around just the <Outlet/>, so the header
@@ -18,14 +21,21 @@ function PageFallback() {
 
 export default function Layout() {
   const [bookingOpen, setBookingOpen] = useState(false);
+  const storyRef = useRef(null);
+  const { pathname } = useLocation();
+  useSectionTint(storyRef, pathname);
   return (
     <>
       <PromoBar />
       <Header />
-      <Suspense fallback={<PageFallback />}>
-        <Outlet />
-      </Suspense>
-      <Footer onBook={() => setBookingOpen(true)} />
+      <div className="site-story" ref={storyRef}>
+        <AboutDots />
+        <AboutRope key={pathname} storyRef={storyRef} />
+        <Suspense fallback={<PageFallback />}>
+          <Outlet />
+        </Suspense>
+        <Footer onBook={() => setBookingOpen(true)} />
+      </div>
       <FloatingActions onBook={() => setBookingOpen(true)} />
       <ScrollTopButton />
       <AdvisorModal open={bookingOpen} onClose={() => setBookingOpen(false)} title="Book a free session" />

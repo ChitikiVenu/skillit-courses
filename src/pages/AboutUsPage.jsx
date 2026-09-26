@@ -1,27 +1,14 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DOMAIN, ADDRESS } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import LeadForm from '../components/LeadForm.jsx';
-import AboutDots from '../components/AboutDots.jsx';
-import AboutRope from '../components/AboutRope.jsx';
 import Icon from '../components/AboutIcons.jsx';
-
-const STORY_SECTIONS = [
-  { id: 'why', label: 'Why we exist' },
-  { id: 'what-you-get', label: 'What you get' },
-  { id: 'how', label: 'How we teach' },
-  { id: 'whom', label: "Who we're for" },
-  { id: 'where', label: "Where you'll learn" },
-  { id: 'promise', label: 'Our promise' },
-  { id: 'about-enquire', label: 'Talk to us' },
-];
 
 export default function AboutUsPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
-  const storyRef = useRef(null);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -52,9 +39,7 @@ export default function AboutUsPage() {
         jsonLd={jsonLd}
       />
 
-      <div className="about-story ab-story" ref={storyRef}>
-      <AboutDots />
-      <AboutRope storyRef={storyRef} sections={STORY_SECTIONS} />
+      <div className="about-story ab-story">
       <section className="hero about-hero ab-hero">
         <div className="wrap ab-hero-grid">
           <div className="ab-hero-copy">

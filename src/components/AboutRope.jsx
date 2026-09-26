@@ -24,7 +24,7 @@ const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 // section. At the footer he jumps off, walks along the Skill IT logo, jumps to the WhatsApp icon and stands there
 // with his hands on his hips, smiling, and offers help with the phone number. Positions are written straight to
 // the DOM (no React re-render while scrolling); a numbered flag marks each section on the rope.
-export default function AboutRope({ storyRef, sections }) {
+export default function AboutRope({ storyRef }) {
   const laneRef = useRef(null);
   const innerRef = useRef(null);
   const boyRef = useRef(null);
@@ -63,6 +63,7 @@ export default function AboutRope({ storyRef, sections }) {
     let phase = 'rope'; // 'rope' | 'running' | 'done'
     let token = 0;
     let stage = '';
+    let hidden = false;
 
     const setBoy = (x, y) => {
       boy.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;
@@ -141,7 +142,7 @@ export default function AboutRope({ storyRef, sections }) {
 
     const place = () => {
       raf = 0;
-      if (phase !== 'rope' && !release) return;
+      if (hidden || (phase !== 'rope' && !release)) return;
       const s = window.scrollY;
       const vh = window.innerHeight;
       const t = clamp(s / (vh * 0.8), 0, 1);
@@ -170,18 +171,33 @@ export default function AboutRope({ storyRef, sections }) {
     };
 
     const measure = () => {
-      k = inner.getBoundingClientRect().width / inner.offsetWidth || 1;
+      // Scale the lane to the free space on the left of the page content; hide it when there is not enough room.
+      const wrap = story.querySelector('main .wrap') || story.querySelector('.wrap');
+      const avail = wrap ? wrap.getBoundingClientRect().left + parseFloat(getComputedStyle(wrap).paddingLeft || '0') : 0;
+      const fit = Math.min(1, (avail - 14) / (LANE_W + 8));
+      hidden = fit < 0.45;
+      lane.style.display = hidden ? 'none' : '';
+      if (hidden) {
+        setMarks([]);
+        return;
+      }
+      inner.style.transform = `scale(${fit.toFixed(3)})`;
+      inner.style.setProperty('--inv', (1 / fit).toFixed(3));
+      k = fit;
       const sr = story.getBoundingClientRect();
       const ir = inner.getBoundingClientRect();
       laneTopPage = sr.top + window.scrollY;
       laneH = (document.documentElement.scrollHeight - laneTopPage) / k;
       lane.style.height = `${laneH * k}px`;
-      const m = sections
-        .map((sec) => {
-          const el = document.getElementById(sec.id);
-          return el ? { ...sec, top: (el.getBoundingClientRect().top - sr.top) / k } : null;
-        })
-        .filter(Boolean);
+      // A numbered flag on the rope at each section after the first (the top banner).
+      const main = story.querySelector('main');
+      const secs = main ? [...main.querySelectorAll(':scope > section, :scope > div > section')].slice(1, 12) : [];
+      const m = secs.map((el, i) => ({
+        key: `s${i}`,
+        el,
+        label: el.querySelector('h2, h3, h1')?.textContent?.trim() || `Section ${i + 1}`,
+        top: (el.getBoundingClientRect().top - sr.top) / k,
+      }));
       markTops = m.map((x) => x.top);
       setMarks(m);
       const logo = document.querySelector('.footer-brand img');
@@ -226,7 +242,7 @@ export default function AboutRope({ storyRef, sections }) {
       Object.values(timers.current).forEach(clearTimeout);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [storyRef, sections]);
+  }, [storyRef]);
 
   const tap = (who) => {
     if (who === 'boy' && pose === 'stand') return;
@@ -235,8 +251,7 @@ export default function AboutRope({ storyRef, sections }) {
     show(who, who === 'boy' ? { kind: 'side', text: lines[i] } : { text: lines[i] }, 2800);
   };
 
-  const jump = (id) => {
-    const el = document.getElementById(id);
+  const jump = (el) => {
     if (el) el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
   };
 
@@ -258,7 +273,7 @@ export default function AboutRope({ storyRef, sections }) {
           <span className="about-plate" aria-hidden="true" />
         </div>
         {marks.map((m, i) => (
-          <button key={m.id} type="button" className="about-flag" style={{ top: m.top + 6 }} onClick={() => jump(m.id)} aria-label={`Jump to: ${m.label}`}>
+          <button key={m.key} type="button" className="about-flag" style={{ top: m.top + 6 }} onClick={() => jump(m.el)} aria-label={`Jump to: ${m.label}`}>
             {i + 1}
           </button>
         ))}
