@@ -2132,8 +2132,8 @@ section[id]{scroll-margin-top:92px;}
 .about-story{position:relative;overflow-x:clip;}
 .about-story .wrap{padding-left:128px;}
 .about-story .section-head{position:relative;}
-.about-story .eyebrow{background:var(--cta);color:#fff;padding:6px 26px;font-weight:800;letter-spacing:.06em;clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%);}
-.about-story .eyebrow::before{display:none;}
+.about-story .eyebrow,.ab-enquire .eyebrow{background:var(--cta);color:#fff;padding:6px 26px;font-weight:800;letter-spacing:.06em;clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%);}
+.about-story .eyebrow::before,.ab-enquire .eyebrow::before{display:none;}
 .about-balloons{position:absolute;right:-8px;top:-18px;display:none;gap:4px;pointer-events:none;}
 .about-balloons .balloon{width:30px;height:auto;}
 .about-balloons .balloon:nth-child(2){margin-top:14px;}
@@ -2271,3 +2271,51 @@ section[id]{scroll-margin-top:92px;}
   .ab-promise-shield{width:64px;height:64px;}
 }
 @media (prefers-reduced-motion:reduce){.ab-node,.ab-tag,.ab-caret{animation:none !important;}}
+
+/* About Us: enquiry form section (replaces the old call-to-action banner) */
+.about-lane{bottom:auto;}
+.ab-enquire{background:radial-gradient(700px 360px at 12% 20%,rgba(37,99,235,.10),transparent 70%),linear-gradient(180deg,#f5f8ff,#eaf1ff);border-top:1px solid var(--border);}
+.ab-enquire::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:linear-gradient(rgba(37,99,235,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.07) 1px,transparent 1px);background-size:34px 34px;}
+.ab-enquire .wrap{padding-left:128px;}
+.ab-enquire-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;align-items:center;}
+.ab-enquire-copy h2{margin:12px 0 14px;}
+.ab-enquire-copy p{margin:0 0 18px;font-size:16.5px;line-height:1.7;}
+.ab-enquire .lead-form-card{box-shadow:0 18px 44px rgba(37,99,235,.18);border:1px solid #cfdcf8;}
+@media (max-width:799px){
+  .ab-enquire .wrap{padding-left:76px;}
+  .ab-enquire-grid{grid-template-columns:1fr;gap:24px;}
+}
+
+
+/* About Us: cartoon look — paint-brush headlines, sticker icons, outlined cards */
+.ab-scene{display:block;width:100%;max-width:420px;margin:0 auto;}
+.ab-bob{animation:balloon-float 5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%;}
+.ab-bob-2{animation-delay:-2s;}
+.ab-wave{transform-box:fill-box;transform-origin:0% 100%;animation:ab-wave 1.4s ease-in-out infinite;}
+@keyframes ab-wave{0%,100%{transform:rotate(0);}50%{transform:rotate(-16deg);}}
+.ab-spark,.ab-bits{animation:ab-twinkle 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+@keyframes ab-twinkle{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.55;transform:scale(.85);}}
+.ab-hero-art{min-height:0;padding-bottom:0;}
+.ab-tag{border:2px solid #2b2233;box-shadow:2px 2px 0 #2b2233;color:#2b2233;}
+.ab-tag-1{background:#ffe27a;}.ab-tag-2{background:#c7dcff;}.ab-tag-3{background:#ffc9bd;}.ab-tag-4{background:#bff0d6;}
+
+/* headlines: a paint-brush stroke behind the words, no labels */
+.ab-sec .section-head h2,.ab-enquire-copy h2{display:inline;padding:0 .18em;line-height:1.55;box-decoration-break:clone;-webkit-box-decoration-break:clone;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' preserveAspectRatio='none'%3E%3Cpath d='M3 24C14 9 58 15 98 10s100-5 150 2 44 3 49 13c-6 10-46 5-96 9S86 39 48 34 -6 36 3 24Z' fill='%23bcd6ff'/%3E%3C/svg%3E") no-repeat 0 92%/100% .62em;}
+.ab-alt .section-head h2{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' preserveAspectRatio='none'%3E%3Cpath d='M3 24C14 9 58 15 98 10s100-5 150 2 44 3 49 13c-6 10-46 5-96 9S86 39 48 34 -6 36 3 24Z' fill='%23ffe27a'/%3E%3C/svg%3E");}
+.ab-sec .section-head p{margin-top:20px;}
+.ab-sec .section-head{margin-bottom:34px;}
+
+.ab-ico{background:#ffe27a;color:#2b2233;border:2.5px solid #2b2233;border-radius:16px;box-shadow:3px 3px 0 #2b2233;}
+.ab-cards .ab-card:nth-child(4n+2) .ab-ico,.ab-trio li:nth-child(2) .ab-ico{background:#c7dcff;}
+.ab-cards .ab-card:nth-child(4n+3) .ab-ico,.ab-trio li:nth-child(3) .ab-ico,.ab-mode:nth-child(2) .ab-ico{background:#ffc9bd;}
+.ab-cards .ab-card:nth-child(4n+4) .ab-ico,.ab-mode:nth-child(3) .ab-ico{background:#bff0d6;}
+.ab-card,.ab-trio li,.ab-mode,.ab-where-card,.ab-promise,.ab-enquire .lead-form-card{border:2px solid #2b2233;box-shadow:4px 4px 0 #2b2233;border-radius:18px;}
+.ab-card::before{display:none;}
+.ab-card:hover{transform:translate(-2px,-2px);border-color:#2b2233;box-shadow:6px 6px 0 #2b2233;}
+.ab-where-card{background:#fff;}
+.ab-promise-shield{background:#ffe27a;color:#2b2233;border:2.5px solid #2b2233;box-shadow:3px 3px 0 #2b2233;}
+.ab-steps li{background:#fff;border:2px solid #2b2233;color:#2b2233;box-shadow:2px 2px 0 #2b2233;}
+.ab-chips li{border:2px solid #2b2233;box-shadow:2px 2px 0 #2b2233;color:#2b2233;}
+.ab-chips svg{color:#2b2233;}
+@media (max-width:799px){.ab-scene{max-width:300px;}}
+@media (prefers-reduced-motion:reduce){.ab-bob,.ab-wave,.ab-spark,.ab-bits{animation:none !important;}}

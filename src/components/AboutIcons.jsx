@@ -27,39 +27,73 @@ export default function Icon({ name, size = 24 }) {
   );
 }
 
-// Hero artwork: a shield with a keyhole at the centre of a small neural network.
-export function ShieldNet() {
-  const nodes = [[40, 60], [70, 24], [150, 18], [232, 40], [252, 110], [236, 186], [150, 214], [64, 196], [28, 128]];
+// Hero artwork, cartoon style: a smiling padlock-shield, a waving AI robot and a student coding on a laptop.
+const INK = '#2b2233';
+export function HeroScene() {
+  const o = { stroke: INK, strokeWidth: 3, strokeLinejoin: 'round', strokeLinecap: 'round' };
   return (
-    <svg className="ab-shieldnet" viewBox="0 0 280 240" role="img" aria-label="A shield at the centre of a neural network">
-      <defs>
-        <linearGradient id="abShield" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#2563eb" />
-          <stop offset="1" stopColor="#06b6d4" />
-        </linearGradient>
-        <radialGradient id="abGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0" stopColor="#2563eb" stopOpacity=".28" />
-          <stop offset="1" stopColor="#2563eb" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx="140" cy="118" r="112" fill="url(#abGlow)" />
-      <g stroke="#93b4f5" strokeWidth="1.2" className="ab-net-lines">
-        {nodes.map(([x, y], i) => (
-          <line key={i} x1="140" y1="118" x2={x} y2={y} />
-        ))}
-        {nodes.map(([x, y], i) => {
-          const [nx, ny] = nodes[(i + 1) % nodes.length];
-          return <line key={`e${i}`} x1={x} y1={y} x2={nx} y2={ny} opacity=".55" />;
-        })}
+    <svg className="ab-scene" viewBox="0 0 380 330" role="img" aria-label="Cartoon of a smiling security shield, a waving AI robot and a student coding on a laptop">
+      <path d="M40 170 C20 90 90 30 170 40 C250 20 350 60 355 150 C365 230 300 300 200 300 C110 310 50 270 40 170Z" fill="#dbe8ff" />
+      {/* sparkles */}
+      <g className="ab-spark" fill="#ffd84d" {...o} strokeWidth="2">
+        <path d="M340 44l5 12 12 5-12 5-5 12-5-12-12-5 12-5z" />
+        <path d="M30 60l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" />
       </g>
-      {nodes.map(([x, y], i) => (
-        <circle key={i} className="ab-node" cx={x} cy={y} r="6" fill="#fff" stroke="#2563eb" strokeWidth="2.2" style={{ animationDelay: `${i * 0.35}s` }} />
-      ))}
-      <path d="M140 52 L196 74 V122 C196 156 172 180 140 190 C108 180 84 156 84 122 V74 Z" fill="url(#abShield)" />
-      <path d="M140 60 L189 79 V122 C189 152 168 173 140 182 C112 173 91 152 91 122 V79 Z" fill="none" stroke="#fff" strokeOpacity=".45" strokeWidth="1.5" />
-      <circle cx="140" cy="112" r="11" fill="#fff" />
-      <path d="M136 120 L140 142 L144 120 Z" fill="#fff" />
-      <circle cx="140" cy="112" r="4.5" fill="#1d4ed8" />
+      <text x="300" y="118" fontSize="16" fontWeight="800" fill="#2563eb" fontFamily="ui-monospace,Menlo,monospace" className="ab-bits">01</text>
+      <text x="40" y="150" fontSize="16" fontWeight="800" fill="#ff7a59" fontFamily="ui-monospace,Menlo,monospace" className="ab-bits">10</text>
+
+      {/* shield with a smiling padlock */}
+      <g className="ab-bob">
+        <path d="M120 44 L188 68 V132 C188 176 160 204 120 218 C80 204 52 176 52 132 V68 Z" fill="#2563eb" {...o} />
+        <path d="M120 58 L176 78 V130 C176 166 153 191 120 204 C87 191 64 166 64 130 V78 Z" fill="#5b8cf5" stroke="#fff" strokeWidth="2.5" strokeOpacity=".7" />
+        <path d="M104 104 V92 a16 16 0 0 1 32 0 V104" fill="none" {...o} strokeWidth="5" />
+        <rect x="92" y="102" width="56" height="46" rx="10" fill="#ffd84d" {...o} />
+        <circle cx="110" cy="122" r="4.2" fill={INK} />
+        <circle cx="130" cy="122" r="4.2" fill={INK} />
+        <path d="M110 133 Q120 142 130 133" fill="none" {...o} strokeWidth="2.6" />
+        <circle cx="103" cy="131" r="3.6" fill="#ff9d8f" opacity=".8" />
+        <circle cx="137" cy="131" r="3.6" fill="#ff9d8f" opacity=".8" />
+      </g>
+
+      {/* waving AI robot */}
+      <g className="ab-bob ab-bob-2">
+        <line x1="270" y1="70" x2="270" y2="52" {...o} />
+        <circle cx="270" cy="47" r="7" fill="#ff7a59" {...o} />
+        <rect x="236" y="70" width="68" height="54" rx="16" fill="#fff" {...o} />
+        <rect x="226" y="86" width="10" height="20" rx="4" fill="#a5c4ff" {...o} />
+        <rect x="304" y="86" width="10" height="20" rx="4" fill="#a5c4ff" {...o} />
+        <circle cx="256" cy="94" r="8" fill="#fff" {...o} strokeWidth="2.6" />
+        <circle cx="284" cy="94" r="8" fill="#fff" {...o} strokeWidth="2.6" />
+        <circle cx="258" cy="95" r="3.6" fill={INK} />
+        <circle cx="286" cy="95" r="3.6" fill={INK} />
+        <path d="M258 110 Q270 120 282 110" fill="none" {...o} strokeWidth="2.6" />
+        <rect x="244" y="128" width="52" height="46" rx="12" fill="#a5c4ff" {...o} />
+        <text x="270" y="158" textAnchor="middle" fontSize="18" fontWeight="900" fill={INK} fontFamily="system-ui,sans-serif">AI</text>
+        <path d="M244 142 L226 158" fill="none" {...o} strokeWidth="6" />
+        <g className="ab-wave"><path d="M296 140 L316 118" fill="none" {...o} strokeWidth="6" /><circle cx="318" cy="115" r="6" fill="#fff" {...o} strokeWidth="2.6" /></g>
+        <rect x="252" y="176" width="10" height="20" rx="4" fill="#a5c4ff" {...o} strokeWidth="2.6" />
+        <rect x="278" y="176" width="10" height="20" rx="4" fill="#a5c4ff" {...o} strokeWidth="2.6" />
+      </g>
+
+      {/* student on a laptop */}
+      <g>
+        <ellipse cx="190" cy="304" rx="120" ry="9" fill="rgba(43,34,51,.12)" />
+        <circle cx="136" cy="238" r="27" fill="#f3c9a5" {...o} />
+        <path d="M108 236 Q106 206 138 208 Q168 208 164 236 Q152 222 136 224 Q120 224 108 236Z" fill={INK} {...o} strokeWidth="2.4" />
+        <circle cx="108" cy="228" r="9" fill={INK} /><circle cx="164" cy="228" r="9" fill={INK} />
+        <circle cx="127" cy="242" r="3.2" fill={INK} /><circle cx="147" cy="242" r="3.2" fill={INK} />
+        <path d="M128 252 Q137 260 146 252" fill="none" {...o} strokeWidth="2.6" />
+        <circle cx="120" cy="252" r="4" fill="#ff9d8f" opacity=".8" /><circle cx="154" cy="252" r="4" fill="#ff9d8f" opacity=".8" />
+        <path d="M84 284 Q88 262 136 262 Q184 262 188 284 Z" fill="#ff7a59" {...o} />
+        <rect x="176" y="222" width="132" height="82" rx="10" fill={INK} {...o} />
+        <rect x="184" y="230" width="116" height="66" rx="6" fill="#0f172a" />
+        <g fontFamily="ui-monospace,Menlo,monospace" fontSize="12" fontWeight="800">
+          <text x="192" y="250" fill="#38bdf8">{'</>'}</text>
+          <text x="192" y="268" fill="#86efac">secure()</text>
+          <text x="192" y="284" fill="#ffd84d">train(AI)</text>
+        </g>
+        <path d="M164 304 H320 L328 312 H156 Z" fill="#a5c4ff" {...o} />
+      </g>
     </svg>
   );
 }

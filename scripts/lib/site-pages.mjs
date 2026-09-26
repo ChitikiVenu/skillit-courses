@@ -65,9 +65,9 @@ export async function getSitePages() {
     { path: '/data-compliance-policy', title: DATA_COMPLIANCE_POLICY.metaTitle, description: DATA_COMPLIANCE_POLICY.metaDescription },
     {
       path: '/about-us',
-      title: 'About Us | Skill IT Education',
+      title: 'About Skill IT | AI & Cyber Security Training, Hyderabad',
       description:
-        'Skill IT Education is an upskilling academy in Madhapur, Hyderabad, training graduates and professionals in future technologies through hands-on labs, real projects, a real-time internship and honest placement assistance.',
+        'Learn Cyber Security, AI & ML, Data Science and SOC in Madhapur, Hyderabad: live classes, hands-on labs, real projects, internship and placement assistance.',
     },
     {
       path: '/contact',

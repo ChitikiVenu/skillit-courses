@@ -3,7 +3,7 @@ import { Boy, Confetti, Girl } from './AboutCartoons.jsx';
 
 // Design units, before the phone scale-down: the lane is 110 wide, the rope hangs at x = 78.
 const LANE_W = 110;
-const BOY_TOP = 44;
+const BOY_TOP = 78;
 const BOY_HAND = 52; // the boy's fist sits this far below his top
 const GIRL_H = 112;
 const GIRL_HAND = 8; // where the girl's hands hold the rope, from her top
@@ -15,6 +15,7 @@ const GIRL_LINES = ['Wheee! Keep scrolling!', 'Hands-on labs? Yes please!', "I'm
 // section. Positions are written straight to the DOM on scroll (no React re-render), and a numbered flag
 // marks each section on the rope. `storyRef` is the element that wraps all the sections.
 export default function AboutRope({ storyRef, sections }) {
+  const laneRef = useRef(null);
   const innerRef = useRef(null);
   const girlRef = useRef(null);
   const threadRef = useRef(null);
@@ -26,10 +27,11 @@ export default function AboutRope({ storyRef, sections }) {
 
   useEffect(() => {
     const story = storyRef.current;
+    const lane = laneRef.current;
     const inner = innerRef.current;
     const girl = girlRef.current;
     const thread = threadRef.current;
-    if (!story || !inner || !girl || !thread) return undefined;
+    if (!story || !lane || !inner || !girl || !thread) return undefined;
 
     let k = 1;
     let storyH = 0;
@@ -40,8 +42,13 @@ export default function AboutRope({ storyRef, sections }) {
     const place = () => {
       raf = 0;
       const top = story.getBoundingClientRect().top;
-      const maxY = Math.max(minY, storyH - GIRL_H - 24);
-      const y = Math.max(minY, Math.min(maxY, (window.innerHeight * 0.5 - top) / k - GIRL_H / 2));
+      const maxY = Math.max(minY, storyH - GIRL_H - 10);
+      // She follows the middle of the screen; over the last stretch of the page she eases down to the very bottom.
+      const vh = window.innerHeight;
+      const toEnd = document.documentElement.scrollHeight - vh - window.scrollY;
+      const ease = Math.max(0, Math.min(1, 1 - toEnd / (vh * 0.6)));
+      const extra = ease * Math.max(0, vh * 0.5 - GIRL_H * k * 0.5 - 10);
+      const y = Math.max(minY, Math.min(maxY, (vh * 0.5 + extra - top) / k - GIRL_H / 2));
       girl.style.transform = `translate3d(0,${y.toFixed(1)}px,0)`;
       thread.style.height = `${(y + GIRL_HAND - (BOY_TOP + BOY_HAND)).toFixed(1)}px`;
       const done = y >= maxY - 1;
@@ -51,7 +58,10 @@ export default function AboutRope({ storyRef, sections }) {
     const measure = () => {
       k = inner.getBoundingClientRect().width / inner.offsetWidth || 1;
       const sr = story.getBoundingClientRect();
-      storyH = sr.height / k;
+      // The lane runs from the top of the story to the very bottom of the page (through the form and footer).
+      const laneH = document.documentElement.scrollHeight - (sr.top + window.scrollY);
+      lane.style.height = `${laneH}px`;
+      storyH = laneH / k;
       setMarks(
         sections
           .map((s) => {
@@ -75,6 +85,7 @@ export default function AboutRope({ storyRef, sections }) {
     window.addEventListener('resize', measure);
     const ro = new ResizeObserver(measure);
     ro.observe(story);
+    ro.observe(document.body);
     // Fonts and images shift the section heights after load.
     const late = setTimeout(measure, 800);
     return () => {
@@ -103,7 +114,7 @@ export default function AboutRope({ storyRef, sections }) {
   };
 
   return (
-    <div className={`about-lane${landed ? ' is-landed' : ''}`}>
+    <div className={`about-lane${landed ? ' is-landed' : ''}`} ref={laneRef}>
       <div className="about-lane-inner" ref={innerRef} style={{ width: LANE_W }}>
         <button type="button" className="about-char about-boy" style={{ top: BOY_TOP }} onClick={() => say('boy')} aria-label="Say hello to the boy holding the rope">
           <Boy />

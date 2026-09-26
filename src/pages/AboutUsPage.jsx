@@ -1,12 +1,13 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { DOMAIN, ADDRESS, EMAIL, PHONE } from '../constants.js';
+import { DOMAIN, ADDRESS } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
+import LeadForm from '../components/LeadForm.jsx';
 import AboutRope from '../components/AboutRope.jsx';
 import { Balloon } from '../components/AboutCartoons.jsx';
-import Icon, { ShieldNet } from '../components/AboutIcons.jsx';
+import Icon, { HeroScene } from '../components/AboutIcons.jsx';
 
 const STORY_SECTIONS = [
   { id: 'why', label: 'Why we exist' },
@@ -15,6 +16,7 @@ const STORY_SECTIONS = [
   { id: 'whom', label: "Who we're for" },
   { id: 'where', label: "Where you'll learn" },
   { id: 'promise', label: 'Our promise' },
+  { id: 'about-enquire', label: 'Talk to us' },
 ];
 
 // A pair of balloons floating beside a section heading.
@@ -41,6 +43,7 @@ export default function AboutUsPage() {
       {
         '@type': 'AboutPage',
         name: 'About Skill IT Education',
+        description: 'Learn Cyber Security, AI & ML, Data Science and SOC in Madhapur, Hyderabad: live classes, hands-on labs, real projects, internship and placement assistance.',
         url: `${DOMAIN}/about-us`,
         about: { '@type': 'EducationalOrganization', name: 'Skill IT Education', url: DOMAIN },
       },
@@ -57,12 +60,14 @@ export default function AboutUsPage() {
   return (
     <main>
       <Seo
-        title="About Us | Skill IT Education"
-        description="Skill IT Education is an upskilling academy in Madhapur, Hyderabad, training graduates and professionals in future technologies through hands-on labs, real projects, a real-time internship and honest placement assistance."
+        title="About Skill IT | AI & Cyber Security Training, Hyderabad"
+        description="Learn Cyber Security, AI & ML, Data Science and SOC in Madhapur, Hyderabad: live classes, hands-on labs, real projects, internship and placement assistance."
         path="/about-us"
         jsonLd={jsonLd}
       />
 
+      <div className="about-story ab-story" ref={storyRef}>
+      <AboutRope storyRef={storyRef} sections={STORY_SECTIONS} />
       <section className="hero about-hero ab-hero">
         <div className="wrap ab-hero-grid">
           <div className="ab-hero-copy">
@@ -72,12 +77,13 @@ export default function AboutUsPage() {
               <span aria-current="page">About Us</span>
             </nav>
             <FitHeading maxLines={2} minPx={26}>
-              We Build Training That Gets You Hired, Not Just Certified
+              AI &amp; Cyber Security Training in Hyderabad That Gets You Hired
             </FitHeading>
             <p className="hero-lede">
-              Skill IT Education is an upskilling academy based in Madhapur, Hyderabad. We train graduates, working
-              professionals and career switchers in future technologies — through hands-on labs, real projects and a
-              real-time internship, not lectures alone.
+              Skill IT Education is an AI and cyber security academy in Madhapur, Hyderabad. Learn Cyber Security, SOC
+              Analysis, AI &amp; ML, Data Science and Data Analytics through live classes, hands-on labs and real projects,
+              finish with a real-time internship, and get placement assistance when you&apos;re ready to apply. Study
+              online (live) or on campus.
             </p>
             <div className="hero-ctas">
               <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
@@ -95,38 +101,23 @@ export default function AboutUsPage() {
             </ul>
           </div>
           <div className="ab-hero-art" aria-hidden="true">
-            <ShieldNet />
-            <div className="ab-term">
-              <div className="ab-term-bar"><i /><i /><i /><span>skillit@academy</span></div>
-              <p><b>$</b> start-batch --live</p>
-              <p className="ok">&#10003; hands-on lab ready</p>
-              <p className="ok">&#10003; real project loaded</p>
-              <p className="ok">&#10003; internship unlocked<span className="ab-caret" /></p>
-            </div>
-            <span className="ab-tag ab-tag-1">Cyber Security</span>
-            <span className="ab-tag ab-tag-2">AI &amp; ML</span>
-            <span className="ab-tag ab-tag-3">SOC Analyst</span>
-            <span className="ab-tag ab-tag-4">Data Science</span>
+            <HeroScene />
           </div>
         </div>
       </section>
-
-      <div className="about-story ab-story" ref={storyRef}>
-        <AboutRope storyRef={storyRef} sections={STORY_SECTIONS} />
 
         <section id="why" className="ab-sec">
           <div className="wrap">
             <div className="section-head">
               <Balloons n={0} />
-              <span className="eyebrow">Why We Exist</span>
               <h2>A Certificate Was Never the Point</h2>
             </div>
             <div className="ab-split">
               <p className="ab-lead">
-                Most technology courses stop at a certificate. We built Skill IT Education around a harder question: what
-                does it actually take for someone to walk into a technology role and do the job on day one? Our answer is
-                practice — enough hands-on work, real projects, and real-world exposure that what you walk out with is
-                proof of ability, not just attendance.
+                Certificates don&apos;t get you hired — skills do. That&apos;s why every Skill IT programme is built around
+                doing: hands-on labs, real projects and a real-time internship. Whether you&apos;re a fresher, a working
+                professional or switching careers, you finish with work you can show, tools you can use and the
+                confidence to walk into a technology interview ready.
               </p>
               <ul className="ab-trio">
                 <li><span className="ab-ico"><Icon name="flask" /></span><b>Hands-on work</b><em>Practice in every module</em></li>
@@ -141,18 +132,17 @@ export default function AboutUsPage() {
           <div className="wrap">
             <div className="section-head">
               <Balloons n={1} />
-              <span className="eyebrow">What You Get</span>
               <h2>What You Actually Get With Us</h2>
-              <p>The same structure runs through every programme we teach, whichever one you choose.</p>
+              <p>Every programme — Cyber Security, AI &amp; ML, Data Science, SOC Analyst and Data Analytics — follows the same learn-by-doing structure.</p>
             </div>
             <div className="ab-cards ab-cards-3">
               {[
-                ['flask', 'Hands-on labs', 'Hands-on labs in every module, run in your own practice environment'],
-                ['code', 'Portfolio projects', 'Real, portfolio-ready projects you can show in interviews'],
-                ['tools', 'Industry tools', 'Industry-standard tools and platforms, not simplified substitutes'],
-                ['quiz', 'Assessed every module', 'A knowledge quiz and a practical assessment at the end of every module'],
-                ['briefcase', 'Real-time internship', 'A real-time internship phase after the core curriculum'],
-                ['target', 'Placement assistance', 'Placement assistance — resume support, mock interviews and interview opportunities with hiring partners'],
+                ['flask', 'Hands-on labs', 'Practise in your own lab environment in every module. Break it, fix it and build it the way you would on the job.'],
+                ['code', 'Portfolio projects', 'Build real, portfolio-ready projects you can walk an interviewer through.'],
+                ['tools', 'Industry tools', 'Train on industry-standard tools and platforms, not simplified stand-ins.'],
+                ['quiz', 'Assessed every module', 'A knowledge quiz and a practical assessment after each module show you exactly where you stand.'],
+                ['briefcase', 'Real-time internship', 'Put it all to work in a real-time internship after the core curriculum.'],
+                ['target', 'Placement assistance', 'Resume support, mock interviews and interview opportunities with our hiring partners.'],
               ].map(([icon, title, text]) => (
                 <article className="ab-card" key={title}>
                   <span className="ab-ico"><Icon name={icon} /></span>
@@ -168,14 +158,14 @@ export default function AboutUsPage() {
           <div className="wrap">
             <div className="section-head">
               <Balloons n={2} />
-              <span className="eyebrow">How We Teach</span>
               <h2>Instructor-Led, Not Self-Paced</h2>
             </div>
             <div className="ab-split">
               <p className="ab-lead">
-                Every programme runs on a fixed batch schedule with live sessions and direct access to faculty for
-                doubt-clearing — not a pre-recorded course you work through alone. You can learn online (live) or in
-                person, whichever fits how you learn best.
+                Skill IT runs on live, instructor-led batches — not pre-recorded videos. You get a fixed schedule,
+                real-time sessions and direct access to faculty, so doubts get cleared the moment they come up. Join
+                online (live) from anywhere or attend in person at our Madhapur campus: same curriculum, same labs,
+                same faculty.
               </p>
               <div className="ab-modes">
                 <div className="ab-mode">
@@ -202,8 +192,8 @@ export default function AboutUsPage() {
           <div className="wrap">
             <div className="section-head">
               <Balloons n={3} />
-              <span className="eyebrow">Who We're For</span>
               <h2>Who Actually Joins Our Programmes</h2>
+              <p>Whatever your starting point, there&apos;s a programme built to take you further.</p>
             </div>
             <div className="ab-cards ab-cards-4">
               {[
@@ -226,7 +216,6 @@ export default function AboutUsPage() {
           <div className="wrap">
             <div className="section-head">
               <Balloons n={4} />
-              <span className="eyebrow">Where You'll Learn</span>
               <h2>A Real Campus in Madhapur, Hyderabad</h2>
             </div>
             <div className="ab-where">
@@ -242,8 +231,8 @@ export default function AboutUsPage() {
                 <span className="ab-ico"><Icon name="globe" /></span>
                 <h3>Or learn online</h3>
                 <p>
-                  If you're nearby, you can train with us in person; if you're not, our live online batches run the same
-                  curriculum, the same labs, and the same faculty access.
+                  Not in Hyderabad? Our live online batches run the same curriculum, the same labs and the same faculty
+                  access as the campus. Nearby? Come train with us in person.
                 </p>
               </div>
             </div>
@@ -254,7 +243,6 @@ export default function AboutUsPage() {
           <div className="wrap">
             <div className="section-head">
               <Balloons n={0} />
-              <span className="eyebrow">Our Promise</span>
               <h2>We Won't Promise You a Job</h2>
               <p>No genuine training programme can guarantee a job offer, and we'd rather be upfront about that than overclaim.</p>
             </div>
@@ -262,9 +250,9 @@ export default function AboutUsPage() {
               <span className="ab-promise-shield"><Icon name="shield" size={44} /></span>
               <div>
                 <p>
-                  What we do commit to is real placement assistance: resume support, mock interviews, and interview
-                  opportunities with our hiring partners for every student who completes their programme and internship.
-                  The work of getting hired is still yours — we make sure you walk in prepared.
+                  What we do commit to is real placement assistance: resume support, mock interviews and interview
+                  opportunities with our hiring partners for every student who completes their programme and
+                  internship. The work of getting hired is still yours — we make sure you walk in prepared.
                 </p>
                 <ul className="ab-steps">
                   <li><Icon name="file" size={18} /> Resume support</li>
@@ -275,27 +263,29 @@ export default function AboutUsPage() {
             </div>
           </div>
         </section>
-      </div>
 
-      <section className="cta-banner">
-        <div className="wrap">
-          <div>
-            <h3>Ready to see if this is the right fit?</h3>
-            <p>Talk to an advisor — they'll help you match your background and goals to the right programme.</p>
+      <section id="about-enquire" className="ab-sec ab-enquire">
+        <div className="wrap ab-enquire-grid">
+          <div className="ab-enquire-copy">
+            <h2>Ready to Start Your AI &amp; Cyber Security Career?</h2>
+            <p>
+              Tell us a little about yourself and an advisor will help you match your background and goals to the
+              right programme — Cyber Security, AI &amp; ML, Data Science, SOC Analyst or Data Analytics.
+            </p>
+            <ul className="ab-steps ab-enquire-points">
+              <li><Icon name="users" size={18} /> Free one-to-one guidance</li>
+              <li><Icon name="target" size={18} /> Programme matched to your goals</li>
+              <li><Icon name="file" size={18} /> Brochure after you submit</li>
+            </ul>
           </div>
-          <div className="hero-ctas" style={{ margin: 0 }}>
-            <button type="button" className="btn btn-primary" onClick={() => setAdvisorOpen(true)}>
-              Talk to an Advisor
-            </button>
-            <a className="btn btn-outline" href={`tel:${PHONE.replace(/\s+/g, '')}`}>
-              Call {PHONE}
-            </a>
-            <a className="btn btn-outline" href={`mailto:${EMAIL}`}>
-              Email Us
-            </a>
-          </div>
+          <LeadForm
+            formId="about-us"
+            heading="Get Free Career Guidance"
+            subheading="Share your details and we'll call you back."
+          />
         </div>
       </section>
+      </div>
 
       <AdvisorModal open={advisorOpen} onClose={() => setAdvisorOpen(false)} />
     </main>
