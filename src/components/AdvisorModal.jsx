@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { COURSE_BROCHURES } from '../data/courseBrochures.js';
 import { track } from '../utils/analytics.js';
 import { focusFirstError, validateForm } from '../utils/validate.js';
+import ThankYou from './ThankYou.jsx';
 import { submitLead } from '../utils/submitLead.js';
 
 const FIELDS = ['full_name', 'email', 'phone', 'course', 'message'];
@@ -129,14 +130,7 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
             </form>
           </>
         ) : (
-          <div className="form-success">
-            Thanks — we&rsquo;ve received your details. Our admissions team will call you back shortly.{' '}
-            {brochureFile && (
-              <a href={`/downloads/${brochureFile}`} download>
-                Download the brochure now &rarr;
-              </a>
-            )}
-          </div>
+          <ThankYou brochureFile={brochureFile} onDone={() => setSubmitted(false)} />
         )}
       </div>
     </div>

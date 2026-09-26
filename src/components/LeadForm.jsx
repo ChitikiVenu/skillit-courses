@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { COURSE_BROCHURES } from '../data/courseBrochures.js';
 import { track } from '../utils/analytics.js';
 import { focusFirstError, validateForm } from '../utils/validate.js';
+import ThankYou from './ThankYou.jsx';
 import { submitLead } from '../utils/submitLead.js';
 
 const FIELDS = ['full_name', 'mobile', 'profession', 'course'];
@@ -114,14 +115,7 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
           </>
         )}
         {submitted && (
-          <div className="form-success">
-            Thanks — we&rsquo;ve received your details. Our admissions team will call you back shortly.{' '}
-            {resolvedBrochure && (
-              <a href={`/downloads/${resolvedBrochure}`} download>
-                Download the brochure now &rarr;
-              </a>
-            )}
-          </div>
+          <ThankYou brochureFile={resolvedBrochure} onDone={() => setSubmitted(false)} />
         )}
       </form>
     </div>

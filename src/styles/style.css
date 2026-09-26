@@ -240,7 +240,8 @@ header.site{
 .form-submit{flex:0 0 auto;height:38px;padding:0 20px;white-space:nowrap;}
 .form-note{font-size:12px;color:var(--text-faint);margin-top:8px;}
 .form-success{padding:16px;text-align:center;font-size:14.5px;font-weight:600;color:var(--text);background:rgba(12,154,131,.08);border-radius:8px;}
-.form-success a{color:var(--cta-dark);text-decoration:underline;white-space:nowrap;}
+.form-success-title{margin:0 0 12px;font-size:17px;font-weight:700;}
+.form-success .form-success-btn{display:inline-block;color:#fff;text-decoration:none;white-space:normal;}
 
 /* module progress strip */
 .progress-strip{border-bottom:1px solid var(--border);background:var(--bg-alt);}
