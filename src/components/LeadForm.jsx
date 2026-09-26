@@ -35,6 +35,7 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
     setSendError(false);
     const result = await submitLead({
       form: formId,
+      headline: heading,
       name: form.elements.full_name.value.trim(),
       phone: form.elements.mobile.value.replace(/[\s-]/g, ''),
       profession: form.elements.profession.value,

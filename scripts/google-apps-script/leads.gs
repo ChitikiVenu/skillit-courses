@@ -7,7 +7,7 @@ const NOTIFY_EMAIL = 'info@skilliteducation.com';
 // Must match VITE_LEADS_TOKEN on the website. Any long random string; it only keeps stray bots out.
 const TOKEN = 'CHANGE_ME_TO_A_LONG_RANDOM_STRING';
 
-const HEADERS = ['Timestamp', 'Form', 'Page', 'Name', 'Mobile / Phone', 'Email', 'Profession', 'Course', 'Message', 'Brochure sent', 'Source (utm)', 'Medium (utm)', 'Campaign (utm)'];
+const HEADERS = ['Timestamp', 'Form', 'Form headline', 'Page', 'Name', 'Mobile / Phone', 'Email', 'Profession', 'Course', 'Message', 'Brochure sent', 'Source (utm)', 'Medium (utm)', 'Campaign (utm)'];
 
 // Stops a cell that starts with = + - @ from being run as a spreadsheet formula.
 const safe = (v) => {
@@ -29,14 +29,14 @@ function doPost(e) {
     }
     const row = [
       new Date(),
-      d.form, d.page, d.name, d.phone, d.email, d.profession, d.course, d.message, d.brochure,
+      d.form, d.headline, d.page, d.name, d.phone, d.email, d.profession, d.course, d.message, d.brochure,
       d.utm_source, d.utm_medium, d.utm_campaign,
     ].map((v, i) => (i === 0 ? v : safe(v)));
     sheet.appendRow(row);
 
     const lines = [
       ['Name', d.name], ['Mobile / Phone', d.phone], ['Email', d.email], ['Profession', d.profession],
-      ['Course', d.course], ['Message', d.message], ['Form', d.form], ['Page', d.page], ['Brochure', d.brochure],
+      ['Course', d.course], ['Message', d.message], ['Form', d.form], ['Form headline', d.headline], ['Page', d.page], ['Brochure', d.brochure],
     ].filter((r) => r[1]);
     const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[c]);
     MailApp.sendEmail({

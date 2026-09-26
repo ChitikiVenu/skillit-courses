@@ -52,6 +52,7 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
     setSendError(false);
     const result = await submitLead({
       form: 'advisor-modal',
+      headline: title,
       name: form.elements.full_name.value.trim(),
       email: form.elements.email.value.trim(),
       phone: form.elements.phone.value.replace(/[\s-]/g, ''),
