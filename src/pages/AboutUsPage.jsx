@@ -1,9 +1,28 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DOMAIN, ADDRESS, EMAIL, PHONE } from '../constants.js';
 import Seo from '../components/Seo.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
+import AboutRope from '../components/AboutRope.jsx';
+import { Balloon, Bunting } from '../components/AboutCartoons.jsx';
+
+const STORY_SECTIONS = [
+  { id: 'why', label: 'Why we exist' },
+  { id: 'what-you-get', label: 'What you get' },
+  { id: 'how', label: 'How we teach' },
+  { id: 'whom', label: "Who we're for" },
+  { id: 'where', label: "Where you'll learn" },
+  { id: 'promise', label: 'Our promise' },
+];
+
+// A pair of balloons floating beside a section heading.
+const Balloons = ({ n }) => (
+  <span className="about-balloons" aria-hidden="true">
+    <Balloon colour={n} />
+    <Balloon colour={n + 2} />
+  </span>
+);
 
 // About Us — deliberately kept to real, already-established facts about the organisation (its
 // tagline, address, the training model described elsewhere on the site, the honest
@@ -13,6 +32,7 @@ import AdvisorModal from '../components/AdvisorModal.jsx';
 // this page is about the organisation and what a student gets, not a catalogue.
 export default function AboutUsPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
+  const storyRef = useRef(null);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -43,6 +63,12 @@ export default function AboutUsPage() {
       />
 
       <section className="hero about-hero">
+        <Bunting />
+        <span className="about-hero-balloons" aria-hidden="true">
+          <Balloon colour={0} />
+          <Balloon colour={1} />
+          <Balloon colour={3} />
+        </span>
         <div className="wrap">
           <nav className="breadcrumb" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
@@ -68,9 +94,12 @@ export default function AboutUsPage() {
         </div>
       </section>
 
+      <div className="about-story" ref={storyRef}>
+        <AboutRope storyRef={storyRef} sections={STORY_SECTIONS} />
       <section id="why">
         <div className="wrap">
           <div className="section-head">
+            <Balloons n={0} />
             <span className="eyebrow">Why We Exist</span>
             <h2>A Certificate Was Never the Point</h2>
           </div>
@@ -86,6 +115,7 @@ export default function AboutUsPage() {
       <section id="what-you-get" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
+            <Balloons n={1} />
             <span className="eyebrow">What You Get</span>
             <h2>What You Actually Get With Us</h2>
             <p>The same structure runs through every programme we teach, whichever one you choose.</p>
@@ -104,6 +134,7 @@ export default function AboutUsPage() {
       <section id="how">
         <div className="wrap">
           <div className="section-head">
+            <Balloons n={2} />
             <span className="eyebrow">How We Teach</span>
             <h2>Instructor-Led, Not Self-Paced</h2>
           </div>
@@ -118,6 +149,7 @@ export default function AboutUsPage() {
       <section id="whom" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
+            <Balloons n={3} />
             <span className="eyebrow">Who We're For</span>
             <h2>Who Actually Joins Our Programmes</h2>
           </div>
@@ -133,6 +165,7 @@ export default function AboutUsPage() {
       <section id="where">
         <div className="wrap">
           <div className="section-head">
+            <Balloons n={4} />
             <span className="eyebrow">Where You'll Learn</span>
             <h2>A Real Campus in Madhapur, Hyderabad</h2>
           </div>
@@ -146,6 +179,7 @@ export default function AboutUsPage() {
       <section id="promise" style={{ background: 'var(--bg-alt)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="wrap">
           <div className="section-head">
+            <Balloons n={5} />
             <span className="eyebrow">Our Promise</span>
             <h2>We Won't Promise You a Job</h2>
             <p>No genuine training programme can guarantee a job offer, and we'd rather be upfront about that than overclaim.</p>
@@ -157,6 +191,7 @@ export default function AboutUsPage() {
           </p>
         </div>
       </section>
+      </div>
 
       <section className="cta-banner">
         <div className="wrap">

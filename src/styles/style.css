@@ -2117,3 +2117,73 @@ section[id]{scroll-margin-top:92px;}
 .form-field input[aria-invalid="true"],.form-field select[aria-invalid="true"],.modal-field input[aria-invalid="true"],.modal-field select[aria-invalid="true"],.modal-field textarea[aria-invalid="true"]{border-color:#c62828;box-shadow:0 0 0 3px rgba(198,40,40,.12);}
 .hp-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;}
 .form-submit:disabled{opacity:.7;cursor:progress;}
+
+/* ---- About Us: cartoon rope, balloons and ribbons ---- */
+.about-hero{position:relative;overflow:hidden;}
+.about-hero .bunting{position:absolute;left:0;top:0;width:100%;height:46px;pointer-events:none;}
+.about-hero-balloons{position:absolute;right:max(16px,calc(50% - 560px));top:56px;display:flex;gap:6px;pointer-events:none;}
+.about-hero-balloons .balloon:nth-child(2){margin-top:26px;}
+.about-hero-balloons .balloon:nth-child(3){margin-top:-6px;}
+.balloon{animation:balloon-float 4.6s ease-in-out infinite;transform-origin:50% 100%;}
+.about-hero-balloons .balloon:nth-child(2),.about-balloons .balloon:nth-child(2){animation-delay:-1.6s;}
+.about-hero-balloons .balloon:nth-child(3){animation-delay:-3s;}
+@keyframes balloon-float{0%,100%{transform:translateY(0) rotate(-3deg);}50%{transform:translateY(-12px) rotate(3deg);}}
+
+.about-story{position:relative;overflow-x:clip;}
+.about-story .wrap{padding-left:128px;}
+.about-story .section-head{position:relative;}
+.about-story .eyebrow{background:var(--cta);color:#fff;padding:6px 26px;font-weight:800;letter-spacing:.06em;clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%);}
+.about-story .eyebrow::before{display:none;}
+.about-balloons{position:absolute;right:-8px;top:-18px;display:none;gap:4px;pointer-events:none;}
+.about-balloons .balloon{width:30px;height:auto;}
+.about-balloons .balloon:nth-child(2){margin-top:14px;}
+@media (min-width:1000px){.about-balloons{display:flex;right:-150px;}}
+
+.about-lane{position:absolute;left:0;top:0;bottom:0;width:0;z-index:3;pointer-events:none;}
+.about-lane-inner{position:absolute;left:8px;top:0;transform-origin:0 0;}
+.about-char{position:absolute;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto;line-height:0;-webkit-tap-highlight-color:transparent;}
+.about-boy{left:6px;}
+.about-boy .boy-arm{transform-origin:36px 42px;}
+.about-girl-wrap{position:absolute;left:46px;top:0;will-change:transform;}
+.about-girl{position:relative;left:0;top:0;transform-origin:50% 7%;}
+.about-thread{position:absolute;left:77px;width:3px;margin-left:-1px;border-radius:2px;pointer-events:none;background:repeating-linear-gradient(135deg,#8a5a2b 0 3px,#c99a5b 3px 6px);box-shadow:0 0 0 .5px rgba(0,0,0,.25);}
+.about-flag{position:absolute;left:60px;width:34px;height:34px;padding:0;border:2px solid #fff;border-radius:50%;background:#ffc93c;color:#2b2233;font:800 14px/1 system-ui,sans-serif;cursor:pointer;pointer-events:auto;box-shadow:0 2px 6px rgba(0,0,0,.25);}
+.about-flag:hover,.about-flag:focus-visible{background:var(--cta);color:#fff;}
+.about-bubble{position:absolute;left:96px;z-index:5;width:max-content;max-width:190px;padding:8px 12px;border-radius:14px;background:#fff;color:#2b2233;font:700 13px/1.3 system-ui,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.2);pointer-events:none;animation:bubble-in .25s ease-out;}
+.about-bubble::before{content:"";position:absolute;left:-7px;top:14px;border:7px solid transparent;border-right-color:#fff;border-left:0;}
+.about-bubble-boy{top:56px;}
+.about-bubble-girl{left:70px;top:22px;}
+@keyframes bubble-in{from{opacity:0;transform:scale(.85);}to{opacity:1;transform:none;}}
+
+/* Moving: the girl kicks her legs and bobs, the boy leans into the rope. */
+.about-girl-wrap .girl-leg{transform-origin:50% 72px;}
+.is-moving .girl-leg-l{animation:kick-l .34s ease-in-out infinite alternate;}
+.is-moving .girl-leg-r{animation:kick-r .34s ease-in-out infinite alternate;}
+.is-moving .about-girl{animation:girl-bob .34s ease-in-out infinite alternate;}
+.is-moving .about-boy{animation:boy-lean .5s ease-in-out infinite alternate;}
+.about-lane:not(.is-landed) .about-girl{animation:girl-sway 3.2s ease-in-out infinite;}
+.is-moving .about-girl{animation-name:girl-bob;}
+@keyframes kick-l{from{transform:rotate(-16deg);}to{transform:rotate(14deg);}}
+@keyframes kick-r{from{transform:rotate(14deg);}to{transform:rotate(-16deg);}}
+@keyframes girl-bob{from{transform:translateY(-4px) rotate(-3deg);}to{transform:translateY(4px) rotate(3deg);}}
+@keyframes girl-sway{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}
+@keyframes boy-lean{from{transform:rotate(-2deg);}to{transform:rotate(2deg);}}
+.is-landed .about-girl{animation:girl-cheer .6s ease-in-out infinite alternate;}
+@keyframes girl-cheer{from{transform:translateY(0);}to{transform:translateY(-8px);}}
+
+.confetti{position:absolute;left:-20px;bottom:0;width:150px;height:220px;pointer-events:none;overflow:hidden;}
+.confetti span{position:absolute;top:-10px;width:7px;height:12px;border-radius:2px;opacity:.9;animation:confetti-fall 3s linear infinite;}
+@keyframes confetti-fall{0%{transform:translateY(-10px) rotate(0);}100%{transform:translateY(230px) rotate(540deg);}}
+
+/* Phones: the whole lane shrinks so the text keeps its width. */
+@media (max-width:799px){
+  .about-story .wrap{padding-left:76px;}
+  .about-lane-inner{transform:scale(.64);left:2px;}
+  .about-bubble{font-size:20px;max-width:300px;padding:10px 14px;}
+  .about-hero-balloons{top:52px;right:10px;}
+  .about-hero-balloons .balloon{width:26px;height:auto;}
+  .about-hero-balloons .balloon:nth-child(3){display:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  .balloon,.is-moving .girl-leg-l,.is-moving .girl-leg-r,.is-moving .about-girl,.is-moving .about-boy,.about-lane .about-girl,.confetti span{animation:none !important;}
+}
