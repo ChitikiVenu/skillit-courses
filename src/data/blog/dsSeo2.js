@@ -156,7 +156,7 @@ export default [
           },
           {
             title: `Two months of internship work to talk about`,
-            text: `After five months of structured learning, the real-time industry internship gives you concrete experience to describe when an interviewer asks what you have done.`,
+            text: `After four months of structured learning, the real-time industry internship gives you concrete experience to describe when an interviewer asks what you have done.`,
           },
           {
             title: `Mock interviews that include the salary question`,
@@ -351,7 +351,7 @@ export default [
           },
           {
             title: `Internship months you can describe in detail`,
-            text: `The two-month real-time industry internship follows five months of structured learning, so your first week at a real job is not your first contact with live data work.`,
+            text: `The two-month real-time industry internship follows four months of structured learning, so your first week at a real job is not your first contact with live data work.`,
           },
           {
             title: `Certification preparation that reads well on a fresher resume`,
@@ -576,7 +576,7 @@ export default [
           },
           {
             title: `Projects and an internship as proof of fit`,
-            text: `At least five documented projects and a two-month real-time industry internship, after five months of structured learning, show you and employers that you can do the work.`,
+            text: `At least five documented projects and a two-month real-time industry internship, after four months of structured learning, show you and employers that you can do the work.`,
           },
           {
             title: `Career tracks that let you adjust course`,
@@ -789,7 +789,7 @@ export default [
           },
           {
             title: `Internship exposure across analysis, dashboards and deployment`,
-            text: `Two months of real-time industry internship, after five months of structured learning, lets you meet several kinds of data work before your first application.`,
+            text: `Two months of real-time industry internship, after four months of structured learning, lets you meet several kinds of data work before your first application.`,
           },
           {
             title: `Certification readiness across the tracks`,
@@ -1001,7 +1001,7 @@ export default [
           },
           {
             title: `An internship that shows how a data team really works`,
-            text: `A two-month real-time industry internship follows five months of structured learning, and gives you exposure across analysis, dashboarding and model deployment.`,
+            text: `A two-month real-time industry internship follows four months of structured learning, and gives you exposure across analysis, dashboarding and model deployment.`,
           },
           {
             title: `Certification preparation that travels between employers`,

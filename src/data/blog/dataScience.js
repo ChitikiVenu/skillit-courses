@@ -81,7 +81,7 @@ export default [
           { title: `Hands-on data science modules`, text: `Each module builds on the last and closes with a lab or a real project, so you write code and analyse data instead of watching slides.` },
           { title: `Data science labs on untidy datasets`, text: `Labs use real, untidy datasets, which is closer to what a data team hands you on day one.` },
           { title: `Data science projects and profile help`, text: `Your projects are documented to professional standards, and we help you turn them into a resume, GitHub profile and LinkedIn page.` },
-          { title: `Two-month data science internship`, text: `After five months of structured learning, the internship gives you exposure to data analysis, dashboarding and model deployment work.` },
+          { title: `Two-month data science internship`, text: `After four months of structured learning, the internship gives you exposure to data analysis, dashboarding and model deployment work.` },
           { title: `Hiring-partner introductions for data science`, text: `You get resume reviews, mock interviews and access to a hiring-partner network, all aimed at helping you prepare rather than promising a particular result.` },
         ],
       },
@@ -537,7 +537,7 @@ export default [
         kind: 'text',
         heading: `How long data science takes for a fresher`,
         paras: [
-          `Realistically, moving from zero to job-ready takes several months of steady work, not a few weeks. The Skill IT programme runs seven months in total: five months of structured learning and two months of internship. That pace reflects how long it genuinely takes to absorb the skills and apply them.`,
+          `Realistically, moving from zero to job-ready takes several months of steady work, not a few weeks. The Skill IT programme runs six months in total: four months of structured learning and two months of internship. That pace reflects how long it genuinely takes to absorb the skills and apply them.`,
           `Do not measure yourself against people who post one-week success stories. Your first offer may not be at a famous company, and that is fine. A first role builds the experience that opens the second one.`,
         ],
       },

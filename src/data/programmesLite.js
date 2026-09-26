@@ -17,7 +17,7 @@ export const PROGRAMMES_LITE = [
     "key": "data-science",
     "routeBase": "/data-science",
     "name": "Data Science",
-    "duration": "7 Months"
+    "duration": "6 Months"
   },
   {
     "key": "soc-analyst",

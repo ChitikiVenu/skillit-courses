@@ -326,7 +326,7 @@ const RAW_CATEGORIES = [
       },
       {
         q: 'Does the internship count toward my total programme duration?',
-        a: "Yes — the internship is the final phase of the programme timeline shown on each course page (for example the extra 2 months in Data Science's 7-months-total figure).",
+        a: "Yes — the internship is the final phase of the programme timeline shown on each course page (for example the extra 2 months in Data Science's 6-months-total figure).",
       },
     ],
   },

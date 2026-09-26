@@ -149,7 +149,7 @@ export default [
           },
           {
             title: `Two months of industry work before you apply`,
-            text: `After five months of structured learning, the real-time internship gives exposure to data analysis, dashboarding and model deployment, so your interviews have real work to talk about.`,
+            text: `After four months of structured learning, the real-time internship gives exposure to data analysis, dashboarding and model deployment, so your interviews have real work to talk about.`,
           },
           {
             title: `Profile clean-up, mock rounds and hiring-partner introductions`,
@@ -437,7 +437,7 @@ export default [
         people: [
           {
             who: `Final-year student in engineering, science or commerce`,
-            text: `Being in your final year is a normal way to begin. Ask the admissions team how the seven month structure would sit around your exams and placement season, and plan the timing with them.`,
+            text: `Being in your final year is a normal way to begin. Ask the admissions team how the six month structure would sit around your exams and placement season, and plan the timing with them.`,
           },
           {
             who: `Graduate from any stream, waiting for the right start`,
@@ -445,7 +445,7 @@ export default [
           },
           {
             who: `Working professional planning a move into data`,
-            text: `Support, testing, operations, finance or sales experience all give you business context. The real question is time, since a seven month programme needs steady weekly effort alongside your job, so talk through the schedule before you commit.`,
+            text: `Support, testing, operations, finance or sales experience all give you business context. The real question is time, since a six month programme needs steady weekly effort alongside your job, so talk through the schedule before you commit.`,
           },
           {
             who: `Someone returning after a career break`,
@@ -482,7 +482,7 @@ export default [
           },
           {
             title: `I have never written a line of code`,
-            text: `Then try a beginner Python exercise for a week before enrolling. If you enjoy it, that is a good sign. The Python module starts from the basics, but enjoying the work makes a seven month programme easier.`,
+            text: `Then try a beginner Python exercise for a week before enrolling. If you enjoy it, that is a good sign. The Python module starts from the basics, but enjoying the work makes a six month programme easier.`,
           },
           {
             title: `I finished my degree years ago`,
@@ -535,8 +535,8 @@ export default [
         intro: `Facts about the Advanced Data Science Certification Program at our Madhapur centre in Hyderabad. We assist your learning and your job search, and we do not promise an outcome.`,
         cards: [
           {
-            title: `A structured seven month path`,
-            text: `Five months of structured learning with 180 hours of core curriculum across eight modules, followed by a two-month real-time industry internship.`,
+            title: `A structured six month path`,
+            text: `Four months of structured learning with 180 hours of core curriculum across eight modules, followed by a two-month real-time industry internship.`,
           },
           {
             title: `Eight modules that begin at the foundations`,
@@ -575,7 +575,7 @@ export default [
           },
           {
             q: `Can I join a data science course while working full time?`,
-            a: `Many career changers study alongside a job, but it needs steady weekly effort across seven months. Ask the admissions team about the current schedule and whether online or offline attendance suits you, then check that your calendar can carry it.`,
+            a: `Many career changers study alongside a job, but it needs steady weekly effort across six months. Ask the admissions team about the current schedule and whether online or offline attendance suits you, then check that your calendar can carry it.`,
           },
         ],
       },
@@ -731,12 +731,12 @@ export default [
             text: `Projects such as the Data Cleaning Lab, the BI Dashboard Build and the Machine Learning Model Lab go into your portfolio, and an end-to-end capstone takes a problem to a deployed application.`,
           },
           {
-            title: `Seven months in total, ending with real work`,
-            text: `Five months of structured learning, then two months of real-time industry internship covering data analysis, dashboarding and model deployment.`,
+            title: `Six months in total, ending with real work`,
+            text: `Four months of structured learning, then two months of real-time industry internship covering data analysis, dashboarding and model deployment.`,
           },
           {
             title: `Career support, and who the programme may not suit`,
-            text: `Resume, GitHub and LinkedIn help, mock interviews and placement support through our hiring-partner network, as assistance only. If you want free, fully self-paced learning, or cannot give steady weekly time for seven months, another route may suit you better. Ask the admissions team for current fees, schedule and format options in writing.`,
+            text: `Resume, GitHub and LinkedIn help, mock interviews and placement support through our hiring-partner network, as assistance only. If you want free, fully self-paced learning, or cannot give steady weekly time for six months, another route may suit you better. Ask the admissions team for current fees, schedule and format options in writing.`,
           },
         ],
       },
@@ -796,16 +796,16 @@ export default [
     slug: `how-long-does-it-take-to-learn-data-science`,
     question: `How long does it take to learn Data Science?`,
     metaTitle: `How Long to Learn Data Science in India | Skill IT Education`,
-    metaDescription: `How long does it take to learn data science? Skill IT's programme runs 7 months: 5 of structured learning and a 2 month internship. See weekly hours plans.`,
+    metaDescription: `How long does it take to learn data science? Skill IT's programme runs 6 months: 4 of structured learning and a 2 month internship. See weekly hours plans.`,
     published: `2026-09-20`,
-    lede: `How long it takes to learn data science depends on your starting point and the hours you can give each week. The Skill IT programme runs seven months in total: five months of structured learning, with 180 hours of core curriculum across eight modules, then a two-month real-time internship. Learning on your own can follow the same path at whatever pace your weeks allow.`,
+    lede: `How long it takes to learn data science depends on your starting point and the hours you can give each week. The Skill IT programme runs six months in total: four months of structured learning, with 180 hours of core curriculum across eight modules, then a two-month real-time internship. Learning on your own can follow the same path at whatever pace your weeks allow.`,
     blocks: [
       {
         kind: `text`,
         heading: `The honest answer to how long data science takes to learn`,
         paras: [
           `Learning data science means building a stack of skills: statistics, Python, SQL, data cleaning, visualisation and machine learning, followed by enough practice to use them on real problems. How long that takes is not one number. It depends on where you start, how many hours you give each week and what level of learned you are aiming for.`,
-          `There is one solid number to anchor on. The Skill IT Data Science programme runs seven months: five months of structured learning with 180 hours of core curriculum across eight modules, followed by a two-month real-time industry internship. That is a fair picture of a guided route from foundations to deployment, with real work at the end.`,
+          `There is one solid number to anchor on. The Skill IT Data Science programme runs six months: four months of structured learning with 180 hours of core curriculum across eight modules, followed by a two-month real-time industry internship. That is a fair picture of a guided route from foundations to deployment, with real work at the end.`,
           `A caution about the word learned. Nobody finishes data science, because tools and methods keep changing. What you can finish is the first level, the point where you can do useful analyst-style work and explain your choices. Working independently on modelling comes later, with months of practice on top.`,
         ],
       },
@@ -919,12 +919,12 @@ export default [
       },
       {
         kind: `cards`,
-        heading: `How the Skill IT Education programme spreads its seven months`,
+        heading: `How the Skill IT Education programme spreads its six months`,
         intro: `Facts about the Advanced Data Science Certification Program at our Madhapur centre in Hyderabad. We assist your learning and your job search, and we do not promise a result or a date for a job.`,
         cards: [
           {
-            title: `Five months of structured learning`,
-            text: `Eight modules with 180 hours of core curriculum. Six modules are listed at two weeks each (mathematics, data wrangling, exploratory analysis, visualisation, business intelligence tools and deployment), and two are listed at three weeks each (Python and machine learning fundamentals), all inside the five month phase.`,
+            title: `Four months of structured learning`,
+            text: `Eight modules with 180 hours of core curriculum. Six modules are listed at two weeks each (mathematics, data wrangling, exploratory analysis, visualisation, business intelligence tools and deployment), and two are listed at three weeks each (Python and machine learning fundamentals), all inside the four month phase.`,
           },
           {
             title: `Hours that follow a sensible order`,
@@ -935,7 +935,7 @@ export default [
             text: `The real-time industry internship covers data analysis, dashboarding and model deployment, so what you learned is tested on live tasks.`,
           },
           {
-            title: `Projects spread across the seven months`,
+            title: `Projects spread across the six months`,
             text: `A minimum of five documented portfolio projects, including an end-to-end capstone that takes a problem from raw data to a deployed application.`,
           },
           {
@@ -986,7 +986,7 @@ export default [
     ],
     closing: {
       heading: `Turn your weekly hours into a realistic plan`,
-      text: `Count the hours you can honestly give each week, then work out your calendar using the figures above. If you would like a second opinion, talk to the admissions team and they will help you map the seven months to your own life.`,
+      text: `Count the hours you can honestly give each week, then work out your calendar using the figures above. If you would like a second opinion, talk to the admissions team and they will help you map the six months to your own life.`,
     },
     formHeading: `Ask how long the data science programme would take for you`,
     formSubheading: `Share your weekly time and starting point, and our admissions team in Madhapur will call you back with a realistic plan.`,

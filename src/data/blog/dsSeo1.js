@@ -124,7 +124,7 @@ export default [
           },
           {
             title: `Two months inside real data work before you apply`,
-            text: `After five months of structured learning, the real-time industry internship gives exposure to data analysis, dashboarding and model deployment.`,
+            text: `After four months of structured learning, the real-time industry internship gives exposure to data analysis, dashboarding and model deployment.`,
           },
           {
             title: `A profile that shows what you can do`,
