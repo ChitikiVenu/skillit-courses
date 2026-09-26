@@ -1,26 +1,32 @@
 import { useEffect, useRef, useState } from 'react';
-import { Boy, Confetti, Girl } from './AboutCartoons.jsx';
+import { Boy, Girl } from './AboutCartoons.jsx';
 
 // Design units, before the phone scale-down: the lane is 110 wide, the rope hangs at x = 78.
 const LANE_W = 110;
-const BOY_TOP = 78;
-const BOY_HAND = 52; // the boy's fist sits this far below his top
-const GIRL_H = 112;
-const GIRL_HAND = 8; // where the girl's hands hold the rope, from her top
+const GIRL_TOP = 78; // the girl stands at the top, level with the page's H1
+const GIRL_HAND = 52; // her fist sits this far below her top
+const BOY_H = 112;
+const BOY_HAND = 8; // where the boy's hand grips the rope, from his top
+const BOY_W = 64;
+const BOY_FEET = 105;
+const ROPE_X = 78;
 
-const BOY_LINES = ["I've got the rope. Go on!", 'Real projects, not just slides.', 'Practice is the whole point.'];
-const GIRL_LINES = ['Wheee! Keep scrolling!', 'Hands-on labs? Yes please!', "I'm learning by doing!", 'Next section, here I come!'];
+const GIRL_LINES = ["I've got the rope. Go on!", 'Real projects, not just slides.', 'Practice is the whole point.'];
+const BOY_LINES = ['Wheee! Keep scrolling!', 'Hands-on labs? Yes please!', "I'm learning by doing!", 'Next section, here I come!'];
 
-// The boy holds a rope at the first section; the girl slides down it as the visitor scrolls, section by
-// section. Positions are written straight to the DOM on scroll (no React re-render), and a numbered flag
-// marks each section on the rope. `storyRef` is the element that wraps all the sections.
+const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2);
+
+// The girl holds the rope at the top. The boy slides down it, one hand on the rope, as the visitor scrolls,
+// section by section. At the footer he lets go, walks along the Skill IT logo, jumps to the WhatsApp icon and
+// stands there with his hands on his hips, smiling at the viewer. Positions are written straight to the DOM
+// (no React re-render while scrolling); a numbered flag marks each section on the rope.
 export default function AboutRope({ storyRef, sections }) {
   const laneRef = useRef(null);
   const innerRef = useRef(null);
-  const girlRef = useRef(null);
+  const boyRef = useRef(null);
   const threadRef = useRef(null);
   const [marks, setMarks] = useState([]);
-  const [landed, setLanded] = useState(false);
+  const [pose, setPose] = useState('hang');
   const [bubble, setBubble] = useState(null);
   const lineIdx = useRef({ boy: 0, girl: 0 });
   const bubbleTimer = useRef();
@@ -29,39 +35,110 @@ export default function AboutRope({ storyRef, sections }) {
     const story = storyRef.current;
     const lane = laneRef.current;
     const inner = innerRef.current;
-    const girl = girlRef.current;
+    const boy = boyRef.current;
     const thread = threadRef.current;
-    if (!story || !lane || !inner || !girl || !thread) return undefined;
+    if (!story || !lane || !inner || !boy || !thread) return undefined;
 
+    const threadTop = GIRL_TOP + GIRL_HAND;
+    const minY = threadTop + 28;
     let k = 1;
-    let storyH = 0;
+    let laneH = 0;
     let raf = 0;
     let movingTimer;
-    const minY = BOY_TOP + BOY_HAND + 26;
+    let release = null; // { standY, logoL, logoR, waX, waY } once measured, else null
+    let phase = 'rope'; // 'rope' | 'running' | 'done'
+    let token = 0;
+    let frozenThread = 0;
+
+    const setBoy = (x, y) => {
+      boy.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;
+    };
+
+    const stopSequence = () => {
+      token += 1;
+      phase = 'rope';
+      setPose('hang');
+      setBubble((b) => (b?.who === 'boy' && b.pinned ? null : b));
+    };
+
+    const tween = (from, to, ms, step, myToken) =>
+      new Promise((resolve) => {
+        const t0 = performance.now();
+        const tick = (now) => {
+          if (myToken !== token) return resolve(false);
+          const t = Math.min(1, (now - t0) / ms);
+          step(from, to, t);
+          if (t < 1) requestAnimationFrame(tick);
+          else resolve(true);
+        };
+        requestAnimationFrame(tick);
+      });
+
+    const runSequence = async (startX, startY) => {
+      const my = ++token;
+      phase = 'running';
+      frozenThread = threadTop + 0; // rope stays hanging where he let go
+      const r = release;
+      const arc = (a, b, t, h) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t - Math.sin(Math.PI * t) * h });
+      // 1. let go and hop onto the logo
+      setPose('jump');
+      const A = { x: startX, y: startY };
+      const B = { x: r.logoL, y: r.standY };
+      if (!(await tween(A, B, 520, (a, b, t) => { const p = arc(a, b, ease(t), 30); setBoy(p.x, p.y); }, my))) return;
+      // 2. walk along the logo
+      setPose('walk');
+      const walkTo = Math.max(r.logoL, r.logoR);
+      const dist = Math.abs(walkTo - B.x);
+      if (dist > 4 && !(await tween(B.x, walkTo, Math.max(600, (dist / 110) * 1000), (a, b, t) => setBoy(a + (b - a) * t, r.standY), my))) return;
+      // 3. jump to the WhatsApp icon (if it is on screen)
+      let endX = walkTo;
+      let endY = r.standY;
+      if (r.waX != null) {
+        setPose('jump');
+        const from = { x: walkTo, y: r.standY };
+        const to = { x: r.waX, y: r.waY };
+        if (!(await tween(from, to, 900, (a, b, t) => { const p = arc(a, b, ease(t), 70); setBoy(p.x, p.y); }, my))) return;
+        endX = to.x;
+        endY = to.y;
+      }
+      // 4. hands on hips, smiling at the viewer, with a caption
+      setBoy(endX, endY);
+      setPose('stand');
+      phase = 'done';
+      release.endX = endX;
+      release.endY = endY;
+      setBubble({ who: 'boy', text: 'Still need anything?', pinned: true });
+    };
 
     const place = () => {
       raf = 0;
+      if (phase !== 'rope' && !release) return;
       const top = story.getBoundingClientRect().top;
-      const maxY = Math.max(minY, storyH - GIRL_H - 10);
-      // She follows the middle of the screen; over the last stretch of the page she eases down to the very bottom.
       const vh = window.innerHeight;
       const toEnd = document.documentElement.scrollHeight - vh - window.scrollY;
-      const ease = Math.max(0, Math.min(1, 1 - toEnd / (vh * 0.6)));
-      const extra = ease * Math.max(0, vh * 0.5 - GIRL_H * k * 0.5 - 10);
-      const y = Math.max(minY, Math.min(maxY, (vh * 0.5 + extra - top) / k - GIRL_H / 2));
-      girl.style.transform = `translate3d(0,${y.toFixed(1)}px,0)`;
-      thread.style.height = `${(y + GIRL_HAND - (BOY_TOP + BOY_HAND)).toFixed(1)}px`;
-      const done = y >= maxY - 1;
-      setLanded((prev) => (prev === done ? prev : done));
+      const easeEnd = Math.max(0, Math.min(1, 1 - toEnd / (vh * 0.6)));
+      const extra = easeEnd * Math.max(0, vh * 0.5 - BOY_H * k * 0.5 - 10);
+      const followY = Math.max(minY, Math.min(laneH / 1 - BOY_H - 10, (vh * 0.5 + extra - top) / k - BOY_H / 2));
+      const atFooter = release && followY >= release.standY - 2;
+      if (phase === 'rope') {
+        setBoy(ROPE_X - 36, followY);
+        thread.style.height = `${(followY + BOY_HAND - threadTop).toFixed(1)}px`;
+        if (atFooter) runSequence(ROPE_X - 36, followY);
+      } else if (release && followY < release.standY - 70) {
+        // scrolled back up: he climbs back onto the rope
+        stopSequence();
+        setBoy(ROPE_X - 36, followY);
+        thread.style.height = `${(followY + BOY_HAND - threadTop).toFixed(1)}px`;
+      }
     };
 
     const measure = () => {
       k = inner.getBoundingClientRect().width / inner.offsetWidth || 1;
       const sr = story.getBoundingClientRect();
-      // The lane runs from the top of the story to the very bottom of the page (through the form and footer).
-      const laneH = document.documentElement.scrollHeight - (sr.top + window.scrollY);
-      lane.style.height = `${laneH}px`;
-      storyH = laneH / k;
+      const ir = inner.getBoundingClientRect();
+      const docH = document.documentElement.scrollHeight;
+      laneH = (docH - (sr.top + window.scrollY)) / k;
+      lane.style.height = `${laneH * k}px`;
       setMarks(
         sections
           .map((s) => {
@@ -70,6 +147,25 @@ export default function AboutRope({ storyRef, sections }) {
           })
           .filter(Boolean),
       );
+      const logo = document.querySelector('.footer-brand img');
+      const wa = document.querySelector('.footer-whatsapp');
+      if (logo) {
+        const lr = logo.getBoundingClientRect();
+        const wr = wa ? wa.getBoundingClientRect() : null;
+        const waOn = wr && wr.width > 0 && wr.height > 0;
+        release = {
+          standY: (lr.top - sr.top) / k - BOY_FEET,
+          logoL: (lr.left - ir.left) / k + 8,
+          logoR: (lr.right - ir.left) / k - BOY_W - 8,
+          waX: waOn ? (wr.left + wr.width / 2 - ir.left) / k - BOY_W / 2 : null,
+          waY: waOn ? (wr.top - sr.top) / k - BOY_FEET : null,
+        };
+      } else release = null;
+      if (phase === 'done' && release && release.waX != null) {
+        setBoy(release.waX, release.waY);
+      } else if (phase === 'done' && release) {
+        setBoy(release.logoR, release.standY);
+      }
       place();
     };
 
@@ -86,9 +182,9 @@ export default function AboutRope({ storyRef, sections }) {
     const ro = new ResizeObserver(measure);
     ro.observe(story);
     ro.observe(document.body);
-    // Fonts and images shift the section heights after load.
     const late = setTimeout(measure, 800);
     return () => {
+      token += 1;
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', measure);
       ro.disconnect();
@@ -101,11 +197,12 @@ export default function AboutRope({ storyRef, sections }) {
   useEffect(() => () => clearTimeout(bubbleTimer.current), []);
 
   const say = (who) => {
-    const lines = who === 'boy' ? BOY_LINES : GIRL_LINES;
+    if (who === 'boy' && pose === 'stand') return;
+    const lines = who === 'girl' ? GIRL_LINES : BOY_LINES;
     const i = lineIdx.current[who]++ % lines.length;
     setBubble({ who, text: lines[i] });
     clearTimeout(bubbleTimer.current);
-    bubbleTimer.current = setTimeout(() => setBubble(null), 2600);
+    bubbleTimer.current = setTimeout(() => setBubble((b) => (b && !b.pinned ? null : b)), 2600);
   };
 
   const jump = (id) => {
@@ -114,33 +211,32 @@ export default function AboutRope({ storyRef, sections }) {
   };
 
   return (
-    <div className={`about-lane${landed ? ' is-landed' : ''}`} ref={laneRef}>
+    <div className="about-lane" ref={laneRef}>
       <div className="about-lane-inner" ref={innerRef} style={{ width: LANE_W }}>
-        <button type="button" className="about-char about-boy" style={{ top: BOY_TOP }} onClick={() => say('boy')} aria-label="Say hello to the boy holding the rope">
-          <Boy />
+        <button type="button" className="about-char about-girl" style={{ top: GIRL_TOP }} onClick={() => say('girl')} aria-label="Say hello to the girl holding the rope">
+          <Girl />
         </button>
-        <div className="about-thread" ref={threadRef} style={{ top: BOY_TOP + BOY_HAND }} />
+        {bubble?.who === 'girl' && (
+          <div className="about-bubble about-bubble-girl" style={{ top: GIRL_TOP + 8 }} role="status">
+            {bubble.text}
+          </div>
+        )}
+        <div className="about-thread" ref={threadRef} style={{ top: GIRL_TOP + GIRL_HAND }} />
         {marks.map((m, i) => (
           <button key={m.id} type="button" className="about-flag" style={{ top: m.top + 6 }} onClick={() => jump(m.id)} aria-label={`Jump to: ${m.label}`}>
             {i + 1}
           </button>
         ))}
-        <div className="about-girl-wrap" ref={girlRef}>
-          <button type="button" className="about-char about-girl" onClick={() => say('girl')} aria-label="Say hello to the girl sliding down the rope">
-            <Girl />
+        <div className={`about-boy-wrap pose-${pose}`} ref={boyRef}>
+          <button type="button" className="about-char about-boy" onClick={() => say('boy')} aria-label="Say hello to the boy">
+            <Boy pose={pose} />
           </button>
-          {bubble?.who === 'girl' && (
-            <div className="about-bubble about-bubble-girl" role="status">
+          {bubble?.who === 'boy' && (
+            <div className={`about-bubble about-bubble-boy${bubble.pinned ? ' is-caption' : ''}`} role="status">
               {bubble.text}
             </div>
           )}
         </div>
-        {bubble?.who === 'boy' && (
-          <div className="about-bubble about-bubble-boy" role="status">
-            {bubble.text}
-          </div>
-        )}
-        {landed && <Confetti />}
       </div>
     </div>
   );

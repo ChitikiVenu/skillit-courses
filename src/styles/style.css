@@ -2322,3 +2322,42 @@ section[id]{scroll-margin-top:92px;}
 .ab-alt .section-head h2{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' preserveAspectRatio='none'%3E%3Cpath d='M3 24C14 9 58 15 98 10s100-5 150 2 44 3 49 13c-6 10-46 5-96 9S86 39 48 34 -6 36 3 24Z' fill='%23ffe27a'/%3E%3C/svg%3E");}
 .ab-sec .section-head p{margin-top:20px;}
 .ab-sec .section-head{margin-bottom:34px;}
+
+
+/* ---- About Us: simple dotted background (dots fade away where the mouse is) and the new rope story ---- */
+.ab-hero::before,.ab-sec::before,.ab-enquire::before,.ab-alt::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='680' height='440' viewBox='0 0 680 440'%3E%3Cg stroke='%23c9d4f3' stroke-width='1' fill='none' opacity='.7'%3E%3Cpath d='M70 70 L170 40 L250 110'/%3E%3Cpath d='M470 60 L560 120'/%3E%3Cpath d='M90 330 L190 380 L300 330'/%3E%3Cpath d='M500 320 L600 370'/%3E%3C/g%3E%3Cg fill='%237f97e6' opacity='.75'%3E%3Ccircle cx='70' cy='70' r='2.4'/%3E%3Ccircle cx='170' cy='40' r='2'/%3E%3Ccircle cx='250' cy='110' r='2.4'/%3E%3Ccircle cx='470' cy='60' r='2'/%3E%3Ccircle cx='560' cy='120' r='2.4'/%3E%3Ccircle cx='90' cy='330' r='2'/%3E%3Ccircle cx='190' cy='380' r='2.4'/%3E%3Ccircle cx='300' cy='330' r='2'/%3E%3Ccircle cx='500' cy='320' r='2.4'/%3E%3Ccircle cx='600' cy='370' r='2'/%3E%3Ccircle cx='400' cy='210' r='2'/%3E%3Ccircle cx='330' cy='40' r='1.8'/%3E%3C/g%3E%3C/svg%3E");background-size:680px 440px;
+  -webkit-mask-image:radial-gradient(circle 130px at var(--mx,-999px) var(--my,-999px),transparent 0,transparent 45%,#000 100%);mask-image:radial-gradient(circle 130px at var(--mx,-999px) var(--my,-999px),transparent 0,transparent 45%,#000 100%);}
+.ab-alt::before{background-position:200px 110px;}
+.ab-enquire::before{background-position:80px 160px;}
+
+.about-girl{left:6px;}
+.about-girl .girl-arm{transform-origin:36px 42px;}
+.about-boy-wrap{position:absolute;left:0;top:0;width:64px;will-change:transform;}
+.about-boy-wrap .about-boy{position:relative;left:0;top:0;transform-origin:50% 7%;}
+.about-boy-wrap .boy-leg{transform-origin:50% 72px;}
+.is-moving .pose-hang .boy-leg-l{animation:kick-l .34s ease-in-out infinite alternate;}
+.is-moving .pose-hang .boy-leg-r{animation:kick-r .34s ease-in-out infinite alternate;}
+.is-moving .pose-hang .about-boy{animation:girl-bob .34s ease-in-out infinite alternate;}
+.about-boy-wrap.pose-hang .about-boy{animation:girl-sway 3.2s ease-in-out infinite;}
+.is-moving .about-girl{animation:boy-lean .5s ease-in-out infinite alternate;}
+.pose-walk .boy-leg-l{animation:kick-l .32s ease-in-out infinite alternate;}
+.pose-walk .boy-leg-r{animation:kick-r .32s ease-in-out infinite alternate;}
+.pose-walk .boy-arm-swing-l{animation:kick-r .32s ease-in-out infinite alternate;}
+.pose-walk .boy-arm-swing-r{animation:kick-l .32s ease-in-out infinite alternate;}
+.boy-arm-swing{transform-origin:50% 46px;}
+.boy-arm-swing-l{transform-origin:20px 46px;}
+.boy-arm-swing-r{transform-origin:44px 46px;}
+.pose-jump .boy-leg-l{transform:rotate(-24deg);}
+.pose-jump .boy-leg-r{transform:rotate(24deg);}
+.pose-jump .boy-arm-swing-l{transform:rotate(150deg);}
+.pose-jump .boy-arm-swing-r{transform:rotate(-150deg);}
+.pose-stand .about-boy{animation:none;}
+.about-bubble-boy{left:50%;top:auto;bottom:100%;transform:translateX(-50%);margin-bottom:10px;}
+.about-bubble-boy::before{left:50%;top:auto;bottom:-7px;margin-left:-7px;border:7px solid transparent;border-top-color:#fff;border-bottom:0;}
+.about-bubble-boy.is-caption{white-space:nowrap;max-width:none;font-size:14px;animation:bubble-in .3s ease-out;}
+.about-bubble-girl{left:76px;}
+@media (max-width:799px){.about-bubble-boy.is-caption{font-size:19px;}}
+@media (prefers-reduced-motion:reduce){.pose-walk .boy-leg-l,.pose-walk .boy-leg-r,.pose-walk .boy-arm-swing-l,.pose-walk .boy-arm-swing-r,.about-boy-wrap .about-boy{animation:none !important;}}
+.about-lane .about-char.about-girl{position:absolute;left:6px;animation:none;}
+.about-lane .about-lane-inner.is-moving .about-girl{animation:boy-lean .5s ease-in-out infinite alternate;}
+.about-lane .about-boy-wrap .about-char.about-boy{position:relative;left:0;top:0;}

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { DOMAIN, ADDRESS } from '../constants.js';
 import Seo from '../components/Seo.jsx';
@@ -21,6 +21,37 @@ const STORY_SECTIONS = [
 export default function AboutUsPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
   const storyRef = useRef(null);
+
+  // The dotted background fades away around the mouse pointer.
+  useEffect(() => {
+    const root = storyRef.current;
+    if (!root || !window.matchMedia('(pointer: fine)').matches) return undefined;
+    let raf = 0;
+    let pt = null;
+    const update = () => {
+      raf = 0;
+      root.querySelectorAll('.ab-hero, .ab-sec, .ab-enquire').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', pt ? `${pt.x - r.left}px` : '-999px');
+        el.style.setProperty('--my', pt ? `${pt.y - r.top}px` : '-999px');
+      });
+    };
+    const move = (e) => {
+      pt = { x: e.clientX, y: e.clientY };
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    const leave = () => {
+      pt = null;
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    window.addEventListener('pointermove', move, { passive: true });
+    document.addEventListener('pointerleave', leave);
+    return () => {
+      window.removeEventListener('pointermove', move);
+      document.removeEventListener('pointerleave', leave);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
 
   const jsonLd = {
     '@context': 'https://schema.org',
