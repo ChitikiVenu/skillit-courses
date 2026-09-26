@@ -2361,3 +2361,13 @@ section[id]{scroll-margin-top:92px;}
 .about-lane .about-char.about-girl{position:absolute;left:6px;animation:none;}
 .about-lane .about-lane-inner.is-moving .about-girl{animation:boy-lean .5s ease-in-out infinite alternate;}
 .about-lane .about-boy-wrap .about-char.about-boy{position:relative;left:0;top:0;}
+
+
+/* ---- About Us: coloured stars and dots (drawn by AboutDots) instead of the line pattern ---- */
+.ab-hero::before,.ab-sec::before,.ab-enquire::before,.ab-alt::before,.ab-hero::after{display:none !important;}
+.about-story.ab-story{isolation:isolate;background:#fff;}
+.ab-dots{position:sticky;top:0;left:0;display:block;width:100%;height:100vh;margin-bottom:-100vh;z-index:-1;pointer-events:none;}
+.ab-hero,.ab-sec,.ab-enquire{background:transparent;background-image:none;}
+.ab-hero{background-image:radial-gradient(900px 420px at 85% 15%,rgba(37,99,235,.08),transparent 70%);}
+.ab-alt{background:rgba(238,243,255,.55);}
+.ab-enquire{background:linear-gradient(180deg,rgba(238,243,255,.55),rgba(226,236,255,.7));}
