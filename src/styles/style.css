@@ -2371,3 +2371,37 @@ section[id]{scroll-margin-top:92px;}
 .ab-hero{background-image:radial-gradient(900px 420px at 85% 15%,rgba(37,99,235,.08),transparent 70%);}
 .ab-alt{background:rgba(238,243,255,.55);}
 .ab-enquire{background:linear-gradient(180deg,rgba(238,243,255,.55),rgba(226,236,255,.7));}
+
+
+/* ---- About Us rope story v3: both start level at the H1; Sia rides a plate on the rope ---- */
+.about-story .wrap,.ab-enquire .wrap{padding-left:164px;}
+.about-beam{position:absolute;width:52px;height:6px;border-radius:4px;background:#5b6472;pointer-events:none;box-shadow:0 1px 2px rgba(0,0,0,.3);}
+.about-pulley{position:absolute;left:50%;top:6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#e5e7eb;border:2px solid #5b6472;}
+.about-lane .about-char.about-girl{position:absolute;}
+.about-girl .girl-arm{transform-origin:36px 42px;}
+.about-thread{left:77px;}
+.about-plate{position:absolute;left:-3px;bottom:-6px;width:70px;height:8px;border-radius:3px;background:linear-gradient(180deg,#c99a5b,#8a5a2b);box-shadow:0 2px 3px rgba(0,0,0,.3);}
+.about-boy-wrap{left:0;}
+.about-boy-wrap.pose-ride .about-boy{animation:girl-sway 3.6s ease-in-out infinite;transform-origin:0 100%;}
+.pose-ride .boy-wave{transform-origin:44px 46px;animation:sia-wave .9s ease-in-out infinite;}
+@keyframes sia-wave{0%,100%{transform:rotate(-14deg);}50%{transform:rotate(22deg);}}
+.boy-tie{transform-origin:32px 42px;animation:tie-flap .7s ease-in-out infinite;}
+.pose-stand .boy-tie{animation-duration:1.4s;}
+@keyframes tie-flap{0%,100%{transform:rotate(-9deg) skewX(-4deg);}50%{transform:rotate(11deg) skewX(5deg);}}
+.about-bubble-girl{left:6px;top:0;}
+.about-bubble-girl::before{left:22px;top:auto;bottom:-7px;border:7px solid transparent;border-top-color:#fff;border-bottom:0;}
+.about-bubble-boy{left:76px;top:-6px;bottom:auto;transform:none;margin:0;}
+.about-bubble-boy::before{left:-7px;top:14px;bottom:auto;margin:0;border:7px solid transparent;border-right-color:#fff;border-left:0;}
+.about-bubble-boy.is-caption{left:50%;top:auto;bottom:100%;transform:translateX(-50%);margin-bottom:10px;display:grid;gap:3px;justify-items:center;text-align:center;white-space:nowrap;max-width:none;pointer-events:auto;font-size:13.5px;padding:10px 14px;}
+.about-bubble-boy.is-caption strong{font-size:15px;}
+.about-bubble-boy.is-caption a{margin-top:2px;padding:5px 12px;border-radius:999px;background:var(--cta);color:#fff;font-weight:800;text-decoration:none;}
+.about-bubble-boy.is-caption::before{left:50%;top:auto;bottom:-7px;margin-left:-7px;border:7px solid transparent;border-top-color:#fff;border-bottom:0;}
+@media (max-width:799px){
+  .about-story .wrap,.ab-enquire .wrap{padding-left:96px;}
+  .about-lane-inner{transform:scale(.55);}
+  .about-bubble{font-size:23px;max-width:340px;padding:12px 16px;}
+  .about-bubble-boy.is-caption{font-size:21px;}
+  .about-bubble-boy.is-caption strong{font-size:23px;}
+  .about-bubble-boy.is-caption a{padding:8px 16px;}
+}
+@media (prefers-reduced-motion:reduce){.pose-ride .boy-wave,.boy-tie,.about-boy-wrap.pose-ride .about-boy{animation:none !important;}}
