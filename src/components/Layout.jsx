@@ -8,6 +8,7 @@ import PromoBar from './PromoBar.jsx';
 import ScrollTopButton from './ScrollTopButton.jsx';
 import AboutDots from './AboutDots.jsx';
 import AboutRope from './AboutRope.jsx';
+import { SiaHelp } from './RopeCards.jsx';
 import { useSectionTint } from '../useSectionTint.js';
 
 // Every page in App.jsx is React.lazy()-loaded (its own chunk instead of the main bundle), so the
@@ -34,6 +35,7 @@ export default function Layout() {
         <Suspense fallback={<PageFallback />}>
           <Outlet />
         </Suspense>
+        <SiaHelp />
         <Footer onBook={() => setBookingOpen(true)} />
       </div>
       <FloatingActions onBook={() => setBookingOpen(true)} />

@@ -6,6 +6,7 @@ import FitHeading from '../components/FitHeading.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import Icon from '../components/AboutIcons.jsx';
+import { RopeIntro } from '../components/RopeCards.jsx';
 
 export default function AboutUsPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
@@ -71,6 +72,7 @@ export default function AboutUsPage() {
               <li><Icon name="briefcase" size={16} /> Real-time internship</li>
               <li><Icon name="pin" size={16} /> Madhapur, Hyderabad</li>
             </ul>
+            <RopeIntro />
           </div>
           <div className="ab-hero-art" aria-hidden="true">
             <div className="ab-photo-panel">

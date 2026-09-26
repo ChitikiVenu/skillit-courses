@@ -176,6 +176,7 @@ export default function AboutRope({ storyRef }) {
       const avail = wrap ? wrap.getBoundingClientRect().left + parseFloat(getComputedStyle(wrap).paddingLeft || '0') : 0;
       const fit = Math.min(1, (avail - 14) / (LANE_W + 8));
       hidden = fit < 0.45;
+      document.documentElement.dataset.ropeLane = hidden ? 'off' : 'on';
       lane.style.display = hidden ? 'none' : '';
       if (hidden) {
         setMarks([]);
@@ -234,6 +235,7 @@ export default function AboutRope({ storyRef }) {
     const late = setTimeout(measure, 800);
     return () => {
       token += 1;
+      delete document.documentElement.dataset.ropeLane;
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', measure);
       ro.disconnect();

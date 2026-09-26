@@ -2420,3 +2420,38 @@ section[id]{scroll-margin-top:92px;}
 .section-head h2{display:inline;padding:0 .18em;line-height:1.55;box-decoration-break:clone;-webkit-box-decoration-break:clone;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 40' preserveAspectRatio='none'%3E%3Cpath d='M3 24C14 9 58 15 98 10s100-5 150 2 44 3 49 13c-6 10-46 5-96 9S86 39 48 34 -6 36 3 24Z' fill='%23bcd6ff'/%3E%3C/svg%3E") no-repeat 0 92%/100% .62em;}
 .section-head h2 + p{margin-top:18px;}
 .section-head > .eyebrow{display:flex;width:fit-content;margin-bottom:12px;}
+
+
+/* ---- Rope story inside the content when there is no room for the side rope (phones, tablets) ---- */
+.rope-card{display:none;}
+[data-rope-lane="off"] .rope-help{display:flex;}
+[data-rope-lane="off"] .rope-intro{display:flex;}
+.rope-card{align-items:center;gap:14px;margin:26px auto 0;padding:16px 18px;max-width:560px;border:1px solid #d6e0f7;border-radius:18px;background:linear-gradient(180deg,#fff,#f3f7ff);box-shadow:0 10px 28px rgba(37,99,235,.10);}
+.rope-help{margin:30px 20px 0;max-width:none;}
+.rope-intro{margin-top:22px;}
+.about-lane.rope-scene{position:relative;left:auto;top:auto;bottom:auto;z-index:auto;width:150px;height:150px !important;flex:none;pointer-events:none;}
+.rope-scene-inner{position:relative;width:146px;height:150px;}
+.rope-scene .about-beam{position:absolute;}
+.rope-scene .about-thread{height:113px;animation:rope-lower 4.2s ease-in-out infinite;}
+.rope-scene .rope-boy{animation:scene-lower 4.2s ease-in-out infinite;}
+@keyframes rope-lower{0%,100%{height:113px;}50%{height:135px;}}
+@keyframes scene-lower{0%,100%{transform:translate3d(71px,16px,0);}50%{transform:translate3d(71px,38px,0);}}
+.rope-talk{display:grid;gap:8px;min-width:0;flex:1;}
+.rope-say{position:relative;margin:0;padding:9px 12px;border-radius:14px;background:#fff;border:1px solid #d6e0f7;font-size:14px;font-weight:600;line-height:1.35;color:#2b2233;box-shadow:0 3px 10px rgba(15,23,42,.06);}
+.rope-say b{display:block;margin-bottom:1px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cta);}
+.rope-say-girl{background:#f3f7ff;}
+.rope-sia{flex:none;width:64px;height:112px;}
+.rope-help .rope-talk strong{font-size:17px;color:#2b2233;}
+.rope-help .rope-talk span{font-size:14.5px;color:var(--muted,#5b6472);}
+.rope-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.rope-actions .btn{padding:11px 16px;font-size:14px;}
+@media (max-width:799px){
+  .about-story .wrap,.ab-enquire .wrap{padding-left:24px;}
+  .rope-card{flex-direction:row;}
+}
+@media (max-width:420px){
+  .rope-intro{flex-direction:column;align-items:stretch;}
+  .rope-intro .rope-scene{align-self:center;}
+  .rope-help{padding:14px;}
+}
+@media (prefers-reduced-motion:reduce){.rope-scene .about-thread,.rope-scene .rope-boy{animation:none !important;}}
