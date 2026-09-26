@@ -54,6 +54,11 @@ function doPost(e) {
   }
 }
 
+// Opening the web app link in a browser shows this line, which is a quick way to confirm the deployment works.
+function doGet() {
+  return out('Skill IT Education enquiry receiver is running.');
+}
+
 function out(text) {
   return ContentService.createTextOutput(text);
 }
