@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { COURSE_BROCHURES } from '../data/courseBrochures.js';
 import { track } from '../utils/analytics.js';
 import { focusFirstError, validateForm } from '../utils/validate.js';
+import { submitLead } from '../utils/submitLead.js';
 
 const FIELDS = ['full_name', 'mobile', 'profession', 'course'];
 const COURSE_OPTIONS = ['Cyber Security', 'SOC (Security Operations Center)', 'AI/ML', 'Data Science', 'Data Analyst'];
@@ -15,21 +16,39 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
   // submission still ends with a real, relevant brochure link, not just the ones with a preset course.
   const [resolvedBrochure, setResolvedBrochure] = useState(brochureFile);
   const [errors, setErrors] = useState({});
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const clearError = (name) => errors[name] && setErrors((prev) => ({ ...prev, [name]: '' }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const found = validateForm(e.target, FIELDS);
+    const form = e.target;
+    const found = validateForm(form, FIELDS);
     setErrors(found);
     if (Object.keys(found).length) {
-      focusFirstError(e.target, found, FIELDS);
+      focusFirstError(form, found, FIELDS);
       return;
     }
-    if (!brochureFile) {
-      const selectedCourse = e.target.elements.course?.value;
-      setResolvedBrochure(COURSE_BROCHURES[selectedCourse]);
+    const course = form.elements.course?.value;
+    const brochure = brochureFile || COURSE_BROCHURES[course];
+    setSending(true);
+    setSendError(false);
+    const result = await submitLead({
+      form: formId,
+      name: form.elements.full_name.value.trim(),
+      phone: form.elements.mobile.value.replace(/[\s-]/g, ''),
+      profession: form.elements.profession.value,
+      course,
+      brochure: brochure || '',
+      website: form.elements.website?.value || '',
+    });
+    setSending(false);
+    if (!result.ok) {
+      setSendError(true);
+      return;
     }
-    track('form_submit', { form_id: formId, course: e.target.elements.course?.value, profession: e.target.elements.profession?.value });
+    setResolvedBrochure(brochure);
+    track('form_submit', { form_id: formId, course, profession: form.elements.profession.value });
     setSubmitted(true);
   };
 
@@ -80,10 +99,16 @@ export default function LeadForm({ formId, heading, subheading, brochureFile, pr
                 </select>
                 {errors.course && <span className="field-error" role="alert">{errors.course}</span>}
               </div>
-              <button type="submit" className="btn btn-primary form-submit">
-                Submit
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp-field" />
+              <button type="submit" className="btn btn-primary form-submit" disabled={sending}>
+                {sending ? 'Sending…' : 'Submit'}
               </button>
             </div>
+            {sendError && (
+              <div className="field-error" role="alert">
+                We couldn't send your details. Please try again, or WhatsApp us.
+              </div>
+            )}
             <div className="form-note">Our admissions team will call you back within 90 minutes.</div>
           </>
         )}

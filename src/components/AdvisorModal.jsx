@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { COURSE_BROCHURES } from '../data/courseBrochures.js';
 import { track } from '../utils/analytics.js';
 import { focusFirstError, validateForm } from '../utils/validate.js';
+import { submitLead } from '../utils/submitLead.js';
 
 const FIELDS = ['full_name', 'email', 'phone', 'course', 'message'];
 const COURSE_OPTIONS = ['Cyber Security', 'AI & ML', 'Data Science', 'SOC (Security Operations Center)', 'Data Analyst'];
@@ -10,6 +11,8 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
   const [submitted, setSubmitted] = useState(false);
   const [brochureFile, setBrochureFile] = useState(undefined);
   const [errors, setErrors] = useState({});
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const clearError = (name) => errors[name] && setErrors((prev) => ({ ...prev, [name]: '' }));
 
   useEffect(() => {
@@ -34,16 +37,36 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
     onClose();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const found = validateForm(e.target, FIELDS);
+    const form = e.target;
+    const found = validateForm(form, FIELDS);
     setErrors(found);
     if (Object.keys(found).length) {
-      focusFirstError(e.target, found, FIELDS);
+      focusFirstError(form, found, FIELDS);
       return;
     }
-    setBrochureFile(COURSE_BROCHURES[e.target.elements.course?.value]);
-    track('form_submit', { form_id: 'advisor-modal', course: e.target.elements.course?.value });
+    const course = form.elements.course?.value;
+    const brochure = COURSE_BROCHURES[course];
+    setSending(true);
+    setSendError(false);
+    const result = await submitLead({
+      form: 'advisor-modal',
+      name: form.elements.full_name.value.trim(),
+      email: form.elements.email.value.trim(),
+      phone: form.elements.phone.value.replace(/[\s-]/g, ''),
+      course,
+      message: form.elements.message.value.trim(),
+      brochure: brochure || '',
+      website: form.elements.website?.value || '',
+    });
+    setSending(false);
+    if (!result.ok) {
+      setSendError(true);
+      return;
+    }
+    setBrochureFile(brochure);
+    track('form_submit', { form_id: 'advisor-modal', course });
     setSubmitted(true);
   };
 
@@ -93,8 +116,14 @@ export default function AdvisorModal({ open, onClose, title = 'Talk to an Adviso
                 <textarea id="advisor-message" name="message" rows={4} placeholder="Tell us a bit about your background and goals" required aria-invalid={!!errors.message} onChange={() => clearError('message')} />
                 {errors.message && <span className="field-error" role="alert">{errors.message}</span>}
               </div>
-              <button type="submit" className="btn btn-primary form-submit">
-                Send Message
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp-field" />
+              {sendError && (
+                <div className="field-error" role="alert">
+                  We couldn&rsquo;t send your details. Please try again, or WhatsApp us.
+                </div>
+              )}
+              <button type="submit" className="btn btn-primary form-submit" disabled={sending}>
+                {sending ? 'Sending…' : 'Send Message'}
               </button>
             </form>
           </>

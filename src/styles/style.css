@@ -2114,3 +2114,5 @@ section[id]{scroll-margin-top:92px;}
 /* Form validation: every field is mandatory, so an empty or invalid one is flagged before submitting. */
 .field-error{font-size:12px;font-weight:600;line-height:1.3;color:#c62828;}
 .form-field input[aria-invalid="true"],.form-field select[aria-invalid="true"],.modal-field input[aria-invalid="true"],.modal-field select[aria-invalid="true"],.modal-field textarea[aria-invalid="true"]{border-color:#c62828;box-shadow:0 0 0 3px rgba(198,40,40,.12);}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;}
+.form-submit:disabled{opacity:.7;cursor:progress;}
