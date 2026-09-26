@@ -6,8 +6,7 @@ import FitHeading from '../components/FitHeading.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import LeadForm from '../components/LeadForm.jsx';
 import AboutRope from '../components/AboutRope.jsx';
-import { Balloon } from '../components/AboutCartoons.jsx';
-import Icon, { HeroScene } from '../components/AboutIcons.jsx';
+import Icon from '../components/AboutIcons.jsx';
 
 const STORY_SECTIONS = [
   { id: 'why', label: 'Why we exist' },
@@ -19,20 +18,6 @@ const STORY_SECTIONS = [
   { id: 'about-enquire', label: 'Talk to us' },
 ];
 
-// A pair of balloons floating beside a section heading.
-const Balloons = ({ n }) => (
-  <span className="about-balloons" aria-hidden="true">
-    <Balloon colour={n} />
-    <Balloon colour={n + 2} />
-  </span>
-);
-
-// About Us — deliberately kept to real, already-established facts about the organisation (its
-// tagline, address, the training model described elsewhere on the site, the honest
-// placement-assistance-not-guarantee position from faq.js) rather than a founding story, team
-// bios, dates or numbers nobody has supplied. Owner-requested 2026-09-23: at least 6 sections
-// covering why/how/what/whom, no course-by-course rundown (the course pages already do that) —
-// this page is about the organisation and what a student gets, not a catalogue.
 export default function AboutUsPage() {
   const [advisorOpen, setAdvisorOpen] = useState(false);
   const storyRef = useRef(null);
@@ -101,7 +86,10 @@ export default function AboutUsPage() {
             </ul>
           </div>
           <div className="ab-hero-art" aria-hidden="true">
-            <HeroScene />
+            <div className="ab-photo-panel">
+              <img className="ab-photo ab-photo-1" src="/img/fit-photos/hero-plaid-girl.webp" alt="" width="640" height="691" />
+              <img className="ab-photo ab-photo-2" src="/img/fit-photos/hero-ai-ml.webp" alt="" width="640" height="768" />
+            </div>
           </div>
         </div>
       </section>
@@ -109,7 +97,6 @@ export default function AboutUsPage() {
         <section id="why" className="ab-sec">
           <div className="wrap">
             <div className="section-head">
-              <Balloons n={0} />
               <h2>A Certificate Was Never the Point</h2>
             </div>
             <div className="ab-split">
@@ -131,7 +118,6 @@ export default function AboutUsPage() {
         <section id="what-you-get" className="ab-sec ab-alt">
           <div className="wrap">
             <div className="section-head">
-              <Balloons n={1} />
               <h2>What You Actually Get With Us</h2>
               <p>Every programme — Cyber Security, AI &amp; ML, Data Science, SOC Analyst and Data Analytics — follows the same learn-by-doing structure.</p>
             </div>
@@ -157,7 +143,6 @@ export default function AboutUsPage() {
         <section id="how" className="ab-sec">
           <div className="wrap">
             <div className="section-head">
-              <Balloons n={2} />
               <h2>Instructor-Led, Not Self-Paced</h2>
             </div>
             <div className="ab-split">
@@ -191,7 +176,6 @@ export default function AboutUsPage() {
         <section id="whom" className="ab-sec ab-alt">
           <div className="wrap">
             <div className="section-head">
-              <Balloons n={3} />
               <h2>Who Actually Joins Our Programmes</h2>
               <p>Whatever your starting point, there&apos;s a programme built to take you further.</p>
             </div>
@@ -215,7 +199,6 @@ export default function AboutUsPage() {
         <section id="where" className="ab-sec">
           <div className="wrap">
             <div className="section-head">
-              <Balloons n={4} />
               <h2>A Real Campus in Madhapur, Hyderabad</h2>
             </div>
             <div className="ab-where">
@@ -242,7 +225,6 @@ export default function AboutUsPage() {
         <section id="promise" className="ab-sec ab-alt">
           <div className="wrap">
             <div className="section-head">
-              <Balloons n={0} />
               <h2>We Won't Promise You a Job</h2>
               <p>No genuine training programme can guarantee a job offer, and we'd rather be upfront about that than overclaim.</p>
             </div>
