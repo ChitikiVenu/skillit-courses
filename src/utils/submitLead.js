@@ -1,10 +1,11 @@
 import { getAttribution } from './analytics.js';
+import { LEADS_ENDPOINT, LEADS_TOKEN } from '../config/leads.js';
 
 // Sends a form submission to the Google Apps Script web app (scripts/google-apps-script/leads.gs), which
-// adds a row to the one leads spreadsheet and emails info@skilliteducation.com. Until VITE_LEADS_ENDPOINT
-// is set (see .env.example) nothing is sent and the forms behave as they did before.
-const ENDPOINT = import.meta.env.VITE_LEADS_ENDPOINT;
-const TOKEN = import.meta.env.VITE_LEADS_TOKEN;
+// adds a row to the one leads spreadsheet and emails info@skilliteducation.com. Until the endpoint
+// is set (src/config/leads.js) nothing is sent and the forms behave as they did before.
+const ENDPOINT = import.meta.env.VITE_LEADS_ENDPOINT || LEADS_ENDPOINT;
+const TOKEN = import.meta.env.VITE_LEADS_TOKEN || LEADS_TOKEN;
 
 export async function submitLead(fields) {
   if (!ENDPOINT) return { ok: true, sent: false };
