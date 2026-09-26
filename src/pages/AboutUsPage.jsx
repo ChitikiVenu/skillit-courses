@@ -5,7 +5,7 @@ import Seo from '../components/Seo.jsx';
 import FitHeading from '../components/FitHeading.jsx';
 import AdvisorModal from '../components/AdvisorModal.jsx';
 import AboutRope from '../components/AboutRope.jsx';
-import { Balloon, Bunting } from '../components/AboutCartoons.jsx';
+import { Balloon } from '../components/AboutCartoons.jsx';
 
 const STORY_SECTIONS = [
   { id: 'why', label: 'Why we exist' },
@@ -63,7 +63,6 @@ export default function AboutUsPage() {
       />
 
       <section className="hero about-hero">
-        <Bunting />
         <span className="about-hero-balloons" aria-hidden="true">
           <Balloon colour={0} />
           <Balloon colour={1} />
